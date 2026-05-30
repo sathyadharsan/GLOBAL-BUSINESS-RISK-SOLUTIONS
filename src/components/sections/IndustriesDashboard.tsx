@@ -4,36 +4,71 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
-  Cpu, Factory, Zap, Landmark, Truck, Wheat, Stethoscope, TrendingUp,
-  Target, Lightbulb, CheckCircle2, Layers, AlertCircle, Award
+  Cpu, Factory, Zap, Landmark, Building, Truck, Wheat, Stethoscope, TrendingUp,
+  Target, Lightbulb, CheckCircle2, Layers, Shield, Laptop, Rocket, Leaf
 } from "lucide-react";
 import { industriesData } from "@/data/siteContent";
+import { industriesExtendedData } from "@/data/industriesExtended";
 import { cn } from "@/lib/utils";
+
+const allIndustriesData = { ...industriesData, ...industriesExtendedData };
 
 const SECTIONS_CONFIG = {
   tech: { label: "Technology & Digital", color: "#6366F1", icon: Cpu },
+  financial: { label: "Financial Services", color: "#059669", icon: Landmark },
   industrial: { label: "Industrial & Energy", color: "#D97706", icon: Factory },
-  financial: { label: "Financial & Infrastructure", color: "#059669", icon: Landmark },
-  supply: { label: "Supply Chain & Agriculture", color: "#0891B2", icon: Truck },
+  supply: { label: "Supply Chain & Logistics", color: "#0891B2", icon: Truck },
+  infrastructure: { label: "Infrastructure & Real Estate", color: "#7C3AED", icon: Building },
+  emerging: { label: "Emerging Verticals", color: "#F59E0B", icon: Rocket },
 };
 
 const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.ComponentType<{ className?: string }> }[]> = {
   tech: [
     { id: "technology-saas", label: "Technology & SaaS", icon: Cpu },
-  ],
-  industrial: [
-    { id: "manufacturing", label: "Manufacturing & Engineering", icon: Factory },
-    { id: "energy", label: "Energy & Renewables", icon: Zap },
-    { id: "healthcare", label: "Healthcare & Pharma", icon: Stethoscope },
+    { id: "ai-machine-learning", label: "AI & Machine Learning", icon: Cpu },
+    { id: "fintech-digital-payments", label: "Fintech & Digital Payments", icon: Landmark },
+    { id: "cybersecurity-companies", label: "Cybersecurity Companies", icon: Shield },
+    { id: "telecommunications", label: "Telecommunications", icon: Laptop },
+    { id: "data-centers", label: "Data Centers & Cloud Infrastructure", icon: Laptop },
+    { id: "media-entertainment", label: "Media & Entertainment", icon: Laptop },
+    { id: "education-edtech", label: "Education & EdTech", icon: Laptop }
   ],
   financial: [
-    { id: "fintech", label: "Financial Services & Fintech", icon: TrendingUp },
-    { id: "infrastructure", label: "Infrastructure & Real Estate", icon: Landmark },
+    { id: "financial-services", label: "Financial Services & Banking", icon: Landmark },
+    { id: "private-equity", label: "Private Equity & Venture Capital", icon: TrendingUp },
+    { id: "nonprofit-ngo", label: "Non-Profit & NGO", icon: Landmark }
+  ],
+  industrial: [
+    { id: "manufacturing", label: "Manufacturing & Industrial", icon: Factory },
+    { id: "mining-resources", label: "Mining & Natural Resources", icon: Factory },
+    { id: "energy", label: "Energy & Renewables", icon: Zap },
+    { id: "pharmaceuticals-biotech", label: "Pharmaceuticals & Biotech", icon: Stethoscope },
+    { id: "healthcare", label: "Healthcare & Life Sciences", icon: Stethoscope },
+    { id: "food-beverage", label: "Food & Beverage", icon: Wheat },
+    { id: "agritech", label: "Agriculture & AgriTech", icon: Wheat }
+  ],
+  infrastructure: [
+    { id: "real-estate", label: "Real Estate & Construction", icon: Building },
+    { id: "infrastructure", label: "Infrastructure & PPP", icon: Building }
   ],
   supply: [
-    { id: "logistics", label: "Trade, Logistics & Supply Chain", icon: Truck },
-    { id: "agriculture", label: "Agriculture & Food Processing", icon: Wheat },
+    { id: "logistics", label: "Logistics & Supply Chain", icon: Truck },
+    { id: "maritime-shipping", label: "Maritime & Shipping", icon: Truck },
+    { id: "aviation-aerospace", label: "Aviation & Aerospace", icon: Truck }
   ],
+  emerging: [
+    { id: "crypto-blockchain", label: "Crypto & Blockchain", icon: Cpu },
+    { id: "drone-uav", label: "Drone / UAV Operations", icon: Rocket },
+    { id: "satellite-space", label: "Space & Satellite", icon: Rocket },
+    { id: "electric-vehicles", label: "Electric Vehicles & Clean Mobility", icon: Zap },
+    { id: "quantum-computing", label: "Quantum Computing", icon: Cpu },
+    { id: "synthetic-biology", label: "Synthetic Biology & BioTech", icon: Leaf },
+    { id: "autonomous-vehicles", label: "Autonomous Vehicles & Robotics", icon: Cpu },
+    { id: "cyber-physical-systems", label: "Cyber-Physical Systems", icon: Laptop },
+    { id: "metaverse-virtual", label: "Metaverse & Virtual Environments", icon: Laptop },
+    { id: "digital-assets-custody", label: "Digital Asset Custody", icon: Cpu },
+    { id: "carbon-climate", label: "Carbon Credits & Climate Transition", icon: Leaf }
+  ]
 };
 
 function getCategoryForSlug(slug: string): keyof typeof SECTIONS_CONFIG {
@@ -51,7 +86,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
   const router = useRouter();
   const activeCategory = getCategoryForSlug(activeSlug);
   const activeConfig = SECTIONS_CONFIG[activeCategory];
-  const currentData = industriesData[activeSlug];
+  const currentData = allIndustriesData[activeSlug];
   const activeGroupItems = CATEGORY_ITEMS[activeCategory] || [];
 
   const handleSelect = (id: string) => {
@@ -71,7 +106,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
               Industry-Specialized Risk Architecture
             </h1>
             <p className="text-base md:text-lg text-gray-300 max-w-3xl leading-relaxed">
-              Deep domain expertise across 8 critical sectors. We don&apos;t sell generic policies — we engineer risk solutions that mirror the operational reality of your industry.
+              Deep domain expertise across 41 industry verticals. We don&apos;t sell generic policies — we engineer risk solutions that mirror the operational reality of your sector.
             </p>
           </div>
         </div>

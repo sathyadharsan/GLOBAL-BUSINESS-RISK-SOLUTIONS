@@ -45,12 +45,16 @@ function Button({
   variant = "default",
   size = "default",
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants> & { asChild?: boolean }) {
+  // Remove unsupported asChild prop to avoid React warnings when nested inside other components
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { asChild, ...buttonProps } = props
+
   return (
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
+      {...buttonProps}
     />
   )
 }

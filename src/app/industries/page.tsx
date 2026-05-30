@@ -6,18 +6,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
   Laptop, Factory, Zap, Landmark, Building, Truck, Tractor, Stethoscope, 
-  ArrowRight, Shield, Activity, Target, LayoutGrid, CheckCircle2, ChevronRight
+  ArrowRight, Shield, Activity, Target, LayoutGrid, CheckCircle2, ChevronRight,
+  Cpu, Rocket, Leaf, TrendingUp, Briefcase, BadgeDollarSign
 } from "lucide-react";
 import { industriesData } from "@/data/siteContent";
+import { industriesExtendedData } from "@/data/industriesExtended";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+const allIndustriesData = { ...industriesData, ...industriesExtendedData };
+
 const groups: SidebarGroup[] = [
   {
-    label: "INDUSTRY VERTICALS",
+    label: "CORE SECTORS",
     items: [
       { id: "technology-saas", label: "Technology & SaaS", icon: Laptop },
-      { id: "manufacturing", label: "Manufacturing & Engineering", icon: Factory },
+      { id: "manufacturing", label: "Manufacturing & Industrial", icon: Factory },
       { id: "energy", label: "Energy & Renewables", icon: Zap },
       { id: "fintech", label: "Financial Services & Fintech", icon: Landmark },
       { id: "infrastructure", label: "Infrastructure & Real Estate", icon: Building },
@@ -25,13 +29,42 @@ const groups: SidebarGroup[] = [
       { id: "agriculture", label: "Agriculture & Food Processing", icon: Tractor },
       { id: "healthcare", label: "Healthcare & Pharma", icon: Stethoscope }
     ]
+  },
+  {
+    label: "EMERGING VERTICALS",
+    items: [
+      { id: "crypto-blockchain", label: "Crypto & Blockchain", icon: Cpu },
+      { id: "space-satellite", label: "Space & Satellite", icon: Rocket },
+      { id: "electric-vehicles", label: "Electric Vehicles", icon: Zap },
+      { id: "ai-machine-learning", label: "AI & Machine Learning", icon: Cpu },
+      { id: "drone-uav", label: "Drone / UAV Operations", icon: Rocket },
+      { id: "quantum-computing", label: "Quantum Computing", icon: Cpu },
+      { id: "synthetic-biology", label: "Synthetic Biology", icon: Leaf },
+      { id: "autonomous-vehicles", label: "Autonomous Vehicles", icon: Cpu }
+    ]
+  },
+  {
+    label: "ADDITIONAL SECTORS",
+    items: [
+      { id: "telecommunications", label: "Telecommunications", icon: Laptop },
+      { id: "data-centers", label: "Data Centers & Cloud", icon: Laptop },
+      { id: "hospitality-tourism", label: "Hospitality & Tourism", icon: Building },
+      { id: "food-beverage", label: "Food & Beverage", icon: Tractor },
+      { id: "agritech", label: "AgriTech", icon: Tractor },
+      { id: "education-edtech", label: "Education & EdTech", icon: Laptop },
+      { id: "media-entertainment", label: "Media & Entertainment", icon: Laptop },
+      { id: "private-equity", label: "Private Equity & VC", icon: TrendingUp },
+      { id: "retail-ecommerce", label: "Retail & E-Commerce", icon: Laptop },
+      { id: "professional-services", label: "Professional Services", icon: Briefcase },
+      { id: "pharmaceuticals-biotech", label: "Pharmaceuticals & Biotech", icon: Stethoscope }
+    ]
   }
 ];
 
 export default function Industries() {
   const [selectedSlug, setSelectedSlug] = useState("technology-saas");
 
-  const currentIndustryData = industriesData[selectedSlug];
+  const currentIndustryData = allIndustriesData[selectedSlug];
 
   const getIcon = (id: string) => {
     switch (id) {
@@ -48,66 +81,73 @@ export default function Industries() {
   };
 
   return (
-    <TwoPanelLayout
-      groups={groups}
-      activeId={selectedSlug}
-      onItemSelect={(id) => setSelectedSlug(id)}
-      heroTitle="Sector-Specific Risk Architecture"
-      heroSubtitle="Bespoke insurance programs engineered for the precise regulatory, capital, and operational dynamics of your industry. Click any sector to view comprehensive risk stacks."
-      heroBadges={["8 Core Sectors", "India & Global Markets", "Tailored Risk Placement"]}
-    >
-      
-      {/* 1. Category Summary Header */}
-      <div className="mb-6 pb-3 border-b flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-bold text-primary font-serif">
-            Practice Verticals
-          </h2>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Click any card to load detailed features and core exposures
-          </p>
-        </div>
-      </div>
+<TwoPanelLayout
+       groups={groups}
+       activeId={selectedSlug}
+       onItemSelect={(id) => setSelectedSlug(id)}
+       heroTitle="Sector-Specific Risk Architecture"
+       heroSubtitle="41 bespoke insurance programs engineered for the precise regulatory, capital, and operational dynamics of your industry. Click any sector to view comprehensive risk stacks."
+       heroBadges={["41 Industry Verticals", "India & Global Markets", "Tailored Risk Placement"]}
+     >
+       
+       {/* 1. Category Summary Header */}
+       <div className="mb-6 pb-3 border-b flex items-center justify-between">
+         <div>
+           <h2 className="text-xl font-bold text-primary font-serif">
+             Practice Verticals
+           </h2>
+           <p className="text-xs text-muted-foreground mt-0.5">
+             Click any card to load detailed features and core exposures
+           </p>
+         </div>
+       </div>
 
-      {/* 2. SUMMARY CARD GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {groups[0].items.map((item) => {
-          const isSelected = selectedSlug === item.id;
-          const data = industriesData[item.id];
-          const Icon = item.icon || Shield;
-          return (
-            <div
-              key={item.id}
-              onClick={() => setSelectedSlug(item.id)}
-              className={cn(
-                "p-4 bg-white rounded-lg border border-slate-200 transition-all cursor-pointer shadow-sm hover:shadow-md select-none flex flex-col justify-between border-l-[3px] border-l-[#2E7D32] min-h-[160px]",
-                isSelected ? "ring-2 ring-blue-600 ring-offset-1 shadow-md scale-[1.01]" : "hover:-translate-y-[2px]"
-              )}
-            >
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Icon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-600" : "text-green-600")} />
-                  <h3 className="text-xs font-bold text-primary truncate leading-tight">
-                    {item.label}
-                  </h3>
-                </div>
-                <p className="text-[11px] text-muted-foreground line-clamp-3 leading-relaxed">
-                  {data?.description || "Specialized underwriting and corporate coverage structures designed for key business operational continuity."}
-                </p>
-              </div>
+       {/* 2. SUMMARY CARD GRID - All Groups */}
+       <div className="space-y-8">
+         {groups.map((group) => (
+           <div key={group.label} className="space-y-3">
+             <h3 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">{group.label}</h3>
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+               {group.items.map((item) => {
+                 const isSelected = selectedSlug === item.id;
+                 const data = allIndustriesData[item.id];
+                 const Icon = item.icon || Shield;
+                 return (
+                   <div
+                     key={item.id}
+                     onClick={() => setSelectedSlug(item.id)}
+                     className={cn(
+                       "p-4 bg-white rounded-lg border border-slate-200 transition-all cursor-pointer shadow-sm hover:shadow-md select-none flex flex-col justify-between border-l-[3px] border-l-[#2E7D32] min-h-[160px]",
+                       isSelected ? "ring-2 ring-blue-600 ring-offset-1 shadow-md scale-[1.01]" : "hover:-translate-y-[2px]"
+                     )}
+                   >
+                     <div className="space-y-2">
+                       <div className="flex items-center gap-2">
+                         <Icon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-600" : "text-green-600")} />
+                         <h3 className="text-xs font-bold text-primary truncate leading-tight">
+                           {item.label}
+                         </h3>
+                       </div>
+                       <p className="text-[11px] text-muted-foreground line-clamp-3 leading-relaxed">
+                         {data?.description || "Specialized underwriting and corporate coverage structures designed for key business operational continuity."}
+                       </p>
+                     </div>
 
-              <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100">
-                <span className="text-[10px] font-semibold text-blue-600 flex items-center gap-0.5">
-                  {isSelected ? "Expanded" : "Details"} →
-                </span>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
-                  Practice vertical
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                     <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100">
+                       <span className="text-[10px] font-semibold text-blue-600 flex items-center gap-0.5">
+                         {isSelected ? "Expanded" : "Details"} →
+                       </span>
+                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+                         Practice vertical
+                       </span>
+                     </div>
+                   </div>
+                 );
+               })}
+             </div>
+           </div>
+         ))}
+       </div>
 
       {/* 3. DYNAMIC EXPANDED DETAIL CARD */}
       {currentIndustryData && (

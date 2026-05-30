@@ -538,7 +538,9 @@ export const offeringsData: Record<string, OfferingData> = {
     architecture: [
       { term: "Algorithmic Bias", desc: "Coverage for claims alleging discriminatory outcomes" },
       { term: "Copyright Infringement", desc: "Defense against training data intellectual property claims" },
-      { term: "Operational Failure", desc: "Consequential damages from AI decision-making errors" }
+      { term: "Operational Failure", desc: "Consequential damages from AI decision-making errors" },
+      { term: "Model Failure", desc: "Parametric coverage triggered when AI model accuracy drops below defined threshold" },
+      { term: "Explainability / Audit Failure", desc: "Regulatory defense for failure to comply with AI transparency requirements (EU AI Act)" }
     ],
     expertCommentary: "AI is shifting risk from human error to product defect. Standard Tech E&O policies may not fully respond to AI-generated liabilities without specific affirmative coverage endorsements.",
     indiaContext: ["DPDP Act compliance for AI data processing", "Emerging focus from MEITY on AI regulation"],
@@ -552,9 +554,12 @@ export const offeringsData: Record<string, OfferingData> = {
     valueText: "Space insurance secures the massive capital investments required for satellite manufacturing, launch operations, and in-orbit revenue generation, enabling the commercial space sector.",
     challenges: ["Total loss scenarios during launch anomalies.", "Space debris collision risks.", "Extremely specialized capacity and underwriting."],
     architecture: [
-      { term: "Launch Coverage", desc: "From ignition to successful orbit insertion" },
-      { term: "In-Orbit Protection", desc: "Physical damage and operational failure in space" },
-      { term: "Third-Party Liability", desc: "Bodily injury or property damage from launch or reentry" }
+      { term: "Pre-Launch Insurance", desc: "Transit insurance for satellite from factory to launch site, storage insurance" },
+      { term: "Launch Coverage", desc: "From ignition to successful orbit insertion; LEOP coverage" },
+      { term: "In-Orbit Protection", desc: "Physical damage and operational failure in space during operational life" },
+      { term: "Third-Party Liability", desc: "Bodily injury or property damage to third parties from launch or re-entry" },
+      { term: "Ground Segment", desc: "Property + business interruption for ground control stations and launch facilities" },
+      { term: "Business Interruption", desc: "Loss of revenue from satellite downtime (insured per-day value)" }
     ],
     expertCommentary: "With the privatization of the space sector, commercial risk transfer is essential. Traditional property insurers do not write this risk; it requires dedicated space underwriters in London and European markets.",
     indiaContext: ["IN-SPACe regulations require specific insurance for commercial launches", "ISRO collaboration projects"],
@@ -576,126 +581,224 @@ export const offeringsData: Record<string, OfferingData> = {
     indiaContext: ["BRSR (Business Responsibility and Sustainability Reporting) mandatory for top 1000 listed companies", "SEBI scrutiny on ESG funds"],
     matrix: { scale: "🔴⚫ Large to MNC", scope: "🌐 Cross-Border | 🌍 Global", duration: "📅 Annual" }
   },
-  "surety": {
-    slug: "surety",
-    title: "Surety Bonds & Guarantees",
-    subtitle: "Replacing Bank Guarantees to Free Up Corporate Liquidity",
+  "crypto-digital-assets": {
+    slug: "crypto-digital-assets",
+    title: "Crypto & Digital Asset Insurance",
+    subtitle: "10-Layer Protection for Digital Asset Businesses",
+    images: ["https://images.unsplash.com/photo-1605733513597-5c10f5a4f5b5?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Crypto insurance is the foundation of institutional trust in digital asset businesses. Our 10-layer architecture protects exchanges, custodians, DeFi protocols, and blockchain companies against the unique risks of the crypto ecosystem.",
+    challenges: [
+      "Exchange hacks and custody failures can result in immediate multi-million dollar losses",
+      "Smart contract exploits in DeFi protocols create unlimited liability exposure",
+      "Regulatory enforcement actions from SEC, CFTC, and global regulators are escalating",
+      "Third-party vendor failures (custody providers, node operators) create concentrated risk"
+    ],
+    architecture: [
+      { term: "Layer 1: Custody Protection", desc: "Loss/theft of digital assets in custody (hot wallet, cold wallet, MPC)" },
+      { term: "Layer 2: Smart Contract Coverage", desc: "Financial loss from smart contract exploit or bug" },
+      { term: "Layer 3: Crime & Theft", desc: "Employee theft, social engineering, third-party fraud involving crypto" },
+      { term: "Layer 4: Directors & Officers", desc: "Board/management liability for crypto company decisions" },
+      { term: "Layer 5: Professional Liability / E&O", desc: "Tech E&O, advisory E&O for crypto services" },
+      { term: "Layer 6: Cyber Insurance", desc: "Ransomware, data breach, business interruption (crypto-specific)" },
+      { term: "Layer 7: Regulatory Defense", desc: "Defense costs for SEC, CFTC, or other regulatory investigations" },
+      { term: "Layer 8: Validator/Node Insurance", desc: "Slashing risk for proof-of-stake validators" }
+    ],
+    expertCommentary: "The crypto insurance market is rapidly maturing. For exchanges seeking institutional credibility, a multi-layered approach combining specialist crypto carriers (Coincover, Relm) with traditional cyber leaders (Coalition, Chubb) creates the comprehensive protection necessary for large-scale adoption.",
+    indiaContext: [
+      "India's crypto regulatory framework evolving; FATF compliance mandatory for VASP operations",
+      "Crypto businesses seeking international banking relationships require comprehensive insurance",
+      "Tax treatment of digital assets creates specific insurance requirements for Indian exchanges"
+    ],
+    matrix: { scale: "🔴⚫ Enterprise to MNC", scope: "🌍 Global", duration: "📅 Annual | 🗓️ Strategic" }
+  },
+  "quantum-computing": {
+    slug: "quantum-computing",
+    title: "Quantum Computing Risk & Transition Coverage",
+    subtitle: "Preparing for the Post-Quantum Era",
+    images: ["https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Quantum computing represents the next frontier of technological disruption. Our quantum risk solutions protect hardware investments, IP portfolios, and cryptographic infrastructure against the risks of the quantum transition.",
+    challenges: [
+      "Q-Day could render current encryption obsolete, requiring massive migration costs",
+      "Quantum hardware investments ($100M+) face R&D failure and technical obsolescence risks",
+      "Quantum IP faces unique infringement and trade secret risks",
+      "Rare earth supply chain for quantum hardware creates geopolitical risk exposure"
+    ],
+    architecture: [
+      { term: "Q-Day / Crypto-Obsolescence Risk", desc: "Quantum transition insurance covering migration costs when quantum computers break current encryption" },
+      { term: "Quantum Hardware Investment Loss", desc: "R&D failure insurance covering write-off of quantum hardware investment" },
+      { term: "Quantum IP Risk", desc: "IP enforcement and defense insurance for quantum algorithms and hardware designs" },
+      { term: "Quantum Supply Chain Risk", desc: "Supply chain risk insurance for rare earth materials critical to quantum hardware" },
+      { term: "Quantum Computing E&O", desc: "Professional liability for quantum computing service providers" },
+      { term: "Quantum Data Security", desc: "Cyber insurance with quantum-specific endorsement covering data decryption by quantum computers" }
+    ],
+    expertCommentary: "Quantum computing is not a 2030 risk—it's a 2026-2030 window that enterprise risk managers must prepare for today. The insurance market for quantum transition costs is a true whitespace opportunity, with TRUSTFLOW pioneering structured solutions.",
+    indiaContext: [
+      "India's National Quantum Mission (NQMs) driving domestic quantum research investment",
+      "Government contracts for quantum research require specific risk transfer",
+      "Hybrid classical-quantum systems create transitional risk exposure"
+    ],
+    matrix: { scale: "🔴⚫ Enterprise to MNC", scope: "🌐 Cross-Border | 🌍 Global", duration: "📅 Annual | 📆 Multi-Year" }
+  },
+  "drone-operations": {
+    slug: "drone-operations",
+    title: "Drone / UAV Operations Insurance",
+    subtitle: "Comprehensive Coverage for Commercial Drone Fleets",
+    images: ["https://images.unsplash.com/photo-1506744030328-427c639b6e8c?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Commercial drone operations require specialized risk coverage for aviation liability, cargo protection, privacy claims, and cyber threats targeting autonomous flight systems.",
+    challenges: [
+      "Third-party bodily injury from drone crashes in populated areas",
+      "Cargo loss or damage during drone delivery operations",
+      "Privacy liability for cameras and data collection",
+      "Airspace violation and regulatory compliance risks"
+    ],
+    architecture: [
+      { term: "Drone Hull & Liability", desc: "Physical damage to drone + third-party bodily injury/property damage" },
+      { term: "Drone Fleet Management", desc: "Multi-drone coverage with fleet-level deductibles and AI-based risk pricing" },
+      { term: "Drone Cargo Insurance", desc: "Goods being transported by drone (last-mile delivery)" },
+      { term: "Drone Privacy Liability", desc: "Invasion of privacy claims from drone surveillance/data collection" },
+      { term: "Drone Cyber Insurance", desc: "Cyber attack on drone fleet (GPS spoofing, command hijacking)" },
+      { term: "Counter-Drone Coverage", desc: "Insurance against unauthorized drone activity near facilities" },
+      { term: "Autonomous Drone Operations", desc: "Specialized coverage for fully autonomous drone operations (BVLOS, swarm)" }
+    ],
+    expertCommentary: "The commercial drone market is projected to reach $58.4B by 2030. Flock's AI-powered real-time pricing enables accurate risk assessment based on weather, airspace restrictions, and flight parameters—a revolutionary approach for scalable drone insurance.",
+    indiaContext: [
+      "DGCA RPAS Regulations 2011-2021 govern commercial drone operations in India",
+      "Drone delivery pilots by Zomato, Dunzo, and Amazon require comprehensive coverage",
+      "Agricultural drones and infrastructure inspection are growing verticals"
+    ],
+    matrix: { scale: "🔵🟠🔴⚫ SME to Enterprise", scope: "🏠 In-Country | 🌐 Cross-Border", duration: "📅 Annual | ⏱️ Per-Flight" }
+  },
+  "warranty-guarantees": {
+    slug: "warranty-guarantees",
+    title: "Warranty & Guarantee Platform",
+    subtitle: "Product Warranties, Surety Bonds, Performance Guarantees",
+    images: ["https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Warranties and guarantees are critical for product manufacturers, service providers, and contractors. Our platform enables embedded warranty distribution, AI-powered claims processing, and portfolio optimization.",
+    challenges: [
+      "Warranty claims cost 10x more than original product profit margin on average",
+      "Surety bonds require extensive financial underwriting and collateral management",
+      "Performance guarantees in construction create long-tail liability exposure",
+      "Bank guarantee requirements tie up working capital for extended periods"
+    ],
+    architecture: [
+      { term: "Product Warranty Programs", desc: "Manufacturer, extended, and service contract coverage" },
+      { term: "Performance Guarantees", desc: "Construction, technology, and service level guarantees" },
+      { term: "Surety Bonds", desc: "Bid, performance, advance payment, and maintenance bonds" },
+      { term: "Bank Guarantee Advisory", desc: "LC, SBLC optimization and risk mitigation" },
+      { term: "Embedded Warranty API", desc: "API-first warranty distribution for platform integration" }
+    ],
+    expertCommentary: "Warranty insurance is a profit center transformation tool. By converting warranty obligations into insured products, manufacturers improve cash flow predictability while offering better customer experience than traditional extended warranties.",
+    indiaContext: [
+      "IRDAI guidelines for warranty insurance evolving; consumer protection focus increasing",
+      "NHAI and MoRTH now accept surety bonds in lieu of bank guarantees for infrastructure projects",
+      "Consumer Protection Act 2019 strengthens warranty claim rights and manufacturer liability"
+    ],
+    matrix: { scale: "🟢🔵🟠🔴⚫ All Scales", scope: "🏠 In-Country | 🌐 Cross-Border", duration: "📅 Annual | 📆 Multi-Year" }
+  },
+  "contract-risk-analytics": {
+    slug: "contract-risk-analytics",
+    title: "Contract Risk Analytics (AI-Powered)",
+    subtitle: "Automated Liability Exposure & Insurance Gap Detection",
     images: ["https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"],
-    valueText: "Surety bonds replace traditional, asset-blocking bank guarantees with insurance-backed capital. They free up valuable credit lines, improve corporate working capital efficiency, and satisfy the stringent security requirements of public and private project owners. In massive infrastructure ecosystems like India, surety bonds are a game-changer for contractors working with NHAI, railways, and municipal authorities.",
+    valueText: "Every contract contains hidden risk: uncapped indemnification, insurance requirements you don't meet, force majeure gaps, and counterparty vulnerabilities. Our AI engine scans your portfolio, scores each contract, and generates actionable recommendations.",
     challenges: [
-      "Bank guarantees block 10-100% margin money as cash collateral, severely restricting working capital for rapid growth.",
-      "High cost of bank guarantees, including processing fees and collateral requirements.",
-      "Contractors struggle to bid for multiple massive projects simultaneously due to credit line saturation.",
-      "Procedural delays in releasing bank guarantees after project completion trap capital for months or years."
+      "Thousands of contracts with subtle liability variations across jurisdictions",
+      "M&A due diligence requiring rapid contract risk assessment",
+      "Regulatory changes creating new contract compliance requirements",
+      "Undetected insurance gaps leading to claim denials or uncovered liabilities"
     ],
     architecture: [
-      { term: "Bid Bonds", desc: "Guarantees the contractor will enter into the contract if their bid is accepted" },
-      { term: "Performance Bonds", desc: "Protects the project owner against financial loss from contractor default during execution" },
-      { term: "Advance Payment Bonds", desc: "Secures advance funds provided to the contractor for mobilization" },
-      { term: "Retention Money Bonds", desc: "Replaces cash retention held by the project owner during the defects liability period" }
+      { term: "AI Extraction", desc: "Extract all risk-relevant clauses including indemnification, limits, and insurance requirements" },
+      { term: "Risk Scoring", desc: "Score each contract on 12 risk dimensions from 0-100" },
+      { term: "Gap Analysis", desc: "Compare contract insurance requirements to actual insurance program" },
+      { term: "Recommendations", desc: "Recommend specific insurance products to close identified gaps" },
+      { term: "Ongoing Monitoring", desc: "Alert when contracts are amended, renewed, or create new exposures" }
     ],
-    expertCommentary: "Surety bonds are the single most powerful financial optimization tool available to modern infrastructure contractors. By shifting from bank guarantees (which require cash margin and deplete borrowing limits) to surety bonds, a contractor can immediately re-allocate that trapped liquidity to active project execution, effectively boosting their bidding capacity by 3x to 5x.",
+    expertCommentary: "Contract analytics is the missing link between legal departments and risk managers. By quantifying contractual liability exposure, CFOs can make informed decisions about insurance purchasing without waiting for legal review cycles.",
     indiaContext: [
-      "Approved by IRDAI and promoted extensively by the Ministry of Road Transport and Highways (MoRTH) and NHAI",
-      "Acceptable in lieu of bank guarantees under standard bid documents for national highway and major public sector projects",
-      "Does not block bank borrowing lines, allowing contractors to conserve bank credit for active working capital",
-      "No cash collateral typically required for A-rated contractors, substituting corporate guarantees instead"
+      "Indian contract law variations across states require jurisdiction-specific analysis",
+      "GST and tax compliance clauses create specific insurance implications",
+      "M&A activity in India driving adoption of automated contract review"
     ],
-    matrix: {
-      scale: "🔵🟠🔴⚫ SME to MNC",
-      scope: "🏠 In-Country | 🌐 Cross-Border",
-      duration: "⏱️ Project Tenor | 📆 Multi-Year"
-    }
+    matrix: { scale: "🔴⚫ Enterprise to MNC", scope: "🌐 Cross-Border | 🌍 Global", duration: "📅 Annual SaaS | ⏱️ Per-Contract" }
   },
-  "political-risk": {
-    slug: "political-risk",
-    title: "Political Risk Insurance (PRI)",
-    subtitle: "Insuring Cross-Border Assets Against Sovereign Interventions",
-    images: ["https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"],
-    valueText: "Political Risk Insurance protects cross-border investments, physical assets, and trade transactions from the arbitrary actions of host governments. It provides key security for foreign direct investment, secures lower borrowing costs from international lenders, and insures against expropriation, currency inconvertibility, and political violence.",
+  "multi-line-cross-border": {
+    slug: "multi-line-cross-border",
+    title: "Multi-Line & Cross-Border Programs",
+    subtitle: "Global Master Programs, Local Admitted Policies, Multinational Pooling",
+    images: ["https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Operating in multiple countries creates complex insurance compliance challenges. Our cross-border programs ensure regulatory compliance while optimizing global premium allocation and local claim handling.",
     challenges: [
-      "Arbitrary government expropriation or nationalization of assets without fair compensation.",
-      "Sudden currency inconvertibility or transfer restrictions preventing capital repatriation or debt service.",
-      "Regulatory changes or contract frustration by host state entities destroying project viability.",
-      "Physical damage to assets from war, civil unrest, strikes, or political violence in unstable geographies."
+      "Each country has unique insurance licensing and regulatory requirements",
+      "Local admitted policies must satisfy tax, legal, and operational mandates",
+      "Currency fluctuations affect premium allocation and claim payments",
+      "Tax optimization and premium allocation disputes with local authorities"
     ],
     architecture: [
-      { term: "Expropriation & Confiscation", desc: "Coverage for nationalization, creeping expropriation, or seizure of local assets by host government" },
-      { term: "Currency Inconvertibility", desc: "Protects against the inability to convert local currency or repatriate earnings and debt payments" },
-      { term: "Contract Frustration", desc: "Covers losses from unilateral breach or cancellation of concession agreements by sovereign entities" },
-      { term: "Political Violence", desc: "Physical damage and business interruption from war, revolution, civil war, or terrorism" }
+      { term: "Controlled Master Policy", desc: "Centralized governance and standardized coverage across all global operations" },
+      { term: "Fronting Network", desc: "Leveraging top-tier local paper while retaining risk centrally" },
+      { term: "DIC / DIL", desc: "Difference in Conditions and Difference in Limits to plug local policy gaps" },
+      { term: "Local Admitted Coverage", desc: "Compliant local policies meeting statutory and regulatory requirements" }
     ],
-    expertCommentary: "PRI is the foundation of international project finance in emerging markets. Global banks will not lend to infrastructure projects in high-risk zones without PRI cover in place. Creeping expropriation — where a government doesn't seize the asset outright but progressively passes laws making it impossible to operate — is the most common claim trigger.",
+    expertCommentary: "India alone has 22 state-level insurance regulations plus central IRDAI oversight. Scaling from 3 to 22 countries requires not just insurance placement expertise, but deep understanding of regulatory arbitrage and compliance harmonization.",
     indiaContext: [
-      "Crucial for Indian conglomerates expanding into Africa, Latin America, and Southeast Asia (e.g., Adani, Tata, Reliance)",
-      "Secures international dollar funding under ECB (External Commercial Borrowing) routes by satisfying lender risk ratings",
-      "Often structured through multilateral agencies like MIGA (World Bank) or private Lloyd's syndicates",
-      "Aligned with Bilateral Investment Treaties (BITs) to reinforce sovereign dispute resolutions"
+      "IRDAI regulates all insurance operations; IFSCA governs GIFT City captive arrangements",
+      "Branch office vs. subsidiary licensing choices affect tax and compliance structures",
+      "Foreign reinsurance partnerships enable capacity optimization across Southeast Asia"
     ],
-    matrix: {
-      scale: "🟠🔴⚫ Mid-Market to MNC",
-      scope: "🌐 Cross-Border | 🌍 Global",
-      duration: "📆 Multi-Year (Up to 15 Years) | 🗓️ Strategic"
-    }
+    matrix: { scale: "🔵🟠🔴⚫ SME to MNC", scope: "🌐 Cross-Border | 🌍 Global", duration: "📅 Annual | 📆 Multi-Year" }
   },
-  "fidelity": {
-    slug: "fidelity",
-    title: "Fidelity Guarantee / Commercial Crime",
-    subtitle: "Protecting Enterprise Capital from Internal and Cyber Fraud",
-    images: ["https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073&auto=format&fit=crop"],
-    valueText: "Fidelity and commercial crime insurance shields an enterprise's cash, securities, and other property from fraudulent acts committed by employees or external actors. In a digital-first operating environment, it covers employee dishonesty, funds transfer fraud, forgery, and social engineering attacks, safeguarding corporate liquidity.",
+  "kidnap-ransom": {
+    slug: "kidnap-ransom",
+    title: "Kidnap, Ransom & Extortion Insurance",
+    subtitle: "Executive Protection & Crisis Response",
+    images: ["https://images.unsplash.com/photo-1555066931-4365d1d4d7c8?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Kidnap, Ransom & Extortion insurance provides crisis response, negotiation, and payment coverage for executives operating in high-risk geographies.",
     challenges: [
-      "Sophisticated employee embezzlement can go undetected for years, draining company reserves.",
-      "Business Email Compromise (BEC) and invoice spoofing cause immediate, unrecoverable wire losses.",
-      "Standard cyber policies exclude direct loss of funds, creating a major cash protection gap.",
-      "Collusion between internal staff and third-party vendors bypasses standard audit controls."
+      "Political instability creating unpredictable security situations",
+      "Cyber extortion threatening operational continuity",
+      "Family notification and crisis management expertise required",
+      "Loyalty and reputation risks in emerging markets"
     ],
     architecture: [
-      { term: "Employee Dishonesty", desc: "Covers direct financial loss from theft, forgery, or embezzlement by employees" },
-      { term: "Computer & Funds Transfer Fraud", desc: "Protects against fraudulent instructions causing unauthorized money transfer" },
-      { term: "Social Engineering / Impersonation", desc: "Covers losses from voluntary transfer of funds triggered by deceptive emails" },
-      { term: "Forgery or Alteration", desc: "Covers losses from forged checks, drafts, or promissory notes" }
+      { term: "Kidnap & Ransom", desc: "Coverage for ransom payments and negotiation services" },
+      { term: "Cyber Extortion", desc: "Ransomware attack response and payment coverage" },
+      { term: "Crisis Response", desc: "24/7 crisis management and family notification services" },
+      { term: "Evacuation Expenses", desc: "Emergency evacuation and relocation coverage" }
     ],
-    expertCommentary: "Many CFOs wrongly assume their cyber policy covers direct theft of money via phishing. Cyber insurance covers data restoration, notification, and liability, but direct loss of funds requires a dedicated Commercial Crime or Fidelity policy. Combining both is the only way to cover both data and cash assets.",
+    expertCommentary: "K&R insurance is increasingly relevant for cyber extortion, not just physical kidnapping. The crisis response component—negotiation, forensic investigation, legal counsel—is more valuable than the ransom payment itself.",
     indiaContext: [
-      "Commonly required by institutional buyers and multinational clients during vendor onboarding",
-      "Governed by standard fidelity wordings in India, increasingly updated to match cyber-crime dynamics",
-      "Fidelity coverage standard for financial institutions and NBFCs under Bankers Blanket Bond structures"
+      "Naxalite-affected areas and certain Northeast states create specific security risk exposure",
+      "Cyber extortion through ransomware is growing rapidly in India's IT sector",
+      "Crisis response teams available for immediate deployment across major Indian cities"
     ],
-    matrix: {
-      scale: "🟢🔵🟠🔴⚫ All Scales",
-      scope: "🏠 In-Country | 🌐 Cross-Border | 🌍 Global",
-      duration: "📅 Annual"
-    }
+    matrix: { scale: "🔵🟠🔴⚫ SME to MNC", scope: "🌐 Cross-Border | 🌍 Global", duration: "📅 Annual" }
   },
-  "fleet": {
-    slug: "fleet",
-    title: "Commercial Motor & Fleet Insurance",
-    subtitle: "Managing Operational Risk for Enterprise Mobility",
-    images: ["https://images.unsplash.com/photo-1586528116311-ad8ed7c50a63?q=80&w=2070&auto=format&fit=crop"],
-    valueText: "Commercial Motor and Fleet insurance provides comprehensive physical damage and third-party liability protection for all corporate owned or leased transport assets. It ensures statutory compliance under the Motor Vehicles Act, manages operational downtime after road accidents, and integrates advanced telematics to lower overall cost of risk.",
+  "terrorism-violence": {
+    slug: "terrorism-violence",
+    title: "Terrorism & Political Violence",
+    subtitle: "Coverage Against Acts of Terror and Civil Unrest",
+    images: ["https://images.unsplash.com/photo-1506744030328-427c639b6e8c?q=80&w=2070&auto=format&fit=crop"],
+    valueText: "Terrorism and political violence insurance protects physical assets and business interruption losses from acts of terror, civil unrest, and political upheaval.",
     challenges: [
-      "Road accidents pose severe third-party injury liabilities that can exceed vehicle value by 10x.",
-      "Stolen or damaged freight and vehicle assets disrupt supply chain commitments and operational cash flow.",
-      "MACT (Motor Accident Claims Tribunal) awards for commercial vehicle fatalities frequently exceed ₹1–5 crore.",
-      "Lack of driver behavior monitoring leads to high accident rates and inflated fleet premiums."
+      "Government terrorism pools provide limited coverage with slow claims processes",
+      "Political unrest in emerging markets creates unpredictable threat environments",
+      "Business interruption from area-wide shutdowns not covered by standard property policies"
     ],
     architecture: [
-      { term: "Third-Party Liability (Mandatory)", desc: "Statutory unlimited coverage for bodily injury or death, and property damage to third parties" },
-      { term: "Own Damage (OD) Cover", desc: "Protects fleet vehicles from accidental damage, fire, theft, and natural catastrophes" },
-      { term: "Goods-In-Transit Liability", desc: "Covers legal liability for damage or loss to cargo carried by fleet vehicles" },
-      { term: "Fidelity & Driver Cover", desc: "Personal accident cover for drivers, helpers, and legal liability under workmen's compensation" }
+      { term: "Terrorism Damage", desc: "Physical damage from terrorist acts and sabotage" },
+      { term: "Political Violence", desc: "Coverage for war, revolution, civil war, and insurrection" },
+      { term: "Business Interruption", desc: "Loss of income during area-wide shutdowns" },
+      { term: "Evacuation Expenses", desc: "Emergency evacuation and asset protection costs" }
     ],
-    expertCommentary: "Fleet insurance is a major operational expense. The key to reducing cost is driver risk profile management. Implementing basic telematics (GPS, speed alerts, braking monitors) can reduce fleet accident rates by 30% and yield up to 25% premium discounts from modern insurers.",
+    expertCommentary: "Traditional terrorism pools provide inadequate coverage limits. Private terrorism and political violence coverage offers higher limits and faster claims resolution, essential for international operations.",
     indiaContext: [
-      "Mandatory under the Motor Vehicles Act 1988 (amended 2019); harsh penalties for uninsured vehicles",
-      "MACT court awards in India are unlimited for third-party death claims, making third-party liability critical",
-      "Own damage pricing heavily deregulated, allowing competitive fleet discount negotiations for clean claims records"
+      "India Terrorism Pool provides basic coverage; private markets offer higher limits",
+      "Political rallies and protests in major cities create specific BI exposure",
+      "Northeast security situation requires specialized political violence coverage"
     ],
-    matrix: {
-      scale: "🔵🟠🔴⚫ SME to MNC",
-      scope: "🏠 In-Country",
-      duration: "📅 Annual"
-    }
+    matrix: { scale: "🟠🔴⚫ Mid-Market to MNC", scope: "🏠 In-Country | 🌐 Cross-Border", duration: "📅 Annual | 📆 Multi-Year" }
   }
 };
+
+
