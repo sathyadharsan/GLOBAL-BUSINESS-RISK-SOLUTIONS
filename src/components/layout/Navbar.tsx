@@ -35,57 +35,63 @@ export function Navbar() {
         <div className="hidden lg:flex flex-1 items-center justify-center">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
+<NavigationMenuItem>
                 <NavigationMenuTrigger>Risks</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
+                  <div className="grid w-[750px] grid-cols-2 gap-4 p-5">
                     <div className="col-span-2 border-b pb-2 mb-2">
-                      <h4 className="text-sm font-bold text-primary">Risk Categories</h4>
-                      <p className="text-xs text-muted-foreground">Cyber, Operational, Financial, Supply Chain, ESG, Climate, Regulatory, Technology, and Third-Party risks.</p>
+                      <h4 className="text-sm font-bold text-primary">Risk Intelligence Platform</h4>
+                      <p className="text-xs text-muted-foreground">The World's Most Comprehensive Business Risk Architecture Platform.</p>
                     </div>
                     
                     <div className="space-y-4">
-                      <Link href="/risks/cyber" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cyber Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Ransomware, Data Breach, Deepfake Fraud</div>
+                      <Link href="/risks/cross-industry" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cross-Industry Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Risks affecting every organization (20+)</div>
                       </Link>
                       
-                      <Link href="/risks/supply-chain" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Supply Chain Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Vendor failure, logistics disruption, CBI</div>
+                      <Link href="/risks/cross-functional" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cross-Functional Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Spanning operations, finance, legal, technology</div>
                       </Link>
                       
-                      <Link href="/risks/climate" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Climate Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Parametric, weather index, natural catastrophe</div>
+                      <Link href="/risks/industry-specific" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Industry-Specific Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Technology, Healthcare, Energy, Manufacturing, etc.</div>
                       </Link>
                       
-                      <Link href="/risks/esg" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">ESG Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Greenwashing, carbon liability, BRSR compliance</div>
+                      <Link href="/risks/emerging" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Emerging Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">AI governance, quantum computing, autonomous vehicles</div>
                       </Link>
                     </div>
                     
                     <div className="space-y-4">
-                      <Link href="/risks/regulatory" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Regulatory Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">SEBI, RBI, FCA, DPDP compliance</div>
+                      <Link href="/risks/risk-intelligence-center" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Risk Intelligence Center</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Premium dashboard with risk heatmaps and monitoring</div>
                       </Link>
                       
-                      <Link href="/risks/directors-officers" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Directors & Officers Liability</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">D&O structuring, securities defense, EPL</div>
+                      <Link href="/risks/risk-diagnostic" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Risk Diagnostic</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Board-level risk assessment and coverage gap analysis</div>
                       </Link>
                       
-                      <Link href="/risks/third-party" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Third-Party Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Vendor liability, contractor coverage, partner risk</div>
+                      <Link href="/risks/ransomware" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Ransomware Attack</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Malware encryption demanding payment</div>
                       </Link>
                       
-                      <Link href="/risks/technology" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Technology Risks</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">AI liability, software failure, cloud outage</div>
+                      <Link href="/risks/data-breach" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Data Breach (Customer PII)</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Unauthorized access to personal data</div>
                       </Link>
+                      
+                      <div className="pt-2 mt-2 border-t">
+                        <Link href="/risks" className="text-sm font-semibold text-blue-600 hover:text-blue-800">
+                          View All 72 Risks →
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -514,11 +520,12 @@ export function Navbar() {
                 <div>
                   <Link href="/risks" className="text-lg font-semibold text-primary">Risks</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/risks/cyber" className="hover:text-primary transition-colors">Cyber Risks</Link>
-                    <Link href="/risks/supply-chain" className="hover:text-primary transition-colors">Supply Chain Risks</Link>
-                    <Link href="/risks/climate" className="hover:text-primary transition-colors">Climate Risks</Link>
-                    <Link href="/risks/esg" className="hover:text-primary transition-colors">ESG Risks</Link>
-                    <Link href="/risks/regulatory" className="hover:text-primary transition-colors">Regulatory Risks</Link>
+                    <Link href="/risks/cross-industry" className="hover:text-primary transition-colors">Cross-Industry Risks</Link>
+                    <Link href="/risks/cross-functional" className="hover:text-primary transition-colors">Cross-Functional Risks</Link>
+                    <Link href="/risks/industry-specific" className="hover:text-primary transition-colors">Industry-Specific Risks</Link>
+                    <Link href="/risks/emerging" className="hover:text-primary transition-colors">Emerging Risks</Link>
+                    <Link href="/risks/risk-intelligence-center" className="hover:text-primary transition-colors">Risk Intelligence Center</Link>
+                    <Link href="/risks/risk-diagnostic" className="hover:text-primary transition-colors">Risk Diagnostic</Link>
                   </div>
                 </div>
                 <div>
