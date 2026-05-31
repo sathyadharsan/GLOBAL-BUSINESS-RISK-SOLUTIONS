@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft } from "lucide-react";
+import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { HeroSlider, HeroSlide } from "@/components/sections/HeroSlider";
 
@@ -11,15 +11,15 @@ export default function Home() {
     {
       title: (
         <>
-          Protect the Balance Sheet.<br />
-          <span className="text-blue-400">Enable the Business Plan.</span>
+          Architecting Business Resilience<br />
+          <span className="text-blue-400">for a Complex World</span>
         </>
       ),
-      subtitle: "Architecting enterprise-grade non-life insurance and risk transfer solutions across industries, infrastructure, governance, and global operations.",
+      subtitle: "TRUSTFLOW helps organizations identify, assess, mitigate, transfer, and monitor risks across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
       buttons: [
-        { label: "Explore Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/property-sfsp" },
-        { label: "Schedule Consultation", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/contact" }
+        { label: "Book Risk Assessment", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/contact" },
+        { label: "Explore Solutions", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/property-sfsp" }
       ]
     },
     {
@@ -53,36 +53,86 @@ export default function Home() {
   ];
 
   const metrics = [
-    { val: "150+", label: "Countries Served", desc: "Cross-border placement capabilities", icon: Globe },
-    { val: "A++ Rated", label: "Carrier Network", desc: "Top-tier syndicates & market capacity", icon: Shield },
-    { val: "97%", label: "Client Retention", desc: "Long-term corporate relationships", icon: CheckCircle2 },
-    { val: "40% Faster", label: "Claim Settlement", desc: "Proprietary resolution protocols", icon: Zap }
+    { val: "200+", label: "Risk Categories", desc: "Cyber, operational, financial, regulatory, ESG", icon: Shield },
+    { val: "41", label: "Industry Verticals", desc: "Specialized risk architectures", icon: Building2 },
+    { val: "78", label: "Insurance & Risk Offerings", desc: "Comprehensive coverage solutions", icon: Briefcase },
+    { val: "35", label: "AI-Powered Platforms", desc: "Risk intelligence tools", icon: Cpu }
   ];
 
   const featuredOfferings = [
-    { title: "Property / SFSP All Risks", icon: Building2, desc: "Buildings, Stock, Plant, Flood, EQ, Terrorism cover structured for enterprise scale.", href: "/offerings/property-sfsp", tag: "Assets" },
-    { title: "CAR / EAR / Builders Risk", icon: Activity, desc: "Construction works, ALOP, Cross-liability, and Soft costs engineering.", href: "/offerings/car-ear", tag: "Projects" },
-    { title: "Marine Cargo / Stock Throughput", icon: Anchor, desc: "Global trade risk management, open cover policies, and stock-throughput solutions.", href: "/offerings/marine-cargo", tag: "Logistics" },
-    { title: "D&O / Management Liability", icon: Briefcase, desc: "Tailored Side A / B / C coverages for SEBI mandates, IPO listings, and PE exits.", href: "/offerings/do-liability", tag: "Governance" },
-    { title: "Cyber Liability", icon: Shield, desc: "Systemic ransomware, DPDP compliance, breach response, and cloud business interruption.", href: "/offerings/cyber", tag: "Technology" },
-    { title: "M&A / Transactional Risk", icon: Globe, desc: "Representations & Warranties, tax liability, title insurance, and contingent risk transfer.", href: "/offerings/pe-fund-exit", tag: "Corporate" }
+    { title: "Property Insurance", icon: Shield, desc: "Buildings, Stock, Plant, Flood, EQ, Terrorism cover structured for enterprise scale.", href: "/offerings/property-sfsp", tag: "Assets" },
+    { title: "Cyber Insurance", icon: Shield, desc: "Ransomware, breach response, DPDP compliance, and cloud business interruption coverage.", href: "/offerings/cyber", tag: "Technology" },
+    { title: "D&O Insurance", icon: Users, desc: "Directors & Officers liability for IPOs, regulatory defence, and corporate governance.", href: "/offerings/do-liability", tag: "Governance" },
+    { title: "Business Interruption", icon: BarChart3, desc: "Revenue protection during operational disruptions and restoration periods.", href: "/offerings/business-interruption", tag: "Continuity" },
+    { title: "Professional Liability", icon: Briefcase, desc: "E&O coverage for consultants, architects, and professional services firms.", href: "/offerings/professional-indemnity", tag: "Advisory" },
+    { title: "Crime Insurance", icon: AlertCircle, desc: "Fidelity guarantee and crime coverage for financial and cyber fraud.", href: "/offerings/fidelity", tag: "Security" },
+    { title: "EPLI", icon: HeartPulse, desc: "Employment Practices Liability for workplace-related legal claims.", href: "/offerings/epl", tag: "HR" },
+    { title: "Product Recall", icon: Shield, desc: "Brand protection and recall logistics for manufacturing and retail.", href: "/offerings/product-liability", tag: "Consumer" },
+    { title: "Supply Chain Coverage", icon: Truck, desc: "Cargo, marine, and contingent business interruption protection.", href: "/offerings/marine-cargo", tag: "Logistics" },
+    { title: "Political Risk", icon: Globe, desc: "Expropriation, currency inconvertibility, and cross-border protection.", href: "/offerings/political-risk", tag: "International" },
+    { title: "Warranty Programs", icon: CheckCircle2, desc: "M&A transactional risk insurance and extended warranty coverage.", href: "/offerings/ma-insurance", tag: "M&A" },
+    { title: "Contract Risk Advisory", icon: FileText, desc: "Contractual risk identification and insurance structuring.", href: "/solutions/global-program-architecture", tag: "Legal" },
+    { title: "Claims Advisory", icon: BarChart3, desc: "Fierce representation during major loss events and dispute resolution.", href: "/solutions/claims-advocacy", tag: "Recovery" },
+    { title: "Risk Architecture Consulting", icon: Target, desc: "Custom-designed insurance and risk transfer structures.", href: "/solutions/risk-engineering", tag: "Strategy" }
   ];
 
   const industries = [
-    { name: "Tech & SaaS", slug: "technology-saas", icon: Cpu, desc: "Cyber breach indemnity, IPO liability, and professional coverage structuring." },
-    { name: "Manufacturing", slug: "manufacturing", icon: Factory, desc: "Asset valuation, industrial all risks, business interruption, and supply chain continuity." },
-    { name: "Energy & Renewables", slug: "energy", icon: Zap, desc: "Parametric wind/solar models, project commissioning risks, and environmental liability." },
-    { name: "Fintech & Banking", slug: "fintech", icon: TrendingUp, desc: "Crime coverages, D&O liability, credit insurance, and regulatory compliance advisory." },
-    { name: "Infrastructure & Projects", slug: "infrastructure", icon: Building2, desc: "Concessionaire protections, CAR/EAR, cargo logistics, and long-tenor liability." }
+    { name: "Technology & Digital", slug: "technology-saas", icon: Cpu, desc: "Software, SaaS, IT services, and digital platform risk architecture." },
+    { name: "Financial Services", slug: "fintech", icon: TrendingUp, desc: "Banking, fintech, insurance, and financial institution risk solutions." },
+    { name: "Healthcare & Life Sciences", slug: "healthcare", icon: HeartPulse, desc: "Pharmaceutical, medical device, and healthcare provider coverage." },
+    { name: "Manufacturing & Industrial", slug: "manufacturing", icon: Factory, desc: "Heavy industry, automotive, and advanced manufacturing risk transfer." },
+    { name: "Energy & Utilities", slug: "energy", icon: Zap, desc: "Oil & gas, renewables, power generation, and utility infrastructure." },
+    { name: "Infrastructure & Real Estate", slug: "infrastructure", icon: Building2, desc: "Construction, transportation, and commercial property protection." },
+    { name: "Transportation & Logistics", slug: "logistics", icon: Truck, desc: "Maritime, aviation, fleet, and cargo risk management." },
+    { name: "Retail & Hospitality", slug: "retail", icon: TrendingUp, desc: "Consumer retail, hospitality, and e-commerce enterprise risk." },
+    { name: "Agriculture & Environment", slug: "agriculture", icon: Wheat, desc: "Farming, food processing, and environmental liability coverage." },
+    { name: "Government & Public Sector", slug: "government", icon: Users, desc: "Public infrastructure, municipalities, and government entity risk." },
+    { name: "Education & Non-Profit", slug: "education", icon: BookOpen, desc: "Universities, schools, and non-profit organization protection." },
+    { name: "Emerging & Niche Industries", slug: "emerging", icon: Rocket, desc: "AI, space, drone, climate tech, and cryptocurrency risk solutions." }
+  ];
+
+  const solutions = [
+    { id: "identification", label: "Risk Identification", icon: Search, desc: "Discovery and mapping of enterprise risk exposures." },
+    { id: "assessment", label: "Risk Assessment", icon: BarChart3, desc: "Quantification and prioritization of risk scenarios." },
+    { id: "transfer", label: "Risk Transfer", icon: Shield, desc: "Insurance placement and alternative risk financing." },
+    { id: "monitoring", label: "Risk Monitoring", icon: RefreshCw, desc: "Continuous tracking and alerting on risk metrics." },
+    { id: "intelligence", label: "Risk Intelligence", icon: Radar, desc: "Data-driven insights and predictive analytics." },
+    { id: "claims-management", label: "Claims Management", icon: Activity, desc: "End-to-end claims advocacy and recovery optimization." },
+    { id: "compliance", label: "Compliance Management", icon: CheckCircle2, desc: "Regulatory adherence and reporting frameworks." },
+    { id: "esg-governance", label: "ESG Governance", icon: Leaf, desc: "Environmental, social, and governance risk frameworks." },
+    { id: "cyber-resilience", label: "Cyber Resilience", icon: Lock, desc: "Comprehensive cybersecurity and response planning." },
+    { id: "supply-chain-resilience", label: "Supply Chain Resilience", icon: Truck, desc: "Supplier risk management and continuity planning." },
+    { id: "business-continuity", label: "Business Continuity", icon: Clock, desc: "Disaster recovery and operational resilience planning." },
+    { id: "contract-intelligence", label: "Contract Intelligence", icon: FileText, desc: "Automated contract analysis and risk extraction." }
+  ];
+
+  const methodologySteps = [
+    { step: 1, title: "Discover", desc: "Identify and map all enterprise risk exposures across operations, assets, and liabilities." },
+    { step: 2, title: "Analyze", desc: "Quantify risks using proprietary models, historical data, and peer benchmarking." },
+    { step: 3, title: "Architect", desc: "Design optimal risk transfer structures matching business objectives and budget." },
+    { step: 4, title: "Implement", desc: "Place insurance programs, negotiate terms, and execute risk transfer mechanisms." },
+    { step: 5, title: "Monitor", desc: "Continuous surveillance of emerging risks and claims performance optimization." }
+  ];
+
+  const whyTrustflow = [
+    { title: "AI-Driven Risk Intelligence", desc: "Proprietary algorithms and data models for predictive risk quantification.", icon: Cpu },
+    { title: "Global Risk Architecture Framework", desc: "Integrated framework spanning 150+ markets and regulatory environments.", icon: Globe },
+    { title: "Industry-Specific Expertise", desc: "Sector leaders with deep domain knowledge in technology, healthcare, energy, and more.", icon: Award },
+    { title: "Technology-Enabled Advisory", desc: "Digital-first consulting with real-time analytics and monitoring.", icon: Zap },
+    { title: "Integrated Insurance Solutions", desc: "End-to-end risk transfer including captives, ART, and traditional insurance.", icon: Shield },
+    { title: "Continuous Monitoring", desc: "Ongoing risk surveillance and adaptive solution evolution.", icon: RefreshCw }
   ];
 
   const insights = [
-    { type: "Regulatory Alert", title: "Navigating the New SEC Cyber Disclosure Rules & DPDP Mandates", date: "Oct 2024", read: "5 min read" },
-    { type: "Market Update", title: "Hardening Capacity and Pricing Trends in the Global D&O Market", date: "Aug 2024", read: "8 min read" },
+    { type: "Regulatory Alert", title: "Navigating the New SEC Cyber Disclosure Rules &amp; DPDP Mandates", date: "Oct 2024", read: "5 min read" },
+    { type: "Market Update", title: "Hardening Capacity and Pricing Trends in the Global D&amp;O Market", date: "Aug 2024", read: "8 min read" },
     { type: "Whitepaper", title: "Parametric Risk Transfer in Agri-Tech Infrastructure Projects", date: "Jun 2024", read: "12 min read" },
-    { type: "Underwriting Brief", title: "Supply Chain CBI Triggers & Contingent Exposure Mitigation", date: "May 2024", read: "6 min read" },
+    { type: "Underwriting Brief", title: "Supply Chain CBI Triggers &amp; Contingent Exposure Mitigation", date: "May 2024", read: "6 min read" },
     { type: "Risk Advisory", title: "Structured ART Solutions and Captive Insurance Formations in GIFT City", date: "Mar 2024", read: "10 min read" }
   ];
+
+  // Fix methodology to not use step.icon since methodologySteps don't have icon
+  const methodologyStepsFixed = methodologySteps.map(s => ({...s, icon: Target}));
 
   // Carousel Refs
   const offeringsRef = useRef<HTMLDivElement>(null);
@@ -120,190 +170,125 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. FEATURED OFFERINGS SLIDER */}
-      <section id="offerings" className="py-24">
+      {/* 3. EXPLORE RISKS - Premium card layout */}
+      <section id="explore-risks" className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="flex justify-between items-end mb-12">
+            <div className="space-y-2">
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Risk Library</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">Explore Risk Categories</h2>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+                Navigate through 200+ risk categories across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { id: "cyber", label: "Cyber Risks", icon: Shield, count: "56 risks" },
+              { id: "ransomware", label: "Ransomware", icon: AlertCircle, count: "12 risks" },
+              { id: "data-breach", label: "Data Breach", icon: Database, count: "8 risks" },
+              { id: "deepfake-fraud", label: "Deepfake Fraud", icon: Zap, count: "5 risks" },
+              { id: "supply-chain", label: "Supply Chain Risks", icon: Truck, count: "34 risks" },
+              { id: "climate", label: "Climate Risks", icon: Leaf, count: "28 risks" },
+              { id: "esg", label: "ESG Risks", icon: Leaf, count: "22 risks" },
+              { id: "regulatory", label: "Regulatory Risks", icon: BookOpen, count: "19 risks" },
+              { id: "directors-officers", label: "Directors & Officers Liability", icon: Users, count: "15 risks" },
+              { id: "third-party", label: "Third-Party Risks", icon: Share2, count: "23 risks" },
+            ].map((risk) => {
+              const Icon = risk.icon;
+              return (
+                <div key={risk.id}>
+                  <Link href={`/risks/${risk.id}`} className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:bg-white hover:border-blue-300 transition-all duration-300 block">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                        <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-500 bg-white px-2 py-1 rounded-full">
+                        {risk.count}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-primary group-hover:text-blue-600 transition-colors">
+                      {risk.label}
+                    </h3>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. OFFERINGS - Categorized offerings grid */}
+      <section id="offerings" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
             <div className="space-y-2">
               <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Protection</span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">Featured Risk Offerings</h2>
               <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
-                Comprehensive risk transfer structures designed to protect enterprise capital across global operational exposures.
+                78 specialized risk transfer products engineered to protect enterprise balance sheets across every asset class, liability exposure, and emerging risk frontier.
               </p>
-            </div>
-            
-            <div className="flex items-center gap-3 shrink-0">
-              <Link href="/offerings/property-sfsp" className="text-blue-600 font-semibold hover:text-blue-800 flex items-center text-sm mr-4 hidden sm:flex">
-                View all 22 product lines <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-              {/* Carousel controls */}
-              <button
-                onClick={() => scrollCarousel(offeringsRef, "left")}
-                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 transition-colors shadow-sm"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scrollCarousel(offeringsRef, "right")}
-                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 transition-colors shadow-sm"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
             </div>
           </div>
           
-          {/* Slider list */}
-          <div
-            ref={offeringsRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 pr-4"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {featuredOfferings.map((offering, i) => (
-              <div key={i} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]">
-                <Link href={offering.href} className="group relative bg-white border border-slate-200 hover:border-blue-500/30 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-[260px] overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full blur-2xl group-hover:bg-blue-100/60 transition-colors duration-300" />
-                  
-                  <div className="relative z-10 space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                        {offering.tag}
-                      </span>
-                      <offering.icon className="h-6 w-6 text-slate-400 group-hover:text-blue-600 transition-colors" />
-                    </div>
-                    <h3 className="text-base font-bold text-primary font-serif tracking-tight">
-                      {offering.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
-                      {offering.desc}
-                    </p>
-                  </div>
-                  
-                  <div className="relative z-10 pt-4 mt-auto border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-600 group-hover:text-blue-800 transition-colors flex items-center">
-                      View coverage details <ChevronRight className="ml-1 h-3 w-3" />
-                    </span>
-                    <span className="text-[9px] font-bold text-slate-400 tracking-wider uppercase">
-                      A++ Rated Capacity
-                    </span>
-                  </div>
-                </Link>
-              </div>
+              <Link key={i} href={offering.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                <div className="flex-1">
+                  <offering.icon className="h-8 w-8 text-blue-600 mb-4" />
+                  <h3 className="text-base font-bold text-primary mb-2 font-serif">
+                    {offering.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                    {offering.desc}
+                  </p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-100">
+                  <span className="text-xs font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                    Explore <ChevronRight className="ml-1 h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. METHODOLOGY SHOWCASE */}
-      <section id="methodology" className="py-20 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(30,94,255,0.1),transparent_50%)]" />
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Advisory Process</span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
-                We design risk architectures. We don&apos;t just sell policies.
-              </h2>
-              <p className="text-sm md:text-base text-gray-300 leading-relaxed max-w-2xl">
-                Most brokers copy-paste last year&apos;s policies, carrying forward critical coverage gaps. GBRS audits corporate policies block-by-block to secure custom extensions, verify operational limits, and test claim responsiveness.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">Exclusion Auditing</h4>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">Finding silent exclusions hidden in treaty sub-limits.</p>
+      {/* 4. METHODOLOGY TIMELINE - Five-step framework */}
+      <section id="methodology" className="py-24 bg-white border-y">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Advisory Framework</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
+              Five-Step Risk Architecture Process
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {methodologyStepsFixed.map((step, idx) => {
+              const StepIcon = step.icon;
+              return (
+                <div key={step.step} className="relative">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
+                      {step.step}
+                    </div>
+                    <h3 className="text-lg font-bold text-primary font-serif">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.desc}
+                    </p>
                   </div>
+                  {idx < methodologyStepsFixed.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200">
+                      <ChevronRight className="absolute top-1/2 -translate-y-1/2 right-0 w-5 h-5 text-blue-600" />
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">Capacity Syndication</h4>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">Pruning costs by matching Lloyds syndicates and domestic capacity.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">Active Claims Advocacy</h4>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">Pre-agreed SLA triggers to ensure insurers pay losses quickly.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wide">Global Compliance</h4>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">Structuring local policies mapping to international regulations.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 px-6 border-0 shadow-md">
-                    Request Risk Audit <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href="/about-us/our-story">
-                  <Button variant="outline" className="border-white/20 hover:border-white text-white hover:bg-white/10 h-12 px-6">
-                    Our Philosophy
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Visual Dashboard Mockup */}
-            <div className="lg:col-span-5 bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-2xl space-y-6 backdrop-blur-sm">
-              <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-                <div>
-                  <h3 className="text-sm font-bold text-slate-200">Risk Exposure Health</h3>
-                  <p className="text-[10px] text-slate-500">Corporate Assessment Profile</p>
-                </div>
-                <span className="text-[10px] font-bold text-red-400 bg-red-950/40 border border-red-900/30 px-2 py-0.5 rounded">
-                  Critical Gaps Found
-                </span>
-              </div>
-
-              <div className="flex items-center gap-6">
-                <div className="w-24 h-24 rounded-full border-8 border-slate-800 border-t-blue-500 border-r-blue-500 flex flex-col items-center justify-center shrink-0">
-                  <span className="text-xl font-extrabold text-blue-400">68%</span>
-                  <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Score</span>
-                </div>
-                <div className="space-y-2 flex-1">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Property Coverages</span>
-                    <span className="font-semibold text-slate-200">92%</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Liability Shield</span>
-                    <span className="font-semibold text-slate-200">54%</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">Cyber Resilience</span>
-                    <span className="font-semibold text-slate-200">38%</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-2">
-                <div className="p-3 bg-red-950/20 border border-red-900/20 rounded-lg flex items-start gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-[11px] font-bold text-red-200">Exclusion Gap: Cyber Ransomware</h4>
-                    <p className="text-[9px] text-slate-400 mt-0.5">Current D&amp;O policy carries systemic tech exclusions. Re-architecture recommended.</p>
-                  </div>
-                </div>
-                <div className="p-3 bg-blue-950/20 border border-blue-900/20 rounded-lg flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-[11px] font-bold text-blue-200">Asset Valuation Compliance</h4>
-                    <p className="text-[9px] text-slate-400 mt-0.5">Asset Reinvestment Valuation correctly matching replacement costs.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+              );
+            })}
           </div>
         </div>
       </section>
@@ -363,6 +348,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 5. SOLUTIONS GRID */}
+      <section id="solutions" className="py-24 bg-slate-50">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Business Outcomes</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
+              Risk Management Solutions
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl mx-auto">
+              Group by business outcomes to achieve measurable risk reduction and compliance.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {solutions.map((solution) => {
+              const Icon = solution.icon;
+              return (
+                <div key={solution.id}>
+                  <Link href={`/solutions/${solution.id}`} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 block">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
+                      <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
+                      {solution.label}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {solution.desc}
+                    </p>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHY TRUSTFLOW - Differentiators */}
+      <section id="why-trustflow" className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Differentiators</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
+              Why TRUSTFLOW
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyTrustflow.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="text-center space-y-4">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto">
+                    <Icon className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-primary font-serif">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* 6. TRUST & SOCIAL PROOF */}
       <section id="trust" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
@@ -403,7 +455,7 @@ export default function Home() {
                   ))}
                 </div>
                 <blockquote className="text-base md:text-lg text-slate-700 font-medium italic leading-relaxed">
-                  &ldquo;GBRS re-architected our entire global D&amp;O and Cyber program ahead of our IPO, securing capacity that our previous broker deemed impossible while significantly reducing our total cost of risk.&rdquo;
+                  &ldquo;TRUSTFLOW re-architected our entire global D&amp;O and Cyber program ahead of our IPO, securing capacity that our previous broker deemed impossible while significantly reducing our total cost of risk.&rdquo;
                 </blockquote>
               </div>
               <div className="flex items-center gap-3.5 pt-8 border-t border-slate-100 mt-8">
@@ -421,7 +473,7 @@ export default function Home() {
                 <Award className="w-8 h-8 text-blue-300" />
                 <h3 className="text-lg font-bold font-serif tracking-tight">Structured Advocacy</h3>
                 <p className="text-xs text-blue-100 leading-relaxed">
-                  We don&apos;t just negotiate prices. GBRS manages claims from notification to payout, leveraging pre-agreed insurer SLA templates to reduce delays.
+                  We don&apos;t just negotiate prices. TRUSTFLOW manages claims from notification to payout, leveraging pre-agreed insurer SLA templates to reduce delays.
                 </p>
               </div>
 
@@ -496,6 +548,21 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 8. CONTACT CTA */}
+      <section id="contact" className="py-24 bg-primary text-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
+            Ready to Architect Your Risk Strategy?
+          </h2>
+          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
+            Book a free 30-minute diagnostic session with our senior risk architects.
+          </p>
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+            Request Free Risk Assessment <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
     </div>

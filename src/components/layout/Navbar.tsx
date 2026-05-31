@@ -23,7 +23,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold tracking-tight text-primary leading-tight">
-              Global Business<br />Risk Solutions
+              TRUSTFLOW
+            </span>
+            <span className="text-xs font-medium text-muted-foreground hidden sm:inline">
+              Business Risk Architecture Platform
             </span>
           </Link>
         </div>
@@ -33,7 +36,119 @@ export function Navbar() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Risks</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
+                    <div className="col-span-2 border-b pb-2 mb-2">
+                      <h4 className="text-sm font-bold text-primary">Risk Categories</h4>
+                      <p className="text-xs text-muted-foreground">Cyber, Operational, Financial, Supply Chain, ESG, Climate, Regulatory, Technology, and Third-Party risks.</p>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <Link href="/risks/cyber" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cyber Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Ransomware, Data Breach, Deepfake Fraud</div>
+                      </Link>
+                      
+                      <Link href="/risks/supply-chain" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Supply Chain Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Vendor failure, logistics disruption, CBI</div>
+                      </Link>
+                      
+                      <Link href="/risks/climate" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Climate Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Parametric, weather index, natural catastrophe</div>
+                      </Link>
+                      
+                      <Link href="/risks/esg" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">ESG Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Greenwashing, carbon liability, BRSR compliance</div>
+                      </Link>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <Link href="/risks/regulatory" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Regulatory Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">SEBI, RBI, FCA, DPDP compliance</div>
+                      </Link>
+                      
+                      <Link href="/risks/directors-officers" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Directors & Officers Liability</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">D&O structuring, securities defense, EPL</div>
+                      </Link>
+                      
+                      <Link href="/risks/third-party" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Third-Party Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Vendor liability, contractor coverage, partner risk</div>
+                      </Link>
+                      
+                      <Link href="/risks/technology" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Technology Risks</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">AI liability, software failure, cloud outage</div>
+                      </Link>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
+                    <div className="col-span-2 border-b pb-2 mb-2">
+                      <h4 className="text-sm font-bold text-primary">TRUSTFLOW Platform Suite</h4>
+                      <p className="text-xs text-muted-foreground">35 AI-powered risk intelligence and insurance platforms.</p>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <Link href="/platform/risk-diagnostic-engine" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">TrustFlow Risk Diagnostic Engine</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">AI-driven risk assessment and gap analysis</div>
+                      </Link>
+                      
+                      <Link href="/platform/risk-dna-mapper" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Enterprise Risk DNA Mapper</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Comprehensive risk profiling and architecture</div>
+                      </Link>
+                      
+                      <Link href="/platform/cyber-intelligence" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cyber Threat Intelligence</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Real-time threat monitoring and alerts</div>
+                      </Link>
+                      
+                      <Link href="/platform/contract-intelligence" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">AI Contract Intelligence Engine</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Automated risk clause extraction and analysis</div>
+                      </Link>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <Link href="/platform/ma-due-diligence" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">M&A Due Diligence Suite</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Transaction risk assessment and insurance structuring</div>
+                      </Link>
+                      
+                      <Link href="/platform/supply-chain-visualizer" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Supply Chain Risk Visualizer</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Mapping dependencies and vulnerability points</div>
+                      </Link>
+                      
+                      <Link href="/platform/risk-feed" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Risk Intelligence Feed</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Continuous monitoring and alerts</div>
+                      </Link>
+                      
+                      <Link href="/platform/client-portal" className="block group/item">
+                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Client Risk Portal</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Dashboard access to all risk metrics and claims</div>
+                      </Link>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Offerings</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
                     <div className="col-span-2 border-b pb-2 mb-2">
@@ -307,8 +422,8 @@ export function Navbar() {
                 <NavigationMenuContent>
                   <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
                     <div className="col-span-2 border-b pb-2 mb-2">
-                      <h4 className="text-sm font-bold text-primary">About GBRS</h4>
-                      <p className="text-xs text-muted-foreground">Protect the Balance Sheet. Enable the Business Plan.</p>
+                      <h4 className="text-sm font-bold text-primary">About TRUSTFLOW</h4>
+                      <p className="text-xs text-muted-foreground">AI-Powered Risk Intelligence, Insurance & Resilience Ecosystem.</p>
                     </div>
                     
                     <div className="space-y-4">
@@ -358,11 +473,9 @@ export function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Contact
-                  </NavigationMenuLink>
-                </Link>
+                <a href="/contact" className={navigationMenuTriggerStyle()}>
+                  Contact
+                </a>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -396,7 +509,25 @@ export function Navbar() {
                     <Link href="/#industries" className="hover:text-primary transition-colors">Industry Quick Links</Link>
                     <Link href="/#diagnostic" className="hover:text-primary transition-colors">Risk Diagnostic CTA</Link>
                     <Link href="/#insights" className="hover:text-primary transition-colors">Insights / News Strip</Link>
-                    <Link href="/#footer" className="hover:text-primary transition-colors">Footer</Link>
+                  </div>
+                </div>
+                <div>
+                  <Link href="/risks" className="text-lg font-semibold text-primary">Risks</Link>
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                    <Link href="/risks/cyber" className="hover:text-primary transition-colors">Cyber Risks</Link>
+                    <Link href="/risks/supply-chain" className="hover:text-primary transition-colors">Supply Chain Risks</Link>
+                    <Link href="/risks/climate" className="hover:text-primary transition-colors">Climate Risks</Link>
+                    <Link href="/risks/esg" className="hover:text-primary transition-colors">ESG Risks</Link>
+                    <Link href="/risks/regulatory" className="hover:text-primary transition-colors">Regulatory Risks</Link>
+                  </div>
+                </div>
+                <div>
+                  <Link href="/platform" className="text-lg font-semibold text-primary">Platform</Link>
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                    <Link href="/platform/risk-diagnostic-engine" className="hover:text-primary transition-colors">Risk Diagnostic Engine</Link>
+                    <Link href="/platform/risk-dna-mapper" className="hover:text-primary transition-colors">Risk DNA Mapper</Link>
+                    <Link href="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Intelligence</Link>
+                    <Link href="/platform/contract-intelligence" className="hover:text-primary transition-colors">Contract Intelligence</Link>
                   </div>
                 </div>
                 <Link href="/offerings" className="text-lg font-medium">Offerings</Link>

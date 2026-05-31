@@ -5,6 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-trustflow-navy: #0F172A;
+  --color-trustflow-blue: #0052CC;
+  --color-trustflow-accent: #2563EB;
+  --color-trustflow-light: #F8FAFC;
   --color-gbrs-navy: #0B1F3A;
   --color-gbrs-blue: #1E5EFF;
   --color-gbrs-light: #EAF2FF;
@@ -61,32 +65,32 @@
   --card-foreground: #111827;
   --popover: #FFFFFF;
   --popover-foreground: #111827;
-  --primary: #0B1F3A;
+  --primary: #0052CC;
   --primary-foreground: #FFFFFF;
-  --secondary: #EAF2FF;
-  --secondary-foreground: #0B1F3A;
+  --secondary: #F8FAFC;
+  --secondary-foreground: #0F172A;
   --muted: #F3F4F6;
   --muted-foreground: #4B5563;
-  --accent: #EAF2FF;
-  --accent-foreground: #1E5EFF;
+  --accent: #EFF6FF;
+  --accent-foreground: #0052CC;
   --destructive: #EF4444;
   --border: #E5E7EB;
   --input: #E5E7EB;
-  --ring: #1E5EFF;
-  --chart-1: #1E5EFF;
-  --chart-2: #0F766E;
-  --chart-3: #0B1F3A;
-  --chart-4: #EAF2FF;
+  --ring: #2563EB;
+  --chart-1: #0052CC;
+  --chart-2: #2563EB;
+  --chart-3: #0F172A;
+  --chart-4: #F8FAFC;
   --chart-5: #3B82F6;
   --radius: 0.5rem;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #111827;
-  --sidebar-primary: #0B1F3A;
+  --sidebar-primary: #0052CC;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F3F4F6;
   --sidebar-accent-foreground: #111827;
   --sidebar-border: #E5E7EB;
-  --sidebar-ring: #1E5EFF;
+  --sidebar-ring: #2563EB;
 }
 
 .dark {
