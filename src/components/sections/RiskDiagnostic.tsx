@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, AlertCircle, TrendingUp, BarChart3, FileText, Users } from "lucide-react";
+import { Shield, AlertCircle, TrendingUp, BarChart3, FileText, Users, ArrowRight } from "lucide-react";
 
 interface RiskScore {
   risk: string;
