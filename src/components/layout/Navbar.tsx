@@ -100,54 +100,130 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
-                    <div className="col-span-2 border-b pb-2 mb-2">
-                      <h4 className="text-sm font-bold text-primary">TRUSTFLOW Platform Suite</h4>
-                      <p className="text-xs text-muted-foreground">35 AI-powered risk intelligence and insurance platforms.</p>
+                  <div className="w-[1200px] grid grid-cols-4 gap-6 p-6 bg-white">
+                    <div>
+                      <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600">Risk Intelligence</h4>
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href="/platform/risk-diagnostic-engine" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Risk Diagnostic Engine</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">AI-powered enterprise risk assessment across 20 domains</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/risk-dna-mapper" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Enterprise Risk DNA Mapper</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Deep analysis constructing complete organizational risk profiles</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/cyber-intelligence" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Cyber Threat Intelligence Platform</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Personalized threat intelligence with predictive modeling</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/risk-intelligence-aggregator" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Real-Time Risk Intelligence Aggregator</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Fuses multi-domain signals into unified risk intelligence</div>
+                          </Link>
+                        </li>
+                      </ul>
                     </div>
                     
-                    <div className="space-y-4">
-                      <Link href="/platform/risk-diagnostic-engine" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">TrustFlow Risk Diagnostic Engine</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">AI-driven risk assessment and gap analysis</div>
-                      </Link>
-                      
-                      <Link href="/platform/risk-dna-mapper" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Enterprise Risk DNA Mapper</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Comprehensive risk profiling and architecture</div>
-                      </Link>
-                      
-                      <Link href="/platform/cyber-intelligence" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Cyber Threat Intelligence</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Real-time threat monitoring and alerts</div>
-                      </Link>
-                      
-                      <Link href="/platform/contract-intelligence" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">AI Contract Intelligence Engine</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Automated risk clause extraction and analysis</div>
-                      </Link>
+                    <div>
+                      <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600">Due Diligence & Analytics</h4>
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href="/platform/contract-intelligence" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">AI Contract Intelligence Engine</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Extracts and risk-scores contracts at machine speed</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/ma-due-diligence" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">M&A Due Diligence Suite</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Comprehensive transaction risk analysis in 72 hours</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/counterparty-assessment" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Counterparty Risk Assessment Engine</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Continuous monitoring of business ecosystem entities</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/cyber-due-diligence" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Cyber Due Diligence Platform</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">External vulnerability assessment without internal access</div>
+                          </Link>
+                        </li>
+                      </ul>
                     </div>
                     
-                    <div className="space-y-4">
-                      <Link href="/platform/ma-due-diligence" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">M&A Due Diligence Suite</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Transaction risk assessment and insurance structuring</div>
-                      </Link>
-                      
-                      <Link href="/platform/supply-chain-visualizer" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Supply Chain Risk Visualizer</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Mapping dependencies and vulnerability points</div>
-                      </Link>
-                      
-                      <Link href="/platform/risk-feed" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Risk Intelligence Feed</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Continuous monitoring and alerts</div>
-                      </Link>
-                      
-                      <Link href="/platform/client-portal" className="block group/item">
-                        <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Client Risk Portal</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Dashboard access to all risk metrics and claims</div>
-                      </Link>
+                    <div>
+                      <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600">Monitoring & Operations</h4>
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href="/platform/supply-chain-monitor" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Supply Chain Risk Monitor</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Multi-tier supplier financial and operational monitoring</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/political-monitor" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Political Risk Monitor</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Real-time geopolitical risk tracking across 195 countries</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/regulatory-intelligence" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Regulatory Intelligence Platform</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Monitors regulatory changes across 150+ jurisdictions</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/climate-scenario" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Climate Scenario Analysis Platform</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Long-term climate risk modeling under multiple scenarios</div>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600">Client Experience</h4>
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href="/platform/client-portal" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Client Risk Portal</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Dashboard access to all risk metrics and claims</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/risk-feed" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Risk Intelligence Feed</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Personalized risk intelligence and action alerts</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/executive-dashboards" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">Executive Dashboards</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">Board-level risk visualization and reporting</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/platform/api-integrations" className="block group/item">
+                            <div className="text-sm font-medium text-primary group-hover/item:text-blue-600 transition-colors">API Integrations</div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-tight">RESTful APIs for seamless system connectivity</div>
+                          </Link>
+                        </li>
+                        <li className="pt-3 mt-3 border-t">
+                          <Link href="/platform" className="text-sm font-semibold text-blue-600 hover:text-blue-800">
+                            View All 45 Platforms →
+                          </Link>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -533,8 +609,11 @@ export function Navbar() {
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
                     <Link href="/platform/risk-diagnostic-engine" className="hover:text-primary transition-colors">Risk Diagnostic Engine</Link>
                     <Link href="/platform/risk-dna-mapper" className="hover:text-primary transition-colors">Risk DNA Mapper</Link>
-                    <Link href="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Intelligence</Link>
+                    <Link href="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Threat Intelligence</Link>
                     <Link href="/platform/contract-intelligence" className="hover:text-primary transition-colors">Contract Intelligence</Link>
+                    <Link href="/platform/ma-due-diligence" className="hover:text-primary transition-colors">M&A Due Diligence Suite</Link>
+                    <Link href="/platform/supply-chain-monitor" className="hover:text-primary transition-colors">Supply Chain Risk Monitor</Link>
+                    <Link href="/platform/political-monitor" className="hover:text-primary transition-colors">Political Risk Monitor</Link>
                   </div>
                 </div>
                 <Link href="/offerings" className="text-lg font-medium">Offerings</Link>
