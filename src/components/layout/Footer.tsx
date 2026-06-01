@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="mb-4 inline-block text-2xl font-bold tracking-tight">
-              GBRS
+              TRUSTFLOW
             </Link>
             <p className="mb-6 max-w-sm text-sm text-primary-foreground/80 leading-relaxed">
               Architecting enterprise-grade non-life insurance and risk transfer solutions across industries, infrastructure, governance, and global operations.
@@ -22,7 +22,7 @@ export function Footer() {
               </Link>
             </div>
           </div>
-          
+
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground/90">Offerings</h3>
             <ul className="space-y-3 text-sm text-primary-foreground/80">
@@ -33,7 +33,7 @@ export function Footer() {
               <li><Link href="/offerings" className="hover:text-white transition-colors">Parametric Risk</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground/90">Industries</h3>
             <ul className="space-y-3 text-sm text-primary-foreground/80">
@@ -44,7 +44,7 @@ export function Footer() {
               <li><Link href="/industries" className="hover:text-white transition-colors">Infrastructure</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground/90">Company</h3>
             <ul className="space-y-3 text-sm text-primary-foreground/80">
@@ -56,7 +56,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-16 flex flex-col items-center justify-between border-t border-primary-foreground/10 pt-8 sm:flex-row">
           <p className="text-xs text-primary-foreground/60">
             &copy; {new Date().getFullYear()} Global Business Risk Solutions. All rights reserved.

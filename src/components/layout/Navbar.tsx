@@ -20,12 +20,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
+        <div className="flex items-center">
+          <Link href="/" className="flex flex-col items-center text-center">
             <span className="text-xl font-bold tracking-tight text-primary leading-tight">
               TRUSTFLOW
             </span>
-            <span className="text-xs font-medium text-muted-foreground hidden sm:inline">
+            <span className="text-xs font-normal text-muted-foreground mt-1">
               Business Risk Architecture Platform
             </span>
           </Link>
@@ -229,8 +229,8 @@ export function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Offerings</NavigationMenuTrigger>
+<NavigationMenuItem>
+                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[650px] grid-cols-2 gap-4 p-5">
                     <div className="col-span-2 border-b pb-2 mb-2">
@@ -278,7 +278,7 @@ export function Navbar() {
                       
                       <Link href="/#footer" className="block group/item">
                         <div className="text-sm font-semibold text-primary group-hover/item:text-blue-600 transition-colors">Footer Information</div>
-                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Nav links, regulatory disclaimers, IRDAI/FCA notices, contact</div>
+                        <div className="text-xs text-muted-foreground mt-0.5 leading-normal">Nav links, regulatory DISCLAIMERS, IRDAI/FCA notices, contact</div>
                       </Link>
                     </div>
                   </div>
@@ -579,22 +579,29 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
-              <div className="flex flex-col gap-6 pt-10 pb-8">
-                <div>
-                  <Link href="/" className="text-lg font-semibold text-primary">Home</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/#hero" className="hover:text-primary transition-colors">Hero / Value Proposition</Link>
-                    <Link href="/#metrics" className="hover:text-primary transition-colors">Key Metrics Strip</Link>
-                    <Link href="/#offerings" className="hover:text-primary transition-colors">Featured Offerings Grid</Link>
-                    <Link href="/#trust" className="hover:text-primary transition-colors">Trust & Social Proof</Link>
-                    <Link href="/#industries" className="hover:text-primary transition-colors">Industry Quick Links</Link>
-                    <Link href="/#diagnostic" className="hover:text-primary transition-colors">Risk Diagnostic CTA</Link>
-                    <Link href="/#insights" className="hover:text-primary transition-colors">Insights / News Strip</Link>
+<SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+                <div className="flex flex-col gap-6 pt-10 pb-8">
+                  <div>
+                    <Link href="/" className="flex flex-col items-center text-center mb-4">
+                      <span className="text-xl font-bold tracking-tight text-primary leading-tight">
+                        TRUSTFLOW
+                      </span>
+                      <span className="text-xs font-normal text-muted-foreground mt-1">
+                        Business Risk Architecture Platform
+                      </span>
+                    </Link>
+                    <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                      <Link href="/#hero" className="hover:text-primary transition-colors">Hero / Value Proposition</Link>
+                      <Link href="/#metrics" className="hover:text-primary transition-colors">Key Metrics Strip</Link>
+                      <Link href="/#offerings" className="hover:text-primary transition-colors">Featured Offerings Grid</Link>
+                      <Link href="/#trust" className="hover:text-primary transition-colors">Trust & Social Proof</Link>
+                      <Link href="/#industries" className="hover:text-primary transition-colors">Industry Quick Links</Link>
+                      <Link href="/#diagnostic" className="hover:text-primary transition-colors">Risk Diagnostic CTA</Link>
+                      <Link href="/#insights" className="hover:text-primary transition-colors">Insights / News Strip</Link>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <Link href="/risks" className="text-lg font-semibold text-primary">Risks</Link>
+                  <div>
+                    <Link href="/risks" className="text-lg font-semibold text-primary">Risks</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
                     <Link href="/risks/cross-industry" className="hover:text-primary transition-colors">Cross-Industry Risks</Link>
                     <Link href="/risks/cross-functional" className="hover:text-primary transition-colors">Cross-Functional Risks</Link>
