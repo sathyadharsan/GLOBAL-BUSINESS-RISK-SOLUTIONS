@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -164,4 +166,24 @@ export default function PlatformPage() {
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
               Schedule Platform Demo
             </Button>
-     
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-primary text-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
+          <Award className="h-12 w-12 text-blue-300 mx-auto mb-6" />
+          <h2 className="text-3xl font-bold mb-6 font-serif">
+            Transform Your Risk Management Operations
+          </h2>
+          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
+            Deploy TRUSTFLOW's AI-powered platform suite to automate risk assessment, improve accuracy, and accelerate decision-making.
+          </p>
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+            Request Enterprise Access <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
