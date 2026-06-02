@@ -52,7 +52,14 @@ export default function Solutions() {
       onItemSelect={(id) => setSelectedSlug(id)}
       heroTitle="Enterprise Risk Architecture & Structures"
       heroSubtitle="Strategic risk transfer mechanisms transcending product lines, designed to optimize your capital efficiency and secure business longevity. Click any structure below."
-      heroBadges={["6 Major Program Structures", "Alternative Risk Transfer", "Optimized TCOR"]}
+      heroBadges={["Strategic Services"]}
+      heroImage="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+      heroStats={[
+        { val: "6", label: "Program Structures" },
+        { val: "150+", label: "Countries" },
+        { val: "A++", label: "Carriers" },
+        { val: "30+", label: "Years Experience" }
+      ]}
     >
       
       {/* 1. Category Summary Header */}

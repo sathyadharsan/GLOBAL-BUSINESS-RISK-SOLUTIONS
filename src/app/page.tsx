@@ -11,12 +11,13 @@ export default function Home() {
     {
       title: (
         <>
-          Architecting Business Resilience<br />
+          Enterprise Risk Architecture<br />
           <span className="text-blue-400">for a Complex World</span>
         </>
       ),
       subtitle: "TRUSTFLOW helps organizations identify, assess, mitigate, transfer, and monitor risks across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1486406146906-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+      badge: "Enterprise Risk",
       buttons: [
         { label: "Book Risk Assessment", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/contact" },
         { label: "Explore Solutions", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/property-sfsp" }
@@ -25,29 +26,61 @@ export default function Home() {
     {
       title: (
         <>
-          Architecting Resilience.<br />
-          <span className="text-blue-400">Neutralizing Liabilities.</span>
+          AI-Powered Risk Intelligence<br />
+          <span className="text-blue-400">at Enterprise Scale</span>
         </>
       ),
-      subtitle: "Mitigate operational volatility with custom-designed D&O, Cyber, and General Liability structures matching national regulatory mandates and SEBI/FCA compliance.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+      subtitle: "Proprietary algorithms and data models for predictive risk quantification across 150+ markets and regulatory environments.",
+      image: "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
+      badge: "AI Intelligence",
       buttons: [
-        { label: "Liability Shield", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cgl" },
-        { label: "Consult an Advocate", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/contact" }
+        { label: "See Our Platforms", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/platform" },
+        { label: "View Risk Categories", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/risks" }
       ]
     },
     {
       title: (
         <>
-          Global Risk Placement.<br />
-          <span className="text-blue-400">A++ Carrier Capacity.</span>
+          Global Insurance & Risk Transfer<br />
+          <span className="text-blue-400">With A++ Carrier Access</span>
         </>
       ),
-      subtitle: "Secure institutional capacity for high-risk assets, Marine Hull, parametric setups, and catastrophic event protections across 150+ countries.",
-      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop",
+      subtitle: "Secure institutional capacity for high-risk assets across property, casualty, cyber, D&O, and specialty lines with direct Lloyd's and global carrier access.",
+      image: "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+      badge: "Insurance Solutions",
       buttons: [
-        { label: "Asset Coverages", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/property-sfsp" },
-        { label: "Parametric Risk", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/parametric" }
+        { label: "Explore Offerings", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings" },
+        { label: "Get TCOR Audit", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/contact" }
+      ]
+    },
+    {
+      title: (
+        <>
+          Supply Chain & Operational Resilience<br />
+          <span className="text-blue-400">For Modern Enterprises</span>
+        </>
+      ),
+      subtitle: "CBS coverage, supplier risk management, and business interruption protection designed for today's interconnected supply networks.",
+      image: "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
+      badge: "Operational Risk",
+      buttons: [
+        { label: "View Use Cases", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/use-cases" },
+        { label: "Supply Chain Coverage", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/marine-cargo" }
+      ]
+    },
+    {
+      title: (
+        <>
+          Cyber, ESG & Emerging Risk Solutions<br />
+          <span className="text-blue-400">Future-Ready Protection</span>
+        </>
+      ),
+      subtitle: "Ransomware response, DPDP compliance, climate transition planning, and emerging risk frameworks for tomorrow's challenges.",
+      image: "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
+      badge: "Emerging Risk",
+      buttons: [
+        { label: "Cyber Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cyber" },
+        { label: "ESG Framework", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/solutions/esg-governance" }
       ]
     }
   ];
@@ -77,18 +110,18 @@ export default function Home() {
   ];
 
   const industries = [
-    { name: "Technology & Digital", slug: "technology-saas", icon: Cpu, desc: "Software, SaaS, IT services, and digital platform risk architecture." },
-    { name: "Financial Services", slug: "fintech", icon: TrendingUp, desc: "Banking, fintech, insurance, and financial institution risk solutions." },
-    { name: "Healthcare & Life Sciences", slug: "healthcare", icon: HeartPulse, desc: "Pharmaceutical, medical device, and healthcare provider coverage." },
-    { name: "Manufacturing & Industrial", slug: "manufacturing", icon: Factory, desc: "Heavy industry, automotive, and advanced manufacturing risk transfer." },
-    { name: "Energy & Utilities", slug: "energy", icon: Zap, desc: "Oil & gas, renewables, power generation, and utility infrastructure." },
-    { name: "Infrastructure & Real Estate", slug: "infrastructure", icon: Building2, desc: "Construction, transportation, and commercial property protection." },
-    { name: "Transportation & Logistics", slug: "logistics", icon: Truck, desc: "Maritime, aviation, fleet, and cargo risk management." },
-    { name: "Retail & Hospitality", slug: "retail", icon: TrendingUp, desc: "Consumer retail, hospitality, and e-commerce enterprise risk." },
-    { name: "Agriculture & Environment", slug: "agriculture", icon: Wheat, desc: "Farming, food processing, and environmental liability coverage." },
-    { name: "Government & Public Sector", slug: "government", icon: Users, desc: "Public infrastructure, municipalities, and government entity risk." },
-    { name: "Education & Non-Profit", slug: "education", icon: BookOpen, desc: "Universities, schools, and non-profit organization protection." },
-    { name: "Emerging & Niche Industries", slug: "emerging", icon: Rocket, desc: "AI, space, drone, climate tech, and cryptocurrency risk solutions." }
+    { name: "Technology & Digital", slug: "technology-digital", icon: Cpu, desc: "Software, SaaS, IT services, and digital platform risk architecture." },
+    { name: "Financial Services", slug: "financial-services", icon: TrendingUp, desc: "Banking, fintech, insurance, and financial institution risk solutions." },
+    { name: "Healthcare & Life Sciences", slug: "healthcare-life-sciences", icon: HeartPulse, desc: "Pharmaceutical, medical device, and healthcare provider coverage." },
+    { name: "Manufacturing & Industrial", slug: "manufacturing-industrial", icon: Factory, desc: "Heavy industry, automotive, and advanced manufacturing risk transfer." },
+    { name: "Energy & Utilities", slug: "energy-utilities", icon: Zap, desc: "Oil & gas, renewables, power generation, and utility infrastructure." },
+    { name: "Infrastructure & Real Estate", slug: "infrastructure-real-estate", icon: Building2, desc: "Construction, transportation, and commercial property protection." },
+    { name: "Transportation & Logistics", slug: "transportation-logistics", icon: Truck, desc: "Maritime, aviation, fleet, and cargo risk management." },
+    { name: "Retail & Hospitality", slug: "retail-hospitality", icon: TrendingUp, desc: "Consumer retail, hospitality, and e-commerce enterprise risk." },
+    { name: "Agriculture & Environment", slug: "agriculture-environment", icon: Wheat, desc: "Farming, food processing, and environmental liability coverage." },
+    { name: "Government & Public Sector", slug: "government-public-sector", icon: Users, desc: "Public infrastructure, municipalities, and government entity risk." },
+    { name: "Education & Non-Profit", slug: "education-nonprofit", icon: BookOpen, desc: "Universities, schools, and non-profit organization protection." },
+    { name: "Emerging & Niche Industries", slug: "emerging-industries", icon: Rocket, desc: "AI, space, drone, climate tech, and cryptocurrency risk solutions." }
   ];
 
   const solutions = [

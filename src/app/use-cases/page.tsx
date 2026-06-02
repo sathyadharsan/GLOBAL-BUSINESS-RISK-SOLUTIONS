@@ -110,7 +110,14 @@ export default function UseCases() {
       }}
       heroTitle="30 Enterprise Client Use Cases"
       heroSubtitle="Real-world scenario simulations demonstrating how our integrated risk transfer architectures protect corporate cash flow and corporate governance globally. Select a tab below."
-      heroBadges={["30 Scenario Analyses", "8 Detailed Case Profiles", "Authority & Trust"]}
+      heroBadges={["Case Studies"]}
+      heroImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+      heroStats={[
+        { val: "30", label: "Use Cases" },
+        { val: "8", label: "Detailed Cases" },
+        { val: "150+", label: "Countries" },
+        { val: "Fortune 500", label: "Clients" }
+      ]}
     >
       
       {/* 1. Category Header */}

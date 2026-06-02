@@ -138,7 +138,14 @@ export default function AboutUs() {
       onItemSelect={(id) => setSelectedTab(id)}
       heroTitle="Enterprise Risk Advisory Elite"
       heroSubtitle="Global Business Risk Solutions operates at the intersection of corporate governance, capital efficiency, and strategic risk transfer. Operating across India, US, and EU."
-      heroBadges={["IRDAI Composite Broker", "Lloyd's Registered Coverholder", "TCOR Centric"]}
+      heroBadges={["About Us"]}
+      heroImage="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
+      heroStats={[
+        { val: "150+", label: "Countries" },
+        { val: "30+", label: "Industries" },
+        { val: "24/7", label: "Monitoring" },
+        { val: "A++", label: "Capacity" }
+      ]}
     >
       
       {/* 1. Category Header */}

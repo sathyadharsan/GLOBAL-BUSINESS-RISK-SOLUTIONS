@@ -21,6 +21,16 @@ const likelihoodLabels: Record<string, { label: string; color: string }> = {
   "Almost Certain": { label: "Almost Certain", color: "#DC2626" },
 };
 
+const RISK_IMAGES: Record<string, string> = {
+  "cyber": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "ransomware": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "data-breach": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "supply-chain": "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
+  "climate": "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
+  "financial": "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2072&auto=format&fit=crop"
+};
+
 export function RiskDetail({ slug }: RiskDetailProps) {
   const isCategory = riskCategories[slug];
   const risk = risksData[slug];
@@ -50,14 +60,24 @@ export function RiskDetail({ slug }: RiskDetailProps) {
         }, null as (typeof riskCategories)[string] | null) ?? null
       : null;
 
+  const heroImage = risk ? (RISK_IMAGES[slug] || RISK_IMAGES["default"]) : RISK_IMAGES["default"];
+
   if (isCategory) {
     const Icon = isCategory.icon;
     return (
       <div className="min-h-screen bg-white">
-        <div className="bg-primary text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,82,204,0.08),transparent_55%)]" />
-          <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
-            <div className="max-w-4xl">
+        {/* Hero Background */}
+        <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+          <div className="absolute inset-0 z-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+              style={{ backgroundImage: `url('${heroImage}')` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
+          <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
+            <div className="max-w-4xl space-y-6">
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center"
@@ -69,15 +89,15 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                   Risk Category
                 </span>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold font-serif mb-2">
+              <h1 className="text-3xl md:text-4xl font-bold font-serif mb-2 text-white">
                 {isCategory.label}
               </h1>
-              <p className="text-lg text-gray-300 mb-6">
+              <p className="text-lg text-gray-300 mb-6 max-w-3xl">
                 Explore {isCategory.risks.length} risks in this category
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
         <div className="container mx-auto px-4 py-12">
           <div className="text-center mb-10">
@@ -138,10 +158,18 @@ export function RiskDetail({ slug }: RiskDetailProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,82,204,0.08),transparent_55%)]" />
-        <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
-          <div className="max-w-4xl">
+      {/* Hero Background */}
+      <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
+          <div className="max-w-4xl space-y-6">
             <div className="flex items-center gap-3 mb-4">
               {category && (
                 <Link
@@ -165,16 +193,16 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                 </span>
               )}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold font-serif mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold font-serif mb-2 text-white">
               {risk.label}
             </h1>
-            <p className="text-lg text-gray-300 mb-6">{risk.description}</p>
+            <p className="text-lg text-gray-300 mb-6 max-w-3xl">{risk.description}</p>
             <p className="text-slate-300 max-w-3xl leading-relaxed">
               {risk.longDescription}
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="container mx-auto px-4 py-12 space-y-12">
         <section>

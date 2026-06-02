@@ -16,6 +16,12 @@ const SECTIONS_CONFIG = {
   claims: { label: "Claims & Recovery", color: "#C84B20", icon: ShieldCheck },
 };
 
+const SOLUTION_IMAGES: Record<string, string> = {
+  "global-program-architecture": "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop",
+  "captive-insurance": "https://images.unsplash.com/photo-1551434677-e02a060f7554?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1542744095-e262ec83c320?q=80&w=2070&auto=format&fit=crop"
+};
+
 const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }> }[]> = {
   advisory: [
     { id: "global-program-architecture", label: "Global Program Architecture", icon: Globe },
@@ -48,6 +54,7 @@ export function SolutionsDashboard({ activeSlug }: SolutionsDashboardProps) {
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = solutionsData[activeSlug];
   const activeGroupItems = CATEGORY_ITEMS[activeCategory] || [];
+  const heroImage = SOLUTION_IMAGES[activeSlug] || SOLUTION_IMAGES["default"];
 
   const handleSelect = (id: string) => {
     router.push(`/solutions/${id}`);
@@ -56,16 +63,23 @@ export function SolutionsDashboard({ activeSlug }: SolutionsDashboardProps) {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
 
-      {/* Page Hero */}
-      <div className="w-full bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(30,94,255,0.08),transparent_55%)]" />
-        <div className="container mx-auto px-4 md:px-8 py-14 md:py-20 max-w-6xl relative z-10">
+      {/* Page Hero with Background */}
+      <div className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
             <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Strategic Services</span>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               Enterprise Risk Solutions
             </h1>
-            <p className="text-base md:text-lg text-gray-300 max-w-3xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 max-w-3xl leading-relaxed">
               Strategic advisory, risk engineering, and claims advocacy services that go beyond traditional brokerage to deliver measurable balance sheet protection.
             </p>
           </div>

@@ -25,6 +25,13 @@ const PLATFORM_CATEGORIES: Record<string, string> = {
   "api-integrations": "Client Experience",
 };
 
+const PLATFORM_IMAGES: Record<string, string> = {
+  "risk-diagnostic-engine": "https://images.unsplash.com/photo-1551434677-e02a060f7554?q=80&w=2069&auto=format&fit=crop",
+  "risk-dna-mapper": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop",
+  "cyber-intelligence": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop"
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -54,6 +61,7 @@ export default async function PlatformPage({
 
   const IconComponent = data.icon;
   const category = PLATFORM_CATEGORIES[slug] || "Platform";
+  const heroImage = PLATFORM_IMAGES[slug] || PLATFORM_IMAGES["default"];
 
   const relatedModules = data.relatedModules || [];
   const relatedPlatformLinks = relatedModules
@@ -62,20 +70,26 @@ export default async function PlatformPage({
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <section className="w-full bg-primary text-white">
-        <div className="container mx-auto px-4 md:px-8 py-20 max-w-6xl">
+      <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-6">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center">
-                <span className="text-blue-600">
-                  <IconComponent className="h-8 w-8" />
-                </span>
+                <IconComponent className="h-8 w-8 text-blue-600" />
               </div>
               <span className="text-xs font-bold text-blue-300 uppercase tracking-widest">
                 {category} Platform
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               {data.title}
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, Shield, Cpu, BadgeDollarSign, TrendingUp, Grid, Globe, Briefcase, ChevronRight } from "lucide-react";
 import { offeringsData, CATEGORY_GROUPS } from "@/data/offeringsData";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { cn } from "@/lib/utils";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -67,27 +68,22 @@ export default function OfferingsMarketplace() {
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
-
-      {/* 1. EXECUTIVE HERO */}
-      <div className="w-full bg-white border-b">
-        <div className="container mx-auto px-4 md:px-8 py-20 md:py-28 max-w-6xl">
-          <div className="max-w-4xl space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight text-slate-900">
-              Enterprise Risk & Insurance Solutions Marketplace
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
-              78+ enterprise-grade risk transfer, insurance, warranty, guarantee, contract intelligence, and risk analytics solutions designed for modern organizations.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {["78+ Offerings", "45+ Platforms", "150+ Countries", "30+ Industries"].map((badge, i) => (
-                <span key={i} className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-semibold border border-slate-200">
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBackground
+        title="Enterprise Risk & Insurance Solutions Marketplace"
+        subtitle="78+ enterprise-grade risk transfer, insurance, warranty, guarantee, contract intelligence, and risk analytics solutions designed for modern organizations."
+        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+        badges={["Marketplace"]}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Offerings" }
+        ]}
+        stats={[
+          { val: "78+", label: "Offerings" },
+          { val: "45+", label: "Platforms" },
+          { val: "150+", label: "Countries" },
+          { val: "30+", label: "Industries" }
+        ]}
+      />
 
       {/* 2. METRICS STRIP */}
       <div className="w-full bg-slate-900 text-white py-8">

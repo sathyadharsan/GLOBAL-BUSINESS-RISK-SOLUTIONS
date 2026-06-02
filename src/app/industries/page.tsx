@@ -4,57 +4,53 @@ import React, { useState, useEffect } from "react";
 import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Laptop, Factory, Zap, Landmark, Building, Truck, Tractor, Stethoscope, 
-  ArrowRight, Shield, Activity, Target, LayoutGrid, CheckCircle2, ChevronRight
-} from "lucide-react";
+import { Laptop, Factory, Zap, Landmark, Building, Truck, Tractor, Stethoscope, TrendingUp, Rocket, BookOpen, Users, Shield, LayoutGrid, CheckCircle2, ChevronRight } from "lucide-react";
 import { industriesData } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const groups: SidebarGroup[] = [
   {
-    label: "INDUSTRY VERTICALS",
+    label: "INDUSTRY PRACTICES",
     items: [
-      { id: "technology-saas", label: "Technology & SaaS", icon: Laptop },
-      { id: "manufacturing", label: "Manufacturing & Engineering", icon: Factory },
-      { id: "energy", label: "Energy & Renewables", icon: Zap },
-      { id: "fintech", label: "Financial Services & Fintech", icon: Landmark },
-      { id: "infrastructure", label: "Infrastructure & Real Estate", icon: Building },
-      { id: "logistics", label: "Trade, Logistics & Supply Chain", icon: Truck },
-      { id: "agriculture", label: "Agriculture & Food Processing", icon: Tractor },
-      { id: "healthcare", label: "Healthcare & Pharma", icon: Stethoscope }
+      { id: "technology-digital", label: "Technology & Digital", icon: Laptop },
+      { id: "financial-services", label: "Financial Services", icon: Landmark },
+      { id: "healthcare-life-sciences", label: "Healthcare & Life Sciences", icon: Stethoscope },
+      { id: "manufacturing-industrial", label: "Manufacturing & Industrial", icon: Factory },
+      { id: "energy-utilities", label: "Energy & Utilities", icon: Zap },
+      { id: "infrastructure-real-estate", label: "Infrastructure & Real Estate", icon: Building },
+      { id: "transportation-logistics", label: "Transportation & Logistics", icon: Truck },
+      { id: "retail-hospitality", label: "Retail & Hospitality", icon: TrendingUp },
+      { id: "agriculture-environment", label: "Agriculture & Environment", icon: Tractor },
+      { id: "government-public-sector", label: "Government & Public Sector", icon: Users },
+      { id: "education-nonprofit", label: "Education & Non-Profit", icon: BookOpen },
+      { id: "emerging-industries", label: "Emerging & Niche Industries", icon: Rocket }
     ]
   }
 ];
 
 export default function Industries() {
-  const [selectedSlug, setSelectedSlug] = useState("technology-saas");
+  const [selectedSlug, setSelectedSlug] = useState("technology-digital");
 
   const currentIndustryData = industriesData[selectedSlug];
 
-  const getIcon = (id: string) => {
-    switch (id) {
-      case "technology-saas": return Laptop;
-      case "manufacturing": return Factory;
-      case "energy": return Zap;
-      case "fintech": return Landmark;
-      case "infrastructure": return Building;
-      case "logistics": return Truck;
-      case "agriculture": return Tractor;
-      case "healthcare": return Stethoscope;
-      default: return Shield;
-    }
-  };
+  const heroStats = [
+    { val: "12", label: "Industry Practices" },
+    { val: "150+", label: "Countries" },
+    { val: "78+", label: "Risk Solutions" },
+    { val: "45+", label: "Platforms" }
+  ];
 
   return (
     <TwoPanelLayout
       groups={groups}
       activeId={selectedSlug}
       onItemSelect={(id) => setSelectedSlug(id)}
-      heroTitle="Sector-Specific Risk Architecture"
-      heroSubtitle="Bespoke insurance programs engineered for the precise regulatory, capital, and operational dynamics of your industry. Click any sector to view comprehensive risk stacks."
-      heroBadges={["8 Core Sectors", "India & Global Markets", "Tailored Risk Placement"]}
+      heroTitle="Enterprise Risk Architecture by Industry"
+      heroSubtitle="Sector-specific risk consulting practices with dedicated expertise across 12 verticals. Click any practice to explore specialized solutions."
+      heroBadges={["Industry Practices"]}
+      heroImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+      heroStats={heroStats}
     >
       
       {/* 1. Category Summary Header */}
@@ -117,9 +113,9 @@ export default function Industries() {
           <div className="p-6 text-white bg-primary relative border-b border-white/5">
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-transparent z-0" />
             <div className="relative z-10 space-y-2 max-w-4xl">
-              <span className="text-[10px] font-bold uppercase tracking-widest bg-green-700/50 text-green-200 px-2 py-0.5 rounded border border-green-600/20">
-                INDUSTRY PRACTICE
-              </span>
+<span className="text-[10px] font-bold uppercase tracking-widest bg-blue-700/50 text-blue-200 px-2 py-0.5 rounded border border-blue-600/20">
+                 INDUSTRY PRACTICE
+               </span>
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
                 {currentIndustryData.title}
               </h2>
@@ -153,8 +149,8 @@ export default function Industries() {
                 {currentIndustryData.features.map((feature, i) => (
                   <div key={i} className="bg-slate-50/50 p-5 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
                     <div className="space-y-2">
-                      <h4 className="text-sm font-bold text-primary flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-600 shrink-0" />
+<h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                         {feature.title}
                       </h4>
                       <p className="text-xs text-muted-foreground leading-relaxed">

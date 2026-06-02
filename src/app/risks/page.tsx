@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { riskCategories } from "@/data/risksData";
 import RiskCategoryCard from "@/components/sections/RiskCategoryCard";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 
 export default function RisksPage() {
   const totalRisks = Object.values(riskCategories).reduce(
@@ -10,38 +11,26 @@ export default function RisksPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <section className="w-full bg-primary text-white">
-        <div className="container mx-auto px-4 md:px-8 py-20 max-w-6xl">
-          <div className="max-w-4xl space-y-6">
-            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Risk Intelligence Platform</span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
-              Understand Every Risk Before It Becomes a Loss
-            </h1>
-            <p className="text-base md:text-lg text-gray-300 max-w-3xl leading-relaxed">
-              Explore enterprise, operational, cyber, regulatory, climate, financial, technology and emerging risks 
-              across industries, functions and geographies with AI-powered risk intelligence.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
-              <div>
-                <p className="text-3xl font-bold">200+</p>
-                <p className="text-xs text-gray-400">Risk Scenarios</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold">150+</p>
-                <p className="text-xs text-gray-400">Countries</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold">40+</p>
-                <p className="text-xs text-gray-400">Insurance Solutions</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold">20+</p>
-                <p className="text-xs text-gray-400">Advisory Services</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroBackground
+        title="Understand Every Risk Before It Becomes a Loss"
+        subtitle="Explore enterprise, operational, cyber, regulatory, climate, financial, technology and emerging risks across industries, functions and geographies with AI-powered risk intelligence."
+        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2072&auto=format&fit=crop"
+        badges={["Risk Intelligence Platform"]}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Risk Intelligence" }
+        ]}
+        stats={[
+          { val: "200+", label: "Risk Scenarios" },
+          { val: "150+", label: "Countries" },
+          { val: "40+", label: "Insurance Solutions" },
+          { val: "20+", label: "Advisory Services" }
+        ]}
+        buttons={[
+          { label: "Book Free Risk Diagnostic", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/risks/risk-diagnostic" },
+          { label: "Access Risk Intelligence Center", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/risks/risk-intelligence-center" }
+        ]}
+      />
 
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">

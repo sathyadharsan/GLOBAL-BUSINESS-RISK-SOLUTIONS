@@ -17,6 +17,13 @@ const SECTIONS_CONFIG = {
   supply: { label: "Supply Chain & Finance", color: "#0D9488", icon: Waves },
 };
 
+const USECASE_IMAGES: Record<string, string> = {
+  "unicorn-ipo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+  "it-ransomware": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "factory-fire": "https://images.unsplash.com/photo-1581091226814-5c5a0e1e8b2d?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+};
+
 const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.ComponentType<{ className?: string }>; badge?: string }[]> = {
   governance: [
     { id: "unicorn-ipo", label: "Unicorn IPO — D&O Structuring", icon: Briefcase },
@@ -53,6 +60,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = useCasesData[activeSlug];
   const activeGroupItems = CATEGORY_ITEMS[activeCategory] || [];
+  const heroImage = USECASE_IMAGES[activeSlug] || USECASE_IMAGES["default"];
 
   const handleSelect = (id: string) => {
     router.push(`/use-cases/${id}`);
@@ -61,16 +69,23 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
 
-      {/* Page Hero */}
-      <div className="w-full bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(124,58,237,0.08),transparent_55%)]" />
-        <div className="container mx-auto px-4 md:px-8 py-14 md:py-20 max-w-6xl relative z-10">
+      {/* Page Hero with Background */}
+      <div className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
             <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Case Portfolios</span>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               Real-World Use Cases & Case Studies
             </h1>
-            <p className="text-base md:text-lg text-gray-300 max-w-3xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 max-w-3xl leading-relaxed">
               See how we&apos;ve structured complex risk solutions for actual client scenarios — from IPO D&amp;O to ransomware response to 15-year highway concessions.
             </p>
           </div>

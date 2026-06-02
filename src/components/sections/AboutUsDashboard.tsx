@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   BookOpen, Users, Award, Handshake, Leaf, GraduationCap,
-  Target, Lightbulb, CheckCircle2, Layers, ShieldAlert, Award as Badge
+  Target, Lightbulb, CheckCircle2, Layers, ShieldAlert, ChevronRight
 } from "lucide-react";
 import { aboutUsData } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,15 @@ const SECTIONS_CONFIG = {
   company: { label: "Company & Culture", color: "#1E3A5F", icon: BookOpen },
   governance: { label: "Governance & Markets", color: "#059669", icon: Award },
   impact: { label: "Impact & Talent", color: "#7C3AED", icon: Leaf },
+};
+
+const ABOUT_IMAGES: Record<string, string> = {
+  "our-story": "https://images.unsplash.com/photo-1552664551-3c6fdcabc5ab?q=80&w=2070&auto=format&fit=crop",
+  "leadership": "https://images.unsplash.com/photo-1521791136001-8038a031ab48?q=80&w=2070&auto=format&fit=crop",
+  "credentials": "https://images.unsplash.com/photo-1507679752028-92cf626ee0a9?q=80&w=2070&auto=format&fit=crop",
+  "markets": "https://images.unsplash.com/photo-1526304640581-b13c124b72bc?q=80&w=2070&auto=format&fit=crop",
+  "esg": "https://images.unsplash.com/photo-1466611653911-95081537e5b1?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
 };
 
 const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }> }[]> = {
@@ -48,6 +57,7 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = aboutUsData[activeSlug];
   const activeGroupItems = CATEGORY_ITEMS[activeCategory] || [];
+  const heroImage = ABOUT_IMAGES[activeSlug] || ABOUT_IMAGES["default"];
 
   const handleSelect = (id: string) => {
     router.push(`/about-us/${id}`);
@@ -56,16 +66,23 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
 
-      {/* Page Hero */}
-      <div className="w-full bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(5,150,105,0.08),transparent_55%)]" />
-        <div className="container mx-auto px-4 md:px-8 py-14 md:py-20 max-w-6xl relative z-10">
+      {/* Page Hero with Background */}
+      <div className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">About GBRS</span>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               About Global Business Risk Solutions
             </h1>
-            <p className="text-base md:text-lg text-gray-300 max-w-3xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 max-w-3xl leading-relaxed">
               We are risk architects — not insurance agents. We design structural balance sheet protection for the world&apos;s most dynamic enterprises across 150+ countries.
             </p>
           </div>

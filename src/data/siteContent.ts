@@ -85,95 +85,148 @@ export const solutionsData: Record<string, DynamicPageContent> = {
 };
 
 export const industriesData: Record<string, DynamicPageContent> = {
-  "technology-saas": {
-    slug: "technology-saas",
-    title: "Technology & SaaS",
-    subtitle: "Cyber · Tech E&O · D&O · AI liability · DPDP",
+  "technology-digital": {
+    slug: "technology-digital",
+    title: "Technology & Digital",
+    subtitle: "Cyber · AI Liability · Tech E&O · D&O · DPDP Compliance",
     heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
-    description: "Specialized risk architecture for hyper-growth technology companies, managing intangible assets and complex liability exposures.",
+    description: "Specialized risk architecture for technology companies managing intangible assets, cyber threats, and complex liability exposures across software, SaaS, and digital platforms.",
     features: [
-      { title: "Cyber Liability", description: "Comprehensive protection against ransomware, extortion, and data breaches." },
-      { title: "Tech E&O", description: "Covering financial losses for clients resulting from software failure or service outage." },
-      { title: "DPDP Compliance", description: "Managing regulatory fines and notification costs under new data privacy laws." }
+      { title: "Cyber Liability", description: "Comprehensive protection against ransomware, extortion, and data breaches with zero-trust architecture integration." },
+      { title: "AI Liability", description: "Coverage for algorithmic bias, autonomous decision failures, and emerging quantum computing risks." },
+      { title: "Tech E&O", description: "Financial protection for clients from software failures, service outages, and implementation errors." }
     ]
   },
-  "manufacturing": {
-    slug: "manufacturing",
-    title: "Manufacturing & Engineering",
-    subtitle: "Property · BI · Product recall · PLI schemes · CBI",
-    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-    description: "Protecting physical assets, supply chains, and revenue streams for heavy industry and advanced manufacturing.",
-    features: [
-      { title: "Property & BI", description: "Protecting balance sheets from catastrophic facility damage and associated downtime." },
-      { title: "Product Recall", description: "Covering the logistics and crisis management costs of withdrawing defective units." },
-      { title: "CBI", description: "Contingent Business Interruption for critical unnamed suppliers." }
-    ]
-  },
-  "energy": {
-    slug: "energy",
-    title: "Energy & Renewables",
-    subtitle: "CAR · Production guarantee · Parametric · BESS",
-    heroImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
-    description: "Risk transfer for solar, wind, hydro, and traditional energy generation facilities globally.",
-    features: [
-      { title: "Production Guarantee", description: "Insuring against revenue loss due to lack of wind or solar irradiance." },
-      { title: "BESS", description: "Specialized cover for Battery Energy Storage Systems and thermal runaway." },
-      { title: "CAR", description: "Construction All Risks for greenfield energy projects." }
-    ]
-  },
-  "fintech": {
-    slug: "fintech",
-    title: "Financial Services & Fintech",
-    subtitle: "BBB · PI · Cyber · D&O · RBI / SEBI compliance",
+  "financial-services": {
+    slug: "financial-services",
+    title: "Financial Services",
+    subtitle: "D&O · Cyber · PI · Regulatory Defense · Trade Credit",
     heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    description: "Navigating the heavily regulated landscape of digital finance with bespoke liability placements.",
+    description: "Navigating heavily regulated environments with bespoke liability placements for banks, fintech, insurance companies, and financial institutions.",
     features: [
-      { title: "Bankers Blanket Bond", description: "Protection against internal fraud, electronic crime, and forgery." },
-      { title: "SEBI Compliance", description: "Regulatory investigation defense costs and D&O structures." }
+      { title: "Directors & Officers", description: "Personal asset protection for board members against regulatory investigations and shareholder claims." },
+      { title: "Cyber Security", description: "Protection against ransomware, data breaches, and deepfake fraud targeting financial transactions." },
+      { title: "Professional Liability", description: "Coverage for advisory malpractice, suitability claims, and underwriting errors." }
     ]
   },
-  "infrastructure": {
-    slug: "infrastructure",
-    title: "Infrastructure & Real Estate",
-    subtitle: "15-year programs · DSU · Surety · NMP projects",
-    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    description: "Long-term capital protection for highways, ports, airports, and commercial real estate portfolios.",
-    features: [
-      { title: "15-Year Programs", description: "Locked-in terms for concession-based infrastructure projects." },
-      { title: "DSU", description: "Delay in Start-Up cover protecting anticipated revenue during construction." }
-    ]
-  },
-  "logistics": {
-    slug: "logistics",
-    title: "Trade, Logistics & Supply Chain",
-    subtitle: "Marine · Fleet · Warehouse · Freight forwarder",
-    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8ed7c50a63?q=80&w=2070&auto=format&fit=crop",
-    description: "Seamless cargo and liability protection moving across borders and multimodal transport networks.",
-    features: [
-      { title: "Stock Throughput", description: "End-to-end coverage from raw materials to final destination." },
-      { title: "Freight Forwarder Liability", description: "E&O and cargo liability for logistics operators." }
-    ]
-  },
-  "agriculture": {
-    slug: "agriculture",
-    title: "Agriculture & Food Processing",
-    subtitle: "PMFBY · Parametric · Recall · Cold chain",
-    heroImage: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop",
-    description: "Protecting yields, securing supply chains, and ensuring food safety from farm to fork.",
-    features: [
-      { title: "Parametric Weather", description: "Index-based payouts for drought, excess rainfall, or temperature." },
-      { title: "Cold Chain", description: "Spoilage coverage for temperature-sensitive transit." }
-    ]
-  },
-  "healthcare": {
-    slug: "healthcare",
-    title: "Healthcare & Pharma",
-    subtitle: "Clinical trials · Product recall · PI · USFDA recall",
+  "healthcare-life-sciences": {
+    slug: "healthcare-life-sciences",
+    title: "Healthcare & Life Sciences",
+    subtitle: "Medical Malpractice · Product Liability · Cyber · Clinical Trials",
     heroImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
-    description: "Mitigating severe liability exposures in drug development, medical device manufacturing, and patient care.",
+    description: "Comprehensive risk solutions for hospitals, pharmaceutical companies, biotech firms, and medical device manufacturers.",
     features: [
-      { title: "Clinical Trials", description: "No-fault compensation cover for trial participants globally." },
-      { title: "USFDA Recall", description: "Financial protection against mandated withdrawals in the US market." }
+      { title: "Medical Malpractice", description: "Protection against clinical errors, misdiagnosis, and patient care liabilities." },
+      { title: "Product Liability", description: "Coverage for drug development errors, device failures, and pharmaceutical recalls." },
+      { title: "Cyber Security", description: "HIPAA compliance defense and patient data breach protection." }
+    ]
+  },
+  "manufacturing-industrial": {
+    slug: "manufacturing-industrial",
+    title: "Manufacturing & Industrial",
+    subtitle: "Property · BI · Product Recall · Equipment Breakdown · CBI",
+    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    description: "Protecting physical assets, supply chains, and revenue streams for heavy manufacturing and advanced industrial operations.",
+    features: [
+      { title: "Property & Business Interruption", description: "Coverage for fire, explosion, natural disasters, and resulting operational downtime." },
+      { title: "Equipment Breakdown", description: "Protection for machinery failures, production line stoppages, and expedited repair costs." },
+      { title: "Contingent BI", description: "Supply chain risk protection for critical unnamed supplier dependencies." }
+    ]
+  },
+  "energy-utilities": {
+    slug: "energy-utilities",
+    title: "Energy & Utilities",
+    subtitle: "CAR · Production Guarantee · Parametric · Pollution Liability",
+    heroImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
+    description: "Risk transfer solutions for oil & gas, renewables, mining, and utility infrastructure with climate resilience.",
+    features: [
+      { title: "Construction All Risks", description: "Physical damage protection during greenfield energy project development." },
+      { title: "Production Guarantee", description: "Revenue protection for renewable energy against low wind or solar irradiance." },
+      { title: "Pollution Liability", description: "Coverage for environmental cleanup costs and regulatory fines." }
+    ]
+  },
+  "infrastructure-real-estate": {
+    slug: "infrastructure-real-estate",
+    title: "Infrastructure & Real Estate",
+    subtitle: "15-Year Programs · DSU · Surety · Natural Catastrophe",
+    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    description: "Long-term capital protection for highways, ports, airports, commercial properties, and PPP infrastructure projects.",
+    features: [
+      { title: "Long-Tenor Programs", description: "10-15 year coverage aligned with infrastructure concession periods." },
+      { title: "Delay in Start-Up", description: "Protection of anticipated revenue during construction delays." },
+      { title: "Surety Bonds", description: "Performance guarantees for contractors with working capital optimization." }
+    ]
+  },
+  "transportation-logistics": {
+    slug: "transportation-logistics",
+    title: "Transportation & Logistics",
+    subtitle: "Marine Cargo · Aviation · Fleet · Warehouse · Cyber",
+    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8ed7c50a63?q=80&w=2070&auto=format&fit=crop",
+    description: "End-to-end cargo and liability protection for maritime, aviation, logistics, and freight operations globally.",
+    features: [
+      { title: "Marine Cargo", description: "Coverage for cargo loss, damage, and total loss during transit." },
+      { title: "Aviation Liability", description: "Third-party liability protection for aviation accidents and incidents." },
+      { title: "Cyber Security", description: "Protection against supply chain attacks and logistics system compromises." }
+    ]
+  },
+  "retail-hospitality": {
+    slug: "retail-hospitality",
+    title: "Retail & Hospitality",
+    subtitle: "Product Liability · Cyber · EPLI · Business Interruption",
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    description: "Risk solutions for retailers, e-commerce platforms, hotels, and hospitality chains managing consumer-facing exposures.",
+    features: [
+      { title: "Product Liability", description: "Protection against consumer injury claims and defective product lawsuits." },
+      { title: "Cyber Security", description: "Customer data protection and POS system attack response." },
+      { title: "Employment Practices", description: "Workplace discrimination, harassment, and turnover liability coverage." }
+    ]
+  },
+  "agriculture-environment": {
+    slug: "agriculture-environment",
+    title: "Agriculture & Environment",
+    subtitle: "Parametric · Crop Index · Cold Chain · Pollution · Climate",
+    heroImage: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop",
+    description: "Protecting yields, supply chains, and environmental compliance for agricultural and food processing operations.",
+    features: [
+      { title: "Parametric Weather", description: "Index-based payouts for drought, flood, frost, and crop failure." },
+      { title: "Cold Chain", description: "Temperature-sensitive cargo protection for food and pharmaceuticals." },
+      { title: "Pollution Liability", description: "Coverage for pesticide use, water contamination, and environmental cleanup." }
+    ]
+  },
+  "government-public-sector": {
+    slug: "government-public-sector",
+    title: "Government & Public Sector",
+    subtitle: "D&O · Cyber · Political Risk · Fiduciary Liability",
+    heroImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+    description: "Risk solutions for government entities, municipalities, and public sector organizations with unique liability profiles.",
+    features: [
+      { title: "Fiduciary Liability", description: "Protection for public officials against mismanagement claims." },
+      { title: "Cyber Security", description: "Citizen data protection and critical infrastructure defense." },
+      { title: "Political Risk", description: "Coverage for sanctions violations and regulatory investigations." }
+    ]
+  },
+  "education-nonprofit": {
+    slug: "education-nonprofit",
+    title: "Education & Non-Profit",
+    subtitle: "Cyber · D&O · EPLI · Property · Liability",
+    heroImage: "https://images.unsplash.com/photo-1542744095-e262ec83c320?q=80&w=2070&auto=format&fit=crop",
+    description: "Risk management for universities, schools, and non-profit organizations managing student safety and donor trust.",
+    features: [
+      { title: "Cyber Security", description: "Student and donor data protection with ransomware response." },
+      { title: "Employment Practices", description: "Workplace discrimination and harassment liability for educational institutions." },
+      { title: "Directors & Officers", description: "Board member protection for governance and fiduciary decisions." }
+    ]
+  },
+  "emerging-industries": {
+    slug: "emerging-industries",
+    title: "Emerging & Niche Industries",
+    subtitle: "Space · Drone · Climate Tech · AI · Cannabis · Autonomous",
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    description: "Specialized risk solutions for frontier industries including space operations, drones, climate technology, AI, and cannabis.",
+    features: [
+      { title: "Space Insurance", description: "Launch and in-orbit coverage for satellite and space technology operations." },
+      { title: "Drone Liability", description: "Coverage for commercial drone accidents and cargo delivery failures." },
+      { title: "AI Liability", description: "Protection against algorithmic bias and autonomous system failures." }
     ]
   }
 };

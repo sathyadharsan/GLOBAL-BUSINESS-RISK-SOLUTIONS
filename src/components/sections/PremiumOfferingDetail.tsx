@@ -10,13 +10,44 @@ interface PremiumOfferingDetailProps {
   offering: OfferingData;
 }
 
+const OFFERTING_IMAGES: Record<string, string> = {
+  "property-sfsp": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+  "business-interruption": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
+  "contingent-bi": "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
+  "cyber": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "cyber-first-party": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "cyber-third-party": "https://images.unsplash.com/photo-1526304640581-b13c124b72bc?q=80&w=2070&auto=format&fit=crop",
+  "d-o": "https://images.unsplash.com/photo-1552664551-3c6fdcabc5ab?q=80&w=2070&auto=format&fit=crop",
+  "epli": "https://images.unsplash.com/photo-1521791136001-8038a031ab48?q=80&w=2070&auto=format&fit=crop",
+  "professional-indemnity-2": "https://images.unsplash.com/photo-1542744095-f957da45d8a1?q=80&w=2070&auto=format&fit=crop",
+  "tech-e-o": "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
+  "product-liability-2": "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop",
+  "product-recall": "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
+  "trade-credit-2": "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
+  "political-risk-2": "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
+  "m&a-warranty": "https://images.unsplash.com/photo-1542744095-e262ec83c320?q=80&w=2070&auto=format&fit=crop",
+  "marine-cargo": "https://images.unsplash.com/photo-1581091226814-5c5a0e1e8b2d?q=80&w=2070&auto=format&fit=crop",
+  "parametric": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2072&auto=format&fit=crop",
+  "fidelity": "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+};
+
 export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) {
+  const heroImage = OFFERTING_IMAGES[offering.slug] || OFFERTING_IMAGES["default"];
+  
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="relative container mx-auto px-4 md:px-8 py-16 md:py-24 max-w-6xl">
+      <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            style={{ backgroundImage: `url('${heroImage}')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-6">
             <div className="flex items-center gap-3">
               <Shield className="h-10 w-10 text-blue-400" />
@@ -24,10 +55,10 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
                 {offering.category.replace(/-/g, " ").toUpperCase()}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight text-white">
               {offering.title}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl leading-relaxed">
               {offering.subtitle}
             </p>
             <div className="flex flex-wrap gap-3 pt-4">

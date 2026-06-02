@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Cpu, BadgeDollarSign, TrendingUp, Grid, Globe, Briefcase, Rocket, AlertCircle, Target, CheckCircle2, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   Shield,
@@ -15,6 +16,14 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   Globe,
   Briefcase,
   Rocket,
+};
+
+const CATEGORY_IMAGES: Record<string, string> = {
+  "property-sfsp": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+  "cyber": "https://images.unsplash.com/photo-1550751827-65536f8590a2?q=80&w=2070&auto=format&fit=crop",
+  "liability": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+  "financial": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+  "default": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
 };
 
 interface CategoryPageProps {
@@ -45,38 +54,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const Icon = ICONS[categoryInfo.icon] || Shield;
+  const heroImage = CATEGORY_IMAGES[category] || CATEGORY_IMAGES["default"];
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
       {/* 1. ENTERPRISE HERO SECTION */}
-      <section className="w-full bg-white border-b">
-        <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 max-w-6xl">
-          <div className="max-w-4xl space-y-6">
-            <div className="flex items-center gap-4">
-              <div style={{ color: categoryInfo.color }}>
-                <Icon className="h-12 w-12" />
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight text-slate-900">
-                {categoryInfo.label}
-              </h1>
-            </div>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
-              {categoryInfo.description}
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-semibold border border-slate-200">
-                {offerings.length}+ Solutions
-              </span>
-              <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-semibold border border-slate-200">
-                150+ Countries
-              </span>
-              <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-semibold border border-slate-200">
-                A++ Rated Carriers
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroBackground
+        title={categoryInfo.label}
+        subtitle={categoryInfo.description}
+        image={heroImage}
+        badges={[`${offerings.length}+ Solutions`]}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Offerings", href: "/offerings" },
+          { label: categoryInfo.label }
+        ]}
+      />
 
       {/* 2. BUSINESS CHALLENGES */}
       <section className="py-16 bg-white">
