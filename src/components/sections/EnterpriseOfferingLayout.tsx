@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { OfferingData } from "@/data/offeringsData";
+import { buildEnterpriseContent, EnterpriseContent } from "@/lib/enterpriseContentMapper";
 import {
   Shield,
+  Target,
   AlertTriangle,
+  Layers,
   CheckCircle2,
   ChevronRight,
   Download,
@@ -18,190 +21,454 @@ import {
   TrendingUp,
   Zap,
   BarChart3,
-  Target,
 } from "lucide-react";
-import { CATEGORY_GROUPS, getOfferingsByCategory } from "@/data/offeringsData";
-import { buildEnterpriseContent } from "@/lib/enterpriseContentMapper";
 
-const CATEGORY_ALIASES: Record<string, string> = {
-  "emerging-frontier-risk": "emerging-risks",
-};
+interface EnterpriseOfferingLayoutProps {
+  offering: OfferingData;
+}
 
-const DEFAULTS = {
-  kpis: [],
-  capabilities: [],
-  challengeCards: [],
-  coverageLayers: [],
-  benefitCards: [],
-  riskCards: [],
-  platformCards: [],
-  solutionCards: [],
-  caseStudies: [],
-  diagnostics: [],
-  industryTabs: [],
-};
+const DEFAULT_KPIS = [
+  { value: "150+", label: "Countries Covered" },
+  { value: "99%", label: "Client Retention" },
+  { value: "45+", label: "Platforms" },
+  { value: "24/7", label: "Expert Support" },
+];
 
-export default function CategoryClient({ category }: { category: string }) {
-  const router = useRouter();
-  const resolvedCategory = CATEGORY_ALIASES[category] || category;
-  const categoryInfo = CATEGORY_GROUPS[resolvedCategory as keyof typeof CATEGORY_GROUPS];
-  const offerings = getOfferingsByCategory(resolvedCategory);
+const DEFAULT_CAPABILITIES = [
+  {
+    title: "Coverage Architecture",
+    desc: "Multi-layered protection designed for enterprise scale and complexity.",
+    bullets: ["Global Protection", "Industry Alignment", "Risk Transfer", "Compliance Support"],
+  },
+  {
+    title: "Program Structuring",
+    desc: "Optimized limits, deductibles, and retention aligned to risk appetite.",
+    bullets: [
+      "Limit Optimization",
+      "Deductible Strategy",
+      "Captive Integration",
+      "Carrier Selection",
+    ],
+  },
+  {
+    title: "Risk Analytics",
+    desc: "Data-driven insights for underwriting, claims, and portfolio management.",
+    bullets: [
+      "Predictive Modeling",
+      "Loss Analytics",
+      "Benchmarking",
+      "Exposure Mapping",
+    ],
+  },
+  {
+    title: "Governance & Compliance",
+    desc: "Regulatory alignment across jurisdictions with audit-ready documentation.",
+    bullets: [
+      "Multi-Jurisdictional Compliance",
+      "Regulatory Reporting",
+      "Audit Trails",
+      "Policy Governance",
+    ],
+  },
+];
 
-  React.useEffect(() => {
-    if (category !== resolvedCategory) {
-      router.replace(`/offerings/category/${resolvedCategory}`);
-    }
-  }, [category, resolvedCategory, router]);
+const DEFAULT_CHALLENGES = [
+  {
+    title: "Cyber Threats",
+    description:
+      "Ransomware, data breaches, and operational technology attacks escalating in frequency and severity.",
+    icon: "AlertTriangle",
+  },
+  {
+    title: "Supply Chain Disruption",
+    description:
+      "Single-source dependencies and geographic concentration creating uninsured operational risk.",
+    icon: "AlertTriangle",
+  },
+  {
+    title: "Regulatory Compliance",
+    description:
+      "Multi-jurisdictional mandates with evolving penalty structures and reporting requirements.",
+    icon: "AlertTriangle",
+  },
+  {
+    title: "Operational Resilience",
+    description:
+      "Business continuity, crisis response, and rapid recovery capability gaps across enterprises.",
+    icon: "AlertTriangle",
+  },
+  {
+    title: "Third-Party Risk",
+    description:
+      "Vendor concentration and shared responsibility ambiguity exposing downstream liabilities.",
+    icon: "AlertTriangle",
+  },
+  {
+    title: "Climate Exposure",
+    description: "Physical and transition climate risk requiring parametric and adaptive coverage strategies.",
+    icon: "AlertTriangle",
+  },
+];
 
-  if (!categoryInfo) {
-    return (
-      <div className="container mx-auto px-4 py-20 text-center text-slate-500">
-        Category not found
-      </div>
-    );
-  }
+const DEFAULT_COVERAGE_LAYERS = [
+  {
+    title: "Coverage Layer 1",
+    items: [
+      "Primary risk transfer",
+      "Core perils covered",
+      "Standard policy terms",
+      "Carrier claims handling",
+    ],
+  },
+  {
+    title: "Coverage Layer 2",
+    items: [
+      "Excess liability",
+      "Catastrophe protection",
+      "Sublimit optimization",
+      "Reinsurance backstop",
+    ],
+  },
+  {
+    title: "Coverage Layer 3",
+    items: [
+      "Parametric triggers",
+      "Alternative risk transfer",
+      "Captive integration",
+      "Capital markets access",
+    ],
+  },
+  {
+    title: "Coverage Layer 4",
+    items: [
+      "Enterprise risk financing",
+      "Multi-year structuring",
+      "Global program coordination",
+      "Strategic advisory",
+    ],
+  },
+];
 
-  const label =
-    categoryInfo.label ||
-    category.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+const DEFAULT_BENEFITS = [
+  {
+    title: "Risk Reduction",
+    description:
+      "Structured identification, quantification, and mitigation of enterprise-wide exposures.",
+  },
+  {
+    title: "Operational Continuity",
+    description:
+      "Rapid liquidity, crisis response, and business continuity funding when incidents occur.",
+  },
+  {
+    title: "Regulatory Alignment",
+    description:
+      "Multi-jurisdictional compliance assurance with audit-ready documentation and reporting.",
+  },
+  {
+    title: "Financial Protection",
+    description:
+      "Optimized retention, transfer, and financing to preserve balance sheet integrity.",
+  },
+];
 
-  const firstOffering = offerings[0];
-  const reference = firstOffering
-    ? buildEnterpriseContent(firstOffering)
-    : DEFAULTS;
+const DEFAULT_RELATED_RISKS = [
+  {
+    title: "Cyber Risk",
+    description:
+      "First and third-party cyber coverage with incident response and regulatory defense.",
+  },
+  {
+    title: "Supply Chain Risk",
+    description:
+      "Contingent business interruption and dependency mapping across multi-tier networks.",
+  },
+  {
+    title: "Climate Risk",
+    description:
+      "Physical and transition risk assessment with parametric and adaptive coverage.",
+  },
+  {
+    title: "Operational Risk",
+    description:
+      "Business interruption, equipment breakdown, and resilience program structuring.",
+  },
+];
 
-  const mergedKPIs = reference.kpis.length
-    ? reference.kpis
-    : [
-        { value: "150+", label: "Countries Covered" },
-        { value: "99%", label: "Client Retention" },
-        { value: "45+", label: "Platforms" },
-        { value: "24/7", label: "Expert Support" },
-      ];
+const DEFAULT_PLATFORMS = [
+  {
+    title: "Risk Diagnostic Engine",
+    description:
+      "AI-powered assessment across 20 domains and 200+ risk categories with gap analysis.",
+  },
+  {
+    title: "Contract Intelligence",
+    description:
+      "Automated contract risk scoring, indemnification analysis, and insurance gap detection.",
+  },
+  {
+    title: "Regulatory Intelligence",
+    description:
+      "Real-time monitoring of 150+ jurisdictions with compliance alerts and filing support.",
+  },
+  {
+    title: "Climate Analytics",
+    description:
+      "TCFD-aligned scenario analysis with asset-level physical and transition risk modeling.",
+  },
+];
 
-  const mergedCapabilities = reference.capabilities.length
-    ? reference.capabilities
-    : [
-        {
-          title: "Coverage Architecture",
-          desc: "Multi-layered protection designed for enterprise scale and complexity.",
-          bullets: [
-            "Global Protection",
-            "Industry Alignment",
-            "Risk Transfer",
-            "Compliance Support",
-          ],
-        },
-      ];
+const DEFAULT_SOLUTIONS = [
+  {
+    title: "Enterprise Program Design",
+    description:
+      "Integrated multi-line risk program aligned to strategy, risk appetite, and regulatory requirements.",
+  },
+  {
+    title: "M&A Risk Transfer",
+    description:
+      "Warranty and indemnity, tax liability, and contingent risk coverage for transactions.",
+  },
+  {
+    title: "Alternative Risk Transfer",
+    description:
+      "Captives, parametric solutions, and ILS structures for peak and retained risks.",
+  },
+];
 
-  const mergedChallenges = reference.challengeCards.length
-    ? reference.challengeCards
-    : [
-        {
-          title: "Enterprise Risk",
-          description: "Complex risk exposures requiring structured solutions.",
-        },
-      ];
+const DEFAULT_CASE_STUDIES = [
+  {
+    title: "Global Manufacturer",
+    clientProfile: "Fortune 500 industrial manufacturer with 40+ facilities across 15 countries",
+    challenge:
+      "Fragmented property program with coverage gaps, inconsistent terms, and slow claims settlement across jurisdictions.",
+    solution:
+      "Consolidated global master program with local admitted policies, unified terms, and TRUSTFLOW claims advocacy.",
+    outcome:
+      "18% premium reduction, 40% faster claims settlement, unified governance across all locations.",
+  },
+  {
+    title: "Technology Unicorn",
+    clientProfile:
+      "Series D SaaS company with rapid expansion across North America, Europe, and APAC",
+    challenge:
+      "Cyber exposure gaps, inconsistent D&O limits across jurisdictions, and AI liability concerns.",
+    solution:
+      "Integrated cyber/E&O/D&O tower with AI endorsement, regulatory defense, and incident response retainer.",
+    outcome:
+      "Complete coverage alignment, $50M+ limit adequacy, zero uninsured AI exposure.",
+  },
+  {
+    title: "Infrastructure Developer",
+    clientProfile:
+      "Mid-market infrastructure developer with $2B+ project pipeline across emerging markets",
+    challenge:
+      "Political risk, construction delay, and cross-border liability gaps threatening project financing.",
+    solution:
+      "Parametric weather triggers, political risk insurance, and CAR/EAR placement across five jurisdictions.",
+    outcome:
+      "Project financing secured, 30-day parametric payout validated, multi-country compliance achieved.",
+  },
+];
 
-  const mergedCoverage = reference.coverageLayers.length
-    ? reference.coverageLayers
-    : [
-        {
-          title: "Coverage Layer 1",
-          items: ["Primary risk transfer", "Core perils covered"],
-        },
-      ];
+const DEFAULT_DIAGNOSTICS = [
+  {
+    title: "Cyber Insurance Readiness Assessment",
+    description:
+      "Evaluate security posture, coverage gaps, and incident response readiness against industry benchmarks.",
+  },
+  {
+    title: "Property Risk Assessment",
+    description:
+      "Asset valuation, exposure modeling, and coverage adequacy review for physical assets.",
+  },
+  {
+    title: "Directors & Officers Assessment",
+    description:
+      "Governance review, liability exposure mapping, and D&O program adequacy evaluation.",
+  },
+  {
+    title: "Supply Chain Risk Diagnostic",
+    description:
+      "Multi-tier dependency mapping, concentration analysis, and contingent BI gap identification.",
+  },
+];
 
-  const mergedBenefits = reference.benefitCards.length
-    ? reference.benefitCards
-    : [
-        {
-          title: "Risk Reduction",
-          description:
-            "Structured identification, quantification, and mitigation of enterprise exposures.",
-        },
-      ];
+const DEFAULT_INDUSTRY_TABS = [
+  {
+    label: "Technology",
+    content: {
+      industryChallenges: [
+        "Rapid innovation outpacing risk controls",
+        "AI and autonomous system liability",
+        "Cloud concentration and systemic failure",
+      ],
+      industryRiskExposure: [
+        "Cyber attack and ransomware",
+        "Professional liability from outages",
+        "Regulatory investigation and defense",
+      ],
+      recommendedOfferings: [
+        "Cyber Insurance - First Party",
+        "Technology Errors & Omissions",
+        "AI & Algorithm Liability Insurance",
+      ],
+      relatedRisks: ["Cyber Risk", "Tech E&O", "AI Risk"],
+      relatedPlatforms: [
+        "Cyber Risk Maturity Assessment",
+        "Real-Time Risk Intelligence Feed",
+        "AI Contract Risk Analytics",
+      ],
+      industryBenefits: [
+        "Innovation confidence",
+        "Investor-grade protection",
+        "Global scaling assurance",
+      ],
+    },
+  },
+  {
+    label: "Healthcare",
+    content: {
+      industryChallenges: [
+        "Patient data privacy and security",
+        "Clinical trial liability",
+        "Medical device and pharmaceutical recall",
+      ],
+      industryRiskExposure: [
+        "Medical malpractice",
+        "Data breach notification",
+        "Regulatory investigation",
+      ],
+      recommendedOfferings: [
+        "Healthcare Industry Risk Program",
+        "Cyber Insurance - Regulatory Defense",
+        "Product Liability Insurance",
+      ],
+      relatedRisks: ["Medical Malpractice", "Data Breach", "Product Liability"],
+      relatedPlatforms: [
+        "Risk Diagnostic Engine",
+        "Policy Gap Analyzer",
+        "Cyber Due Diligence",
+      ],
+      industryBenefits: [
+        "Patient safety assurance",
+        "Regulatory compliance",
+        "Product launch protection",
+      ],
+    },
+  },
+  {
+    label: "Manufacturing",
+    content: {
+      industryChallenges: [
+        "Global supply chain vulnerability",
+        "Equipment breakdown and downtime",
+        "Product liability and recall",
+      ],
+      industryRiskExposure: [
+        "Property damage and BI",
+        "Supply chain disruption",
+        "Product defect claims",
+      ],
+      recommendedOfferings: [
+        "Manufacturing Industry Risk Program",
+        "Property All-Risks Insurance",
+        "Product Recall Insurance",
+      ],
+      relatedRisks: ["Property Damage", "Supply Chain", "Product Liability"],
+      relatedPlatforms: [
+        "Supply Chain Risk Visualizer",
+        "Risk Diagnostic Engine",
+        "Claims Velocity Dashboard",
+      ],
+      industryBenefits: [
+        "Operational continuity",
+        "Supply chain resilience",
+        "Product quality confidence",
+      ],
+    },
+  },
+  {
+    label: "Financial Services",
+    content: {
+      industryChallenges: [
+        "Regulatory penalty severity",
+        "Systemic cyber risk",
+        "Professional liability from advice",
+      ],
+      industryRiskExposure: [
+        "Regulatory investigation",
+        "Data breach of customer records",
+        "Investment advice liability",
+      ],
+      recommendedOfferings: [
+        "Financial Services Industry Risk Program",
+        "Cyber Insurance - Regulatory Defense",
+        "Directors & Officers Liability",
+      ],
+      relatedRisks: ["Regulatory Risk", "Cyber Risk", "Professional Liability"],
+      relatedPlatforms: [
+        "Regulatory Intelligence Platform",
+        "Cyber Risk Maturity Assessment",
+        "M&A Due Diligence Suite",
+      ],
+      industryBenefits: [
+        "Regulatory compliance",
+        "Cyber incident resilience",
+        "Professional liability protection",
+      ],
+    },
+  },
+  {
+    label: "Energy",
+    content: {
+      industryChallenges: [
+        "Construction delay and cost escalation",
+        "Production shortfall from weather",
+        "Grid cyber security",
+      ],
+      industryRiskExposure: [
+        "Construction risk",
+        "Production guarantee trigger",
+        "Natural catastrophe damage",
+      ],
+      recommendedOfferings: [
+        "Energy & Renewables Industry Risk Program",
+        "Parametric Insurance Solutions",
+        "Business Interruption Insurance",
+      ],
+      relatedRisks: ["Construction Risk", "Production Risk", "Cyber Risk"],
+      relatedPlatforms: [
+        "Parametric Risk Platform",
+        "Climate Scenario Analysis",
+        "Cyber Due Diligence",
+      ],
+      industryBenefits: [
+        "Project completion assurance",
+        "Revenue protection for renewables",
+        "Grid cybersecurity",
+      ],
+    },
+  },
+];
 
-  const mergedRisks = reference.riskCards.length
-    ? reference.riskCards.slice(0, 4)
-    : [
-        {
-          title: "Enterprise Risk",
-          description: "Integrated protection across exposures.",
-        },
-      ];
+export function EnterpriseOfferingLayout({ offering }: EnterpriseOfferingLayoutProps) {
+  const category =
+    offering.category?.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()) ||
+    "Enterprise Solution";
 
-  const mergedPlatforms = reference.platformCards.length
-    ? reference.platformCards.slice(0, 4)
-    : [
-        {
-          title: "TRUSTFLOW Platform",
-          description:
-            "AI-powered risk intelligence and assessment platform.",
-        },
-      ];
-
-  const mergedSolutions = reference.solutionCards.length
-    ? reference.solutionCards
-    : [
-        {
-          title: `${label} Program`,
-          description:
-            "Comprehensive risk transfer and advisory support.",
-        },
-      ];
-
-  const mergedCaseStudies = reference.caseStudies.length
-    ? reference.caseStudies.slice(0, 3)
-    : [
-        {
-          title: "Enterprise Client",
-          clientProfile: "Global enterprise",
-          challenge: "Complex risk management requirements.",
-          solution: "Integrated TRUSTFLOW program.",
-          outcome: "Optimized coverage and resilience.",
-        },
-      ];
-
-  const mergedDiagnostics = reference.diagnostics.length
-    ? reference.diagnostics
-    : [
-        {
-          title: `${label} Risk Diagnostic`,
-          description:
-            "Assess current risk posture and identify priorities.",
-        },
-      ];
-
-  const mergedIndustryTabs = reference.industryTabs.length
-    ? reference.industryTabs
-    : [
-        {
-          label: label,
-          content: {
-            industryChallenges: [
-              "Complex regulatory requirements",
-              "Emerging risk exposures",
-              "Operational resilience gaps",
-            ],
-            industryRiskExposure: [
-              "Liability exposure",
-              "Operational disruption",
-              "Regulatory non-compliance",
-            ],
-            recommendedOfferings: firstOffering
-              ? [firstOffering.title]
-              : [label],
-            relatedRisks: ["Enterprise Risk"],
-            relatedPlatforms: ["TRUSTFLOW Risk Diagnostic Engine"],
-            industryBenefits: [
-              "Risk visibility",
-              "Operational continuity",
-              "Regulatory alignment",
-            ],
-          },
-        },
-      ];
+  const content = buildEnterpriseContent(offering);
+  const kpis = content.kpis;
+  const capabilities = content.capabilities;
+  const challengeCards = content.challengeCards;
+  const coverageLayers = content.coverageLayers;
+  const benefitCards = content.benefitCards;
+  const riskCards = content.riskCards;
+  const platformCards = content.platformCards;
+  const solutionCards = content.solutionCards;
+  const caseStudies = content.caseStudies;
+  const diagnostics = content.diagnostics;
+  const industryTabs = content.industryTabs;
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -222,16 +489,16 @@ export default function CategoryClient({ category }: { category: string }) {
               variant="secondary"
               className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
             >
-              {label}
+              {category}
             </Badge>
             <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
-              Enterprise {label}
+              {offering.title}
             </h1>
             <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">
-              {categoryInfo.description}
+              {offering.subtitle}
             </p>
             <p className="text-base text-slate-300 max-w-2xl leading-relaxed">
-              {firstOffering?.executiveOverview || firstOffering?.shortDescription || ""}
+              {offering.shortDescription}
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
@@ -239,16 +506,18 @@ export default function CategoryClient({ category }: { category: string }) {
                 className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
-                Book Consultation
+                {offering.cta?.primary || "Book Consultation"}
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Request Assessment
-              </Button>
+              {offering.cta?.secondary && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                  onClick={() => (window.location.href = "/contact")}
+                >
+                  {offering.cta.secondary}
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -258,7 +527,7 @@ export default function CategoryClient({ category }: { category: string }) {
       <section className="w-full bg-[#0B1F3A] text-white py-14">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {mergedKPIs.map((kpi, i) => (
+            {kpis.map((kpi, i) => (
               <div key={i} className="text-center space-y-2">
                 <div className="text-[44px] font-bold text-[#60A5FA] leading-none">
                   {kpi.value}
@@ -273,18 +542,18 @@ export default function CategoryClient({ category }: { category: string }) {
       </section>
 
       {/* SECTION 3: CAPABILITY ARCHITECTURE */}
-      <section className="py-14 bg-white border-b border-slate-200">
+      <section className="py-16 bg-white border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+          <div className="text-center mb-12">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-[#0B1F3A] font-serif tracking-tight">
               Capability Architecture
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Enterprise-grade capabilities across the {label} practice.
+              Enterprise-grade capabilities designed to address complex risk landscapes across industries and geographies.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mergedCapabilities.map((cap, i) => (
+            {capabilities.map((cap, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -298,7 +567,9 @@ export default function CategoryClient({ category }: { category: string }) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <p className="text-sm text-slate-600 leading-snug">
+                    {cap.desc}
+                  </p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
                       <li
@@ -325,16 +596,17 @@ export default function CategoryClient({ category }: { category: string }) {
               Industry Vertical Solutions
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Deep domain expertise across industries served by {label}.
+              Deep domain expertise across technology, healthcare, manufacturing,
+              energy, and financial services.
             </p>
           </div>
 
-          <Tabs defaultValue={mergedIndustryTabs[0]?.label} orientation="vertical" className="w-full">
+          <Tabs defaultValue={industryTabs[0]?.label} orientation="vertical" className="w-full">
             <TabsList
               variant="line"
               className="w-full flex flex-col items-start gap-1 mb-6 bg-transparent"
             >
-              {mergedIndustryTabs.map((tab) => (
+              {industryTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
@@ -345,7 +617,7 @@ export default function CategoryClient({ category }: { category: string }) {
               ))}
             </TabsList>
 
-            {mergedIndustryTabs.map((tab) => (
+            {industryTabs.map((tab) => (
               <TabsContent
                 key={tab.label}
                 value={tab.label}
@@ -476,11 +748,12 @@ export default function CategoryClient({ category }: { category: string }) {
               Business Challenges
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Enterprise risks that demand structured, multi-layered protection strategies.
+              Enterprise risks that demand structured, multi-layered protection
+              strategies.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mergedChallenges.map((challenge, i) => (
+            {challengeCards.map((challenge, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -512,11 +785,12 @@ export default function CategoryClient({ category }: { category: string }) {
               Coverage Architecture
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Enterprise-grade layered protection spanning primary to strategic financing.
+              Enterprise-grade layered protection spanning primary to strategic
+              financing.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {mergedCoverage.map((layer, i) => (
+            {coverageLayers.map((layer, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full"
@@ -558,11 +832,12 @@ export default function CategoryClient({ category }: { category: string }) {
               Key Benefits
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Measurable outcomes that transform risk from cost center to strategic advantage.
+              Measurable outcomes that transform risk from cost center to
+              strategic advantage.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mergedBenefits.map((benefit, i) => (
+            {benefitCards.map((benefit, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center"
@@ -598,7 +873,7 @@ export default function CategoryClient({ category }: { category: string }) {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {mergedRisks.map((risk, i) => (
+            {riskCards.map((risk, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -630,11 +905,12 @@ export default function CategoryClient({ category }: { category: string }) {
               Related Platforms
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Technology-driven intelligence for risk assessment, monitoring, and compliance.
+              Technology-driven intelligence for risk assessment, monitoring, and
+              compliance.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {mergedPlatforms.map((platform, i) => (
+            {platformCards.map((platform, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -670,7 +946,7 @@ export default function CategoryClient({ category }: { category: string }) {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {mergedSolutions.map((solution, i) => (
+            {solutionCards.map((solution, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -706,7 +982,7 @@ export default function CategoryClient({ category }: { category: string }) {
             </p>
           </div>
           <div className="grid lg:grid-cols-3 gap-6">
-            {mergedCaseStudies.map((study, i) => (
+            {caseStudies.map((study, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col"
@@ -759,11 +1035,12 @@ export default function CategoryClient({ category }: { category: string }) {
               Risk Diagnostic
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Contextual assessments to understand your current risk posture and prioritize actions.
+              Contextual assessments to understand your current risk posture and
+              prioritize actions.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            {mergedDiagnostics.map((diag, i) => (
+            {diagnostics.map((diag, i) => (
               <Card
                 key={i}
                 className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
@@ -802,8 +1079,9 @@ export default function CategoryClient({ category }: { category: string }) {
               Ready to Architect Your Enterprise Risk Strategy?
             </h2>
             <p className="text-base text-slate-300 max-w-3xl mx-auto leading-snug">
-              Connect with our senior {label} architects to design a customized program aligned to
-              your organization&apos;s unique exposures and strategic objectives.
+              Connect with our senior risk architects to design a customized
+              program aligned to your organization&apos;s unique exposures and
+              strategic objectives.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
@@ -811,7 +1089,7 @@ export default function CategoryClient({ category }: { category: string }) {
                 className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
-                Book Consultation
+                {offering.cta?.primary || "Book Consultation"}
               </Button>
               <Button
                 size="lg"
@@ -819,7 +1097,7 @@ export default function CategoryClient({ category }: { category: string }) {
                 className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
-                Request Assessment
+                {offering.cta?.secondary || "Request Assessment"}
               </Button>
               <Button
                 size="lg"

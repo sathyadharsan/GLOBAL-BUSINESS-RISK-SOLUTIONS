@@ -58,6 +58,47 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+[data-orientation="vertical"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+}
+
+[data-slot="tabs-list"][data-variant="line"] {
+  width: 320px !important;
+  max-width: 32% !important;
+  flex-shrink: 0 !important;
+  border-right: 1px solid #E5E7EB !important;
+  padding-right: 16px !important;
+  gap: 4px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+[data-slot="tabs-trigger"] {
+  justify-content: flex-start !important;
+  width: 100% !important;
+  padding: 10px 16px !important;
+  border-radius: 0 !important;
+  border-left: 3px solid transparent !important;
+  background: transparent !important;
+  color: #374151 !important;
+  font-weight: 600 !important;
+  transition: none !important;
+}
+
+[data-slot="tabs-trigger"][data-active] {
+  color: #0B1F3A !important;
+  border-left-color: #1E5EFF !important;
+  background: #FFFFFF !important;
+}
+
+[data-slot="tabs-content"] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin-left: 24px !important;
+}
+
 :root {
   --background: #FFFFFF;
   --foreground: #111827;

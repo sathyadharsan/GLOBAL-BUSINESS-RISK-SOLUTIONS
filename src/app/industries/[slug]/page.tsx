@@ -6,7 +6,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronRight, Shield, Target, Users, Building2, Leaf, Activity, Zap, Globe, Briefcase, Truck, Wheat, Landmark, Stethoscope, Cpu, Rocket, BarChart3, Lock, FileText, CheckCircle2, AlertTriangle, Award } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Shield, Target, Users, Building2, Leaf, Activity, Zap, Globe, Briefcase, Truck, Wheat, Landmark, Stethoscope, Cpu, Rocket, BarChart3, Lock, FileText, CheckCircle2, AlertTriangle, Award, ChevronRight, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HeroSlider, HeroSlide } from "@/components/sections/HeroSlider";
 import { INDUSTRIES_DATA_ENHANCED } from "@/data/industryData";
@@ -428,7 +429,96 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         </div>
       </section>
 
-      {/* 7. RELATED OFFERINGS */}
+      {/* 7. INDUSTRY VERTICAL TABS */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[32px] font-bold text-[#0B1F3A] font-serif tracking-tight">Industry Solutions</h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Select an industry to view tailored risk insights, exposures, and recommended coverage.
+            </p>
+          </div>
+
+          <Tabs defaultValue={(industrySpecificData?.risks?.[0]?.name || "Overview").toString()} orientation="vertical" className="w-full">
+            <TabsList variant="line" className="w-full flex flex-col items-start gap-1 mb-6 bg-transparent">
+              {(industrySpecificData?.risks || [{ name: "Overview" }]).map((tab, idx) => (
+                <TabsTrigger
+                  key={idx}
+                  value={tab.name}
+                  className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent"
+                >
+                  {tab.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {(industrySpecificData?.risks || [{ name: "Overview" }]).map((tab, idx) => (
+              <TabsContent key={idx} value={tab.name} className="bg-white rounded-lg border border-slate-300 p-6">
+                <div className="grid lg:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Industry Overview</h3>
+                      <p className="text-sm text-slate-700 leading-snug">{overview?.importance || industry.description}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Industry Challenges</h3>
+                      <ul className="space-y-2">
+                        {(overview?.challenges || []).map((challenge, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-red-500 shrink-0" />
+                            <span>{challenge}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Risk Exposure</h3>
+                      <ul className="space-y-2">
+                        {(industrySpecificData?.solutions || []).slice(0, 3).map((item, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#1E5EFF] shrink-0" />
+                            <span>{item.risk}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Recommended Offerings</h3>
+                      <div className="space-y-2">
+                        {relatedOfferings.slice(0, 3).map(([slug, offering]) => (
+                          <Link key={slug} href={`/offerings/${slug}`} className="block rounded-md border border-slate-200 p-3 hover:border-[#1E5EFF]">
+                            <p className="text-sm font-semibold text-[#0B1F3A]">{offering.title}</p>
+                            <p className="text-xs text-slate-600 line-clamp-2">{offering.shortDescription}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Related Platforms</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {(industrySpecificData?.solutions || []).slice(0, 4).map((item, i) => (
+                          <span key={i} className="rounded-full border border-purple-200 bg-purple-50 px-3 py-1.5 text-sm font-medium text-purple-700">{item.mitigation?.[0] || "Platform"}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Case Study</h3>
+                      <div className="rounded-md border border-slate-200 p-4">
+                        <p className="text-sm font-semibold text-[#0B1F3A]">{(industrySpecificData?.caseStudies || [])[0]?.challenge || "Enterprise client transformation"}</p>
+                        <p className="mt-1 text-xs text-slate-600">{(industrySpecificData?.caseStudies || [])[0]?.outcome || "Optimized coverage and measurable risk reduction achieved."}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+      </section>
+
+      {/* 8. RELATED OFFERINGS */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="space-y-4 mb-12">
