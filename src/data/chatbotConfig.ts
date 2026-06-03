@@ -200,6 +200,16 @@ export const PAGE_CONTEXTS: ChatbotPageContext[] = [
     intro: "You're on our Contact page — ready to speak with a senior risk architect?\n\nI can help you prepare before your consultation:\n• Risk prioritization\n• Coverage gap analysis\n• Diagnostic scheduling",
     quickReplies: ["Schedule Consultation", "Risk Diagnostic", "Coverage Review", "Platform Demo", "TCOR Analysis"],
     diagnosticLabel: "Consultation Pre-Assessment", diagnosticPath: "/contact", primaryColor: "#0052CC" },
+
+  { id: "risk-intelligence-center", pathPattern: "/risks/risk-intelligence-center", type: "risk", entityName: "Risk Intelligence Center",
+    intro: "Welcome to the Risk Intelligence Center.\n\nMonitor cyber threats, regulatory risks, climate exposures, and emerging enterprise risks in real-time.\n\nWhat would you like to analyze today?",
+    quickReplies: ["Top Enterprise Risks", "Cyber Threat Intelligence", "Regulatory Monitoring", "Climate Risk Assessment", "Supply Chain Threats"],
+    diagnosticLabel: "Risk Intelligence Assessment", diagnosticPath: "/contact", primaryColor: "#0052CC" },
+
+  { id: "risk-diagnostic", pathPattern: "/risks/risk-diagnostic", type: "risk", entityName: "Risk Diagnostic",
+    intro: "Welcome to the Risk Diagnostic.\n\nConduct board-level risk assessment with exposure analysis and coverage gap identification.\n\nWhich domain would you like to assess?",
+    quickReplies: ["20-Domain Evaluation", "Coverage Gap Analysis", "Risk Scoring", "Benchmark Comparison", "Board Reporting"],
+    diagnosticLabel: "Enterprise Risk Diagnostic", diagnosticPath: "/contact", primaryColor: "#0052CC" },
 ];
 
 export const CHATBOT_INTENTS: ChatbotIntent[] = [

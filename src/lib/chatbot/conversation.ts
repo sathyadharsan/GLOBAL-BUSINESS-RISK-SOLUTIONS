@@ -40,7 +40,7 @@ export function updatePageContext(session: ChatbotSession, pathname: string): Ch
   const ctx = matchPageContext(pathname);
   if (!ctx) return session;
   if (session.currentPageContext && session.currentPageContext.id === ctx.id) return session;
-  return recordEvent({ ...session, currentPageContext: ctx }, BEHAVIOR_EVENTS.PAGE_VIEW, { path: pathname, contextId: ctx.id });
+  return { ...recordEvent(session, BEHAVIOR_EVENTS.PAGE_VIEW, { path: pathname, contextId: ctx.id }), currentPageContext: ctx };
 }
 
 export function recordEvent(session: ChatbotSession, type: BehaviorEventType, data?: Record<string, unknown>): ChatbotSession {

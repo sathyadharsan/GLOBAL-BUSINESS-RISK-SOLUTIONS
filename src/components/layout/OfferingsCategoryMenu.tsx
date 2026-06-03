@@ -10,35 +10,38 @@ import { CATEGORY_GROUPS } from "@/data/offeringsData";
 import { ChevronRight } from "lucide-react";
 
 export function OfferingsCategoryMenu() {
+  const categories = Object.keys(CATEGORY_GROUPS) as (keyof typeof CATEGORY_GROUPS)[];
+  
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger>Offerings</NavigationMenuTrigger>
       <NavigationMenuContent>
         <div className="w-[900px] p-6 bg-white">
-          <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-            {/* Distribute categories evenly across 4 columns */}
-            {Object.entries(CATEGORY_GROUPS).map(([key, category], index) => {
-              const col = Math.floor(index / 3); // 3 items per column (9 items / 3 = 3 columns, but we want 4 columns)
-              const colIndex = index % 4; // Distribute across 4 columns
-              
-              // We'll render all items, letting CSS grid handle the layout
+          <div className="grid grid-cols-4 gap-x-8 gap-y-3 mb-5">
+            {categories.map((key) => {
+              const category = CATEGORY_GROUPS[key];
               return (
                 <Link
                   key={key}
                   href={`/offerings/category/${key}`}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group"
+                  className="flex items-start gap-2.5 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group"
                 >
-                  <ChevronRight className="h-5 w-5 text-blue-600" />
-                  <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">
-                    {category.label}
-                  </span>
+                  <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">
+                      {category.label}
+                    </span>
+                    <span className="text-xs text-slate-500 mt-1 line-clamp-2 leading-tight">
+                      {category.description}
+                    </span>
+                  </div>
                 </Link>
               );
             })}
-            
-            <Link href="/offerings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-              <ChevronRight className="h-5 w-5 text-blue-600" />
-              <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Offerings →</span>
+          </div>
+          <div className="pt-4 border-t border-slate-200">
+            <Link href="/offerings" className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+              View All Offerings →
             </Link>
           </div>
         </div>
