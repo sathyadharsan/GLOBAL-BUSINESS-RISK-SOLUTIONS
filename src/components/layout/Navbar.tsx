@@ -405,8 +405,10 @@ export function Navbar() {
                     <Link href="/offerings/category/warranty-guarantee" className="hover:text-primary transition-colors">Warranty & Guarantee</Link>
                     <Link href="/offerings/category/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
                     <Link href="/offerings/category/ai-contract-analytics" className="hover:text-primary transition-colors">AI Contract & Analytics</Link>
-                    <Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
-                    <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
+<Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
+                     <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
+                     <Link href="/offerings/category/technology-platforms" className="hover:text-primary transition-colors">Technology Platforms</Link>
+                     <Link href="/offerings/category/emerging-frontier-risk" className="hover:text-primary transition-colors">Emerging Frontier Risk</Link>
                   </div>
                 </div>
                 <div>
