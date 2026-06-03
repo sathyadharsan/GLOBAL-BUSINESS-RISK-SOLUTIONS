@@ -630,12 +630,18 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
-                Book Consultation <ChevronRight className="ml-2 h-5 w-5" />
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] opacity-90">Industry Risk</div>
+                  <div className="text-sm font-bold">Diagnostic</div>
+                </div>
               </Button>
             </Link>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold">
-                Request Assessment
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] opacity-90">Call Us For</div>
+                  <div className="text-sm font-bold">Free Consultation</div>
+                </div>
               </Button>
             </Link>
           </div>

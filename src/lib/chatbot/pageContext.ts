@@ -135,8 +135,8 @@ function buildUseCaseContext(slug: string, data: typeof useCasesData[string]): C
 
   return {
     id: "use-case-" + slug,
-    pathPattern: "/use-cases/" + slug,
-    type: "use-case",
+    pathPattern: "/outcomes/" + slug,
+    type: "outcome",
     entityName,
     intro: `${entityName}.\n\n${data.description}\n\nWould you like a similar scenario assessment?`,
     quickReplies: quickReplies.length > 0 ? quickReplies : ["Scenario Assessment", "Coverage Review", "Book Consultation"],
@@ -259,11 +259,11 @@ export function matchPageContext(pathname: string): ChatbotPageContext | null {
     if (solData) return buildSolutionContext(slug, solData) || PAGE_CONTEXTS.find(ctx => ctx.type === "solution") || null;
     return PAGE_CONTEXTS.find(ctx => ctx.type === "solution") || null;
   }
-  if (pathname.startsWith("/use-cases/")) {
-    const slug = pathname.replace("/use-cases/", "").split("/")[0];
+  if (pathname.startsWith("/outcomes/")) {
+    const slug = pathname.replace("/outcomes/", "").split("/")[0];
     const ucData = useCasesData[slug];
-    if (ucData) return buildUseCaseContext(slug, ucData) || PAGE_CONTEXTS.find(ctx => ctx.type === "use-case") || null;
-    return PAGE_CONTEXTS.find(ctx => ctx.type === "use-case") || null;
+    if (ucData) return buildUseCaseContext(slug, ucData) || PAGE_CONTEXTS.find(ctx => ctx.type === "outcome") || null;
+    return PAGE_CONTEXTS.find(ctx => ctx.type === "outcome") || null;
   }
   if (pathname.startsWith("/about-us/")) {
     const slug = pathname.replace("/about-us/", "").split("/")[0];

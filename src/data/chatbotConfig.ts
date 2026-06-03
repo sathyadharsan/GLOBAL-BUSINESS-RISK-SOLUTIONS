@@ -1,7 +1,7 @@
 export interface ChatbotPageContext {
   id: string;
   pathPattern: string;
-  type: "industry" | "offering" | "risk" | "platform" | "solution" | "use-case" | "about" | "home" | "contact";
+  type: "industry" | "offering" | "risk" | "platform" | "solution" | "outcome" | "about" | "home" | "contact";
   entityName: string;
   intro: string;
   quickReplies: string[];
@@ -186,7 +186,7 @@ export const PAGE_CONTEXTS: ChatbotPageContext[] = [
     quickReplies: ["Major Loss Response", "Coverage Dispute", "Subrogation", "Recovery Optimisation", " expedited Claims"],
     diagnosticLabel: "Claims Advocacy Assessment", diagnosticPath: "/contact", primaryColor: "#0F766E" },
 
-  { id: "usecase-it-ransomware", pathPattern: "/use-cases/it-ransomware", type: "use-case", entityName: "IT Firm Ransomware Attack",
+  { id: "outcome-it-ransomware", pathPattern: "/outcomes/it-ransomware", type: "outcome", entityName: "IT Firm Ransomware Attack",
     intro: "Ransomware response requires forensics, ransom negotiation, DPDP notification, and business continuity.\n\nShall we assess your ransomware readiness?",
     quickReplies: ["Forensics & Response", "Ransom Negotiation", "DPDP Notification", "Business Continuity", "Cyber Insurance Activation"],
     diagnosticLabel: "Ransomware Incident Readiness Assessment", diagnosticPath: "/contact", primaryColor: "#DC2626" },
@@ -240,7 +240,7 @@ export const DIAGNOSTIC_TYPES: Record<string, { label: string; description: stri
   "risk": { label: "Risk Assessment", description: "Exposure quantification and risk transfer strategy for this risk category", cta: "Request Risk Assessment" },
   "platform": { label: "Platform Readiness Assessment", description: "Evaluate your organization's readiness for this platform", cta: "Request Platform Assessment" },
   "solution": { label: "Solution Diagnostic", description: "Strategic advisory diagnostic for this solution area", cta: "Request Advisory Session" },
-  "use-case": { label: "Use Case Assessment", description: "Scenario-specific risk transfer assessment", cta: "Assess This Scenario" },
+  "outcome": { label: "Outcome Assessment", description: "Scenario-specific risk transfer assessment", cta: "Assess This Outcome" },
   "about": { label: "Compatibility Assessment", description: "Evaluate how TRUSTFLOW fits your enterprise requirements", cta: "Schedule Consultation" },
   "home": { label: "Full Enterprise Diagnostic", description: "20-domain risk assessment across all risk categories", cta: "Start Full Diagnostic" },
   "contact": { label: "Pre-Consultation Diagnostic", description: "Preparation assessment before your risk architect consultation", cta: "Begin Pre-Assessment" },

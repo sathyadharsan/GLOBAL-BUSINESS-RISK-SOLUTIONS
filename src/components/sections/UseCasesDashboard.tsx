@@ -63,7 +63,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
   const heroImage = USECASE_IMAGES[activeSlug] || USECASE_IMAGES["default"];
 
   const handleSelect = (id: string) => {
-    router.push(`/use-cases/${id}`);
+    router.push(`/outcomes/${id}`);
   };
 
   return (

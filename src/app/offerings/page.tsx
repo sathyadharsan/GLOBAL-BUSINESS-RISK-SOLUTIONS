@@ -272,10 +272,16 @@ export default function OfferingsMarketplace() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = "/contact"}>
-                Book Consultation
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] opacity-90">Offering</div>
+                  <div className="text-sm font-bold">Readiness Assessment</div>
+                </div>
               </Button>
               <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
-                Request Assessment
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] opacity-90">Call Us For</div>
+                  <div className="text-sm font-bold">Free Consultation</div>
+                </div>
               </Button>
             </div>
           </div>

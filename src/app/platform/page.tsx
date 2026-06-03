@@ -183,7 +183,10 @@ export default function PlatformPage() {
             Deploy TRUSTFLOW's AI-powered platform suite to automate risk assessment, improve accuracy, and accelerate decision-making.
           </p>
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
-            Request Enterprise Access <ChevronRight className="ml-2 h-5 w-5" />
+            <div className="text-left leading-tight">
+              <div className="text-[10px] opacity-90">Platform</div>
+              <div className="text-sm font-bold">Readiness Assessment</div>
+            </div>
           </Button>
         </div>
       </section>

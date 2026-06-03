@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen } from "lucide-react";
+import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen, Server, LineChart, Brain, Network } from "lucide-react";
 import Link from "next/link";
 import { HeroSlider, HeroSlide } from "@/components/sections/HeroSlider";
 
@@ -64,7 +64,7 @@ export default function Home() {
       image: "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
       badge: "Operational Risk",
       buttons: [
-        { label: "View Use Cases", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/use-cases" },
+        { label: "View Outcomes", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/outcomes" },
         { label: "Supply Chain Coverage", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/marine-cargo" }
       ]
     },
@@ -187,23 +187,158 @@ export default function Home() {
       {/* 1. HERO */}
       <HeroSlider slides={slides} />
 
-      {/* 2. KEY METRICS STRIP - Overlapping Hero border */}
-      <section id="metrics" className="relative -mt-16 z-20 container mx-auto px-4 md:px-8 max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((m, i) => (
-            <div key={i} className="bg-slate-900/95 border border-slate-800 backdrop-blur-md rounded-xl p-5 text-white shadow-xl hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-300 group">
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-3xl font-extrabold text-blue-400 font-serif tracking-tight">{m.val}</span>
-                <m.icon className="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" />
-              </div>
-              <h4 className="text-xs font-bold text-slate-200 tracking-wide uppercase">{m.label}</h4>
-              <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">{m.desc}</p>
-            </div>
-          ))}
+      {/* 2. ENTERPRISE STATISTICS STRIP */}
+      <section className="relative z-30 bg-slate-900 border-b border-slate-800">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 py-10">
+            {[
+              { value: "150+", label: "Countries", sublabel: "Global reach", icon: Globe },
+              { value: "78+", label: "Offerings", sublabel: "Insurance solutions", icon: Briefcase },
+              { value: "45+", label: "Platforms", sublabel: "AI-powered tools", icon: Cpu },
+              { value: "30+", label: "Industries", sublabel: "Sector expertise", icon: Building2 },
+              { value: "200+", label: "Risk Categories", sublabel: "Comprehensive coverage", icon: Shield },
+              { value: "99%", label: "Client Retention", sublabel: "Trusted partnerships", icon: Award },
+            ].map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <div key={i} className="text-center group">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 mb-4 group-hover:bg-blue-600/20 transition-colors">
+                    <Icon className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-1">{stat.value}</div>
+                  <div className="text-sm font-semibold text-slate-300 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-xs text-slate-500 mt-1">{stat.sublabel}</div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* 3. EXPLORE RISKS - Premium card layout */}
+      {/* 3. 8 STRATEGIC ENTERPRISE CARDS */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Risk Command Center</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
+              Comprehensive Risk Intelligence Platform
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-3xl mx-auto">
+              One integrated architecture spanning industries, risk categories, insurance solutions, technology platforms, and measurable business outcomes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Industries",
+                icon: Building2,
+                description: "12 industry practices with deep domain expertise and specialized risk architectures.",
+                href: "/industries",
+                links: ["Technology", "Financial Services", "Healthcare", "Manufacturing", "Energy", "Infrastructure"],
+                color: "blue"
+              },
+              {
+                title: "Risks",
+                icon: Shield,
+                description: "200+ risk categories across cyber, operational, financial, regulatory, ESG, and emerging domains.",
+                href: "/risks",
+                links: ["Cyber Risks", "Supply Chain", "Climate", "Regulatory", "D&O Liability", "ESG"],
+                color: "red"
+              },
+              {
+                title: "Offerings",
+                icon: Briefcase,
+                description: "78+ enterprise insurance and risk transfer solutions engineered for global organizations.",
+                href: "/offerings",
+                links: ["Property", "Cyber", "D&O", "Business Interruption", "Professional Indemnity", "Warranty"],
+                color: "emerald"
+              },
+              {
+                title: "Solutions",
+                icon: Target,
+                description: "Strategic advisory, risk engineering, claims advocacy, and program architecture services.",
+                href: "/solutions",
+                links: ["Global Programs", "Captive Insurance", "TCOR Analytics", "Claims Advocacy", "Risk Engineering"],
+                color: "purple"
+              },
+              {
+                title: "Platforms",
+                icon: Cpu,
+                description: "45+ AI-powered risk intelligence tools for assessment, monitoring, and compliance.",
+                href: "/platform",
+                links: ["Risk Diagnostic Engine", "Cyber Intelligence", "Supply Chain Monitor", "Climate Analytics", "Contract Intelligence"],
+                color: "cyan"
+              },
+              {
+                title: "Outcomes",
+                icon: LineChart,
+                description: "Proven business outcomes and measurable results from enterprise risk transformations.",
+                href: "/outcomes",
+                links: ["IPO Protection", "PE Fund Exit", "Cyber Resilience", "Supply Chain Recovery", "Infrastructure Programs"],
+                color: "amber"
+              },
+              {
+                title: "Risk Intelligence Center",
+                icon: Brain,
+                description: "AI-powered predictive analytics and real-time risk monitoring across global markets.",
+                href: "/risks/risk-intelligence-center",
+                links: ["Predictive Analytics", "Market Intelligence", "Regulatory Updates", "Peer Benchmarking", "Scenario Modeling"],
+                color: "indigo"
+              },
+              {
+                title: "Enterprise Advisory",
+                icon: Users,
+                description: "Senior risk architects and practice leaders delivering transformational advisory services.",
+                href: "/about-us",
+                links: ["Leadership Team", "Industry Experts", "Claims Desk", "Underwriting Panel", "Technical Specialists"],
+                color: "teal"
+              },
+            ].map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <Link key={i} href={card.href} className="group">
+                  <div className="h-full bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className={`w-12 h-12 rounded-xl bg-${card.color}-50 flex items-center justify-center group-hover:bg-${card.color}-600 transition-colors`}>
+                        <Icon className={`h-6 w-6 text-${card.color}-600 group-hover:text-white transition-colors`} />
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                    </div>
+                    <h3 className="text-lg font-bold text-primary mb-3 font-serif group-hover:text-blue-600 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-4 flex-1">
+                      {card.description}
+                    </p>
+                    <div className="pt-4 border-t border-slate-200">
+                      <div className="flex flex-wrap gap-1.5">
+                        {card.links.slice(0, 3).map((link, j) => (
+                          <span key={j} className="text-[10px] font-medium px-2 py-1 bg-white border border-slate-200 rounded text-slate-600">
+                            {link}
+                          </span>
+                        ))}
+                        {card.links.length > 3 && (
+                          <span className="text-[10px] font-medium px-2 py-1 bg-blue-50 border border-blue-100 rounded text-blue-600">
+                            +{card.links.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <span className="text-xs font-bold text-blue-600 group-hover:text-blue-800 flex items-center">
+                        Explore {card.title} <ChevronRight className="ml-1 h-3 w-3" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. EXPLORE RISKS - Premium card layout */}
       <section id="explore-risks" className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
@@ -326,7 +461,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SECTOR-SPECIFIC SLIDER */}
+      {/* 5. FEATURED INDUSTRIES */}
       <section id="industries" className="py-24 bg-white border-b">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-16">
@@ -584,18 +719,129 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. CONTACT CTA */}
-      <section id="contact" className="py-24 bg-primary text-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
-            Ready to Architect Your Risk Strategy?
+      {/* 9. ENTERPRISE ADVISORY SECTION */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Advisory</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
+              Senior Risk Architects & Advisory
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl mx-auto">
+              Practice leaders with deep domain expertise across technology, healthcare, energy, infrastructure, financial services, and emerging sectors.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Risk Engineering", desc: "Proactive mitigation strategies and facility safety profiles", icon: Shield },
+              { title: "Claims Advocacy", desc: "Fierce representation during major loss events", icon: Award },
+              { title: "Program Architecture", desc: "Complex multinational insurance program design", icon: Globe },
+              { title: "TCOR Optimization", desc: "Data-driven total cost of risk analysis", icon: BarChart3 },
+              { title: "Captive Solutions", desc: "Alternative risk transfer and captive formations", icon: Building2 },
+              { title: "ESG Frameworks", desc: "Environmental, social, and governance risk", icon: Leaf },
+              { title: "Cyber Resilience", desc: "Comprehensive cybersecurity and response planning", icon: Lock },
+              { title: "Supply Chain", desc: "Supplier risk management and continuity planning", icon: Truck },
+            ].map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <div key={i} className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
+                    <Icon className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <h3 className="text-base font-bold text-primary mb-2 font-serif">{service.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{service.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FEATURED PLATFORMS */}
+      <section id="platforms" className="py-24 bg-slate-50">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="flex justify-between items-end mb-12">
+            <div className="space-y-2">
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Technology Suite</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">AI-Powered Risk Platforms</h2>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+                45+ proprietary tools for risk assessment, monitoring, compliance, and insurance optimization.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Risk Diagnostic Engine", desc: "AI-powered risk assessment and scenario modeling", icon: Target, href: "/platform/risk-diagnostic-engine" },
+              { title: "Cyber Intelligence", desc: "Real-time cyber threat monitoring and response", icon: Shield, href: "/platform/cyber-intelligence" },
+              { title: "Supply Chain Monitor", desc: "End-to-end supplier risk tracking", icon: Truck, href: "/platform/supply-chain-monitor" },
+              { title: "Climate Analytics", desc: "Physical and transition climate risk modeling", icon: Leaf, href: "/platform/climate-scenario" },
+              { title: "Contract Intelligence", desc: "Automated contract analysis and risk extraction", icon: FileText, href: "/platform/contract-intelligence" },
+              { title: "Risk Intelligence Center", desc: "Unified risk dashboard and reporting", icon: Activity, href: "/risks/risk-intelligence-center" },
+            ].map((platform, i) => {
+              const Icon = platform.icon;
+              return (
+                <Link key={i} href={platform.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                  <div className="flex-1">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
+                      <Icon className="h-5 w-5 text-blue-600 group-hover:text-white" />
+                    </div>
+                    <h3 className="text-base font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
+                      {platform.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {platform.desc}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-slate-100">
+                    <span className="text-xs font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                      Explore Platform <ChevronRight className="ml-1 h-3 w-3" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/platform">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                View All 45+ Platforms <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. EXECUTIVE CTA */}
+      <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
+          <Award className="h-12 w-12 text-blue-400 mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif tracking-tight">
+            Ready to Architect Your<br />Enterprise Risk Strategy?
           </h2>
-          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-            Book a free 30-minute diagnostic session with our senior risk architects.
+          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Connect with our senior risk architects for a comprehensive assessment and customized risk transfer architecture.
           </p>
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
-            Request Free Risk Assessment <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg h-14 px-8">
+                <div className="text-left">
+                  <div className="text-xs opacity-90">Call Us For</div>
+                  <div className="text-sm font-bold">Free Consultation</div>
+                </div>
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold h-14 px-8">
+                <div className="text-left">
+                  <div className="text-xs opacity-90">Schedule</div>
+                  <div className="text-sm font-bold">Executive Briefing</div>
+                </div>
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
