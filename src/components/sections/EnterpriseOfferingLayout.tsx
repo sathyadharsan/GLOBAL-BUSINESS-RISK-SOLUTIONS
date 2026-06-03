@@ -473,7 +473,7 @@ export function EnterpriseOfferingLayout({ offering }: EnterpriseOfferingLayoutP
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* SECTION 1: FULL WIDTH HERO */}
-      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A]">
+      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A] mb-16">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
@@ -523,59 +523,58 @@ export function EnterpriseOfferingLayout({ offering }: EnterpriseOfferingLayoutP
         </div>
       </section>
 
-      {/* SECTION 2: ENTERPRISE KPI DASHBOARD */}
-      <section className="w-full bg-[#0B1F3A] text-white py-14">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {kpis.map((kpi, i) => (
-              <div key={i} className="text-center space-y-2">
-                <div className="text-[44px] font-bold text-[#60A5FA] leading-none">
-                  {kpi.value}
-                </div>
-                <div className="text-xs text-slate-300 uppercase tracking-widest font-semibold">
-                  {kpi.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: CAPABILITY ARCHITECTURE */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      {/* SECTION 2: ENTERPRISE METRICS & CAPABILITIES - SINGLE SECTION */}
+      <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-[28px] md:text-[32px] font-bold text-[#0B1F3A] font-serif tracking-tight">
-              Capability Architecture
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+              Enterprise Overview
+            </Badge>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
+              Measurable Risk Solutions at Scale
             </h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Enterprise-grade capabilities designed to address complex risk landscapes across industries and geographies.
+            <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Enterprise-grade capabilities designed for complex risk landscapes.
             </p>
           </div>
+
+          {/* Executive KPI Cards Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {kpis.map((kpi, i) => (
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
+                <CardContent className="space-y-3 pt-0">
+                  <Shield className="h-10 w-10 text-blue-600 mx-auto" />
+                  <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">
+                    {kpi.value}
+                  </div>
+                  <div className="text-base font-semibold text-slate-700">
+                    {kpi.label}
+                  </div>
+                  <p className="text-xs text-slate-500 leading-snug px-2">
+                    Enterprise capability
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Capability Cards Row */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cap, i) => (
-              <Card
-                key={i}
-                className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
-              >
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
                     <Shield className="h-5 w-5 text-[#1E5EFF]" />
                   </div>
-                  <CardTitle className="text-base font-bold text-[#0B1F3A] leading-snug">
+                  <CardTitle className="text-base font-bold text-slate-900 leading-snug">
                     {cap.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">
-                    {cap.desc}
-                  </p>
+                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2 text-sm text-slate-700"
-                      >
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -588,7 +587,7 @@ export function EnterpriseOfferingLayout({ offering }: EnterpriseOfferingLayoutP
         </div>
       </section>
 
-      {/* SECTION 4 & 5: INDUSTRY VERTICAL TABS + DYNAMIC CONTENT PANEL */}
+      {/* SECTION 3: INDUSTRY VERTICAL TABS */}
       <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">

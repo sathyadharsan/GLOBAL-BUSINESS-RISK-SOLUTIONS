@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Search, Shield, Cpu, BadgeDollarSign, TrendingUp, Grid, Globe, Briefcase, ChevronRight } from "lucide-react";
+import { Search, Shield, Cpu, BadgeDollarSign, TrendingUp, Grid, Globe, Briefcase, ChevronRight, CheckCircle2 } from "lucide-react";
 import { offeringsData, CATEGORY_GROUPS } from "@/data/offeringsData";
 import { HeroBackground } from "@/components/sections/HeroBackground";
 import { cn } from "@/lib/utils";
@@ -50,7 +50,6 @@ export default function OfferingsMarketplace() {
         offering.category.toLowerCase().includes(searchQuery.toLowerCase());
       
       const matchesCategory = selectedCategory === "all" || offering.category === selectedCategory;
-      
       const matchesIndustry = selectedIndustry === "all" || 
         offering.industryApplicability?.includes(selectedIndustry);
       
@@ -70,44 +69,107 @@ export default function OfferingsMarketplace() {
     <div className="flex flex-col min-h-screen bg-slate-50">
       <HeroBackground
         title="Enterprise Risk & Insurance Solutions Marketplace"
-        subtitle="78+ enterprise-grade risk transfer, insurance, warranty, guarantee, contract intelligence, and risk analytics solutions designed for modern organizations."
+        subtitle="Enterprise-grade risk transfer, insurance, warranty, guarantee, contract intelligence, and risk analytics solutions designed for modern organizations."
         image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
         badges={["Marketplace"]}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Offerings" }
         ]}
-        stats={[
-          { val: "78+", label: "Offerings" },
-          { val: "45+", label: "Platforms" },
-          { val: "150+", label: "Countries" },
-          { val: "30+", label: "Industries" }
-        ]}
       />
 
-      {/* 2. METRICS STRIP */}
-      <div className="w-full bg-slate-900 text-white py-8">
+      {/* 2. ENTERPRISE METRICS & CAPABILITIES - SINGLE SECTION */}
+      <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">78+</div>
-              <div className="text-sm text-slate-300 uppercase tracking-wider">Offerings</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">45+</div>
-              <div className="text-sm text-slate-300 uppercase tracking-wider">Platforms</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">150+</div>
-              <div className="text-sm text-slate-300 uppercase tracking-wider">Countries</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">30+</div>
-              <div className="text-sm text-slate-300 uppercase tracking-wider">Industries</div>
-            </div>
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+              Enterprise Overview
+            </Badge>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
+              Measurable Risk Solutions at Scale
+            </h2>
+            <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Enterprise-grade capabilities across our risk solutions portfolio.
+            </p>
+          </div>
+
+          {/* Executive KPI Cards Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              { value: "78+", label: "Offerings", desc: "Risk transfer and insurance solutions.", icon: Shield },
+              { value: "45+", label: "Platforms", desc: "Technology platforms supporting risk operations.", icon: Cpu },
+              { value: "150+", label: "Countries", desc: "Global footprint across markets.", icon: Globe },
+              { value: "30+", label: "Industries", desc: "Cross-sector risk expertise.", icon: Briefcase },
+            ].map((kpi, i) => {
+              const Icon = kpi.icon;
+              return (
+                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
+                  <CardContent className="space-y-3 pt-0">
+                    <Icon className="h-10 w-10 text-blue-600 mx-auto" />
+                    <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">
+                      {kpi.value}
+                    </div>
+                    <div className="text-base font-semibold text-slate-700">
+                      {kpi.label}
+                    </div>
+                    <p className="text-xs text-slate-500 leading-snug px-2">
+                      {kpi.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Capability Cards Row */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Risk Transfer",
+                desc: "Comprehensive risk mitigation through insurance and guarantees.",
+                bullets: ["Insurance Placement", "Guarantee Structuring", "Warranty Solutions"],
+              },
+              {
+                title: "Contract Intelligence",
+                desc: "Automated analysis and risk scoring of contractual obligations.",
+                bullets: ["Clause Extraction", "Risk Scoring", "Obligation Tracking"],
+              },
+              {
+                title: "Analytics Engine",
+                desc: "Data-driven insights for risk assessment and optimization.",
+                bullets: ["Risk Modeling", "Portfolio Analysis", "Scenario Planning"],
+              },
+              {
+                title: "Due Diligence",
+                desc: "Rapid risk assessment for M&A and transactions.",
+                bullets: ["Document Review", "Risk Gap Detection", "Compliance Audit"],
+              },
+            ].map((cap, i) => (
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <CardHeader className="pb-3">
+                  <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
+                    <Shield className="h-5 w-5 text-[#1E5EFF]" />
+                  </div>
+                  <CardTitle className="text-base font-bold text-slate-900 leading-snug">
+                    {cap.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 pt-0">
+                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <ul className="space-y-2">
+                    {cap.bullets.map((bullet, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 3. SEARCH & FILTERS */}
       <div className="w-full bg-white border-b sticky top-20 z-40">
