@@ -157,7 +157,7 @@ export function TwoPanelLayout({
         <main className="flex-1 min-w-0 overflow-y-auto px-4 py-8 md:px-10 bg-slate-50">
           
           {/* Page Hero Strip with Background Image */}
-          <div className="mb-10 p-8 rounded-2xl text-white relative overflow-hidden shadow-sm border border-white/5 min-h-[300px]">
+          <div className="mb-10 p-8 rounded-2xl text-white relative overflow-hidden shadow-sm border border-white/5 min-h-[300px] bg-primary">
             {heroImage && (
               <>
                 <div className="absolute inset-0 z-0">
