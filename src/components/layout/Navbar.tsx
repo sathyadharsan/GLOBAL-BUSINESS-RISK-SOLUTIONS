@@ -121,62 +121,70 @@ export function Navbar() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[900px] p-6 bg-white">
-                      <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                        {/* Column 1 */}
-                        <Link href="/platform/risk-diagnostic-engine" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#0052CC" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Diagnostic Engine</span>
-                        </Link>
-                        <Link href="/platform/risk-dna-mapper" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#2563EB" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk DNA Mapper</span>
-                        </Link>
-                        <Link href="/platform/cyber-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#DC2626" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Cyber Intelligence</span>
-                        </Link>
-                        
-                        {/* Column 2 */}
-                        <Link href="/platform/counterparty-assessment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Counterparty Analytics</span>
-                        </Link>
-                        <Link href="/platform/contract-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Contract Intelligence</span>
-                        </Link>
-                        <Link href="/platform/regulatory-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Regulatory Intelligence</span>
-                        </Link>
-                        
-                        {/* Column 3 */}
-                        <Link href="/platform/risk-intelligence-aggregator" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Aggregator</span>
-                        </Link>
-                        <Link href="/platform/supply-chain-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Supply Chain Monitor</span>
-                        </Link>
-                        <Link href="/platform/climate-scenario" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Climate Analytics</span>
-                        </Link>
-                        
-                        {/* Column 4 */}
-                        <Link href="/platform" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                          <ChevronRight className="h-5 w-5 text-blue-600" />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Platforms →</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+<NavigationMenuItem>
+                   <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
+                   <NavigationMenuContent>
+                     <div className="w-[900px] p-6 bg-white">
+                       <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
+                         {/* Column 1 */}
+                         <Link href="/platform/risk-diagnostic-engine" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#0052CC" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Diagnostic Engine</span>
+                         </Link>
+                         <Link href="/platform/risk-dna-mapper" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#2563EB" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk DNA Mapper</span>
+                         </Link>
+                         <Link href="/platform/cyber-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#DC2626" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Cyber Intelligence</span>
+                         </Link>
+                         
+                         {/* Column 2 */}
+                         <Link href="/platform/counterparty-assessment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Counterparty Analytics</span>
+                         </Link>
+                         <Link href="/platform/contract-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Contract Intelligence</span>
+                         </Link>
+                         <Link href="/platform/regulatory-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Regulatory Intelligence</span>
+                         </Link>
+                         
+                         {/* Column 3 */}
+                         <Link href="/platform/risk-intelligence-aggregator" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Aggregator</span>
+                         </Link>
+                         <Link href="/platform/supply-chain-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Supply Chain Monitor</span>
+                         </Link>
+                         <Link href="/platform/climate-scenario" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Climate Analytics</span>
+                         </Link>
+                         <Link href="/platform/political-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#0D9488" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Political Risk Monitor</span>
+                         </Link>
+                         <Link href="/platform/ma-due-diligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">M&A Due Diligence</span>
+                         </Link>
+                         
+                         {/* Column 4 */}
+                         <Link href="/platform" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                           <ChevronRight className="h-5 w-5 text-blue-600" />
+                           <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Platforms →</span>
+                         </Link>
+                       </div>
+                     </div>
+                   </NavigationMenuContent>
+                 </NavigationMenuItem>
 
                <OfferingsCategoryMenu />
 
@@ -453,6 +461,10 @@ export function Navbar() {
                     <Link href="/platform/ma-due-diligence" className="hover:text-primary transition-colors">M&A Due Diligence Suite</Link>
                     <Link href="/platform/supply-chain-monitor" className="hover:text-primary transition-colors">Supply Chain Risk Monitor</Link>
                     <Link href="/platform/political-monitor" className="hover:text-primary transition-colors">Political Risk Monitor</Link>
+                    <Link href="/platform/regulatory-intelligence" className="hover:text-primary transition-colors">Regulatory Intelligence</Link>
+                    <Link href="/platform/climate-scenario" className="hover:text-primary transition-colors">Climate Scenario Analysis</Link>
+                    <Link href="/platform/risk-intelligence-aggregator" className="hover:text-primary transition-colors">Risk Intelligence Aggregator</Link>
+                    <Link href="/platform/api-integrations" className="hover:text-primary transition-colors">API Integrations</Link>
                   </div>
                 </div>
                 <div>
