@@ -341,12 +341,14 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button className="bg-primary text-white hover:bg-primary/90">
-            <div className="text-left leading-tight">
-              <div className="text-[10px] opacity-90">Call Us For</div>
-              <div className="text-xs font-bold">Free Consultation</div>
-            </div>
-          </Button>
+          <Link href="/contact">
+            <Button className="bg-primary text-white hover:bg-primary/90">
+              <div className="text-left leading-tight">
+                <div className="text-[10px] opacity-90">Call Us For</div>
+                <div className="text-xs font-bold">Free Consultation</div>
+              </div>
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Nav */}
@@ -456,7 +458,14 @@ export function Navbar() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 mt-6">
-                  <Button className="w-full justify-start">Book Consultation</Button>
+                  <Link href="/contact">
+                    <Button className="w-full justify-start">
+                      <div className="text-left leading-tight">
+                        <div className="text-[10px] opacity-90">Call Us For</div>
+                        <div className="text-xs font-bold">Free Consultation</div>
+                      </div>
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
