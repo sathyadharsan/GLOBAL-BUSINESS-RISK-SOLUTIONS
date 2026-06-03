@@ -421,7 +421,7 @@ export function Navbar() {
               <span className="sr-only">Toggle menu</span>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
-              <div className="flex flex-col gap-6 pt-10 pb-8">
+<div className="flex flex-col gap-6 pt-10 pb-8">
                 <div>
                   <Link href="/" className="flex flex-col items-center text-center mb-4">
                     <span className="text-xl font-bold tracking-tight text-primary leading-tight">
@@ -455,23 +455,34 @@ export function Navbar() {
                     <Link href="/platform/political-monitor" className="hover:text-primary transition-colors">Political Risk Monitor</Link>
                   </div>
                 </div>
-                <Link href="/offerings" className="text-lg font-medium">Offerings</Link>
+                <div>
+                  <Link href="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                    <Link href="/offerings/category/insurance-solutions" className="hover:text-primary transition-colors">Insurance Solutions</Link>
+                    <Link href="/offerings/category/cyber-digital-risk" className="hover:text-primary transition-colors">Cyber & Digital Risk</Link>
+                    <Link href="/offerings/category/warranty-guarantee" className="hover:text-primary transition-colors">Warranty & Guarantee</Link>
+                    <Link href="/offerings/category/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
+                    <Link href="/offerings/category/ai-contract-analytics" className="hover:text-primary transition-colors">AI Contract & Analytics</Link>
+                    <Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
+                    <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
+                  </div>
+                </div>
                 <div>
                   <Link href="/industries" className="text-lg font-semibold text-primary">Industries</Link>
-<div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                     <Link href="/industries/technology-digital" className="hover:text-primary transition-colors">Technology & Digital</Link>
-                     <Link href="/industries/manufacturing-industrial" className="hover:text-primary transition-colors">Manufacturing & Industrial</Link>
-                     <Link href="/industries/energy-utilities" className="hover:text-primary transition-colors">Energy & Utilities</Link>
-                     <Link href="/industries/financial-services" className="hover:text-primary transition-colors">Financial Services</Link>
-                     <Link href="/industries/infrastructure-real-estate" className="hover:text-primary transition-colors">Infrastructure & Real Estate</Link>
-                     <Link href="/industries/transportation-logistics" className="hover:text-primary transition-colors">Transportation & Logistics</Link>
-                     <Link href="/industries/agriculture-environment" className="hover:text-primary transition-colors">Agriculture & Environment</Link>
-                     <Link href="/industries/healthcare-life-sciences" className="hover:text-primary transition-colors">Healthcare & Life Sciences</Link>
-                     <Link href="/industries/retail-hospitality" className="hover:text-primary transition-colors">Retail & Hospitality</Link>
-                     <Link href="/industries/government-public-sector" className="hover:text-primary transition-colors">Government & Public Sector</Link>
-                     <Link href="/industries/education-nonprofit" className="hover:text-primary transition-colors">Education & Non-Profit</Link>
-                     <Link href="/industries/emerging-industries" className="hover:text-primary transition-colors">Emerging Industries</Link>
-                   </div>
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                    <Link href="/industries/technology-digital" className="hover:text-primary transition-colors">Technology & Digital</Link>
+                    <Link href="/industries/manufacturing-industrial" className="hover:text-primary transition-colors">Manufacturing & Industrial</Link>
+                    <Link href="/industries/energy-utilities" className="hover:text-primary transition-colors">Energy & Utilities</Link>
+                    <Link href="/industries/financial-services" className="hover:text-primary transition-colors">Financial Services</Link>
+                    <Link href="/industries/infrastructure-real-estate" className="hover:text-primary transition-colors">Infrastructure & Real Estate</Link>
+                    <Link href="/industries/transportation-logistics" className="hover:text-primary transition-colors">Transportation & Logistics</Link>
+                    <Link href="/industries/agriculture-environment" className="hover:text-primary transition-colors">Agriculture & Environment</Link>
+                    <Link href="/industries/healthcare-life-sciences" className="hover:text-primary transition-colors">Healthcare & Life Sciences</Link>
+                    <Link href="/industries/retail-hospitality" className="hover:text-primary transition-colors">Retail & Hospitality</Link>
+                    <Link href="/industries/government-public-sector" className="hover:text-primary transition-colors">Government & Public Sector</Link>
+                    <Link href="/industries/education-nonprofit" className="hover:text-primary transition-colors">Education & Non-Profit</Link>
+                    <Link href="/industries/emerging-industries" className="hover:text-primary transition-colors">Emerging Industries</Link>
+                  </div>
                 </div>
                 <div>
                   <Link href="/solutions" className="text-lg font-semibold text-primary">Solutions</Link>
