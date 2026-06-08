@@ -198,10 +198,6 @@ export function Navbar() {
                         <ChevronRight className="h-5 w-5 text-blue-600" />
                         <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Claims Advocacy</span>
                       </Link>
-                      <Link href="/solutions/featured-solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Enterprise Programs</span>
-                      </Link>
                       <Link href="/solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
                         <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Solutions →</span>
@@ -344,8 +340,8 @@ export function Navbar() {
           <Link href="/contact">
             <Button className="bg-primary text-white hover:bg-primary/90">
               <div className="text-left leading-tight">
-                <div className="text-[10px] opacity-90">Call Us For</div>
-                <div className="text-xs font-bold">Free Consultation</div>
+                <div className="text-[10px] opacity-90">Contact Us</div>
+
               </div>
             </Button>
           </Link>
@@ -405,10 +401,10 @@ export function Navbar() {
                     <Link href="/offerings/category/warranty-guarantee" className="hover:text-primary transition-colors">Warranty & Guarantee</Link>
                     <Link href="/offerings/category/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
                     <Link href="/offerings/category/ai-contract-analytics" className="hover:text-primary transition-colors">AI Contract & Analytics</Link>
-<Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
-                     <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
-                     <Link href="/offerings/category/technology-platforms" className="hover:text-primary transition-colors">Technology Platforms</Link>
-                     <Link href="/offerings/category/emerging-frontier-risk" className="hover:text-primary transition-colors">Emerging Frontier Risk</Link>
+                    <Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
+                    <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
+                    <Link href="/offerings/category/technology-platforms" className="hover:text-primary transition-colors">Technology Platforms</Link>
+                    <Link href="/offerings/category/emerging-frontier-risk" className="hover:text-primary transition-colors">Emerging Frontier Risk</Link>
                   </div>
                 </div>
                 <div>
@@ -463,8 +459,8 @@ export function Navbar() {
                   <Link href="/contact">
                     <Button className="w-full justify-start">
                       <div className="text-left leading-tight">
-                        <div className="text-[10px] opacity-90">Call Us For</div>
-                        <div className="text-xs font-bold">Free Consultation</div>
+                        <div className="text-[10px] opacity-90">Contact Us</div>
+
                       </div>
                     </Button>
                   </Link>

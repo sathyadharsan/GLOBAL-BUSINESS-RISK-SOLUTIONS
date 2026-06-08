@@ -1,194 +1,281 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { 
-  Globe, Layers, Zap, BarChart, ShieldAlert, Search, 
-  ArrowRight, Shield, Target, LayoutGrid, CheckCircle2, ChevronRight
-} from "lucide-react";
-import { solutionsData } from "@/data/siteContent";
-import { cn } from "@/lib/utils";
+import React from "react";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Shield, Target, CheckCircle2, ChevronRight, Download, Globe, Briefcase, BarChart3, Cpu } from "lucide-react";
+import { solutionsCategories } from "@/data/siteContent";
 
-const groups: SidebarGroup[] = [
-  {
-    label: "PROGRAM STRUCTURES",
-    items: [
-      { id: "global-program-architecture", label: "Global Program Architecture", icon: Globe },
-      { id: "captive-insurance", label: "Captive Insurance & ART", icon: Layers },
-      { id: "long-tenor-infrastructure", label: "Long-Tenor Infrastructure", icon: Zap },
-      { id: "tcor-analytics", label: "TCOR Analytics & Benchmarking", icon: BarChart },
-      { id: "claims-advocacy", label: "Claims Advocacy", icon: ShieldAlert },
-      { id: "risk-engineering", label: "Risk Engineering & Loss Prevention", icon: Search }
-    ]
-  }
-];
-
-export default function Solutions() {
-  const [selectedSlug, setSelectedSlug] = useState("global-program-architecture");
-
-  const currentSolutionData = solutionsData[selectedSlug];
-
-  const getIcon = (id: string) => {
-    switch (id) {
-      case "global-program-architecture": return Globe;
-      case "captive-insurance": return Layers;
-      case "long-tenor-infrastructure": return Zap;
-      case "tcor-analytics": return BarChart;
-      case "claims-advocacy": return ShieldAlert;
-      case "risk-engineering": return Search;
-      default: return Shield;
-    }
-  };
-
-  const Icon = getIcon(selectedSlug);
-
+export default function SolutionsPage() {
   return (
-    <TwoPanelLayout
-      groups={groups}
-      activeId={selectedSlug}
-      onItemSelect={(id) => setSelectedSlug(id)}
-      heroTitle="Enterprise Risk Architecture & Structures"
-      heroSubtitle="Strategic risk transfer mechanisms transcending product lines, designed to optimize your capital efficiency and secure business longevity. Click any structure below."
-      heroBadges={["Strategic Services"]}
-      heroImage="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
-      heroStats={[
-        { val: "6", label: "Program Structures" },
-        { val: "150+", label: "Countries" },
-        { val: "A++", label: "Carriers" },
-        { val: "30+", label: "Years Experience" }
-      ]}
-    >
-      
-      {/* 1. Category Summary Header */}
-      <div className="mb-6 pb-3 border-b flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-bold text-primary font-serif">
-            Program Architecture
-          </h2>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Select a card to examine corporate mechanics, solutions, and benefits
-          </p>
-        </div>
-      </div>
-
-      {/* 2. SUMMARY CARD GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {groups[0].items.map((item) => {
-          const isSelected = selectedSlug === item.id;
-          const data = solutionsData[item.id];
-          const CardIcon = item.icon || Shield;
-          return (
-            <div
-              key={item.id}
-              onClick={() => setSelectedSlug(item.id)}
-              className={cn(
-                "p-4 bg-white rounded-lg border border-slate-200 transition-all cursor-pointer shadow-sm hover:shadow-md select-none flex flex-col justify-between border-l-[3px] border-l-[#6A1B9A] min-h-[160px]",
-                isSelected ? "ring-2 ring-blue-600 ring-offset-1 shadow-md scale-[1.01]" : "hover:-translate-y-[2px]"
-              )}
-            >
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CardIcon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-600" : "text-purple-600")} />
-                  <h3 className="text-xs font-bold text-primary truncate leading-tight">
-                    {item.label}
-                  </h3>
-                </div>
-                <p className="text-[11px] text-muted-foreground line-clamp-3 leading-relaxed">
-                  {data?.description || "Strategic advisory and program structuring configurations designed to build capital resilience."}
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100">
-                <span className="text-[10px] font-semibold text-blue-600 flex items-center gap-0.5">
-                  {isSelected ? "Expanded" : "Details"} →
-                </span>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
-                  Solution Architecture
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 3. DYNAMIC EXPANDED DETAIL CARD */}
-      {currentSolutionData && (
-        <div className="bg-white rounded-xl border border-slate-200 shadow-md overflow-hidden mt-8 animate-in fade-in slide-in-from-bottom-4 duration-300">
-          
-          {/* Header Banner */}
-          <div className="p-6 text-white bg-primary relative border-b border-white/5">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-transparent z-0" />
-            <div className="relative z-10 space-y-2 max-w-4xl">
-              <span className="text-[10px] font-bold uppercase tracking-widest bg-purple-700/50 text-purple-200 px-2 py-0.5 rounded border border-purple-600/20">
-                PROGRAM STRUCTURE
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
-                {currentSolutionData.title}
-              </h2>
-              <p className="text-sm text-gray-300">
-                {currentSolutionData.subtitle}
-              </p>
-            </div>
-          </div>
-
-          <div className="p-6 md:p-8 space-y-8">
-            
-            {/* Overview / Description */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 pb-2 border-b">
-                <LayoutGrid className="h-5 w-5 text-blue-600" />
-                <h3 className="text-base font-bold text-primary font-serif">Structural Overview</h3>
-              </div>
-              <p className="text-sm text-slate-600 leading-relaxed max-w-4xl">
-                {currentSolutionData.description}
-              </p>
-            </div>
-
-            {/* Key Features & Coverage Components */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 pb-2 border-b">
-                <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                <h3 className="text-base font-bold text-primary font-serif">Solutions & Benefits</h3>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {currentSolutionData.features.map((feature, i) => (
-                  <div key={i} className="bg-slate-50/50 p-5 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between animate-in fade-in duration-300">
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-bold text-primary flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shrink-0" />
-                        {feature.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-          {/* Call-to-action bottom panel */}
-          <div className="p-8 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="space-y-1">
-              <h4 className="text-base font-bold text-primary font-serif">Optimize your enterprise-wide risk retention levels</h4>
-              <p className="text-xs text-muted-foreground">Request a comprehensive 30-minute TCOR audit from our specialized risk engineers.</p>
-            </div>
-            <Link href="/contact" className="w-full sm:w-auto">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm w-full h-12 px-6 flex items-center justify-center gap-2">
-                Get TCOR Risk Audit <ChevronRight className="w-4 h-4" />
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* SECTION 1: FULL WIDTH HERO */}
+      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A]">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format&fit=crop')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
+          <div className="max-w-4xl space-y-6">
+            <Badge variant="secondary" className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase">
+              Enterprise Risk Solutions
+            </Badge>
+            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
+              Solutions
+            </h1>
+            <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">
+              Enterprise risk transfer architectures that protect balance sheets, preserve enterprise value, reduce earnings volatility, and enable strategic growth.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
+                Request Consultation
               </Button>
-            </Link>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
+                Speak With Specialist
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: ENTERPRISE METRICS & CAPABILITIES */}
+      <section className="w-full bg-white py-14 border-b border-slate-200">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+              Enterprise Overview
+            </Badge>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
+              Measurable Risk Solutions at Scale
+            </h2>
+            <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Enterprise-grade capabilities across our risk solutions portfolio.
+            </p>
           </div>
 
-        </div>
-      )}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              { value: "$50B+", label: "Protected Enterprise Value" },
+              { value: "500+", label: "Risk Programs Designed" },
+              { value: "150+", label: "Industries Covered" },
+              { value: "24/7", label: "Advisory Support" },
+            ].map((kpi, i) => (
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
+                <CardContent className="space-y-3 pt-0">
+                  <Shield className="h-10 w-10 text-blue-600 mx-auto" />
+                  <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">
+                    {kpi.value}
+                  </div>
+                  <div className="text-base font-semibold text-slate-700">
+                    {kpi.label}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-    </TwoPanelLayout>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Risk Identification",
+                desc: "Structured assessment across all business units, geographies, and counterparty relationships.",
+                bullets: ["Asset valuation", "Operational vulnerability", "Supply chain mapping", "Regulatory gap analysis"],
+              },
+              {
+                title: "Exposure Mapping",
+                desc: "Deep analysis of risk concentrations and interdependencies affecting enterprise value.",
+                bullets: ["Risk quantification", "Scenario modeling", "Impact assessment", "Mitigation planning"],
+              },
+              {
+                title: "Financial Protection",
+                desc: "Optimized retention, transfer, and financing to preserve balance sheet integrity.",
+                bullets: ["Limit optimization", "Deductible strategy", "Captive integration", "Carrier selection"],
+              },
+              {
+                title: "Business Continuity",
+                desc: "Claims preparedness and recovery planning to maintain operational resilience.",
+                bullets: ["SLA templates", "Crisis protocols", "Recovery funding", "Stakeholder communication"],
+              },
+            ].map((cap, i) => (
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <CardHeader className="pb-3">
+                  <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
+                    <Shield className="h-5 w-5 text-[#1E5EFF]" />
+                  </div>
+                  <CardTitle className="text-base font-bold text-slate-900 leading-snug">
+                    {cap.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 pt-0">
+                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <ul className="space-y-2">
+                    {cap.bullets.map((bullet, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: SOLUTION CATEGORIES */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[28px] font-bold text-primary font-serif tracking-tight">
+              Solution Categories
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Five core pillars of enterprise risk transfer architecture.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(solutionsCategories).map(([key, category]) => (
+              <Link key={key} href={`/solutions/${key}`}>
+                <Card className="group transition-all hover:shadow-lg hover:-translate-y-1 border-slate-200 bg-white h-full flex flex-col">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 rounded-lg bg-[#EAF2FF] flex items-center justify-center shrink-0">
+                        <Shield className="h-6 w-6 text-[#1E5EFF]" />
+                      </div>
+                      <CardTitle className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {category.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-1 flex flex-col">
+                    <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed mb-4">
+                      {category.description}
+                    </p>
+                    <div className="mt-auto pt-4 border-t border-slate-100">
+                      <span className="text-sm font-semibold text-blue-600 flex items-center gap-1 group-hover:text-blue-800">
+                        Explore Solutions
+                        <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: RELATED RISKS */}
+      <section className="py-14 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[28px] font-bold text-slate-900 font-serif tracking-tight">
+              Related Risks
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Cross-industry and cross-functional risk domains requiring specialized coverage.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { title: "Cyber Risk", icon: Cpu },
+              { title: "Supply Chain Disruption", icon: Briefcase },
+              { title: "Regulatory Investigation", icon: Shield },
+              { title: "Climate Events", icon: Globe },
+              { title: "Operational Risk", icon: BarChart3 },
+            ].map((risk, i) => (
+              <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
+                <risk.icon className="h-8 w-8 text-blue-600" />
+                <span className="text-sm font-medium text-slate-700">{risk.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: GLOBAL PROGRAM STRUCTURE */}
+      <section className="py-14 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[28px] font-bold text-slate-900 font-serif tracking-tight">
+              Global Program Structure Options
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              From local compliance to global coordination, we design programs at scale.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Local Program",
+                desc: "Single jurisdiction with admitted carrier placement and statutory compliance.",
+                features: ["Admitted insurer", "Local regulatory", "Standard terms"],
+              },
+              {
+                title: "Regional Program",
+                desc: "Multi-country coordination with consistent coverage and centralized governance.",
+                features: ["Cross-border", "DIC/DIL", "Unified limits"],
+              },
+              {
+                title: "Global Program",
+                desc: "Controlled master policy with fronting network and captive integration.",
+                features: ["Master policy", "Fronting", "Captive reinsurance"],
+              },
+            ].map((program, i) => (
+              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg font-bold text-slate-900">
+                    {program.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-slate-600 mb-3">{program.desc}</p>
+                  <ul className="space-y-1">
+                    {program.features.map((f, j) => (
+                      <li key={j} className="text-xs text-slate-500 flex items-center gap-1">
+                        <span className="w-1 h-1 bg-blue-600 rounded-full" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: EXECUTIVE CTA */}
+      <section className="py-20 bg-gradient-to-br from-[#0B1F3A] via-[#0B1F3A] to-[#0D2B4D] text-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl text-center">
+          <div className="space-y-6">
+            <h2 className="text-[28px] md:text-[32px] font-bold font-serif tracking-tight">
+              Architect Your Enterprise Risk Strategy
+            </h2>
+            <p className="text-base text-slate-300 max-w-3xl mx-auto leading-snug">
+              Book a consultation with our senior risk architects to design a customized risk transfer program.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
+                Book Consultation
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
+                Request Proposal
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

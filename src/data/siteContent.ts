@@ -322,6 +322,74 @@ export const useCasesData: Record<string, DynamicPageContent> = {
   }
 };
 
+export const solutionsCategories = {
+  "property-asset-protection": {
+    slug: "property-asset-protection",
+    title: "Property & Asset Protection",
+    subtitle: "Physical asset security across enterprise operations",
+    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    description: "Comprehensive protection for buildings, machinery, inventory, and revenue streams against fire, natural disasters, theft, and operational perils.",
+    solutions: ["property-all-risks", "business-interruption", "construction-risk", "marine-cargo", "parametric-insurance"]
+  },
+  "liability-governance": {
+    slug: "liability-governance",
+    title: "Liability & Governance Shield",
+    subtitle: "Enterprise protection from legal and regulatory exposures",
+    heroImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=2070&auto=format&fit=crop",
+    description: "Protection against third-party claims, product liability, professional errors, board decisions, and evolving AI and cyber liabilities.",
+    solutions: ["general-liability", "product-liability", "directors-officers", "professional-indemnity", "cyber-liability"]
+  },
+  "financial-transaction-risk": {
+    slug: "financial-transaction-risk",
+    title: "Financial & Transaction Risk",
+    subtitle: "Credit, guarantee, and M&A risk transfer solutions",
+    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    description: "Coverage for accounts receivable, contractual guarantees, transaction risk, and political uncertainty in emerging markets.",
+    solutions: ["trade-credit", "surety-bonds", "ma-insurance", "political-risk"]
+  },
+  "emerging-risk-solutions": {
+    slug: "emerging-risk-solutions",
+    title: "Emerging Risk Solutions",
+    subtitle: "Innovative coverage for frontier exposures",
+    heroImage: "https://images.unsplash.com/photo-1451187580459-43470bc77f68?q=80&w=2070&auto=format&fit=crop",
+    description: "Parametric triggers, AI liability, space insurance, climate risk, and cyber-physical convergence addressing novel enterprise exposures.",
+    solutions: ["parametric-insurance", "climate-risk-solutions", "ai-risk-solutions", "space-insurance"]
+  },
+  "alternative-risk-transfer": {
+    slug: "alternative-risk-transfer",
+    title: "Alternative Risk Transfer",
+    subtitle: "Captives, ILS, and self-insurance optimization",
+    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
+    description: "Insurance-linked securities, captive insurance, and self-insurance solutions for enterprises seeking control over premium volatility and risk retention.",
+    solutions: ["captive-insurance", "parametric-insurance", "ils-cat-bonds"]
+  }
+};
+
+export const solutionsIndustryMapping: Record<string, string[]> = {
+  "property-all-risks": ["Manufacturing & Industrial", "Real Estate", "Retail & E-Commerce", "Healthcare", "Energy & Renewables", "Technology & SaaS"],
+  "business-interruption": ["Manufacturing & Industrial", "Retail & E-Commerce", "Hospitality", "Healthcare", "Data Centers"],
+  "construction-risk": ["Construction & Engineering", "Infrastructure", "Real Estate Development"],
+  "marine-cargo": ["Manufacturing", "Automotive", "Pharmaceuticals", "Food & Beverage", "Electronics"],
+  "general-liability": ["All Industries", "Retail", "Hospitality", "Technology"],
+  "product-liability": ["Manufacturing", "Automotive", "Consumer Electronics", "Pharmaceuticals"],
+  "directors-officers": ["All Industries", "Financial Services", "Technology", "Healthcare"],
+  "professional-indemnity": ["Professional Services", "IT Services", "Financial Advisors", "Legal"],
+  "cyber-liability": ["Technology", "Financial Services", "Healthcare", "Retail"],
+  "trade-credit": ["Manufacturing", "Wholesale & Distribution", "Automotive"],
+  "surety-bonds": ["Construction", "Infrastructure", "Government"],
+  "ma-insurance": ["Private Equity", "Technology", "Healthcare", "Financial Services"],
+  "political-risk": ["Infrastructure", "Energy", "Mining", "Renewables"],
+  "parametric-insurance": ["Agriculture", "Energy", "Manufacturing", "Construction"],
+  "climate-risk-solutions": ["Real Estate", "Energy", "Infrastructure", "Manufacturing"],
+  "ai-risk-solutions": ["Technology", "Financial Services", "Healthcare", "Automotive"],
+  "space-insurance": ["Technology", "Defense", "Telecommunications"],
+  "captive-insurance": ["Large Enterprise", "MNC", "Financial Services"],
+  "ils-cat-bonds": ["Large Enterprise", "MNC", "Insurance Companies"]
+};
+
+export type SolutionCategory = keyof typeof solutionsCategories;
+export type SolutionSlug = string;
+
 export const aboutUsData: Record<string, DynamicPageContent> = {
   "our-story": {
     slug: "our-story",
