@@ -3,16 +3,18 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   BookOpen, Users, Award, Handshake, Leaf, GraduationCap,
-  Target, Lightbulb, CheckCircle2, Layers, ShieldAlert, ChevronRight
+  Target, Lightbulb, CheckCircle2, Layers, ShieldAlert, ChevronRight, MapPin
 } from "lucide-react";
-import { aboutUsData } from "@/data/siteContent";
+import { aboutUsData, leadershipTeam, officeLocations } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
 
 const SECTIONS_CONFIG = {
   company: { label: "Company & Culture", color: "#1E3A5F", icon: BookOpen },
   governance: { label: "Governance & Markets", color: "#059669", icon: Award },
+  presence: { label: "Global Presence", color: "#059669", icon: MapPin },
   impact: { label: "Impact & Talent", color: "#7C3AED", icon: Leaf },
 };
 
@@ -21,18 +23,22 @@ const ABOUT_IMAGES: Record<string, string> = {
   "leadership": "https://images.unsplash.com/photo-1521791136001-8038a031ab48?q=80&w=2070&auto=format&fit=crop",
   "credentials": "https://images.unsplash.com/photo-1507679752028-92cf626ee0a9?q=80&w=2070&auto=format&fit=crop",
   "markets": "https://images.unsplash.com/photo-1526304640581-b13c124b72bc?q=80&w=2070&auto=format&fit=crop",
+  "global-presence": "https://images.unsplash.com/photo-1526304640581-b13c124b72bc?q=80&w=2070&auto=format&fit=crop",
   "esg": "https://images.unsplash.com/photo-1466611653911-95081537e5b1?q=80&w=2070&auto=format&fit=crop",
   "default": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
 };
 
 const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }> }[]> = {
   company: [
-    { id: "our-story", label: "Our Story & Mission", icon: BookOpen },
+    { id: "our-story", label: "Company Overview", icon: BookOpen },
     { id: "leadership", label: "Leadership & Team", icon: Users },
   ],
   governance: [
     { id: "credentials", label: "Credentials & Regulatory", icon: Award },
     { id: "markets", label: "Markets & Carrier Relationships", icon: Handshake },
+  ],
+  presence: [
+    { id: "global-presence", label: "Global Presence", icon: MapPin },
   ],
   impact: [
     { id: "esg", label: "ESG & Sustainability", icon: Leaf },
@@ -221,3 +227,6 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
     </div>
   );
 }
+
+
+

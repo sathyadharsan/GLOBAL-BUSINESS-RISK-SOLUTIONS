@@ -390,27 +390,167 @@ export const solutionsIndustryMapping: Record<string, string[]> = {
 export type SolutionCategory = keyof typeof solutionsCategories;
 export type SolutionSlug = string;
 
+export const officeLocations = [
+  {
+    id: "us-office",
+    name: "New York (HQ)",
+    address: "100 Wall Street, Suite 2500\nNew York, NY 10005\nUnited States",
+    email: "ny@gbrs.com",
+    phone: "+1 (212) 555-0198"
+  },
+  {
+    id: "singapore-office",
+    name: "Singapore",
+    address: "MBFC Tower 3, #18-02\n8 Marina Boulevard\nSingapore 018981",
+    email: "sg@gbrs.com",
+    phone: "+65 6702 1890"
+  },
+  {
+    id: "india-office",
+    name: "India (GIFT City)",
+    address: "Unit 1202, Tower A\nGIFT City, Gandhinagar\nGujarat 382355\nIndia",
+    email: "gift@gbrs.com",
+    phone: "+91 79 4000 8800"
+  },
+  {
+    id: "mumbai-office",
+    name: "Mumbai",
+    address: "42, Maker Chamber VI\nNariman Point\nMumbai 400021\nIndia",
+    email: "mumbai@gbrs.com",
+    phone: "+91 22 6000 7700"
+  },
+  {
+    id: "bangalore-office",
+    name: "Bangalore",
+    address: "Level 3, Prestige Technopark\nSarjapur-Marathahalli Outer Ring Road\nBangalore 560103\nIndia",
+    email: "blr@gbrs.com",
+    phone: "+91 80 4000 9900"
+  }
+];
+
+export const leadershipTeam = [
+  {
+    id: "executive",
+    name: "Executive Leadership",
+    members: [
+      {
+        id: "ceo",
+        name: "Amit Desai",
+        title: "Chief Executive Officer",
+        location: "New York",
+        bio: "Veteran risk architect with 25+ years in global insurance placement, previously heading Marsh India and Aon Benfield Asia.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "cto",
+        name: "Priya Mehta",
+        title: "Chief Technology Officer",
+        location: "Bangalore",
+        bio: "Former Google Cloud architect leading enterprise risk modeling and AI-driven analytics platform development.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "cio",
+        name: "Rajesh Kumar",
+        title: "Chief Information Officer",
+        location: "Singapore",
+        bio: "Specialist in enterprise risk systems integration and claims advocacy technology across APAC markets.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "technology",
+    name: "Technology Team",
+    members: [
+      {
+        id: "vp-engineering",
+        name: "Sanjana Rao",
+        title: "VP Engineering",
+        location: "Bangalore",
+        bio: "Leading platform architecture and data science initiatives for risk modeling.",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "data-science",
+        name: "Michael Tan",
+        title: "Head of Data Science",
+        location: "Singapore",
+        bio: "Building predictive models for catastrophe risk and parametric insurance triggers.",
+        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "advisory",
+    name: "Advisory Team",
+    members: [
+      {
+        id: "chairman",
+        name: "David Wu",
+        title: "Chairman",
+        location: "Singapore",
+        bio: "Former Lloyd's underwriter bringing 30+ years of international reinsurance expertise.",
+        image: "https://images.unsplash.com/photo-1567532237091-e9d7de4b52c8?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "independent-director",
+        name: "Dr. Sarah Chen",
+        title: "Independent Director",
+        location: "New York",
+        bio: "Insurance economist specializing in emerging risk modeling and ESG integration.",
+        image: "https://images.unsplash.com/photo-1534787695824-6f38fec2a185?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "delivery",
+    name: "Global Delivery Team",
+    members: [
+      {
+        id: "delivery-head",
+        name: "Rohit Sharma",
+        title: "Global Delivery Head",
+        location: "Mumbai",
+        bio: "Leading client service operations across India, Southeast Asia, and Middle East markets.",
+        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "claims-head",
+        name: "Anita Pillai",
+        title: "Claims Advocacy Head",
+        location: "Bangalore",
+        bio: "Specializes in complex claims resolution and loss mitigation strategies.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  }
+];
+
 export const aboutUsData: Record<string, DynamicPageContent> = {
   "our-story": {
     slug: "our-story",
-    title: "Our Story & Mission",
-    subtitle: "Founded · Philosophy · 'Protect the Balance Sheet' · 150+ countries",
+    title: "Company Overview",
+    subtitle: "Protect the Balance Sheet. Enable the Business Plan.",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    description: "We are risk architects. We don't just sell insurance; we design structural balance sheet protection for the world's most dynamic enterprises.",
+    description: "Global Business Risk Solutions operates at the intersection of corporate governance, capital efficiency, and strategic risk transfer. We act as trusted advisors to executive boards, risk managers, and institutional investors across 150+ countries. Our approach transcends traditional brokerage—we build resilient architectures that withstand the complexities of the modern global economy.",
     features: [
-      { title: "Protect the Balance Sheet", description: "Our core philosophy driving every placement." },
-      { title: "Global Reach", description: "Executing programs across 150+ countries with local compliance." }
+      { title: "Enterprise Value Preserved", description: "Securing physical assets, intellectual property, brand equity, and stakeholder trust against tail risks." },
+      { title: "Earnings Volatility Reduced", description: "Stabilizing cash flow, safeguarding debt covenants, and ensuring investor confidence during disruptions." },
+      { title: "Strategic Optionality Maintained", description: "Enabling aggressive expansion, cross-border M&A, and R&D pipelines with robust insurance backing." }
     ]
   },
   "leadership": {
     slug: "leadership",
     title: "Leadership & Team",
-    subtitle: "Risk architects · Sector practice leaders · Claims team",
-    heroImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=2070&auto=format&fit=crop",
-    description: "Meet the executive team and practice leaders who bring decades of specialized underwriting and broking experience.",
+    subtitle: "Specialist Risk Underwriters and Claims Advocates",
+    heroImage: "https://images.unsplash.com/photo-1521791136001-8038a031ab48?q=80&w=2070&auto=format&fit=crop",
+    description: "Our leadership is comprised of seasoned risk architects, ex-loss adjusters, legal counsel, and sector practice leaders. Rather than generalist brokers, we deploy dedicated experts who speak the language of your industry and run proprietary benchmarking models.",
     features: [
-      { title: "Sector Practice Leaders", description: "Deep domain experts running specific industry verticals." },
-      { title: "Claims Advocacy Team", description: "Ex-adjusters and lawyers fighting for your recoveries." }
+      { title: "Executive Leadership", description: "Visionary executives with 25+ years guiding global insurance and reinsurance strategies." },
+      { title: "Technology Team", description: "Engineering and data science specialists building risk models and analytics platforms." },
+      { title: "Advisory Board", description: "Independent directors and industry veterans providing strategic oversight." },
+      { title: "Global Delivery", description: "Client service teams operating across our international office network." }
     ]
   },
   "credentials": {
@@ -433,6 +573,20 @@ export const aboutUsData: Record<string, DynamicPageContent> = {
     features: [
       { title: "Lloyd's Syndicates", description: "Direct placement capabilities into the London market." },
       { title: "Global Reinsurers", description: "Structuring facultative support for massive risk aggregates." }
+    ]
+  },
+  "global-presence": {
+    slug: "global-presence",
+    title: "Global Presence & Office Locations",
+    subtitle: "Operating Across 5 Strategic Hubs",
+    heroImage: "https://images.unsplash.com/photo-1526304640581-b13c124b72bc?q=80&w=2070&auto=format&fit=crop",
+    description: "Our international office network ensures we are always close to our clients, providing local expertise with global scale. Each office is staffed with specialists who understand regional risk dynamics and regulatory requirements.",
+    features: [
+      { title: "US Office (HQ)", description: "New York headquarters managing North American and European operations." },
+      { title: "Singapore Office", description: "Asia-Pacific hub for Southeast Asian and ANZ market coverage." },
+      { title: "India - GIFT City", description: "International financial services center for captive insurance solutions." },
+      { title: "India - Mumbai", description: "Western India operations and financial sector specialization." },
+      { title: "India - Bangalore", description: "Technology and innovation center for risk engineering." }
     ]
   },
   "esg": {

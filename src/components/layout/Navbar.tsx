@@ -43,23 +43,23 @@ export function Navbar() {
                     <div className="grid grid-cols-2 gap-x-12 gap-y-2 mb-5">
                       <Link href="/#hero" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Hero / Value Proposition</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Hero / Value Proposition</span>
                       </Link>
                       <Link href="/#metrics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Key Metrics Strip</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Key Metrics Strip</span>
                       </Link>
                       <Link href="/#offerings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Featured Offerings</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Featured Offerings</span>
                       </Link>
                       <Link href="/#trust" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Trust & Social Proof</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Trust & Social Proof</span>
                       </Link>
                       <Link href="/#industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Industry Quick Links</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Industry Quick Links</span>
                       </Link>
                     </div>
                     <div className="pt-4 border-t border-slate-200">
@@ -78,55 +78,55 @@ export function Navbar() {
                     <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
                       <Link href="/industries/technology-digital" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Technology</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Technology</span>
                       </Link>
                       <Link href="/industries/financial-services" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Financial Services</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Financial Services</span>
                       </Link>
                       <Link href="/industries/healthcare-life-sciences" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Healthcare</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Healthcare</span>
                       </Link>
                       <Link href="/industries/manufacturing-industrial" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Manufacturing</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Manufacturing</span>
                       </Link>
                       <Link href="/industries/energy-utilities" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Energy</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Energy</span>
                       </Link>
                       <Link href="/industries/infrastructure-real-estate" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Real Estate</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Real Estate</span>
                       </Link>
                       <Link href="/industries/transportation-logistics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Transportation</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Transportation</span>
                       </Link>
                       <Link href="/industries/retail-hospitality" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Retail</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Retail</span>
                       </Link>
                       <Link href="/industries/agriculture-environment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Agriculture</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Agriculture</span>
                       </Link>
                       <Link href="/industries/government-public-sector" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Government</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Government</span>
                       </Link>
                       <Link href="/industries/education-nonprofit" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Education</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Education</span>
                       </Link>
                       <Link href="/industries/emerging-industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Emerging Industries</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Emerging Industries</span>
                       </Link>
                       <Link href="/industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Industries →</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Industries →</span>
                       </Link>
                     </div>
                   </div>
@@ -140,27 +140,27 @@ export function Navbar() {
                     <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
                       <Link href="/risks/cross-industry" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Cross-Industry Risks</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cross-Industry Risks</span>
                       </Link>
                       <Link href="/risks/cross-functional" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Cross-Functional Risks</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cross-Functional Risks</span>
                       </Link>
                       <Link href="/risks/industry-specific" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Industry-Specific Risks</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Industry-Specific Risks</span>
                       </Link>
                       <Link href="/risks/emerging" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Emerging Risks</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Emerging Risks</span>
                       </Link>
                       <Link href="/risks/risk-intelligence-center" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Intelligence Center</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Intelligence Center</span>
                       </Link>
                       <Link href="/risks" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Risks →</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Risks →</span>
                       </Link>
                     </div>
                   </div>
@@ -176,31 +176,31 @@ export function Navbar() {
                     <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
                       <Link href="/solutions/global-program-architecture" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Global Program Architecture</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Global Program Architecture</span>
                       </Link>
                       <Link href="/solutions/captive-insurance" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Captive Insurance & ART</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Captive Insurance & ART</span>
                       </Link>
                       <Link href="/solutions/risk-engineering" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Engineering & Loss Prevention</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Engineering & Loss Prevention</span>
                       </Link>
                       <Link href="/solutions/long-tenor-infrastructure" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Long-Tenor Infrastructure</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Long-Tenor Infrastructure</span>
                       </Link>
                       <Link href="/solutions/tcor-analytics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">TCOR Analytics & Benchmarking</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">TCOR Analytics & Benchmarking</span>
                       </Link>
                       <Link href="/solutions/claims-advocacy" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Claims Advocacy</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Claims Advocacy</span>
                       </Link>
                       <Link href="/solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Solutions →</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Solutions →</span>
                       </Link>
                     </div>
                   </div>
@@ -214,39 +214,39 @@ export function Navbar() {
                     <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
                       <Link href="/outcomes/unicorn-ipo" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Unicorn IPO — D&O</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Unicorn IPO — D&O</span>
                       </Link>
                       <Link href="/outcomes/pe-fund-exit" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">PE Fund Exit — W&I</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">PE Fund Exit — W&I</span>
                       </Link>
                       <Link href="/outcomes/it-ransomware" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">IT Ransomware Attack</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">IT Ransomware Attack</span>
                       </Link>
                       <Link href="/outcomes/factory-fire" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Factory Fire — BI + Rebuild</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Factory Fire — BI + Rebuild</span>
                       </Link>
                       <Link href="/outcomes/solar-park" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">500 MW Solar Park</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">500 MW Solar Park</span>
                       </Link>
                       <Link href="/outcomes/nhai-highway" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">NHAI Highway Concession</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">NHAI Highway Concession</span>
                       </Link>
                       <Link href="/outcomes/supplier-flood" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Supplier Flood — CBI</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Supplier Flood — CBI</span>
                       </Link>
                       <Link href="/outcomes/sebi-adviser" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">SEBI Adviser PI</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">SEBI Adviser PI</span>
                       </Link>
                       <Link href="/outcomes" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Outcomes →</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Outcomes →</span>
                       </Link>
                     </div>
                   </div>
@@ -260,51 +260,51 @@ export function Navbar() {
                     <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
                       <Link href="/platform/risk-diagnostic-engine" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#0052CC" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Diagnostic Engine</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Diagnostic Engine</span>
                       </Link>
                       <Link href="/platform/risk-dna-mapper" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#2563EB" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk DNA Mapper</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk DNA Mapper</span>
                       </Link>
                       <Link href="/platform/cyber-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#DC2626" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Cyber Intelligence</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cyber Intelligence</span>
                       </Link>
                       <Link href="/platform/counterparty-assessment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Counterparty Analytics</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Counterparty Analytics</span>
                       </Link>
                       <Link href="/platform/contract-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Contract Intelligence</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Contract Intelligence</span>
                       </Link>
                       <Link href="/platform/regulatory-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Regulatory Intelligence</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Regulatory Intelligence</span>
                       </Link>
                       <Link href="/platform/risk-intelligence-aggregator" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Risk Aggregator</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Aggregator</span>
                       </Link>
                       <Link href="/platform/supply-chain-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Supply Chain Monitor</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Supply Chain Monitor</span>
                       </Link>
                       <Link href="/platform/climate-scenario" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Climate Analytics</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Climate Analytics</span>
                       </Link>
                       <Link href="/platform/political-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#0D9488" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Political Risk Monitor</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Political Risk Monitor</span>
                       </Link>
                       <Link href="/platform/ma-due-diligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">M&A Due Diligence</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">M&A Due Diligence</span>
                       </Link>
                       <Link href="/platform" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">View All Platforms →</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Platforms →</span>
                       </Link>
                     </div>
                   </div>
@@ -312,21 +312,21 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Company</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-2 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/about-us/our-story" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Company Overview</span>
+                  <div className="w-[300px] p-4 bg-white">
+                    <div className="flex flex-col gap-2">
+                      <Link href="/about-us#about" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
+                        About Us
                       </Link>
-                      <Link href="/about-us/leadership" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Leadership</span>
+                      <Link href="/about-us#leadership" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
+                        Leadership & Culture
                       </Link>
-                      <Link href="/contact" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">Contact Us</span>
+                      <Link href="/about-us#offices" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
+                        Our Offices
+                      </Link>
+                      <Link href="/contact" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
+                        Contact Us
                       </Link>
                     </div>
                   </div>
@@ -448,10 +448,11 @@ export function Navbar() {
                   </div>
                 </div>
                 <div>
-                  <Link href="/about-us" className="text-lg font-semibold text-primary">About Us</Link>
+                  <Link href="/about-us" className="text-lg font-semibold text-primary">Company</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/about-us/our-story" className="hover:text-primary transition-colors">Company Overview</Link>
-                    <Link href="/about-us/leadership" className="hover:text-primary transition-colors">Leadership</Link>
+                    <Link href="/about-us#about" className="hover:text-primary transition-colors">About Us</Link>
+                    <Link href="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Culture</Link>
+                    <Link href="/about-us#offices" className="hover:text-primary transition-colors">Our Offices</Link>
                     <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
                   </div>
                 </div>

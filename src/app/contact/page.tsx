@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, Suspense } from "react";
+import Link from "next/link";
 import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,16 @@ const groups: SidebarGroup[] = [
       { id: "diagnostic-form", label: "Risk Diagnostic Form", icon: FileText },
       { id: "hotline", label: "Direct Contact", icon: Phone },
       { id: "locations", label: "Office Locations", icon: Globe }
+    ]
+  },
+  {
+    label: "GLOBAL PRESENCE",
+    items: [
+      { id: "us-office", label: "US Office", icon: MapPin },
+      { id: "singapore-office", label: "Singapore Office", icon: MapPin },
+      { id: "india-office", label: "India Office", icon: MapPin },
+      { id: "mumbai-office", label: "Mumbai Office", icon: MapPin },
+      { id: "bangalore-office", label: "Bangalore Office", icon: MapPin }
     ]
   }
 ];
@@ -108,6 +119,15 @@ export default function Contact() {
   const isForm = activeTab === "diagnostic-form";
   const isHotline = activeTab === "hotline";
   const isLocations = activeTab === "locations";
+  const isOffice = ["us-office", "singapore-office", "india-office", "mumbai-office", "bangalore-office"].includes(activeTab);
+
+  const offices = {
+    "us-office": { name: "US Office", address: "501 E Kennedy Blvd Suite 1400,\nTampa, FL 33602, United States", email: "connect@trustgrid.ai", phone: "+1 5512288612" },
+    "singapore-office": { name: "Singapore Office", address: "5 Temasek Boulevard, 17th Floor,\nSingapore 038985", email: "connect@trustgrid.ai", phone: "+65 6050 5235" },
+    "india-office": { name: "India Office", address: "TRUSTGRID AI INNOVATION PVT LTD\nSuite: 22, 215, Binnamangala, 2nd Floor,\n13th Cross Road, Indira Nagar 2nd Stage,\nHoysala Nagar, Bengaluru - 560038, India", email: "connect@trustgrid.ai", phone: "+91 9513288612" },
+    "mumbai-office": { name: "Mumbai Office", address: "WeWork, Raheja Platinum, Sag Baug,\nMarol, Andheri East, Mumbai 400059", email: "cs@trustgrid.in", phone: "+91 9513088612" },
+    "bangalore-office": { name: "Bangalore Office", address: "WeWork, 13th floor, Tin Factory,\nOld Madras Rd, Bengaluru 560016", email: "cs@trustgrid.in", phone: "+91 9513088612" }
+  };
 
   return (
     <TwoPanelLayout
@@ -126,6 +146,7 @@ export default function Contact() {
             {isForm && "Risk Diagnostic"}
             {isHotline && "Claims & Direct Hotline"}
             {isLocations && "Global Operations Network"}
+            {isOffice && offices[activeTab as keyof typeof offices]?.name}
           </h2>
           <p className="text-xs text-muted-foreground mt-0.5">
             Click any section in the sidebar to switch contacts
@@ -172,16 +193,19 @@ export default function Contact() {
               {isForm && "Diagnostics"}
               {isHotline && "Specialist Advocacy"}
               {isLocations && "Office Locations"}
+              {isOffice && "Office Details"}
             </span>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
               {isForm && "Quantify Your Total Cost of Risk (TCOR)"}
               {isHotline && "24/7 Emergency Claims Hotline"}
               {isLocations && "Our International Offices"}
+              {isOffice && offices[activeTab as keyof typeof offices]?.name}
             </h2>
             <p className="text-sm text-gray-300">
               {isForm && "Submit corporate details for a candidate audit assessment."}
               {isHotline && "Immediate technical response for complex, high-severity claims."}
-              {isLocations && "Serving clients across India, Singapore, UK, and US."}
+              {isLocations && "Serving clients across India, Singapore, and US."}
+              {isOffice && "Contact details for direct office communication."}
             </p>
           </div>
         </div>
@@ -246,55 +270,67 @@ export default function Contact() {
                   <p className="text-xs text-blue-900/80 leading-relaxed mb-4">
                     For client onboarding, broker registration, and billing questions.
                   </p>
-                  <div className="text-lg font-bold text-blue-700 font-mono">solutions@gbrs.com</div>
+                  <div className="text-lg font-bold text-blue-700 font-mono">connect@trustgrid.ai</div>
                 </Card>
               </div>
             </div>
           )}
 
-          {/* C. Office Locations */}
-          {isLocations && (
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3">
-                <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
-                  <MapPin className="w-4 h-4 text-blue-600" />
-                  New York (HQ)
-                </h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  100 Wall Street, Suite 2500<br />
-                  New York, NY 10005<br />
-                  United States
-                </p>
-                <div className="text-xs font-semibold text-primary pt-2">+1 (212) 555-0198</div>
-              </div>
+{/* C. Office Locations - All Offices */}
+           {isLocations && (
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {Object.entries(offices).map(([id, office]) => (
+                 <div key={id} className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3 hover:shadow-md transition-shadow cursor-pointer" onClick={() => setActiveTab(id)}>
+                   <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
+                     <MapPin className="w-4 h-4 text-blue-600" />
+                     {office.name}
+                   </h4>
+                   <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
+                     {office.address}
+                   </p>
+                   <div className="text-xs space-y-1 pt-2">
+                     <p className="font-medium">{office.email}</p>
+                     <p className="font-semibold text-blue-600">{office.phone}</p>
+                   </div>
+                 </div>
+               ))}
+             </div>
+           )}
 
-              <div className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3">
-                <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
-                  <MapPin className="w-4 h-4 text-blue-600" />
-                  London
-                </h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  12 Leadenhall Street<br />
-                  London EC3V 1LP<br />
-                  United Kingdom
-                </p>
-                <div className="text-xs font-semibold text-primary pt-2">+44 20 7946 0958</div>
-              </div>
-
-              <div className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3">
-                <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
-                  <MapPin className="w-4 h-4 text-blue-600" />
-                  Singapore
-                </h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  MBFC Tower 3, #18-02<br />
-                  8 Marina Boulevard<br />
-                  Singapore 018981
-                </p>
-                <div className="text-xs font-semibold text-primary pt-2">+65 6702 1890</div>
-              </div>
-            </div>
-          )}
+           {/* D. Individual Office Detail */}
+           {isOffice && offices[activeTab as keyof typeof offices] && (
+             <div className="max-w-2xl space-y-6">
+               <div className="p-6 bg-slate-50 border border-slate-100 rounded-xl space-y-4">
+                 <h4 className="font-bold text-primary text-base flex items-center gap-2 border-b pb-3">
+                   <MapPin className="w-5 h-5 text-blue-600" />
+                   {offices[activeTab as keyof typeof offices].name}
+                 </h4>
+                 <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                   {offices[activeTab as keyof typeof offices].address}
+                 </p>
+                 <div className="grid grid-cols-2 gap-4 pt-2 border-t">
+                   <div>
+                     <p className="text-xs font-semibold text-slate-500 uppercase">Email</p>
+                     <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].email}</p>
+                   </div>
+                   <div>
+                     <p className="text-xs font-semibold text-slate-500 uppercase">Phone</p>
+                     <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].phone}</p>
+                   </div>
+                 </div>
+               </div>
+               <div className="flex gap-3">
+                 <Button variant="outline" onClick={() => setActiveTab("locations")} className="text-xs">
+                   View All Offices
+                 </Button>
+                 <Link href="/contact#diagnostic-form" className="w-full sm:w-auto">
+                   <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs w-full" onClick={() => setActiveTab("diagnostic-form")}>
+                     Request Consultation
+                   </Button>
+                 </Link>
+               </div>
+             </div>
+           )}
 
         </div>
 

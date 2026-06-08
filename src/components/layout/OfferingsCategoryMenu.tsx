@@ -28,7 +28,7 @@ export function OfferingsCategoryMenu() {
                 >
                   <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div className="flex flex-col min-w-0">
-                    <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-wider">
+                    <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
                       {category.label}
                     </span>
                     <span className="text-xs text-slate-500 mt-1 line-clamp-2 leading-tight">
