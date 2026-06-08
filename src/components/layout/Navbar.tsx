@@ -40,26 +40,42 @@ export function Navbar() {
                 <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-2 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/#hero" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
+                      <Link href="/#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Hero / Value Proposition</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Hero</span>
                       </Link>
-                      <Link href="/#metrics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                      <Link href="/#explore-risks" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Key Metrics Strip</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Explore Risks</span>
                       </Link>
                       <Link href="/#offerings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
                         <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Featured Offerings</span>
                       </Link>
+                      <Link href="/#methodology" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                        <ChevronRight className="h-5 w-5 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Methodology</span>
+                      </Link>
+                      <Link href="/#industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                        <ChevronRight className="h-5 w-5 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Featured Industries</span>
+                      </Link>
+                      <Link href="/#solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                        <ChevronRight className="h-5 w-5 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Solutions</span>
+                      </Link>
+                      <Link href="/#why-trustflow" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                        <ChevronRight className="h-5 w-5 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Why Trustflow</span>
+                      </Link>
                       <Link href="/#trust" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
                         <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Trust & Social Proof</span>
                       </Link>
-                      <Link href="/#industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
+                      <Link href="/#insights" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
                         <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Industry Quick Links</span>
+                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Latest Insights</span>
                       </Link>
                     </div>
                     <div className="pt-4 border-t border-slate-200">
