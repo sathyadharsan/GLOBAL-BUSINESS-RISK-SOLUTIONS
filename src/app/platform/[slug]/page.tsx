@@ -35,11 +35,17 @@ export default async function PlatformPage({
       subtitle={platform.subtitle}
       category={platform.category}
       color={platform.color}
+      heroImage={platform.heroImage}
       description={platform.description}
       features={platform.features}
       capabilities={platform.capabilities}
       businessBenefits={platform.businessBenefits}
+      kpiMetrics={platform.kpiMetrics}
+      capabilityCards={platform.capabilityCards}
+      industryTabs={platform.industryTabs}
       relatedModules={platform.relatedModules}
+      relatedRiskSlugs={platform.relatedRiskSlugs}
+      relatedSolutionSlugs={platform.relatedSolutionSlugs}
       useCases={platform.useCases}
     />
   );

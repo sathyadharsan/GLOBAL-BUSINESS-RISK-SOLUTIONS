@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -9,63 +10,55 @@ import {
   Shield, Target, AlertTriangle, Layers, CheckCircle2, ChevronRight, Download,
   BarChart3, Globe, Zap, Database, Activity
 } from "lucide-react";
+import { PlatformKPI, PlatformCapabilityCard, PlatformIndustryTab, platformData } from "@/data/platformData";
+import { risksData } from "@/data/risksData";
+import { offeringsData } from "@/data/offeringsData";
+import { solutionsData } from "@/data/siteContent";
 
 interface PlatformDetailLayoutProps {
   title: string;
   subtitle: string;
   category: string;
   color: string;
+  heroImage: string;
   description: string;
   features: string[];
   capabilities: string[];
   businessBenefits: string[];
+  kpiMetrics: PlatformKPI[];
+  capabilityCards: PlatformCapabilityCard[];
+  industryTabs: PlatformIndustryTab[];
   relatedModules: string[];
+  relatedRiskSlugs: string[];
+  relatedSolutionSlugs: string[];
   useCases: string[];
 }
 
-const DEFAULT_KPIS = [
-  { value: "200+", label: "Data Sources" },
-  { value: "150+", label: "Jurisdictions" },
-  { value: "41", label: "Industries" },
-  { value: "24/7", label: "Monitoring" },
-];
-
-export function PlatformDetailLayout({ title, subtitle, category, color, description, features, capabilities, businessBenefits, relatedModules, useCases }: PlatformDetailLayoutProps) {
+export function PlatformDetailLayout({
+  title,
+  subtitle,
+  category,
+  color,
+  heroImage,
+  description,
+  features,
+  capabilities,
+  businessBenefits,
+  kpiMetrics,
+  capabilityCards,
+  industryTabs,
+  relatedModules,
+  relatedRiskSlugs,
+  relatedSolutionSlugs,
+  useCases
+}: PlatformDetailLayoutProps) {
   const platformColor = color || "#1E5EFF";
-  const kpis = DEFAULT_KPIS;
-  const caps = [
-    { title: "Risk Assessment", desc: `Comprehensive evaluation using ${features?.length || 6}+ risk indicators.`, bullets: features?.slice(0, 4) || ["Risk Identification", "Scoring & Benchmarking", "Gap Analysis", "Reporting"] },
-    { title: "Integration Ready", desc: "Seamless connectivity with enterprise systems via RESTful APIs.", bullets: ["API Endpoints", "Webhook Support", "White-label Embed", "OAuth Security"] },
-    { title: "Real-time Monitoring", desc: "Continuous surveillance with automated alerts.", bullets: ["Signal Detection", "Alert Configuration", "Predictive Modeling", "Dashboard Views"] },
-    { title: "Compliance Aligned", desc: "Regulatory framework integration with audit-ready documentation.", bullets: ["Multi-jurisdictional", "Audit Trails", "TCFD Alignment", "Automated Filing"] },
-  ];
-
-  const relatedRisks = [
-    { title: "Cyber Risk", description: "Technology and data security exposures." },
-    { title: "Supply Chain Risk", description: "Multi-tier dependency risks." },
-    { title: "Regulatory Risk", description: "Compliance and investigation coverage." },
-    { title: "Operational Risk", description: "Business continuity coverage." },
-  ];
-
-  const relatedSolutions = [
-    { title: "Risk Engineering", description: "Proactive mitigation strategies." },
-    { title: "Claims Advocacy", description: "Technical representation and recovery." },
-    { title: "TCOR Analytics", description: "Total cost optimization insights." },
-    { title: "Alternative Risk Transfer", description: "Captive and parametric solutions." },
-  ];
-
-  const industryTabs = [
-    { label: "Technology", content: { industryChallenges: ["AI liability", "Cloud risk", "Rapid innovation"], industryRiskExposure: ["Ransomware", "Outage liability", "Regulatory"], relatedPlatforms: ["Cyber Intelligence", "Risk DNA Mapper", "Contract Intelligence"] } },
-    { label: "Financial Services", content: { industryChallenges: ["Regulatory penalty", "Systemic cyber", "Liability"], industryRiskExposure: ["Data breach", "Advice liability", "Compliance"], relatedPlatforms: ["Risk Diagnostic Engine", "M&A Due Diligence", "Counterparty Assessment"] } },
-    { label: "Healthcare", content: { industryChallenges: ["Data privacy", "Trial liability", "Recall"], industryRiskExposure: ["Malpractice", "Breach notification", "Investigation"], relatedPlatforms: ["Risk Diagnostic Engine", "Contract Intelligence", "Regulatory Intelligence"] } },
-    { label: "Manufacturing", content: { industryChallenges: ["Supply chain", "Equipment breakdown", "Liability"], industryRiskExposure: ["Property damage", "Supply disruption", "Product claims"], relatedPlatforms: ["Supply Chain Monitor", "Risk DNA Mapper", "Climate Scenario"] } },
-  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* SECTION 1: FULL WIDTH HERO */}
       <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A] mb-16">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop')" }} />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style={{ backgroundImage: `url('${heroImage}')` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
@@ -120,41 +113,47 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
           
           {/* KPI Metrics Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {kpis.map((kpi, i) => (
-              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
-                <CardContent className="space-y-3 pt-0">
-                  <Shield className="h-10 w-10 text-blue-600 mx-auto" />
-                  <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">{kpi.value}</div>
-                  <div className="text-base font-semibold text-slate-700">{kpi.label}</div>
-                  <p className="text-xs text-slate-500 leading-snug px-2">Enterprise capability</p>
-                </CardContent>
-              </Card>
-            ))}
+            {kpiMetrics?.map((kpi, i) => {
+              const Icon = kpi.icon || Shield;
+              return (
+                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
+                  <CardContent className="space-y-3 pt-0">
+                    <Icon className="h-10 w-10 text-blue-600 mx-auto" />
+                    <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">{kpi.value}</div>
+                    <div className="text-base font-semibold text-slate-700">{kpi.label}</div>
+                    <p className="text-xs text-slate-500 leading-snug px-2">Enterprise capability</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
           
           {/* Platform Capability Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {caps.map((cap, i) => (
-              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
-                    <Shield className="h-5 w-5 text-[#1E5EFF]" />
-                  </div>
-                  <CardTitle className="text-base font-bold text-slate-900 leading-snug">{cap.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
-                  <ul className="space-y-2">
-                    {cap.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+            {capabilityCards?.map((cap, i) => {
+              const Icon = cap.icon || Shield;
+              return (
+                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
+                      <Icon className="h-5 w-5 text-[#1E5EFF]" />
+                    </div>
+                    <CardTitle className="text-base font-bold text-slate-900 leading-snug">{cap.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3 pt-0">
+                    <p className="text-sm text-slate-600 leading-snug">{cap.description}</p>
+                    <ul className="space-y-2">
+                      {cap.bullets.map((bullet, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -171,13 +170,13 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
             </p>
           </div>
 
-          <Tabs defaultValue={industryTabs[0]?.label} orientation="vertical" className="w-full">
+          <Tabs defaultValue={industryTabs?.[0]?.label} orientation="vertical" className="w-full">
             <div className="flex flex-col md:flex-row gap-6">
               <TabsList
                 variant="line"
                 className="w-full md:w-64 flex flex-col items-start gap-1 bg-transparent"
               >
-                {industryTabs.map((tab) => (
+                {industryTabs?.map((tab) => (
                   <TabsTrigger
                     key={tab.label}
                     value={tab.label}
@@ -189,7 +188,7 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
               </TabsList>
 
               <div className="flex-1">
-                {industryTabs.map((tab) => (
+                {industryTabs?.map((tab) => (
                   <TabsContent
                     key={tab.label}
                     value={tab.label}
@@ -203,9 +202,23 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
                             Industry Challenges
                           </h3>
                           <ul className="space-y-2">
-                            {tab.content.industryChallenges.map((item, i) => (
+                            {tab.challenges.map((item, i) => (
                               <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
                                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 flex items-center gap-2">
+                            <Shield className="h-4 w-4 text-amber-600" />
+                            Risk Exposures
+                          </h3>
+                          <ul className="space-y-2">
+                            {tab.riskExposure.map((item, i) => (
+                              <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -220,7 +233,7 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
                             Related Platforms
                           </h3>
                           <div className="flex flex-wrap gap-2">
-                            {tab.content.relatedPlatforms.map((item, i) => (
+                            {tab.relatedPlatforms.map((item, i) => (
                               <span key={i} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
                                 {item}
                               </span>
@@ -345,19 +358,26 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Comprehensive risk coverage addressing interconnected exposures.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {relatedRisks.map((risk, i) => (
-              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2">
-                    <AlertTriangle className="h-4 w-4 text-red-600" />
-                  </div>
-                  <CardTitle className="text-sm font-bold text-[#0B1F3A]">{risk.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-slate-600 leading-snug">{risk.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {relatedRiskSlugs?.map((riskSlug, i) => {
+              const risk = risksData[riskSlug];
+              if (!risk) return null;
+              const Icon = risk.icon || AlertTriangle;
+              return (
+                <Link href={`/risks/${riskSlug}`} key={i} className="block group">
+                  <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-red-500 transition-all h-full">
+                    <CardHeader className="pb-3">
+                      <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2 group-hover:bg-red-100 transition-colors">
+                        <Icon className="h-4 w-4 text-red-600" />
+                      </div>
+                      <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-red-600 transition-colors">{risk.label}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-slate-600 leading-snug">{risk.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -370,19 +390,27 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Specialized insurance and risk transfer products.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {relatedSolutions.map((solution, i) => (
-              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2">
-                    <Shield className="h-4 w-4 text-[#1E5EFF]" />
-                  </div>
-                  <CardTitle className="text-sm font-bold text-[#0B1F3A]">{solution.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-slate-600 leading-snug">{solution.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {relatedSolutionSlugs?.map((solSlug, i) => {
+              const offering = offeringsData[solSlug];
+              const solution = solutionsData[solSlug];
+              const title = offering?.title || solution?.title || solSlug.replace(/-/g, ' ');
+              const description = offering?.shortDescription || solution?.description || "Specialized risk transfer program";
+              return (
+                <Link href={`/solutions/${solSlug}`} key={i} className="block group">
+                  <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
+                    <CardHeader className="pb-3">
+                      <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2 group-hover:bg-blue-100 transition-colors">
+                        <Shield className="h-4 w-4 text-[#1E5EFF]" />
+                      </div>
+                      <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">{title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-slate-600 leading-snug">{description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -396,19 +424,26 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
               <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">AI-powered tools for risk assessment, monitoring, and compliance.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {relatedModules.map((module, i) => (
-                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#EAF2FF] flex items-center justify-center shrink-0">
-                      <Target className="h-4 w-4 text-[#1E5EFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">{module}</h3>
-                      <p className="text-xs text-slate-600 leading-snug">Integrated platform capability</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+              {relatedModules.map((moduleSlug, i) => {
+                const plat = platformData[moduleSlug];
+                if (!plat) return null;
+                const Icon = plat.icon || Target;
+                return (
+                  <Link href={`/platform/${moduleSlug}`} key={i} className="block group">
+                    <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
+                      <CardContent className="p-5 flex items-start gap-3">
+                        <div className="w-9 h-9 rounded-full bg-[#EAF2FF] flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                          <Icon className="h-4 w-4 text-[#1E5EFF]" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-[#0B1F3A] mb-1 group-hover:text-blue-600 transition-colors">{plat.title}</h3>
+                          <p className="text-xs text-slate-600 leading-snug">{plat.subtitle}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
