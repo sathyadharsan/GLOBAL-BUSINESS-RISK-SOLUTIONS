@@ -7,9 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import {
-  Shield, Target, AlertTriangle, Layers, CheckCircle2, ChevronRight, Download,
-  BarChart3, Globe, Zap, Database, Activity
-} from "lucide-react";
+   Shield, Target, AlertTriangle, Layers, CheckCircle2, ChevronRight, Download,
+   BarChart3, Globe, Zap, Database, Activity, Building2
+ } from "lucide-react";
 import { PlatformKPI, PlatformCapabilityCard, PlatformIndustryTab, platformData } from "@/data/platformData";
 import { risksData } from "@/data/risksData";
 import { offeringsData } from "@/data/offeringsData";
@@ -68,39 +68,16 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-      {/* SECTION 2: PLATFORM OVERVIEW */}
-      <section className="py-14 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">Platform Overview</Badge>
-              <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-4">Core Capabilities & Description</h2>
-              <p className="text-base text-slate-600 leading-relaxed mb-6">{description}</p>
-            </div>
-            <div>
-              <h3 className="text-[22px] font-bold text-slate-900 font-serif tracking-tight mb-4">Key Business Benefits</h3>
-              <ul className="space-y-3">
-                {businessBenefits?.map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700 text-base">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3 & 4: ENTERPRISE OVERVIEW (KPIS & CAPABILITY CARDS) */}
-      <section className="w-full bg-slate-50 py-14 border-b border-slate-200">
+      {/* SECTION 2 & 3: KPI METRICS & CAPABILITIES */}
+      <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">Enterprise Overview</Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">Measurable Risk Solutions at Scale</h2>
             <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">Enterprise-grade capabilities designed for complex risk landscapes.</p>
           </div>
           
-          {/* KPI Metrics Grid */}
+          {/* Section 2: KPI Metrics Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {kpiMetrics?.map((kpi, i) => {
               const Icon = kpi.icon || Shield;
@@ -117,7 +94,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
             })}
           </div>
           
-          {/* Platform Capability Cards */}
+          {/* Section 3: Platform Capability Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilityCards?.map((cap, i) => {
               const Icon = cap.icon || Shield;
@@ -147,8 +124,8 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-      {/* SECTION 5: INDUSTRY VERTICAL TABS */}
-      <section className="py-14 bg-white border-b border-slate-200">
+{/* SECTION 4: INDUSTRY VERTICAL TABS */}
+       <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
@@ -237,84 +214,55 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
             </div>
           </Tabs>
         </div>
-      </section>
+</section>
 
-      {/* SECTION 6: PLATFORM MODULES GRID */}
-      <section className="py-14 bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Platform Modules</h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Comprehensive tools and capabilities integrated into the platform.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {capabilities?.map((cap, i) => (
-              <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <CardContent className="p-5 flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#EAF2FF] flex items-center justify-center shrink-0">
-                    <Layers className="h-4 w-4 text-[#1E5EFF]" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">{cap}</h3>
-                    <p className="text-xs text-slate-600 leading-snug">Integrated module capability</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+       {/* SECTION 5: BUSINESS FRAMEWORK */}
+       {businessBenefits && businessBenefits.length > 0 && (
+         <section className="py-14 bg-white border-b border-slate-200">
+           <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+             <div className="text-center mb-10">
+               <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Business Impact Framework</h2>
+               <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Phased impact across the enterprise lifecycle.</p>
+             </div>
+             <div className="grid md:grid-cols-3 gap-6">
+               {businessBenefits.map((benefit, i) => (
+                 <Card key={i} className="border-slate-300 bg-white shadow-sm">
+                   <CardContent className="p-6">
+                     <Activity className="h-8 w-8 text-blue-600 mb-4" />
+                     <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Phase {i + 1}</h4>
+                     <p className="text-sm text-slate-600 mb-4">{benefit}</p>
+                   </CardContent>
+                 </Card>
+               ))}
+             </div>
+           </div>
+         </section>
+       )}
 
-      {/* SECTION 7: ARCHITECTURE FRAMEWORK */}
-      <section className="py-14 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Architecture Framework</h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Enterprise-grade technical foundation built for scale and security.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-slate-300 bg-slate-50 shadow-sm">
-              <CardContent className="p-6">
-                <Database className="h-8 w-8 text-blue-600 mb-4" />
-                <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Data Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">Multi-source ingestion from 200+ sources</p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>API Integrations</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Secure Vault</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Real-time Sync</span></li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="border-slate-300 bg-slate-50 shadow-sm">
-              <CardContent className="p-6">
-                <Activity className="h-8 w-8 text-purple-600 mb-4" />
-                <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Processing Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">Real-time analytics and ML models</p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>Risk Scoring Engine</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>Pattern Recognition</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>Automated Workflows</span></li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="border-slate-300 bg-slate-50 shadow-sm">
-              <CardContent className="p-6">
-                <BarChart3 className="h-8 w-8 text-emerald-600 mb-4" />
-                <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Output Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">API endpoints, dashboards, reports</p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Executive Dashboards</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Exportable Reports</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Alert Notifications</span></li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+       {/* SECTION 6: INDUSTRY MAPPING */}
+       <section className="py-14 bg-slate-50 border-b border-slate-200">
+         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+           <div className="text-center mb-10">
+             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Industry Platform Mapping</h2>
+             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Platform applicability across industry sectors.</p>
+           </div>
+           <div className="grid md:grid-cols-2 gap-6">
+             {industryTabs?.map((tab, i) => (
+               <Card key={i} className="border-slate-300 bg-white shadow-sm">
+                 <CardContent className="p-6">
+                   <Building2 className="h-6 w-6 text-emerald-600 mb-3" />
+                   <h4 className="font-bold text-[#0B1F3A] mb-2 text-md">{tab.label}</h4>
+                   <p className="text-sm text-slate-700">Cross-industry risk assessment and mitigation capabilities.</p>
+                 </CardContent>
+               </Card>
+             ))}
+           </div>
+         </div>
+       </section>
 
-      {/* SECTION 8: USE CASES */}
-      {useCases && useCases.length > 0 && (
-        <section className="py-14 bg-slate-50 border-b border-slate-200">
+{/* SECTION 7: USE CASES */}
+       {useCases && useCases.length > 0 && (
+         <section className="py-14 bg-white border-b border-slate-200">
           <div className="container mx-auto px-6 md:px-8 max-w-6xl">
             <div className="text-center mb-10">
               <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Platform Use Cases</h2>
@@ -339,8 +287,8 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </section>
       )}
 
-      {/* SECTION 9: RELATED RISKS */}
-      <section className="py-14 bg-white border-b border-slate-200">
+{/* SECTION 8: RELATED RISKS */}
+       <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Risks</h2>
@@ -371,8 +319,8 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-      {/* SECTION 10: RELATED SOLUTIONS */}
-      <section className="py-14 bg-slate-50 border-b border-slate-200">
+{/* SECTION 9: RELATED SOLUTIONS */}
+       <section className="py-14 bg-white border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Solutions</h2>
@@ -404,9 +352,9 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-      {/* SECTION 11: RELATED PLATFORMS */}
-      {relatedModules && relatedModules.length > 0 && (
-        <section className="py-14 bg-white border-b border-slate-200">
+{/* SECTION 10: RELATED PLATFORMS */}
+       {relatedModules && relatedModules.length > 0 && (
+         <section className="py-14 bg-slate-50 border-b border-slate-200">
           <div className="container mx-auto px-6 md:px-8 max-w-6xl">
             <div className="text-center mb-10">
               <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Platforms</h2>
@@ -438,7 +386,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </section>
       )}
 
-      {/* SECTION 12: EXECUTIVE CTA */}
+      {/* SECTION 11: EXECUTIVE CTA */}
       <section className="py-20 bg-gradient-to-br from-[#0B1F3A] via-[#0B1F3A] to-[#0D2B4D] text-white">
         <div className="container mx-auto px-6 md:px-8 max-w-5xl text-center">
           <div className="space-y-6">

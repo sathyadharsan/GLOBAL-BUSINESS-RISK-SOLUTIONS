@@ -1,9 +1,17 @@
 import { notFound } from "next/navigation";
-import { offeringsData, CATEGORY_GROUPS } from "@/data/offeringsData";
+import { offeringsData } from "@/data/offeringsData";
 import { solutionsData } from "@/data/siteContent";
 import { EnterpriseOfferingLayout } from "@/components/sections/EnterpriseOfferingLayout";
+import { EnterpriseSolutionDetailLayout } from "@/components/sections/EnterpriseSolutionDetailLayout";
 import { DynamicLayout } from "@/components/layout/DynamicLayout";
 import type { Metadata } from "next";
+
+const ENTERPRISE_SOLUTION_SLUGS = [
+  "global-program-architecture",
+  "risk-engineering",
+  "long-tenor-infrastructure",
+  "tcor-analytics",
+];
 
 export async function generateMetadata({
   params,
@@ -15,11 +23,21 @@ export async function generateMetadata({
   // Check offeringsData first
   const offeringData = offeringsData[slug];
   if (offeringData) {
-    const category = CATEGORY_GROUPS[offeringData.category as keyof typeof CATEGORY_GROUPS];
     return {
       title: `${offeringData.title} | Global Business Risk Solutions`,
       description: offeringData.shortDescription || offeringData.executiveOverview,
     };
+  }
+  
+  // Check enterprise solution slugs
+  if (ENTERPRISE_SOLUTION_SLUGS.includes(slug)) {
+    const solutionData = solutionsData[slug];
+    if (solutionData) {
+      return {
+        title: `${solutionData.title} | Global Business Risk Solutions`,
+        description: solutionData.description,
+      };
+    }
   }
   
   // Check solutionsData
@@ -81,6 +99,11 @@ export default async function SolutionPage({
   const offeringData = offeringsData[slug];
   if (offeringData) {
     return <EnterpriseOfferingLayout offering={offeringData} />;
+  }
+  
+  // Check enterprise solution slugs (target 4 pages)
+  if (ENTERPRISE_SOLUTION_SLUGS.includes(slug)) {
+    return <EnterpriseSolutionDetailLayout slug={slug} />;
   }
   
   // Check solutionsData (for legacy solution pages)

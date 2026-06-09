@@ -45,44 +45,16 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </div>
       </section>
 
-      {/* SECTION 2: EXECUTIVE OVERVIEW */}
-      <section className="py-14 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">Executive Overview</Badge>
-              <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-4">Strategic Description</h2>
-              <p className="text-base text-slate-600 leading-relaxed mb-6">{outcome.overview.description}</p>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-red-600" />
-                  The Challenge
-                </h3>
-                <p className="text-sm text-slate-700 leading-snug">{outcome.overview.challenge}</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-emerald-600" />
-                  The Solution
-                </h3>
-                <p className="text-sm text-slate-700 leading-snug">{outcome.overview.solution}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3 & 4: KPI METRICS & CAPABILITIES */}
-      <section className="w-full bg-slate-50 py-14 border-b border-slate-200">
+      {/* SECTION 2 & 3: KPI METRICS & CAPABILITIES */}
+      <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">Enterprise Overview</Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">Measurable Impact</h2>
             <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">Quantifiable results delivered through strategic risk management.</p>
           </div>
           
-          {/* Section 3: KPI Metrics Grid */}
+          {/* Section 2: KPI Metrics Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {outcome.kpiMetrics.map((kpi, i) => {
               const Icon = kpi.icon;
@@ -98,7 +70,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
             })}
           </div>
           
-          {/* Section 4: Outcome Capability Cards */}
+          {/* Section 3: Outcome Capability Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {outcome.capabilities.map((cap, i) => {
               const Icon = cap.icon;
@@ -120,8 +92,8 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </div>
       </section>
 
-      {/* SECTION 5: VERTICAL TABS */}
-      <section className="py-14 bg-white border-b border-slate-200">
+      {/* SECTION 4: VERTICAL TABS */}
+      <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
@@ -190,8 +162,8 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </div>
       </section>
 
-      {/* SECTION 6: BUSINESS IMPACT FRAMEWORK */}
-      <section className="py-14 bg-slate-50 border-b border-slate-200">
+      {/* SECTION 5: BUSINESS FRAMEWORK */}
+      <section className="py-14 bg-white border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Business Impact Framework</h2>
@@ -211,8 +183,8 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </div>
       </section>
 
-      {/* SECTION 7: INDUSTRY OUTCOME MAPPING */}
-      <section className="py-14 bg-white border-b border-slate-200">
+      {/* SECTION 6: INDUSTRY MAPPING */}
+      <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Industry Outcome Mapping</h2>
@@ -220,7 +192,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {outcome.industryMapping.map((map, i) => (
-              <Card key={i} className="border-slate-300 bg-slate-50 shadow-sm">
+              <Card key={i} className="border-slate-300 bg-white shadow-sm">
                 <CardContent className="p-6">
                   <Building2 className="h-6 w-6 text-emerald-600 mb-3" />
                   <h4 className="font-bold text-[#0B1F3A] mb-2 text-md">{map.sector}</h4>
@@ -232,8 +204,8 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </div>
       </section>
 
-      {/* SECTION 8: SUCCESS METRICS LIBRARY */}
-      <section className="py-14 bg-slate-50 border-b border-slate-200">
+      {/* SECTION 7: SUCCESS METRICS LIBRARY */}
+      <section className="py-14 bg-white border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Success Metrics Library</h2>
@@ -251,6 +223,29 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
           </div>
         </div>
       </section>
+
+      {/* SECTION 8: RELATED RISKS */}
+      {outcome.relatedRisks && outcome.relatedRisks.length > 0 && (
+        <section className="py-14 bg-slate-50 border-b border-slate-200">
+          <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+            <div className="text-center mb-10">
+              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Risks</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {outcome.relatedRisks.map((risk, i) => (
+                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2">
+                      <AlertTriangle className="h-4 w-4 text-red-600" />
+                    </div>
+                    <CardTitle className="text-sm font-bold text-[#0B1F3A] capitalize">{risk.replace(/-/g, ' ')}</CardTitle>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SECTION 9: RELATED SOLUTIONS */}
       {outcome.relatedSolutions && outcome.relatedSolutions.length > 0 && (
@@ -298,30 +293,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
         </section>
       )}
 
-      {/* SECTION 11: RELATED RISKS */}
-      {outcome.relatedRisks && outcome.relatedRisks.length > 0 && (
-        <section className="py-14 bg-white border-b border-slate-200">
-          <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-            <div className="text-center mb-10">
-              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Risks</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-5">
-              {outcome.relatedRisks.map((risk, i) => (
-                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                  <CardHeader className="pb-3">
-                    <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2">
-                      <AlertTriangle className="h-4 w-4 text-red-600" />
-                    </div>
-                    <CardTitle className="text-sm font-bold text-[#0B1F3A] capitalize">{risk.replace(/-/g, ' ')}</CardTitle>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* SECTION 12: EXECUTIVE CTA */}
+      {/* SECTION 11: EXECUTIVE CTA */}
       <section className="py-20 bg-gradient-to-br from-[#0B1F3A] via-[#0B1F3A] to-[#0D2B4D] text-white">
         <div className="container mx-auto px-6 md:px-8 max-w-5xl text-center">
           <div className="space-y-6">
