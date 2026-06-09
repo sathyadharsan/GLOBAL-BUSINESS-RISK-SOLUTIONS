@@ -25,7 +25,15 @@ const PLATFORM_CATEGORIES = [
 ];
 
 export function PlatformsLandingLayout() {
+  const [activeCategory, setActiveCategory] = React.useState("all");
   const platformEntries = Object.entries(platformData);
+
+  const filteredEntries = platformEntries.filter(([, data]) => {
+    if (activeCategory === "all") return true;
+    const cat = PLATFORM_CATEGORIES.find(c => c.id === activeCategory);
+    // Use fallback matching just in case
+    return cat ? data.category.includes(cat.label) || data.category.includes(cat.label.split(" ")[0]) : true;
+  });
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -127,9 +135,10 @@ export function PlatformsLandingLayout() {
             {PLATFORM_CATEGORIES.map((cat) => (
               <Button
                 key={cat.id}
-                variant="outline"
+                variant={activeCategory === cat.id ? "default" : "outline"}
                 size="sm"
-                className="border-slate-300 text-slate-700 hover:bg-slate-100"
+                onClick={() => setActiveCategory(cat.id)}
+                className={activeCategory === cat.id ? "bg-[#1E5EFF] text-white hover:bg-[#1E5EFF]/90 border-transparent" : "border-slate-300 text-slate-700 hover:bg-slate-100"}
               >
                 {cat.label}
               </Button>
@@ -137,7 +146,7 @@ export function PlatformsLandingLayout() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {platformEntries.map(([slug, data]) => {
+            {filteredEntries.map(([slug, data]) => {
               const Icon = data.icon;
               return (
                 <Link key={slug} href={`/platform/${slug}`}>
