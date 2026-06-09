@@ -65,7 +65,7 @@ export default function Home() {
       badge: "Operational Risk",
       buttons: [
         { label: "View Outcomes", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/outcomes" },
-        { label: "Supply Chain Coverage", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/marine-cargo" }
+        { label: "Supply Chain Coverage", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/marine-cargo-2" }
       ]
     },
     {
@@ -79,8 +79,8 @@ export default function Home() {
       image: "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
       badge: "Emerging Risk",
       buttons: [
-        { label: "Cyber Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cyber" },
-        { label: "ESG Framework", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/solutions/esg-governance" }
+        { label: "Cyber Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cyber-first-party" },
+        { label: "ESG Framework", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/solutions/liability-governance" }
       ]
     }
   ];
@@ -94,16 +94,16 @@ export default function Home() {
 
   const featuredOfferings = [
     { title: "Property Insurance", icon: Shield, desc: "Buildings, Stock, Plant, Flood, EQ, Terrorism cover structured for enterprise scale.", href: "/offerings/property-sfsp", tag: "Assets" },
-    { title: "Cyber Insurance", icon: Shield, desc: "Ransomware, breach response, DPDP compliance, and cloud business interruption coverage.", href: "/offerings/cyber", tag: "Technology" },
-    { title: "D&O Insurance", icon: Users, desc: "Directors & Officers liability for IPOs, regulatory defence, and corporate governance.", href: "/offerings/do-liability", tag: "Governance" },
+    { title: "Cyber Insurance", icon: Shield, desc: "Ransomware, breach response, DPDP compliance, and cloud business interruption coverage.", href: "/offerings/cyber-first-party", tag: "Technology" },
+    { title: "D&O Insurance", icon: Users, desc: "Directors & Officers liability for IPOs, regulatory defence, and corporate governance.", href: "/offerings/d-o", tag: "Governance" },
     { title: "Business Interruption", icon: BarChart3, desc: "Revenue protection during operational disruptions and restoration periods.", href: "/offerings/business-interruption", tag: "Continuity" },
-    { title: "Professional Liability", icon: Briefcase, desc: "E&O coverage for consultants, architects, and professional services firms.", href: "/offerings/professional-indemnity", tag: "Advisory" },
-    { title: "Crime Insurance", icon: AlertCircle, desc: "Fidelity guarantee and crime coverage for financial and cyber fraud.", href: "/offerings/fidelity", tag: "Security" },
-    { title: "EPLI", icon: HeartPulse, desc: "Employment Practices Liability for workplace-related legal claims.", href: "/offerings/epl", tag: "HR" },
-    { title: "Product Recall", icon: Shield, desc: "Brand protection and recall logistics for manufacturing and retail.", href: "/offerings/product-liability", tag: "Consumer" },
-    { title: "Supply Chain Coverage", icon: Truck, desc: "Cargo, marine, and contingent business interruption protection.", href: "/offerings/marine-cargo", tag: "Logistics" },
-    { title: "Political Risk", icon: Globe, desc: "Expropriation, currency inconvertibility, and cross-border protection.", href: "/offerings/political-risk", tag: "International" },
-    { title: "Warranty Programs", icon: CheckCircle2, desc: "M&A transactional risk insurance and extended warranty coverage.", href: "/offerings/ma-insurance", tag: "M&A" },
+    { title: "Professional Liability", icon: Briefcase, desc: "E&O coverage for consultants, architects, and professional services firms.", href: "/offerings/professional-indemnity-2", tag: "Advisory" },
+    { title: "Crime Insurance", icon: AlertCircle, desc: "Fidelity guarantee and crime coverage for financial and cyber fraud.", href: "/offerings/crime-fidelity", tag: "Security" },
+    { title: "EPLI", icon: HeartPulse, desc: "Employment Practices Liability for workplace-related legal claims.", href: "/offerings/epli", tag: "HR" },
+    { title: "Product Recall", icon: Shield, desc: "Brand protection and recall logistics for manufacturing and retail.", href: "/offerings/product-liability-2", tag: "Consumer" },
+    { title: "Supply Chain Coverage", icon: Truck, desc: "Cargo, marine, and contingent business interruption protection.", href: "/offerings/marine-cargo-2", tag: "Logistics" },
+    { title: "Political Risk", icon: Globe, desc: "Expropriation, currency inconvertibility, and cross-border protection.", href: "/offerings/political-risk-2", tag: "International" },
+    { title: "Warranty Programs", icon: CheckCircle2, desc: "M&A transactional risk insurance and extended warranty coverage.", href: "/offerings/ma-risk-due-diligence", tag: "M&A" },
     { title: "Contract Risk Advisory", icon: FileText, desc: "Contractual risk identification and insurance structuring.", href: "/solutions/global-program-architecture", tag: "Legal" },
     { title: "Claims Advisory", icon: BarChart3, desc: "Fierce representation during major loss events and dispute resolution.", href: "/solutions/claims-advocacy", tag: "Recovery" },
     { title: "Risk Architecture Consulting", icon: Target, desc: "Custom-designed insurance and risk transfer structures.", href: "/solutions/risk-engineering", tag: "Strategy" }
@@ -132,7 +132,7 @@ export default function Home() {
     { id: "intelligence", label: "Risk Intelligence", icon: Radar, desc: "Data-driven insights and predictive analytics." },
     { id: "claims-management", label: "Claims Management", icon: Activity, desc: "End-to-end claims advocacy and recovery optimization." },
     { id: "compliance", label: "Compliance Management", icon: CheckCircle2, desc: "Regulatory adherence and reporting frameworks." },
-    { id: "esg-governance", label: "ESG Governance", icon: Leaf, desc: "Environmental, social, and governance risk frameworks." },
+    { id: "liability-governance", label: "ESG Governance", icon: Leaf, desc: "Environmental, social, and governance risk frameworks." },
     { id: "cyber-resilience", label: "Cyber Resilience", icon: Lock, desc: "Comprehensive cybersecurity and response planning." },
     { id: "supply-chain-resilience", label: "Supply Chain Resilience", icon: Truck, desc: "Supplier risk management and continuity planning." },
     { id: "business-continuity", label: "Business Continuity", icon: Clock, desc: "Disaster recovery and operational resilience planning." },

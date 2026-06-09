@@ -164,7 +164,7 @@ export default function RisksLanding() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/risks/risk-diagnostic"
+            href="/platform/risk-diagnostic-engine"
             className="px-6 py-3 bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide rounded-lg transition-colors"
           >
             Book Free Risk Diagnostic

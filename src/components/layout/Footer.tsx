@@ -96,7 +96,7 @@ export function Footer() {
               <li><Link href="/about-us#about" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">About Us</Link></li>
               <li><Link href="/about-us#leadership" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Leadership & Culture</Link></li>
               <li><Link href="/about-us#offices" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Our Offices</Link></li>
-              <li><Link href="/careers" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Careers</Link></li>
+              <li><Link href="/about-us/careers" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
@@ -177,12 +177,12 @@ export function Footer() {
             &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link href="/privacy" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
-            <Link href="/security" className="hover:text-slate-800 transition-colors">Security</Link>
-            <Link href="/copyright" className="hover:text-slate-800 transition-colors">Copyright</Link>
-            <Link href="/cookies" className="hover:text-slate-800 transition-colors">Cookies</Link>
-            <Link href="/sitemap" className="hover:text-slate-800 transition-colors">Sitemap</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Security</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Copyright</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Cookies</Link>
+            <Link href="#" className="hover:text-slate-800 transition-colors">Sitemap</Link>
           </div>
         </div>
 
