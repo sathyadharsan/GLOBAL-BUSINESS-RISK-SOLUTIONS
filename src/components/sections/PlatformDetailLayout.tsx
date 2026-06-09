@@ -137,12 +137,12 @@ export function PlatformDetailLayout({ title, subtitle, category, color, descrip
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Platform Intelligence</h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Deep insights across risk domains, architecture, and industry applications.</p>
           </div>
-          <Tabs defaultValue="overview" className="w-full">
+          <Tabs defaultValue="overview" className="w-full" orientation="vertical">
             <div className="flex flex-col md:flex-row gap-6">
               <TabsList variant="line" className="w-full md:w-72 flex flex-col items-start gap-1 bg-transparent">
                 {PLATFORM_MODULES_TABS.map((tab) => {
                   const TabIcon = tab.icon;
-                  return (<TabsTrigger key={tab.value} value={tab.value} className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent">
+                  return (<TabsTrigger key={tab.value} value={tab.value} className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden">
                     <TabIcon className="h-4 w-4 mr-2" />{tab.label}</TabsTrigger>);
                 })}
               </TabsList>
