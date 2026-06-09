@@ -5,11 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ChevronRight, Shield, AlertTriangle, CheckCircle2 } from "lucide-react";
 
-export const metadata = {
-  title: "Enterprise Risk Architecture | TRUSTFLOW Risk Intelligence Platform",
-  description: "72 enterprise risks across 4 categories — cross-industry, cross-functional, industry-specific, and emerging. AI-powered risk intelligence with actionable mitigation strategies.",
-};
-
 export default function RisksLanding() {
   const totalRisks = Object.values(riskCategories).reduce(
     (sum, cat) => sum + cat.risks.length,
