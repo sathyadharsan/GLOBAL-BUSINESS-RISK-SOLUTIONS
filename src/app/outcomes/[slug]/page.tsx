@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { useCasesData } from "@/data/siteContent";
-import { UseCasesDashboard } from "@/components/sections/UseCasesDashboard";
+import { outcomesData, ALL_OUTCOME_SLUGS } from "@/data/outcomesData";
+import { EnterpriseOutcomesLayout } from "@/components/sections/EnterpriseOutcomesLayout";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -9,25 +9,25 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const data = useCasesData[slug];
+  const data = outcomesData[slug];
   if (!data) return { title: "Not Found" };
   return {
     title: `${data.title} | Global Business Risk Solutions`,
-    description: data.description,
+    description: data.overview.description,
   };
 }
 
 export function generateStaticParams() {
-  return Object.keys(useCasesData).map((slug) => ({ slug }));
+  return ALL_OUTCOME_SLUGS.map((slug) => ({ slug }));
 }
 
-export default async function UseCasePage({
+export default async function OutcomePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const data = useCasesData[slug];
+  const data = outcomesData[slug];
   if (!data) notFound();
-  return <UseCasesDashboard activeSlug={slug} />;
+  return <EnterpriseOutcomesLayout outcome={data} />;
 }
