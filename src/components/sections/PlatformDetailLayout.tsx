@@ -7,9 +7,38 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import {
-   Shield, Target, AlertTriangle, Layers, CheckCircle2, ChevronRight, Download,
-   BarChart3, Globe, Zap, Database, Activity, Building2
- } from "lucide-react";
+  Shield,
+  Target,
+  AlertTriangle,
+  Layers,
+  CheckCircle2,
+  ChevronRight,
+  Download,
+  BarChart3,
+  Globe,
+  Zap,
+  Database,
+  Activity,
+  Building2,
+  FileText,
+  Users,
+  Lock,
+  Scale,
+  TrendingUp,
+  Bell,
+  Cpu,
+  Sun,
+  Briefcase,
+  Flame,
+  Waves,
+  BadgeDollarSign,
+  Landmark,
+  BookOpen,
+  RefreshCw,
+  Search,
+  ShieldAlert,
+  CloudLightning,
+} from "lucide-react";
 import { PlatformKPI, PlatformCapabilityCard, PlatformIndustryTab, platformData } from "@/data/platformData";
 import { risksData } from "@/data/risksData";
 import { offeringsData } from "@/data/offeringsData";
@@ -39,78 +68,179 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
     relatedModules,
     relatedRiskSlugs,
     relatedSolutionSlugs,
-    useCases
+    useCases,
   } = platform;
   const platformColor = color || "#1E5EFF";
+
+  const PHASE_FRAMEWORK = [
+    {
+      phase: "Assessment",
+      title: "Assess",
+      description:
+        "Comprehensive evaluation of current risk posture, coverage gaps, and platform applicability across your enterprise.",
+      outcome:
+        "Complete risk picture with prioritized action items and platform deployment roadmap.",
+      icon: Target,
+    },
+    {
+      phase: "Strategy",
+      title: "Strategize",
+      description:
+        "Design a customized platform architecture aligned to your risk profile, industry requirements, and strategic objectives.",
+      outcome:
+        "Tailored platform deployment plan with clear ROI metrics and success criteria.",
+      icon: TrendingUp,
+    },
+    {
+      phase: "Implementation",
+      title: "Implement",
+      description:
+        "Deploy platform capabilities with expert guidance, integration support, and change management across your organization.",
+      outcome:
+        "Fully operational platform delivering measurable risk intelligence within 30 days.",
+      icon: Activity,
+    },
+    {
+      phase: "Optimization",
+      title: "Optimize",
+      description:
+        "Continuous tuning, advanced feature adoption, and scaling to maximize platform value as your risk landscape evolves.",
+      outcome:
+        "Sustained risk maturity improvement with compounding ROI over time.",
+      icon: Zap,
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* SECTION 1: FULL WIDTH HERO */}
-      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A] mb-16">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style={{ backgroundImage: `url('${heroImage}')` }} />
+      <section className="relative h-[70vh] min-h-[600px] w-full overflow-hidden bg-[#0B1F3A]">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: `url('${heroImage}')` }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
+        <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-7xl">
           <div className="max-w-4xl space-y-6">
-            <Badge variant="secondary" className="w-fit" style={{ backgroundColor: `${platformColor}20`, color: platformColor, borderColor: `${platformColor}40` }}>Platform Suite</Badge>
-            {category && (
-              <Badge variant="secondary" className="w-fit bg-white/10 text-white border-white/20 text-xs font-semibold tracking-widest uppercase">
-                {category}
-              </Badge>
-            )}
-            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">{title}</h1>
-            <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">{subtitle}</p>
+            <Badge
+              variant="secondary"
+              className="w-fit"
+              style={{
+                backgroundColor: `${platformColor}20`,
+                color: platformColor,
+                borderColor: `${platformColor}40`,
+              }}
+            >
+              {category || "Platform Suite"}
+            </Badge>
+            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
+              {title}
+            </h1>
+            <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">
+              {subtitle}
+            </p>
+            <p className="text-base text-slate-300 max-w-2xl leading-relaxed">
+              {description}
+            </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button size="lg" className="font-semibold text-sm uppercase tracking-wide" style={{ backgroundColor: platformColor, color: "white" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = `${platformColor}90`)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = platformColor)}>Book Assessment</Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>Download Platform Guide</Button>
+              <Button
+                size="lg"
+                className="font-semibold text-sm uppercase tracking-wide"
+                style={{ backgroundColor: platformColor, color: "white" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = `${platformColor}90`)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = platformColor)
+                }
+              >
+                Book Assessment
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Download Platform Guide
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2 & 3: KPI METRICS & CAPABILITIES */}
-      <section className="w-full bg-white py-14 border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      <section className="w-full bg-white py-16 border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">Enterprise Overview</Badge>
-            <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">Measurable Risk Solutions at Scale</h2>
-            <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">Enterprise-grade capabilities designed for complex risk landscapes.</p>
+            <Badge
+              variant="secondary"
+              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+            >
+              Enterprise Overview
+            </Badge>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
+              Measurable Risk Solutions at Scale
+            </h2>
+            <p className="text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Enterprise-grade capabilities designed for complex risk landscapes.
+            </p>
           </div>
-          
+
           {/* Section 2: KPI Metrics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {kpiMetrics?.map((kpi, i) => {
               const Icon = kpi.icon || Shield;
               return (
-                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4">
+                <Card
+                  key={i}
+                  className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow text-center py-8 px-4"
+                >
                   <CardContent className="space-y-3 pt-0">
                     <Icon className="h-10 w-10 text-blue-600 mx-auto" />
-                    <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">{kpi.value}</div>
-                    <div className="text-base font-semibold text-slate-700">{kpi.label}</div>
-                    <p className="text-xs text-slate-500 leading-snug px-2">Enterprise capability</p>
+                    <div className="text-[42px] font-bold text-slate-900 font-serif leading-none">
+                      {kpi.value}
+                    </div>
+                    <div className="text-base font-semibold text-slate-700">
+                      {kpi.label}
+                    </div>
+                    <p className="text-xs text-slate-500 leading-snug px-2">
+                      Enterprise capability
+                    </p>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
-          
+
           {/* Section 3: Platform Capability Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilityCards?.map((cap, i) => {
               const Icon = cap.icon || Shield;
               return (
-                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <Card
+                  key={i}
+                  className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col"
+                >
                   <CardHeader className="pb-3">
                     <div className="w-11 h-11 rounded bg-[#EAF2FF] flex items-center justify-center mb-3">
                       <Icon className="h-5 w-5 text-[#1E5EFF]" />
                     </div>
-                    <CardTitle className="text-base font-bold text-slate-900 leading-snug">{cap.title}</CardTitle>
+                    <CardTitle className="text-base font-bold text-slate-900 leading-snug">
+                      {cap.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3 pt-0">
-                    <p className="text-sm text-slate-600 leading-snug">{cap.description}</p>
-                    <ul className="space-y-2">
+                  <CardContent className="space-y-3 pt-0 flex-1 flex flex-col">
+                    <p className="text-sm text-slate-600 leading-snug">
+                      {cap.description}
+                    </p>
+                    <ul className="space-y-2 mt-auto">
                       {cap.bullets.map((bullet, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                        <li
+                          key={j}
+                          className="flex items-start gap-2 text-sm text-slate-700"
+                        >
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{bullet}</span>
                         </li>
@@ -124,29 +254,34 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-{/* SECTION 4: INDUSTRY VERTICAL TABS */}
-       <section className="py-14 bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      {/* SECTION 4: INDUSTRY VERTICAL TABS */}
+      <section className="py-16 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
           <div className="text-center mb-10">
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
               Industry Vertical Solutions
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
-              Deep domain expertise across technology, healthcare, manufacturing, and financial services.
+              Deep domain expertise across technology, healthcare, manufacturing,
+              financial services, and specialized sectors.
             </p>
           </div>
 
-          <Tabs defaultValue={industryTabs?.[0]?.label} orientation="vertical" className="w-full">
+          <Tabs
+            defaultValue={industryTabs?.[0]?.label}
+            orientation="vertical"
+            className="w-full"
+          >
             <div className="flex flex-col md:flex-row gap-6">
               <TabsList
                 variant="line"
-                className="w-full md:w-64 flex flex-col items-start gap-1 bg-transparent"
+                className="w-full md:w-72 flex flex-col items-start gap-1 bg-transparent"
               >
                 {industryTabs?.map((tab) => (
                   <TabsTrigger
                     key={tab.label}
                     value={tab.label}
-                    className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
+                    className="w-full justify-start px-4 py-3 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
                   >
                     {tab.label}
                   </TabsTrigger>
@@ -158,18 +293,21 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                   <TabsContent
                     key={tab.label}
                     value={tab.label}
-                    className="bg-white rounded-lg border border-slate-300 p-6 m-0"
+                    className="bg-white rounded-xl border border-slate-300 p-8 m-0"
                   >
-                    <div className="grid lg:grid-cols-2 gap-8">
-                      <div className="space-y-6">
+                    <div className="grid lg:grid-cols-2 gap-10">
+                      <div className="space-y-8">
                         <div>
-                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 flex items-center gap-2">
-                            <AlertTriangle className="h-4 w-4 text-red-600" />
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <AlertTriangle className="h-5 w-5 text-red-600" />
                             Industry Challenges
                           </h3>
-                          <ul className="space-y-2">
+                          <ul className="space-y-3">
                             {tab.challenges.map((item, i) => (
-                              <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-sm text-slate-700"
+                              >
                                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
                                 <span>{item}</span>
                               </li>
@@ -177,14 +315,34 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                           </ul>
                         </div>
                         <div>
-                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 flex items-center gap-2">
-                            <Shield className="h-4 w-4 text-amber-600" />
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <Shield className="h-5 w-5 text-[#1E5EFF]" />
                             Risk Exposures
                           </h3>
-                          <ul className="space-y-2">
+                          <ul className="space-y-3">
                             {tab.riskExposure.map((item, i) => (
-                              <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-sm text-slate-700"
+                              >
                                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <FileText className="h-5 w-5 text-purple-600" />
+                            Recommended Architecture
+                          </h3>
+                          <ul className="space-y-3">
+                            {tab.recommendedArchitecture.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-sm text-slate-700"
+                              >
+                                <CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -192,15 +350,68 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                         </div>
                       </div>
 
-                      <div className="space-y-6">
+                      <div className="space-y-8">
                         <div>
-                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-3 flex items-center gap-2">
-                            <Globe className="h-4 w-4 text-purple-600" />
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <TrendingUp className="h-5 w-5 text-emerald-600" />
+                            Business Benefits
+                          </h3>
+                          <ul className="space-y-3">
+                            {tab.businessBenefits.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-sm text-slate-700"
+                              >
+                                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <Zap className="h-5 w-5 text-amber-600" />
+                            Use Cases
+                          </h3>
+                          <ul className="space-y-3">
+                            {tab.useCases.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-sm text-slate-700"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <Globe className="h-5 w-5 text-purple-600" />
                             Related Platforms
                           </h3>
                           <div className="flex flex-wrap gap-2">
                             {tab.relatedPlatforms.map((item, i) => (
-                              <span key={i} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
+                              <span
+                                key={i}
+                                className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0B1F3A] mb-4 flex items-center gap-2">
+                            <AlertTriangle className="h-5 w-5 text-red-600" />
+                            Related Risks
+                          </h3>
+                          <div className="flex flex-wrap gap-2">
+                            {tab.relatedRisks.map((item, i) => (
+                              <span
+                                key={i}
+                                className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-200"
+                              >
                                 {item}
                               </span>
                             ))}
@@ -214,70 +425,152 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
             </div>
           </Tabs>
         </div>
-</section>
+      </section>
 
-       {/* SECTION 5: BUSINESS FRAMEWORK */}
-       {businessBenefits && businessBenefits.length > 0 && (
-         <section className="py-14 bg-white border-b border-slate-200">
-           <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-             <div className="text-center mb-10">
-               <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Business Impact Framework</h2>
-               <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Phased impact across the enterprise lifecycle.</p>
-             </div>
-             <div className="grid md:grid-cols-3 gap-6">
-               {businessBenefits.map((benefit, i) => (
-                 <Card key={i} className="border-slate-300 bg-white shadow-sm">
-                   <CardContent className="p-6">
-                     <Activity className="h-8 w-8 text-blue-600 mb-4" />
-                     <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Phase {i + 1}</h4>
-                     <p className="text-sm text-slate-600 mb-4">{benefit}</p>
-                   </CardContent>
-                 </Card>
-               ))}
-             </div>
-           </div>
-         </section>
-       )}
-
-       {/* SECTION 6: INDUSTRY MAPPING */}
-       <section className="py-14 bg-slate-50 border-b border-slate-200">
-         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-           <div className="text-center mb-10">
-             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Industry Platform Mapping</h2>
-             <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Platform applicability across industry sectors.</p>
-           </div>
-           <div className="grid md:grid-cols-2 gap-6">
-             {industryTabs?.map((tab, i) => (
-               <Card key={i} className="border-slate-300 bg-white shadow-sm">
-                 <CardContent className="p-6">
-                   <Building2 className="h-6 w-6 text-emerald-600 mb-3" />
-                   <h4 className="font-bold text-[#0B1F3A] mb-2 text-md">{tab.label}</h4>
-                   <p className="text-sm text-slate-700">Cross-industry risk assessment and mitigation capabilities.</p>
-                 </CardContent>
-               </Card>
-             ))}
-           </div>
-         </div>
-       </section>
-
-{/* SECTION 7: USE CASES */}
-       {useCases && useCases.length > 0 && (
-         <section className="py-14 bg-white border-b border-slate-200">
-          <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-            <div className="text-center mb-10">
-              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Platform Use Cases</h2>
-              <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Practical applications of the platform across different scenarios.</p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {useCases.map((useCase, i) => (
-                <Card key={i} className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
-                      <Zap className="h-4 w-4 text-amber-500" />
+      {/* SECTION 5: BUSINESS FRAMEWORK */}
+      <section className="py-16 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+              Business Impact Framework
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              A four-phase methodology ensuring platform success from assessment
+              through continuous optimization.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            {PHASE_FRAMEWORK.map((phase, i) => {
+              const Icon = phase.icon;
+              return (
+                <Card
+                  key={i}
+                  className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full"
+                >
+                  <CardContent className="p-6 space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-[#EAF2FF] flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-[#1E5EFF]" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">{useCase}</h3>
-                      <p className="text-xs text-slate-600 leading-snug">Strategic implementation scenario</p>
+                      <span className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wider">
+                        Phase {i + 1}
+                      </span>
+                      <h4 className="font-bold text-[#0B1F3A] text-lg mt-1">
+                        {phase.title}
+                      </h4>
+                      <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                        {phase.description}
+                      </p>
+                    </div>
+                    <div className="pt-3 border-t border-slate-200">
+                      <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                        Business Outcome
+                      </p>
+                      <p className="text-sm text-slate-700 leading-relaxed">
+                        {phase.outcome}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: INDUSTRY MAPPING */}
+      <section className="py-16 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
+          <div className="text-center mb-10">
+            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+              Industry Platform Mapping
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Platform applicability across industry sectors with specific
+              challenges, outcomes, and architecture.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {industryTabs?.map((tab, i) => (
+              <Card
+                key={i}
+                className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full"
+              >
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Building2 className="h-6 w-6 text-emerald-600 mt-0.5 shrink-0" />
+                    <h4 className="font-bold text-[#0B1F3A] text-lg">
+                      {tab.label}
+                    </h4>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                      Primary Challenge
+                    </p>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {tab.challenges[0]}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                      Business Outcome
+                    </p>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {tab.businessBenefits[0]}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wide mb-1">
+                      Relevant Platform
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {tab.relatedPlatforms.slice(0, 2).map((item, j) => (
+                        <span
+                          key={j}
+                          className="px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium border border-purple-200"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: USE CASES */}
+      {useCases && useCases.length > 0 && (
+        <section className="py-16 bg-white border-b border-slate-200">
+          <div className="container mx-auto px-6 md:px-8 max-w-7xl">
+            <div className="text-center mb-10">
+              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+                Platform Use Cases
+              </h2>
+              <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+                Practical applications of the platform across different
+                enterprise scenarios and industries.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {useCases.map((useCase, i) => (
+                <Card
+                  key={i}
+                  className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <CardContent className="p-5 flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
+                      <Zap className="h-5 w-5 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-[#0B1F3A]">
+                        {useCase}
+                      </h3>
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Strategic implementation scenario
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -287,14 +580,19 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </section>
       )}
 
-{/* SECTION 8: RELATED RISKS */}
-       <section className="py-14 bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      {/* SECTION 8: RELATED RISKS */}
+      <section className="py-16 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
           <div className="text-center mb-10">
-            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Risks</h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Comprehensive risk coverage addressing interconnected exposures.</p>
+            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+              Related Risks
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Comprehensive risk coverage addressing interconnected exposures
+              relevant to this platform.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedRiskSlugs?.map((riskSlug, i) => {
               const risk = risksData[riskSlug];
               if (!risk) return null;
@@ -303,13 +601,17 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                 <Link href={`/risks/${riskSlug}`} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-red-500 transition-all h-full">
                     <CardHeader className="pb-3">
-                      <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2 group-hover:bg-red-100 transition-colors">
-                        <Icon className="h-4 w-4 text-red-600" />
+                      <div className="w-11 h-11 rounded-lg bg-red-50 flex items-center justify-center mb-3 group-hover:bg-red-100 transition-colors">
+                        <Icon className="h-5 w-5 text-red-600" />
                       </div>
-                      <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-red-600 transition-colors">{risk.label}</CardTitle>
+                      <CardTitle className="text-base font-bold text-[#0B1F3A] group-hover:text-red-600 transition-colors leading-snug">
+                        {risk.label}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-snug">{risk.description}</p>
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {risk.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </Link>
@@ -319,30 +621,43 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-{/* SECTION 9: RELATED SOLUTIONS */}
-       <section className="py-14 bg-white border-b border-slate-200">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      {/* SECTION 9: RELATED SOLUTIONS */}
+      <section className="py-16 bg-white border-b border-slate-200">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
           <div className="text-center mb-10">
-            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Solutions</h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">Specialized insurance and risk transfer products.</p>
+            <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+              Related Solutions
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+              Specialized insurance and risk transfer products integrated with
+              this platform.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedSolutionSlugs?.map((solSlug, i) => {
               const offering = offeringsData[solSlug];
               const solution = solutionsData[solSlug];
-              const title = offering?.title || solution?.title || solSlug.replace(/-/g, ' ');
-              const description = offering?.shortDescription || solution?.description || "Specialized risk transfer program";
+              const title =
+                offering?.title || solution?.title || solSlug.replace(/-/g, " ");
+              const description =
+                offering?.shortDescription ||
+                solution?.description ||
+                "Specialized risk transfer program";
               return (
                 <Link href={`/solutions/${solSlug}`} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
                     <CardHeader className="pb-3">
-                      <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2 group-hover:bg-blue-100 transition-colors">
-                        <Shield className="h-4 w-4 text-[#1E5EFF]" />
+                      <div className="w-11 h-11 rounded-lg bg-[#EAF2FF] flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors">
+                        <Shield className="h-5 w-5 text-[#1E5EFF]" />
                       </div>
-                      <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">{title}</CardTitle>
+                      <CardTitle className="text-base font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors leading-snug">
+                        {title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-snug">{description}</p>
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {description}
+                      </p>
                     </CardContent>
                   </Card>
                 </Link>
@@ -352,15 +667,20 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
         </div>
       </section>
 
-{/* SECTION 10: RELATED PLATFORMS */}
-       {relatedModules && relatedModules.length > 0 && (
-         <section className="py-14 bg-slate-50 border-b border-slate-200">
-          <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      {/* SECTION 10: RELATED PLATFORMS */}
+      {relatedModules && relatedModules.length > 0 && (
+        <section className="py-16 bg-slate-50 border-b border-slate-200">
+          <div className="container mx-auto px-6 md:px-8 max-w-7xl">
             <div className="text-center mb-10">
-              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Related Platforms</h2>
-              <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">AI-powered tools for risk assessment, monitoring, and compliance.</p>
+              <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
+                Related Platforms
+              </h2>
+              <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto leading-snug">
+                Complementary TRUSTFLOW platforms that integrate with this
+                solution for comprehensive risk intelligence.
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedModules.map((moduleSlug, i) => {
                 const plat = platformData[moduleSlug];
                 if (!plat) return null;
@@ -368,13 +688,17 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                 return (
                   <Link href={`/platform/${moduleSlug}`} key={i} className="block group">
                     <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
-                      <CardContent className="p-5 flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-full bg-[#EAF2FF] flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                          <Icon className="h-4 w-4 text-[#1E5EFF]" />
+                      <CardContent className="p-6 flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-lg bg-[#EAF2FF] flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                          <Icon className="h-5 w-5 text-[#1E5EFF]" />
                         </div>
                         <div>
-                          <h3 className="text-sm font-bold text-[#0B1F3A] mb-1 group-hover:text-blue-600 transition-colors">{plat.title}</h3>
-                          <p className="text-xs text-slate-600 leading-snug">{plat.subtitle}</p>
+                          <h3 className="text-base font-bold text-[#0B1F3A] mb-1 group-hover:text-blue-600 transition-colors">
+                            {plat.title}
+                          </h3>
+                          <p className="text-sm text-slate-600 leading-relaxed">
+                            {plat.subtitle}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -390,12 +714,45 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
       <section className="py-20 bg-gradient-to-br from-[#0B1F3A] via-[#0B1F3A] to-[#0D2B4D] text-white">
         <div className="container mx-auto px-6 md:px-8 max-w-5xl text-center">
           <div className="space-y-6">
-            <h2 className="text-[28px] md:text-[32px] font-bold font-serif tracking-tight">Ready to Deploy {title}?</h2>
-            <p className="text-base text-slate-300 max-w-3xl mx-auto leading-snug">Connect with our platform architects to design a customized technology suite.</p>
+            <h2 className="text-[28px] md:text-[32px] font-bold font-serif tracking-tight">
+              Ready to Deploy {title}?
+            </h2>
+            <p className="text-base text-slate-300 max-w-3xl mx-auto leading-snug">
+              Connect with our platform architects to design a customized
+              technology suite aligned to your organization&apos;s risk profile
+              and strategic objectives.
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-              <Button size="lg" className="text-white font-semibold text-xs uppercase tracking-widest" style={{ backgroundColor: platformColor }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = `${platformColor}90`)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = platformColor)}>Book Consultation</Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>Request Assessment</Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}><Download className="h-4 w-4 mr-2" />Download Brief</Button>
+              <Button
+                size="lg"
+                className="text-white font-semibold text-xs uppercase tracking-widest"
+                style={{ backgroundColor: platformColor }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = `${platformColor}90`)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = platformColor)
+                }
+              >
+                Book Consultation
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Request Assessment
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                <Download className="h-4 w-4 mr-2" />
+                Download Brief
+              </Button>
             </div>
           </div>
         </div>

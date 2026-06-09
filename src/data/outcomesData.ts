@@ -12,11 +12,11 @@ export interface OutcomeData {
     challenge: string;
     solution: string;
   };
-  kpiMetrics: { value: string; label: string; icon: React.ComponentType<{ className?: string }> }[];
+  kpiMetrics: { value: string; label: string; description?: string; icon: React.ComponentType<{ className?: string }> }[];
   capabilities: { title: string; description: string; icon: React.ComponentType<{ className?: string }> }[];
   verticals: { industry: string; challenge: string; platform: string; icon: React.ComponentType<{ className?: string }> }[];
-  businessImpact: { phase: string; impact: string }[];
-  industryMapping: { sector: string; outcome: string }[];
+  businessImpact: { phase: string; description: string; outcome: string }[];
+  industryMapping: { sector: string; challenge: string; outcome: string; relevantPlatform: string }[];
   successMetrics: string[];
   relatedSolutions: string[];
   relatedPlatforms: string[];
@@ -53,13 +53,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Real Estate", challenge: "Asset concentration risks", platform: "Climate Scenario", icon: Globe }
     ],
     businessImpact: [
-      { phase: "Immediate Response", impact: "Zero cash flow disruption through advance payments." },
-      { phase: "Operational Continuity", impact: "Maintained 80% capacity via temporary leased facilities." },
-      { phase: "Long-Term Recovery", impact: "Facility rebuilt with upgraded, code-compliant infrastructure." }
+      { phase: "Immediate Response", description: "Zero cash flow disruption through advance payments activated within 24 hours.", outcome: "Operations maintained without liquidity interruption." },
+      { phase: "Operational Continuity", description: "Maintained 80% capacity via temporary leased facilities funded by BI coverage.", outcome: "Revenue protected while primary facility was rebuilt." },
+      { phase: "Long-Term Recovery", description: "Facility rebuilt with upgraded, code-compliant infrastructure leveraging SFSP proceeds.", outcome: "Strengthened operational resilience for future events." }
     ],
     industryMapping: [
-      { sector: "Heavy Manufacturing", outcome: "Protected global supply commitments despite total facility loss." },
-      { sector: "Automotive OEM", outcome: "Prevented line-stoppage penalties." }
+      { sector: "Heavy Manufacturing", challenge: "Single-point-of-failure production facilities threatening global supply", outcome: "Protected global supply commitments despite total facility loss.", relevantPlatform: "Risk Diagnostic Engine" },
+      { sector: "Automotive OEM", challenge: "Just-in-time line stoppage penalties from supplier failure", outcome: "Prevented line-stoppage penalties through alternative sourcing coverage.", relevantPlatform: "Supply Chain Monitor" },
+      { sector: "Pharmaceuticals", challenge: "API production halt threatening drug supply pipeline", outcome: "Maintained clinical trial supply through expedited alternative manufacturing.", relevantPlatform: "Climate Scenario" }
     ],
     successMetrics: [
       "Zero missed payroll cycles",
@@ -99,13 +100,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Retail", challenge: "Seasonal inventory disruption", platform: "Risk Feed", icon: Building2 }
     ],
     businessImpact: [
-      { phase: "Supply Disruption", impact: "Immediate alternative sourcing funded by Extra Expense." },
-      { phase: "Revenue Impact", impact: "Margin loss fully indemnified through CBI." },
-      { phase: "Strategic Shift", impact: "Diversified supplier base using predictive modeling." }
+      { phase: "Supply Disruption", description: "Immediate alternative sourcing funded by Extra Expense coverage.", outcome: "Customer commitments maintained without revenue loss." },
+      { phase: "Revenue Impact", description: "Margin loss fully indemnified through CBI triggered within 48 hours.", outcome: "Financial position protected despite supply shock." },
+      { phase: "Strategic Shift", description: "Diversified supplier base using predictive modeling and intelligence platform.", outcome: "Supply chain resilience permanently strengthened post-event." }
     ],
     industryMapping: [
-      { sector: "Technology Hardware", outcome: "Secured alternative chips without margin dilution." },
-      { sector: "Apparel", outcome: "Expedited seasonal shipping via airfreight." }
+      { sector: "Technology Hardware", challenge: "Concentrated semiconductor suppliers creating single-point-of-failure risk", outcome: "Secured alternative chips without margin dilution.", relevantPlatform: "Supply Chain Monitor" },
+      { sector: "Apparel", challenge: "Seasonal inventory disruption from supplier flood events", outcome: "Expedited seasonal shipping via airfreight funded by CBI.", relevantPlatform: "Risk Feed" },
+      { sector: "Automotive", challenge: "Just-in-time component dependency on flood-prone regions", outcome: "Production continuity maintained through parametric payout.", relevantPlatform: "Climate Scenario" }
     ],
     successMetrics: [
       "Zero stock-outs for flagship products",
@@ -145,13 +147,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Fintech", challenge: "Regulatory compliance during IPO", platform: "Counterparty Assessment", icon: Building2 }
     ],
     businessImpact: [
-      { phase: "Pre-Listing", impact: "Attracted top-tier independent board members." },
-      { phase: "Roadshow", impact: "Executives focused on valuation without personal liability fear." },
-      { phase: "Post-Listing", impact: "Seamless transition to public company D&O." }
+      { phase: "Pre-Listing", description: "Attracted top-tier independent board members with D&O coverage certainty.", outcome: "Board composition strengthened ahead of IPO." },
+      { phase: "Roadshow", description: "Executives focused on valuation without personal liability fear.", outcome: "Successful IPO at target valuation with full demand." },
+      { phase: "Post-Listing", description: "Seamless transition to public company D&O with no coverage gaps.", outcome: "Ongoing public company D&O at competitive terms." }
     ],
     industryMapping: [
-      { sector: "SaaS", outcome: "Successfully listed without prospectus litigation exposure." },
-      { sector: "Biotech", outcome: "Protected board from FDA-related shareholder suits." }
+      { sector: "SaaS", challenge: "High valuation scrutiny and prospectus liability exposure during IPO", outcome: "Successfully listed without prospectus litigation exposure.", relevantPlatform: "Risk DNA Mapper" },
+      { sector: "Biotech", challenge: "Clinical trial disclosure risks and FDA-related shareholder suits", outcome: "Protected board from FDA-related shareholder suits.", relevantPlatform: "Regulatory Intelligence" },
+      { sector: "Fintech", challenge: "Regulatory compliance scrutiny during high-profile listing", outcome: "Securities defense coverage provided board confidence.", relevantPlatform: "Counterparty Assessment" }
     ],
     successMetrics: [
       "100% board retention through IPO",
@@ -191,13 +194,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Financials", challenge: "Funds transfer fraud", platform: "Counterparty Assessment", icon: Building2 }
     ],
     businessImpact: [
-      { phase: "Containment", impact: "Stopped lateral movement within 24 hours." },
-      { phase: "Negotiation", impact: "Decryption keys acquired; data exfiltration prevented." },
-      { phase: "Recovery", impact: "Revenue loss fully indemnified via Cyber BI." }
+      { phase: "Containment", description: "Stopped lateral movement within 24 hours using pre-breach response team.", outcome: "Attack surface contained before mass encryption." },
+      { phase: "Negotiation", description: "Decryption keys acquired; data exfiltration prevented through proactive response.", outcome: "Client data protected; ransom avoided." },
+      { phase: "Recovery", description: "Revenue loss fully indemnified via Cyber BI; systems restored in 14 days.", outcome: "Zero client defections; business continuity maintained." }
     ],
     industryMapping: [
-      { sector: "Managed Service Providers", outcome: "Retained all client contracts post-breach." },
-      { sector: "Cloud Hosting", outcome: "Covered massive forensic and notification costs." }
+      { sector: "Managed Service Providers", challenge: "Client data aggregation risk across 50+ enterprise customers", outcome: "Retained all client contracts post-breach.", relevantPlatform: "Cyber Intelligence" },
+      { sector: "Cloud Hosting", challenge: "Massive forensic and notification costs from infrastructure breach", outcome: "Covered massive forensic and notification costs.", relevantPlatform: "Cyber Due Diligence" },
+      { sector: "Healthcare IT", challenge: "PHI exposure and HIPAA fines from platform breach", outcome: "Regulatory defense costs fully covered.", relevantPlatform: "Regulatory Intelligence" }
     ],
     successMetrics: [
       "Zero regulatory fines levied",
@@ -237,13 +241,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Technology", challenge: "IP infringement representations", platform: "Contract Intelligence", icon: Cpu }
     ],
     businessImpact: [
-      { phase: "Negotiation", impact: "Removed the major friction point between buyer and seller." },
-      { phase: "Closing", impact: "Enabled immediate distribution of funds to LPs." },
-      { phase: "Post-Close", impact: "Buyer successfully claimed against insurer for minor breach." }
+      { phase: "Negotiation", description: "Removed the major friction point between buyer and seller using W&I structure.", outcome: "Deal terms agreed without escrow holdback." },
+      { phase: "Closing", description: "Enabled immediate distribution of funds to LPs through clean exit.", outcome: "Capital recycled to new opportunities." },
+      { phase: "Post-Close", description: "Buyer successfully claimed against insurer for minor breach identified post-close.", outcome: "Seller fully protected; W&I policy performed as designed." }
     ],
     industryMapping: [
-      { sector: "Mid-Market PE", outcome: "Boosted fund IRR by eliminating 2-year escrows." },
-      { sector: "Corporate Divestitures", outcome: "Clean break for parent company." }
+      { sector: "Mid-Market PE", challenge: "Fund lifecycle limitations on escrows reducing IRR for LPs", outcome: "Boosted fund IRR by eliminating 2-year escrows.", relevantPlatform: "M&A Due Diligence" },
+      { sector: "Corporate Divestitures", challenge: "Clean break complexity from retained liabilities", outcome: "Clean break for parent company with full certainty.", relevantPlatform: "Contract Intelligence" },
+      { sector: "Venture Capital", challenge: "Portfolio company exit friction from warranty uncertainty", outcome: "Accelerated exit timeline through W&I placement.", relevantPlatform: "Risk DNA Mapper" }
     ],
     successMetrics: [
       "IRR improved by 2.4%",
@@ -283,13 +288,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Utilities", challenge: "Grid connection delays", platform: "Regulatory Intelligence", icon: Activity }
     ],
     businessImpact: [
-      { phase: "Financing", impact: "Secured non-recourse project financing at favorable rates." },
-      { phase: "Construction", impact: "Covered massive hail damage to panels during transit." },
-      { phase: "Operation", impact: "Stabilized cash flow during unexpected low-sun months." }
+      { phase: "Financing", description: "Secured non-recourse project financing at favorable rates through parametric hedge.", outcome: "Debt terms improved by 120 bps due to risk transfer." },
+      { phase: "Construction", description: "Covered massive hail damage to panels during transit and installation.", outcome: "Zero cost overruns from weather events." },
+      { phase: "Operation", description: "Stabilized cash flow during unexpected low-sun months via parametric irradiance hedge.", outcome: "Revenue certainty maintained across 25-year horizon." }
     ],
     industryMapping: [
-      { sector: "Solar Energy", outcome: "De-risked the entire 25-year asset lifecycle." },
-      { sector: "Wind Energy", outcome: "Replicable model for offshore wind DSU." }
+      { sector: "Solar Energy", challenge: "Long-tenor revenue uncertainty from weather and technology risk", outcome: "De-risked the entire 25-year asset lifecycle.", relevantPlatform: "Climate Scenario" },
+      { sector: "Wind Energy", challenge: "Replicable model for offshore wind DSU and construction risk", outcome: "Offshore wind DSU program replicated at 3 additional projects.", relevantPlatform: "Risk Diagnostic Engine" },
+      { sector: "Battery Storage", challenge: "Technology degradation and revenue shortfall risk", outcome: "Production guarantee hedged degradation risk for lenders.", relevantPlatform: "Supply Chain Monitor" }
     ],
     successMetrics: [
       "Debt cost reduced by 1.2% due to hedges",
@@ -329,13 +335,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Public Sector", challenge: "Strict concession agreements", platform: "Regulatory Intelligence", icon: Scale }
     ],
     businessImpact: [
-      { phase: "Bidding", impact: "Lowered cost of capital enabled a winning bid." },
-      { phase: "Capital Optimization", impact: "$40M in credit lines freed for new acquisitions." },
-      { phase: "Risk Certainty", impact: "Protected project IRR from insurance market cycles." }
+      { phase: "Bidding", description: "Lowered cost of capital enabled a winning bid in competitive tender.", outcome: "Won 15-year concession at favorable terms." },
+      { phase: "Capital Optimization", description: "$40M in credit lines freed through surety bond replacement.", outcome: "Capital redeployed to new infrastructure acquisitions." },
+      { phase: "Risk Certainty", description: "Protected project IRR from insurance market cycles through long-tenor lock.", outcome: "IRR certainty maintained across 15-year horizon." }
     ],
     industryMapping: [
-      { sector: "Toll Roads", outcome: "Optimized concession economics." },
-      { sector: "Airports & Ports", outcome: "Long-term revenue protection." }
+      { sector: "Toll Roads", challenge: "Concession economics optimization under NHAI requirements", outcome: "Optimized concession economics through surety bonds.", relevantPlatform: "Contract Intelligence" },
+      { sector: "Airports & Ports", challenge: "Long-term revenue protection from operational disruption", outcome: "Long-term revenue protection through parametric triggers.", relevantPlatform: "Climate Scenario" },
+      { sector: "Social Infrastructure", challenge: "Working capital constraints from bank guarantee requirements", outcome: "$40M working capital freed for expansion.", relevantPlatform: "Counterparty Assessment" }
     ],
     successMetrics: [
       "IRR improved by 3% through capital release",
@@ -375,13 +382,14 @@ export const outcomesData: Record<string, OutcomeData> = {
       { industry: "Fintech", challenge: "Robo-advisory algorithm failure", platform: "Cyber Intelligence", icon: Cpu }
     ],
     businessImpact: [
-      { phase: "Investigation", impact: "Provided top-tier securities counsel without budget constraints." },
-      { phase: "Settlement", impact: "Indemnified the firm against class-action damages." },
-      { phase: "Post-Claim", impact: "Maintained SEBI registration and continued operations." }
+      { phase: "Investigation", description: "Provided top-tier securities counsel without budget constraints through PI coverage.", outcome: "Full defense team deployed within 48 hours." },
+      { phase: "Settlement", description: "Indemnified the firm against class-action damages through PI/D&O blended policy.", outcome: "Settlement reached without firm capital contribution." },
+      { phase: "Post-Claim", description: "Maintained SEBI registration and continued operations without interruption.", outcome: "Firm operations continued; license preserved." }
     ],
     industryMapping: [
-      { sector: "Wealth Management", outcome: "Firm survived existential regulatory action." },
-      { sector: "Broker-Dealers", outcome: "Protected partners' personal assets." }
+      { sector: "Wealth Management", challenge: "Existential regulatory action from market crash suitability claims", outcome: "Firm survived existential regulatory action.", relevantPlatform: "Regulatory Intelligence" },
+      { sector: "Broker-Dealers", challenge: "Partner personal asset exposure from securities litigation", outcome: "Protected partners' personal assets through Side A coverage.", relevantPlatform: "Risk Feed" },
+      { sector: "Investment Advisers", challenge: "SEBI registration loss from defense cost exhaustion", outcome: "Registration maintained through defense cost coverage.", relevantPlatform: "Cyber Intelligence" }
     ],
     successMetrics: [
       "Firm operations continued without interruption",
