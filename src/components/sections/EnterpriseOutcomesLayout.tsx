@@ -9,13 +9,15 @@ import {
   Shield, Target, AlertTriangle, CheckCircle2,
   Globe, Zap, Activity, Building2, TrendingUp, Download
 } from "lucide-react";
-import { OutcomeData } from "@/data/outcomesData";
+import { OutcomeData, outcomesData } from "@/data/outcomesData";
 
 interface EnterpriseOutcomesLayoutProps {
-  outcome: OutcomeData;
+  slug: string;
 }
 
-export function EnterpriseOutcomesLayout({ outcome }: EnterpriseOutcomesLayoutProps) {
+export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps) {
+  const outcome = outcomesData[slug];
+  if (!outcome) return null;
   const brandColor = "#1E5EFF";
 
   return (

@@ -16,42 +16,31 @@ import { offeringsData } from "@/data/offeringsData";
 import { solutionsData } from "@/data/siteContent";
 
 interface PlatformDetailLayoutProps {
-  title: string;
-  subtitle: string;
-  category: string;
-  color: string;
-  heroImage: string;
-  description: string;
-  features: string[];
-  capabilities: string[];
-  businessBenefits: string[];
-  kpiMetrics: PlatformKPI[];
-  capabilityCards: PlatformCapabilityCard[];
-  industryTabs: PlatformIndustryTab[];
-  relatedModules: string[];
-  relatedRiskSlugs: string[];
-  relatedSolutionSlugs: string[];
-  useCases: string[];
+  slug: string;
 }
 
-export function PlatformDetailLayout({
-  title,
-  subtitle,
-  category,
-  color,
-  heroImage,
-  description,
-  features,
-  capabilities,
-  businessBenefits,
-  kpiMetrics,
-  capabilityCards,
-  industryTabs,
-  relatedModules,
-  relatedRiskSlugs,
-  relatedSolutionSlugs,
-  useCases
-}: PlatformDetailLayoutProps) {
+export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
+  const platform = platformData[slug];
+  if (!platform) return null;
+
+  const {
+    title,
+    subtitle,
+    category,
+    color,
+    heroImage,
+    description,
+    features,
+    capabilities,
+    businessBenefits,
+    kpiMetrics,
+    capabilityCards,
+    industryTabs,
+    relatedModules,
+    relatedRiskSlugs,
+    relatedSolutionSlugs,
+    useCases
+  } = platform;
   const platformColor = color || "#1E5EFF";
 
   return (

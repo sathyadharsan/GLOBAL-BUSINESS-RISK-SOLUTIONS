@@ -29,5 +29,5 @@ export default async function OutcomePage({
   const { slug } = await params;
   const data = outcomesData[slug];
   if (!data) notFound();
-  return <EnterpriseOutcomesLayout outcome={data} />;
+  return <EnterpriseOutcomesLayout slug={slug} />;
 }
