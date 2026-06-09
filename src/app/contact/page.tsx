@@ -3,7 +3,7 @@
 import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { 
@@ -11,6 +11,15 @@ import {
   ArrowRight, Shield, Target, LayoutGrid, CheckCircle2, ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { officeLocations } from "@/data/siteContent";
+
+// Build office lookup from centralized data
+const offices = Object.fromEntries(
+  officeLocations.map(office => [
+    office.id,
+    { name: office.name, address: office.address, email: office.email || "connect@gbrs.com", phone: office.phone }
+  ])
+);
 
 const groups: SidebarGroup[] = [
   {
@@ -23,13 +32,11 @@ const groups: SidebarGroup[] = [
   },
   {
     label: "GLOBAL PRESENCE",
-    items: [
-      { id: "us-office", label: "US Office", icon: MapPin },
-      { id: "singapore-office", label: "Singapore Office", icon: MapPin },
-      { id: "india-office", label: "India Office", icon: MapPin },
-      { id: "mumbai-office", label: "Mumbai Office", icon: MapPin },
-      { id: "bangalore-office", label: "Bangalore Office", icon: MapPin }
-    ]
+    items: officeLocations.map(office => ({
+      id: office.id,
+      label: office.name,
+      icon: MapPin
+    }))
   }
 ];
 
@@ -119,15 +126,7 @@ export default function Contact() {
   const isForm = activeTab === "diagnostic-form";
   const isHotline = activeTab === "hotline";
   const isLocations = activeTab === "locations";
-  const isOffice = ["us-office", "singapore-office", "india-office", "mumbai-office", "bangalore-office"].includes(activeTab);
-
-  const offices = {
-    "us-office": { name: "US Office", address: "501 E Kennedy Blvd Suite 1400,\nTampa, FL 33602, United States", email: "connect@trustgrid.ai", phone: "+1 5512288612" },
-    "singapore-office": { name: "Singapore Office", address: "5 Temasek Boulevard, 17th Floor,\nSingapore 038985", email: "connect@trustgrid.ai", phone: "+65 6050 5235" },
-    "india-office": { name: "India Office", address: "TRUSTGRID AI INNOVATION PVT LTD\nSuite: 22, 215, Binnamangala, 2nd Floor,\n13th Cross Road, Indira Nagar 2nd Stage,\nHoysala Nagar, Bengaluru - 560038, India", email: "connect@trustgrid.ai", phone: "+91 9513288612" },
-    "mumbai-office": { name: "Mumbai Office", address: "WeWork, Raheja Platinum, Sag Baug,\nMarol, Andheri East, Mumbai 400059", email: "cs@trustgrid.in", phone: "+91 9513088612" },
-    "bangalore-office": { name: "Bangalore Office", address: "WeWork, 13th floor, Tin Factory,\nOld Madras Rd, Bengaluru 560016", email: "cs@trustgrid.in", phone: "+91 9513088612" }
-  };
+  const isOffice = officeLocations.some(o => o.id === activeTab);
 
   return (
     <TwoPanelLayout

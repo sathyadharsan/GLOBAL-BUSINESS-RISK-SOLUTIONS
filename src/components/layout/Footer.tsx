@@ -1,41 +1,11 @@
 import Link from "next/link";
 import { MapPin, Mail, Phone, Cloud, Database, Server, Box, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const offices = [
-  {
-    title: "US OFFICE",
-    address: "501 E Kennedy Blvd Suite 1400,\nTampa, FL 33602, United States",
-    email: "connect@trustgrid.ai",
-    phone: "+1 5512288612"
-  },
-  {
-    title: "SINGAPORE OFFICE",
-    address: "5 Temasek Boulevard, 17th Floor,\nSingapore 038985",
-    email: "connect@trustgrid.ai",
-    phone: "+65 6050 5235"
-  },
-  {
-    title: "INDIA OFFICE",
-    address: "TRUSTGRID AI INNOVATION PVT LTD\nSuite: 22, 215, Binnamangala, 2nd Floor,\n13th Cross Road, Indira Nagar 2nd Stage,\nHoysala Nagar, Bengaluru - 560038, India",
-    email: "connect@trustgrid.ai",
-    phone: "+91 9513288612"
-  },
-  {
-    title: "MUMBAI OFFICE",
-    address: "WeWork, Raheja Platinum, Sag Baug,\nMarol, Andheri East, Mumbai 400059",
-    email: "cs@trustgrid.in",
-    phone: "+91 9513088612"
-  },
-  {
-    title: "BANGALORE OFFICE",
-    address: "WeWork, 13th floor, Tin Factory,\nOld Madras Rd, Bengaluru 560016",
-    email: "cs@trustgrid.in",
-    phone: "+91 9513088612"
-  }
-];
+import { officeLocations } from "@/data/siteContent";
 
 export function Footer() {
+  const offices = officeLocations;
+
   return (
     <footer id="footer" className="bg-[#f8f9fa] text-slate-600 py-16 border-t border-slate-200">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -147,7 +117,7 @@ export function Footer() {
             <div key={idx} className="space-y-4">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-slate-500 mt-0.5" />
-                <h3 className="text-xs font-bold text-slate-800 tracking-wider">{office.title}</h3>
+                <h3 className="text-xs font-bold text-slate-800 tracking-wider">{office.name}</h3>
               </div>
               <p className="text-xs leading-relaxed text-slate-500 whitespace-pre-line ml-6">
                 {office.address}

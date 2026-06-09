@@ -1,75 +1,22 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Target, Zap, BarChart, TrendingUp, RefreshCw, Cpu, Users } from "lucide-react";
+import { Mail, Phone, MapPin, Target, Zap, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { officeLocations, leadershipTeam } from "@/data/siteContent";
 
-// Data from TrustGrid screenshots
+const offices = officeLocations.map(office => ({
+  title: office.name,
+  address: office.address,
+  email: office.email,
+  phone: office.phone
+}));
 
-const teamMembers = [
-  { name: "Balaji Venkatraman", role: "Director Growth", initials: "BV" },
-  { name: "Lavanya Seshadri", role: "Engineering Head", initials: "LS" },
-  { name: "Vignesh KS", role: "Product Lead", initials: "VK" },
-  { name: "Dinesh Kumar", role: "Lead AI Engineer", initials: "DK" },
-  { name: "Hemalata", role: "AI Engineer & Tech Lead", initials: "H" },
-  { name: "Prithivin L", role: "Project Lead - EscrowChain", initials: "PL" },
-  { name: "Nirmal Ullas", role: "Project Leader - Full Stack...", initials: "NU" },
-  { name: "Shiva Kumar", role: "Senior Product Architect", initials: "SK" },
-  { name: "Natarajan", role: "Sr Blockchain Architect", initials: "N" },
-  { name: "Ritin", role: "Senior AI Architect", initials: "R" },
-  { name: "Viswanath", role: "Sr DevOps Engineer", initials: "V" },
-  { name: "Subashini Kaushik", role: "AI Engineer - LLM / RAG", initials: "SK" },
-  { name: "Shwetha B", role: "Full Stack AI Engineer", initials: "SB" },
-  { name: "Sharyas Yagna", role: "AI Engineer", initials: "SY" },
-  { name: "Pranav Kapoor", role: "AI Engineer", initials: "PK" },
-  { name: "Sonu Priyadarshini", role: "RPA Engineer", initials: "SP" },
-  { name: "Neha Hebber", role: "FinTech Platform Engineer...", initials: "NH" },
-  { name: "Swathi Iyer", role: "IIT Madras - BTech", initials: "SI" },
-  { name: "Aishwarya L Bhatt", role: "AI Performance Marketing...", initials: "AL" },
-  { name: "Chintiya Liu", role: "Industry Consultant", initials: "CL" },
-  { name: "Kallol Pal", role: "Technology Advisor", initials: "KP" },
-  { name: "Soumya S", role: "Company Secretary & Ad...", initials: "SS" },
-  { name: "Annapoorani", role: "Automation Engineering...", initials: "A" },
-  { name: "Poojasri", role: "AI Engineering (Intern)", initials: "P" },
-  { name: "HariKrishnan K", role: "AI Engineering (Intern)", initials: "HK" },
-  { name: "Praveen Kumar R", role: "AI Engineering (Intern)", initials: "PK" },
-  { name: "Santhosh S", role: "AI Engineering (Intern)", initials: "SS" }
-];
-
-const offices = [
-  {
-    title: "US Office",
-    address: "501 E Kennedy Blvd Suite 1400\nTampa, FL 33602, United States",
-    email: "connect@trustgrid.ai",
-    phone: "+1 5512288612"
-  },
-  {
-    title: "Singapore Office",
-    address: "5 Temasek Boulevard, 17th Floor\nSingapore 038985",
-    email: "connect@trustgrid.ai",
-    phone: "+65 6050 5235"
-  },
-  {
-    title: "India Office",
-    address: "TRUSTGRID AI INNOVATION PVT LTD\nSuite : 22, 215, BINNAMANGALA,\n2nd Floor, 11th Cross Road,\nIndira Nagar 2nd Stage, Hoysala Nagar,\nBengaluru - 560038, India",
-    email: "",
-    phone: ""
-  },
-  {
-    title: "Mumbai Office",
-    address: "WeWork, Raheja Platinum,\nRoad, off Andheri - Kurla Road,\nSag Baug, Marol, Andheri East,\nMumbai, Maharashtra 400059",
-    email: "connect@trustgrid.ai",
-    phone: "+91 9513288612"
-  },
-  {
-    title: "Bangalore Office",
-    address: "WeWork, 13th floor, Tin Factory,\nSalarpuria Magnificia, 78, Old Madras Rd,\nnext to KR Puram, Mahadevapura,\nBengaluru, Karnataka 560016",
-    email: "connect@trustgrid.ai",
-    phone: "+91 9513288612"
-  }
-];
+const teamMembers = leadershipTeam.flatMap((dept) => 
+  dept.members.map((m) => ({ ...m, dept: dept.name, initials: m.name.split(' ').map(n => n[0]).join('') }))
+);
 
 export default function AboutUs() {
   return (
@@ -178,7 +125,7 @@ export default function AboutUs() {
                       {member.name}
                     </h4>
                     <p className="text-xs text-slate-500 truncate mt-0.5">
-                      {member.role}
+                      {member.title}
                     </p>
                   </div>
                 </CardContent>
