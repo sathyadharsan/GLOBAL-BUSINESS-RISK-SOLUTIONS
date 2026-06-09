@@ -31,9 +31,6 @@ export function OfferingsCategoryMenu() {
                     <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
                       {category.label}
                     </span>
-                    <span className="text-xs text-slate-500 mt-1 line-clamp-2 leading-tight">
-                      {category.description}
-                    </span>
                   </div>
                 </Link>
               );
