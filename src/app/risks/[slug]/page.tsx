@@ -7,6 +7,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
+const SLUG_ALIASES: Record<string, string> = {
+  "third-party": "third-party-vendor-risk",
+  "directors-officers": "d-o-personal-liability",
+  "supply-chain": "single-source-supplier-failure",
+  "climate": "climate-physical",
+  "esg": "esg-risk",
+  "regulatory": "regulatory-compliance-failure",
+  "political-risk": "geographic-concentration",
+  "fire-explosion": "natural-catastrophe",
+  "equipment-breakdown": "technology-obsolescence",
+  "premium-volatility": "business-interruption",
+  "supply-chain-risk": "single-source-supplier-failure",
+  "construction-risk": "construction-delay",
+};
+
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   "cross-industry": "Enterprise risks that affect every organization regardless of sector — cyber, regulatory, natural catastrophe, litigation, and governance exposures that span all industries and geographies.",
   "cross-functional": "Risks that span multiple business functions simultaneously — operations, finance, legal, technology, and human capital dependencies that create cascading enterprise exposure.",
@@ -99,17 +114,19 @@ export function generateStaticParams() {
 export default async function RiskPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  if (slug === "risk-intelligence-center") {
+  const resolvedSlug = SLUG_ALIASES[slug] || slug;
+
+  if (resolvedSlug === "risk-intelligence-center") {
     return <div>Risk Intelligence Center</div>;
   }
 
-  if (slug === "risk-diagnostic") {
+  if (resolvedSlug === "risk-diagnostic") {
     return <div>Risk Diagnostic</div>;
   }
 
-  const isCategory = riskCategories[slug];
+  const isCategory = riskCategories[resolvedSlug];
 
-  if (!isCategory && !risksData[slug]) {
+  if (!isCategory && !risksData[resolvedSlug]) {
     notFound();
   }
 
@@ -118,13 +135,13 @@ export default async function RiskPage({ params }: { params: Promise<{ slug: str
 
     return (
       <EnterpriseRiskLayout
-        categoryId={slug}
+        categoryId={resolvedSlug}
         categoryLabel={isCategory.label}
-        categoryDescription={CATEGORY_DESCRIPTIONS[slug] || isCategory.label}
-        heroImage={CATEGORY_HERO_IMAGES[slug]}
+        categoryDescription={CATEGORY_DESCRIPTIONS[resolvedSlug] || isCategory.label}
+        heroImage={CATEGORY_HERO_IMAGES[resolvedSlug]}
         categoryBadge={isCategory.label}
         heroHeadline={`${isCategory.label} Risk Architecture`}
-        kpis={CATEGORY_KPIS[slug]}
+        kpis={CATEGORY_KPIS[resolvedSlug]}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {risksInCategory.map((riskItem) => {
@@ -189,7 +206,7 @@ export default async function RiskPage({ params }: { params: Promise<{ slug: str
     );
   }
 
-  const risk = risksData[slug];
+  const risk = risksData[resolvedSlug];
   if (!risk) return null;
 
   return (
