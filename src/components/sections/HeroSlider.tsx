@@ -12,7 +12,7 @@ export interface HeroSlide {
   badge?: string;
   buttons?: {
     label: string;
-    variant?: "default" | "outline" | "secondary" | "ghost" | "link";
+    variant?: "default" | "outline" | "secondary" | "ghost" | "link" | "hero";
     className?: string;
     href?: string;
   }[];
@@ -110,7 +110,7 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
                       <Button
                         size="lg"
                         variant={btn.variant || "default"}
-                        className={`text-base font-semibold h-12 px-8 shadow-lg ${btn.className || ""}`}
+                        className={`text-base font-semibold h-12 px-8 shadow-lg ${btn.variant === "outline" ? "bg-transparent " : ""}${btn.className || ""}`}
                       >
                         {btn.label}
                       </Button>
@@ -122,7 +122,7 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
                     key={i}
                     size="lg"
                     variant={btn.variant || "default"}
-                    className={`text-base font-semibold h-12 px-8 shadow-lg ${btn.className || ""}`}
+                    className={`text-base font-semibold h-12 px-8 shadow-lg ${btn.variant === "outline" ? "bg-transparent " : ""}${btn.className || ""}`}
                   >
                     {btn.label}
                   </Button>

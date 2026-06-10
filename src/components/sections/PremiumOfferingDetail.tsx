@@ -257,11 +257,11 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold" onClick={() => window.location.href = "/contact"}>
                   {offering.cta?.primary || "Book Consultation"}
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
+                <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
                   {offering.cta?.secondary || "Request Assessment"}
                 </Button>
                 {offering.cta?.downloadSheet && (
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
+                  <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
                     <Download className="h-4 w-4 mr-2" />
                     {offering.cta.downloadSheet}
                   </Button>

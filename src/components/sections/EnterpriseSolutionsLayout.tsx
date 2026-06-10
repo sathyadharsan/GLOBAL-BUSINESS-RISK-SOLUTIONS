@@ -69,7 +69,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Framework
@@ -274,7 +274,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Schedule Risk Assessment

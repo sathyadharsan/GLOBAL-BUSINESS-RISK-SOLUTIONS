@@ -20,6 +20,7 @@ const SLUG_ALIASES: Record<string, string> = {
   "premium-volatility": "business-interruption",
   "supply-chain-risk": "single-source-supplier-failure",
   "construction-risk": "construction-delay",
+  "cyber": "ransomware",
 };
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
@@ -107,6 +108,9 @@ export function generateStaticParams() {
   }
   for (const slug of Object.keys(risksData)) {
     params.push({ slug });
+  }
+  for (const alias of Object.keys(SLUG_ALIASES)) {
+    params.push({ slug: alias });
   }
   return params;
 }

@@ -195,7 +195,7 @@ export function EnterpriseIndustryLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Industry Brief
@@ -710,7 +710,7 @@ export function EnterpriseIndustryLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment
@@ -718,7 +718,7 @@ export function EnterpriseIndustryLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />
@@ -727,7 +727,7 @@ export function EnterpriseIndustryLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Speak With Expert

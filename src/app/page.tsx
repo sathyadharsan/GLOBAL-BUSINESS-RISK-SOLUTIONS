@@ -20,7 +20,7 @@ export default function Home() {
       badge: "Enterprise Risk",
       buttons: [
         { label: "Book Risk Assessment", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/contact" },
-        { label: "Explore Solutions", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/property-sfsp" }
+        { label: "Explore Solutions", variant: "hero", href: "/offerings/property-sfsp" }
       ]
     },
     {
@@ -35,7 +35,7 @@ export default function Home() {
       badge: "AI Intelligence",
       buttons: [
         { label: "See Our Platforms", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/platform" },
-        { label: "View Risk Categories", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/risks" }
+        { label: "View Risk Categories", variant: "hero", href: "/risks" }
       ]
     },
     {
@@ -50,7 +50,7 @@ export default function Home() {
       badge: "Insurance Solutions",
       buttons: [
         { label: "Explore Offerings", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings" },
-        { label: "Get TCOR Audit", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/contact" }
+        { label: "Get TCOR Audit", variant: "hero", href: "/contact" }
       ]
     },
     {
@@ -65,7 +65,7 @@ export default function Home() {
       badge: "Operational Risk",
       buttons: [
         { label: "View Outcomes", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/outcomes" },
-        { label: "Supply Chain Coverage", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/offerings/marine-cargo-2" }
+        { label: "Supply Chain Coverage", variant: "hero", href: "/offerings/marine-cargo-2" }
       ]
     },
     {
@@ -80,7 +80,7 @@ export default function Home() {
       badge: "Emerging Risk",
       buttons: [
         { label: "Cyber Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cyber-first-party" },
-        { label: "ESG Framework", variant: "outline", className: "border-white text-white hover:bg-white/10", href: "/solutions/liability-governance" }
+        { label: "ESG Framework", variant: "hero", href: "/solutions/liability-governance" }
       ]
     }
   ];

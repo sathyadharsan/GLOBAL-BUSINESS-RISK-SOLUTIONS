@@ -566,94 +566,242 @@ export const leadershipTeam = [
     name: "Executive Leadership",
     members: [
       {
-        id: "ceo",
-        name: "Amit Desai",
-        title: "Chief Executive Officer",
-        location: "New York",
-        bio: "Veteran risk architect with 25+ years in global insurance placement, previously heading Marsh India and Aon Benfield Asia.",
+        id: "balaji",
+        name: "Balaji Venkatraman",
+        title: "Director Growth",
+        location: "India",
+        bio: "Driving strategic growth and market expansion across global enterprise risk solutions.",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "cto",
-        name: "Priya Mehta",
-        title: "Chief Technology Officer",
-        location: "Bangalore",
-        bio: "Former Google Cloud architect leading enterprise risk modeling and AI-driven analytics platform development.",
+        id: "lavanya",
+        name: "Lavanya Seshadri",
+        title: "Engineering Head",
+        location: "India",
+        bio: "Leading engineering excellence and platform architecture for enterprise risk technology.",
         image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "cio",
-        name: "Rajesh Kumar",
-        title: "Chief Information Officer",
-        location: "Singapore",
-        bio: "Specialist in enterprise risk systems integration and claims advocacy technology across APAC markets.",
+        id: "vignesh",
+        name: "Vignesh KS",
+        title: "Product Lead",
+        location: "India",
+        bio: "Defining product vision and roadmap for AI-powered risk intelligence platforms.",
         image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
       }
     ]
   },
   {
-    id: "technology",
-    name: "Technology Team",
+    id: "ai-engineering",
+    name: "AI Engineering",
     members: [
       {
-        id: "vp-engineering",
-        name: "Sanjana Rao",
-        title: "VP Engineering",
-        location: "Bangalore",
-        bio: "Leading platform architecture and data science initiatives for risk modeling.",
+        id: "dinesh",
+        name: "Dinesh Kumar",
+        title: "Lead AI Engineer",
+        location: "India",
+        bio: "Leading AI model development and deep learning research for risk prediction systems.",
+        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "hemalatha",
+        name: "Hemalatha",
+        title: "AI Engineer & Tech Lead",
+        location: "India",
+        bio: "Tech lead overseeing AI engineering initiatives and cross-functional delivery.",
         image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "data-science",
-        name: "Michael Tan",
-        title: "Head of Data Science",
-        location: "Singapore",
-        bio: "Building predictive models for catastrophe risk and parametric insurance triggers.",
-        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
-      }
-    ]
-  },
-  {
-    id: "advisory",
-    name: "Advisory Team",
-    members: [
-      {
-        id: "chairman",
-        name: "David Wu",
-        title: "Chairman",
-        location: "Singapore",
-        bio: "Former Lloyd's underwriter bringing 30+ years of international reinsurance expertise.",
+        id: "prithivin",
+        name: "Prithivin L",
+        title: "Project Lead",
+        location: "India",
+        bio: "Project lead managing end-to-end delivery of enterprise AI risk solutions.",
         image: "https://images.unsplash.com/photo-1567532237091-e9d7de4b52c8?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "independent-director",
-        name: "Dr. Sarah Chen",
-        title: "Independent Director",
-        location: "New York",
-        bio: "Insurance economist specializing in emerging risk modeling and ESG integration.",
-        image: "https://images.unsplash.com/photo-1534787695824-6f38fec2a185?q=80&w=400&auto=format&fit=crop"
+        id: "shiva-kumar",
+        name: "Shiva Kumar",
+        title: "Senior Product Architect",
+        location: "India",
+        bio: "Senior architect designing scalable product infrastructure for risk platforms.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
       }
     ]
   },
   {
-    id: "delivery",
-    name: "Global Delivery Team",
+    id: "architecture",
+    name: "Architecture & DevOps",
     members: [
       {
-        id: "delivery-head",
-        name: "Rohit Sharma",
-        title: "Global Delivery Head",
-        location: "Mumbai",
-        bio: "Leading client service operations across India, Southeast Asia, and Middle East markets.",
+        id: "natarajan",
+        name: "Natarajan",
+        title: "Sr Blockchain Architect",
+        location: "India",
+        bio: "Senior blockchain architect building decentralized risk and insurance solutions.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "ritin",
+        name: "Ritin",
+        title: "Senior AI Architect",
+        location: "India",
+        bio: "Senior architect responsible for AI system design and ML platform strategy.",
         image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "claims-head",
-        name: "Anita Pillai",
-        title: "Claims Advocacy Head",
-        location: "Bangalore",
-        bio: "Specializes in complex claims resolution and loss mitigation strategies.",
+        id: "viswanath",
+        name: "Viswanath",
+        title: "Sr DevOps Engineer",
+        location: "India",
+        bio: "Senior DevOps engineer managing cloud infrastructure and CI/CD pipelines.",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "ai-specialists",
+    name: "AI Specialists",
+    members: [
+      {
+        id: "subashini",
+        name: "Subashini Kaushik",
+        title: "AI Engineer - LLM / RAG",
+        location: "India",
+        bio: "AI engineer specializing in LLM fine-tuning and retrieval-augmented generation systems.",
         image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "shwetha",
+        name: "Shwetha B",
+        title: "Full Stack AI Engineer",
+        location: "India",
+        bio: "Full stack AI engineer building end-to-end intelligent applications.",
+        image: "https://images.unsplash.com/photo-1567532237091-e9d7de4b52c8?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "sharyas",
+        name: "Sharyas Yagna",
+        title: "AI Engineer",
+        location: "India",
+        bio: "AI engineer focused on machine learning models and predictive analytics.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "pranav",
+        name: "Pranav Kapoor",
+        title: "AI Engineer",
+        location: "India",
+        bio: "AI engineer developing intelligent automation and risk scoring systems.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "sonu",
+        name: "Sonu Priyadarshini",
+        title: "RPA Engineer",
+        location: "India",
+        bio: "RPA engineer automating complex risk workflows and business processes.",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "platform-engineering",
+    name: "Platform Engineering",
+    members: [
+      {
+        id: "neha",
+        name: "Neha Hebber",
+        title: "FinTech Platform Engineer",
+        location: "India",
+        bio: "FinTech platform engineer building secure and scalable financial risk systems.",
+        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "swathi",
+        name: "Swathi Iyer",
+        title: "IIT Madras - BTech",
+        location: "India",
+        bio: "BTech graduate from IIT Madras contributing to platform engineering and risk modeling.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "aishwarya",
+        name: "Aishwarya L Bhatt",
+        title: "AI Performance Marketing",
+        location: "India",
+        bio: "AI performance marketing specialist optimizing digital campaigns and lead generation.",
+        image: "https://images.unsplash.com/photo-1567532237091-e9d7de4b52c8?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "chintya",
+        name: "Chintya Liu",
+        title: "Industry Consultant",
+        location: "India",
+        bio: "Industry consultant providing domain expertise across insurance and risk verticals.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "kallol",
+        name: "Kallol Pal",
+        title: "Technology Advisor",
+        location: "India",
+        bio: "Technology advisor guiding enterprise architecture and digital transformation.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "interns",
+    name: "Interns",
+    members: [
+      {
+        id: "soumya",
+        name: "Soumya S",
+        title: "Company Secretary & Admin",
+        location: "India",
+        bio: "Supporting company secretarial functions and administrative operations.",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "annapoorani",
+        name: "Annapoorani",
+        title: "Automation Engineering",
+        location: "India",
+        bio: "Automation engineering intern contributing to workflow and process optimization.",
+        image: "https://images.unsplash.com/photo-1500648562565-61b4a6d7a8c9?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "poojasri",
+        name: "Poojasri",
+        title: "AI Engineering (Intern)",
+        location: "India",
+        bio: "AI engineering intern supporting machine learning and data science initiatives.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c501de802?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "harikrishnan",
+        name: "HariKrishnan K",
+        title: "AI Engineering (Intern)",
+        location: "India",
+        bio: "AI engineering intern working on risk prediction and NLP models.",
+        image: "https://images.unsplash.com/photo-1567532237091-e9d7de4b52c8?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "praveen",
+        name: "Praveen Kumar R",
+        title: "AI Engineering (Intern)",
+        location: "India",
+        bio: "AI engineering intern contributing to model training and evaluation.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        id: "santhosh",
+        name: "Santhosh S",
+        title: "AI Engineering (Intern)",
+        location: "India",
+        bio: "AI engineering intern supporting research and development in risk AI.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
       }
     ]
   }
