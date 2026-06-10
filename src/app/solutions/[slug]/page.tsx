@@ -3,7 +3,7 @@ import { offeringsData } from "@/data/offeringsData";
 import { solutionsData } from "@/data/siteContent";
 import { EnterpriseOfferingLayout } from "@/components/sections/EnterpriseOfferingLayout";
 import { EnterpriseSolutionDetailLayout } from "@/components/sections/EnterpriseSolutionDetailLayout";
-import { DynamicLayout } from "@/components/layout/DynamicLayout";
+import { StandardSolutionLayout } from "@/components/sections/StandardSolutionLayout";
 import type { Metadata } from "next";
 
 const ENTERPRISE_SOLUTION_SLUGS = [
@@ -106,10 +106,10 @@ export default async function SolutionPage({
     return <EnterpriseSolutionDetailLayout slug={slug} />;
   }
   
-  // Check solutionsData (for legacy solution pages)
+  // Check solutionsData (for standard solution pages)
   const solutionData = solutionsData[slug];
   if (solutionData) {
-    return <DynamicLayout data={solutionData} />;
+    return <StandardSolutionLayout data={solutionData} />;
   }
   
   notFound();

@@ -81,6 +81,138 @@ export const solutionsData: Record<string, DynamicPageContent> = {
       { title: "Telematics", description: "IoT-driven fleet and machinery monitoring." },
       { title: "Fire Suppression Audit", description: "NFPA/TAC compliance checks to eliminate critical vulnerabilities." }
     ]
+  },
+  "identification": {
+    slug: "identification",
+    title: "Risk Identification",
+    subtitle: "Discovery and mapping of enterprise risk exposures",
+    heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+    description: "Comprehensive discovery and mapping of enterprise risk exposures across all operations, assets, and liabilities.",
+    features: [
+      { title: "Enterprise Risk Mapping", description: "Systematic identification of exposures across all business units and geographies." },
+      { title: "Asset Inventory", description: "Complete cataloging of physical, cyber, and intangible assets." },
+      { title: "Exposure Register", description: "Living document of all identified risks with ownership and mitigation status." }
+    ]
+  },
+  "assessment": {
+    slug: "assessment",
+    title: "Risk Assessment",
+    subtitle: "Quantification and prioritization of risk scenarios",
+    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    description: "Quantification and prioritization of risk scenarios using proprietary models and historical data benchmarking.",
+    features: [
+      { title: "Risk Quantification", description: "Probability-weighted financial impact modeling for all identified risks." },
+      { title: "Peer Benchmarking", description: "Comparing risk profiles against industry aggregates and best practices." },
+      { title: "Scenario Analysis", description: "Stress-testing portfolios against tail events and correlated exposures." }
+    ]
+  },
+  "transfer": {
+    slug: "transfer",
+    title: "Risk Transfer",
+    subtitle: "Insurance placement and alternative risk financing",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+    description: "Insurance placement and alternative risk financing structures optimized for your enterprise risk profile.",
+    features: [
+      { title: "Carrier Placement", description: "Direct access to A++ rated carriers and Lloyd's syndicates globally." },
+      { title: "Alternative Risk Transfer", description: "Captives, parametric triggers, and ILS structures for retained risks." },
+      { title: "Program Structuring", description: "Layered coverage designs balancing cost, protection, and strategic objectives." }
+    ]
+  },
+  "monitoring": {
+    slug: "monitoring",
+    title: "Risk Monitoring",
+    subtitle: "Continuous tracking and alerting on risk metrics",
+    heroImage: "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
+    description: "Continuous tracking and alerting on risk metrics with real-time dashboard visibility across your enterprise.",
+    features: [
+      { title: "Real-Time Dashboards", description: "Live risk scorecards and exposure tracking across all portfolios." },
+      { title: "Threshold Alerting", description: "Automated notifications when risk metrics breach defined tolerances." },
+      { title: "Trend Analysis", description: "Monthly and quarterly risk trend reporting with predictive indicators." }
+    ]
+  },
+  "intelligence": {
+    slug: "intelligence",
+    title: "Risk Intelligence",
+    subtitle: "Data-driven insights and predictive analytics",
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    description: "Data-driven insights and predictive analytics to anticipate emerging risks before they materialize.",
+    features: [
+      { title: "Predictive Analytics", description: "Proprietary algorithms forecasting risk events across 150+ markets." },
+      { title: "Market Intelligence", description: "Real-time carrier capacity, pricing trends, and regulatory updates." },
+      { title: "Scenario Modeling", description: "What-if analysis for strategic planning and board-level decision support." }
+    ]
+  },
+  "claims-management": {
+    slug: "claims-management",
+    title: "Claims Management",
+    subtitle: "End-to-end claims advocacy and recovery optimization",
+    heroImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    description: "End-to-end claims advocacy and recovery optimization ensuring fair, fast, and maximum policy payouts.",
+    features: [
+      { title: "Claims Triage", description: "Immediate response and classification of all notified claims." },
+      { title: "Adjuster Management", description: "Technical oversight of adjuster activities and reserve adequacy." },
+      { title: "Recovery Maximisation", description: "Subrogation and recovery pursuit to optimize net position." }
+    ]
+  },
+  "compliance": {
+    slug: "compliance",
+    title: "Compliance Management",
+    subtitle: "Regulatory adherence and reporting frameworks",
+    heroImage: "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
+    description: "Regulatory adherence and reporting frameworks ensuring compliance across all jurisdictions and business operations.",
+    features: [
+      { title: "Regulatory Tracking", description: "Monitoring of evolving regulations across 150+ jurisdictions." },
+      { title: "Compliance Frameworks", description: "Structured programs for DPDP, IRDAI, FCA, SEC, and other mandates." },
+      { title: "Audit Readiness", description: "Documentation and evidence packages for regulatory examinations." }
+    ]
+  },
+  "supply-chain-resilience": {
+    slug: "supply-chain-resilience",
+    title: "Supply Chain Resilience",
+    subtitle: "Supplier risk management and continuity planning",
+    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8ed7c50a63?q=80&w=2070&auto=format&fit=crop",
+    description: "Supplier risk management and continuity planning to protect operations from supply chain disruptions.",
+    features: [
+      { title: "Supplier Mapping", description: "End-to-end mapping of tier-1 through tier-n supplier dependencies." },
+      { title: "Contingent BI", description: "Coverage triggers for unnamed supplier disruptions." },
+      { title: "Resilience Planning", description: "Business continuity plans with alternate sourcing strategies." }
+    ]
+  },
+  "business-continuity": {
+    slug: "business-continuity",
+    title: "Business Continuity",
+    subtitle: "Disaster recovery and operational resilience planning",
+    heroImage: "https://images.unsplash.com/photo-1486406146906-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    description: "Disaster recovery and operational resilience planning to ensure rapid restoration after any disruption.",
+    features: [
+      { title: "BCP Development", description: "Comprehensive business continuity plans tested against realistic scenarios." },
+      { title: "Disaster Recovery", description: "IT and operational recovery procedures with defined RTO/RPO targets." },
+      { title: "Resilience Testing", description: "Regular tabletop and live exercises validating recovery capabilities." }
+    ]
+  },
+  "cyber-resilience": {
+    slug: "cyber-resilience",
+    title: "Cyber Resilience",
+    subtitle: "Comprehensive cybersecurity and response planning",
+    heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+    description: "Comprehensive cybersecurity and response planning to protect against, detect, and recover from cyber threats.",
+    features: [
+      { title: "Incident Response", description: "Structured response protocols for ransomware, breach, and data loss events." },
+      { title: "Zero Trust Architecture", description: "Network segmentation, identity management, and access control frameworks." },
+      { title: "Cyber Insurance", description: "Specialized cyber liability coverage with pre-agreed incident response support." }
+    ]
+  },
+  "contract-intelligence": {
+    slug: "contract-intelligence",
+    title: "Contract Intelligence",
+    subtitle: "Automated contract analysis and risk extraction",
+    heroImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop",
+    description: "Automated contract analysis and risk extraction to identify indemnification gaps and insurance obligations.",
+    features: [
+      { title: "Contract Analysis", description: "AI-powered extraction of key terms, indemnification clauses, and liability caps." },
+      { title: "Insurance Gap Detection", description: "Identification of coverage shortfalls against contractual obligations." },
+      { title: "Risk Scoring", description: "Automated risk scoring for vendor and customer contract portfolios." }
+    ]
   }
 };
 
