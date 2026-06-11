@@ -55,6 +55,58 @@ function MegaGrid({
   );
 }
 
+// ─── Home: 4 rows × 2 cols (8 items) ───
+const HOME = [
+  { title: "MAIN PAGES", links: [
+      { href: "/", label: "Homepage" },
+      { href: "/about-us", label: "About Us" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "/insights", label: "Insights" },
+    ]},
+  { title: "SOLUTIONS", links: [
+      { href: "/solutions", label: "All Solutions" },
+      { href: "/solutions/property-asset-protection", label: "Property & Asset Protection" },
+      { href: "/solutions/liability-governance", label: "Liability & Governance" },
+      { href: "/solutions/emerging-risk-solutions", label: "Emerging Risk Solutions" },
+    ]},
+  { title: "INDUSTRIES", links: [
+      { href: "/industries", label: "All Industries" },
+      { href: "/industries/technology-digital", label: "Technology & Digital" },
+      { href: "/industries/manufacturing-industrial", label: "Manufacturing & Industrial" },
+      { href: "/industries/energy-utilities", label: "Energy & Utilities" },
+    ]},
+  { title: "PLATFORM", links: [
+      { href: "/platform", label: "All Platforms" },
+      { href: "/platform/risk-diagnostic-engine", label: "Risk Diagnostic Engine" },
+      { href: "/platform/cyber-intelligence", label: "Cyber Intelligence" },
+      { href: "/platform/risk-dna-mapper", label: "Risk DNA Mapper" },
+    ]},
+  { title: "OUTCOMES", links: [
+      { href: "/outcomes", label: "All Outcomes" },
+      { href: "/outcomes/unicorn-ipo", label: "Unicorn IPO — D&O" },
+      { href: "/outcomes/factory-fire", label: "Factory Fire — BI + Rebuild" },
+      { href: "/outcomes/it-ransomware", label: "IT Ransomware" },
+    ]},
+  { title: "RISKS", links: [
+      { href: "/risks", label: "All Risks" },
+      { href: "/risks/cross-industry", label: "Cross-Industry Risks" },
+      { href: "/risks/cross-functional", label: "Cross-Functional Risks" },
+      { href: "/risks/emerging", label: "Emerging Risks" },
+    ]},
+  { title: "OFFERINGS", links: [
+      { href: "/offerings", label: "All Offerings" },
+      { href: "/offerings/category/insurance-solutions", label: "Insurance Solutions" },
+      { href: "/offerings/category/cyber-digital-risk", label: "Cyber & Digital Risk" },
+      { href: "/offerings/category/emerging-risks", label: "Emerging & Frontier Risk" },
+    ]},
+  { title: "COMPANY", links: [
+      { href: "/about-us", label: "About Us" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "/insights", label: "Insights" },
+      { href: "/about-us#leadership", label: "Leadership & Culture" },
+    ]},
+];
+
 // ─── Industries: 2 rows × 4 cols ───
 const INDUSTRIES = [
   { title: "MANUFACTURING & INDUSTRIAL", links: [
@@ -407,27 +459,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[500px] p-4 bg-white">
-                    <div className="grid grid-cols-1 gap-2">
-                      {[
-                        { href: "/", label: "Homepage" },
-                        { href: "/about-us", label: "About Us" },
-                        { href: "/contact", label: "Contact Us" },
-                        { href: "/insights", label: "Insights" },
-                      ].map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group"
-                        >
-                          <ChevronRight className="h-4 w-4 text-blue-600" />
-                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                            {link.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                  <MegaGrid items={HOME} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
