@@ -7,7 +7,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
@@ -15,7 +14,376 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { OfferingsCategoryMenu } from "@/components/layout/OfferingsCategoryMenu";
+import {
+  CATEGORY_GROUPS,
+  getOfferingsByCategory,
+} from "@/data/offeringsData";
+
+const SECTION =
+  "text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2 px-3 pt-1 border-b border-slate-100 pb-1.5";
+const LINK =
+  "flex items-start gap-2 px-3 py-1.5 rounded text-[13px] transition-all text-slate-700 hover:text-blue-600 hover:bg-slate-50";
+const CHEV = <ChevronRight className="h-3 w-3 text-blue-600 flex-shrink-0 mt-0.5" />;
+
+function MegaGrid({
+  items,
+}: {
+  items: { title: string; links: { href: string; label: string; bold?: boolean }[] }[];
+}) {
+  return (
+    <div className="w-[1160px] p-6 bg-white">
+      <div className="grid grid-cols-4 gap-x-12 gap-y-0">
+        {items.map((col) => (
+          <div key={col.title} className="flex flex-col min-w-[200px]">
+            <div className={SECTION}>{col.title}</div>
+            {col.links.map((l) => (
+              <Link
+                key={l.href + l.label}
+                href={l.href}
+                className={cn(LINK, l.bold && "bg-blue-50 text-blue-700 font-semibold")}
+              >
+                {CHEV}
+                <span className="font-medium whitespace-nowrap leading-tight">
+                  {l.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Industries: 2 rows × 4 cols ───
+const INDUSTRIES = [
+  { title: "MANUFACTURING & INDUSTRIAL", links: [
+      { href: "/industries/manufacturing-industrial", label: "Manufacturing & Industrial" },
+      { href: "/industries/technology-digital", label: "Technology & Digital" },
+      { href: "/industries/energy-utilities", label: "Energy & Utilities" },
+      { href: "/industries/government-public-sector", label: "Government & Public Sector" },
+    ]},
+  { title: "TECHNOLOGY & ELECTRONICS", links: [
+      { href: "/industries/technology-digital", label: "IT & BPM" },
+      { href: "/industries/technology-digital", label: "Electronics & Semiconductor" },
+      { href: "/industries/technology-digital", label: "Telecommunications" },
+      { href: "/industries/technology-digital", label: "Science & Technology" },
+    ]},
+  { title: "INFRASTRUCTURE & CONSTRUCTION", links: [
+      { href: "/industries/infrastructure-real-estate", label: "Cement" },
+      { href: "/industries/infrastructure-real-estate", label: "Steel" },
+      { href: "/industries/infrastructure-real-estate", label: "Infrastructure" },
+      { href: "/industries/infrastructure-real-estate", label: "Real Estate & Highways" },
+    ]},
+  { title: "ENERGY & UTILITIES", links: [
+      { href: "/industries/energy-utilities", label: "Oil & Gas" },
+      { href: "/industries/energy-utilities", label: "Power" },
+      { href: "/industries/energy-utilities", label: "Renewable Energy" },
+      { href: "/industries/energy-utilities", label: "Ports & Railways" },
+    ]},
+  { title: "FINANCIAL SERVICES", links: [
+      { href: "/industries/financial-services", label: "Banking" },
+      { href: "/industries/financial-services", label: "Financial Services" },
+      { href: "/industries/financial-services", label: "Insurance" },
+      { href: "/industries/financial-services", label: "E-Commerce" },
+    ]},
+  { title: "HEALTHCARE & LIFE SCIENCES", links: [
+      { href: "/industries/healthcare-life-sciences", label: "Pharmaceuticals" },
+      { href: "/industries/healthcare-life-sciences", label: "Healthcare" },
+      { href: "/industries/healthcare-life-sciences", label: "Medical Devices" },
+      { href: "/industries/healthcare-life-sciences", label: "Biotechnology" },
+    ]},
+  { title: "CONSUMER & RETAIL", links: [
+      { href: "/industries/retail-hospitality", label: "FMCG" },
+      { href: "/industries/retail-hospitality", label: "Retail" },
+      { href: "/industries/retail-hospitality", label: "Consumer Durables" },
+      { href: "/industries/retail-hospitality", label: "Textiles & Food Processing" },
+    ]},
+  { title: "MEDIA & SERVICES", links: [
+      { href: "/industries/emerging-industries", label: "Media & Entertainment" },
+      { href: "/industries/emerging-industries", label: "Tourism & Hospitality" },
+      { href: "/industries/emerging-industries", label: "Aviation" },
+      { href: "/industries/emerging-industries", label: "Education & Allied" },
+    ]},
+];
+
+// ─── Risks: 2 rows × 4 cols ───
+const RISKS = [
+  { title: "CYBER RISKS", links: [
+      { href: "/risks/ransomware", label: "Ransomware Attack" },
+      { href: "/risks/data-breach", label: "Data Breach (PII)" },
+      { href: "/risks/supply-chain-cyber", label: "Supply Chain Cyber Attack" },
+      { href: "/risks/bec", label: "Business Email Compromise" },
+    ]},
+  { title: "FINANCIAL RISKS", links: [
+      { href: "/risks/d-o-personal-liability", label: "D&O Personal Liability" },
+      { href: "/risks/employment-practices", label: "Employment Practices Liability" },
+      { href: "/risks/crime-employee-dishonesty", label: "Crime & Employee Dishonesty" },
+      { href: "/risks/regulatory-investigation", label: "Regulatory Investigation & Fines" },
+    ]},
+  { title: "OPERATIONAL RISKS", links: [
+      { href: "/risks/natural-catastrophe", label: "Natural Catastrophe" },
+      { href: "/risks/business-interruption", label: "Business Interruption" },
+      { href: "/risks/key-person-loss", label: "Key Person Loss" },
+      { href: "/risks/reputational-damage", label: "Reputational Damage" },
+    ]},
+  { title: "REGULATORY RISKS", links: [
+      { href: "/risks/climate-physical", label: "Climate Change — Physical" },
+      { href: "/risks/climate-transition", label: "Climate Change — Transition" },
+      { href: "/risks/pandemic", label: "Pandemic / Communicable Disease" },
+      { href: "/risks/risk-intelligence-center", label: "Risk Intelligence Center" },
+    ]},
+  { title: "CLIMATE RISKS", links: [
+      { href: "/risks/climate-physical", label: "Physical Climate Risk" },
+      { href: "/risks/climate-transition", label: "Transition Climate Risk" },
+      { href: "/risks/emerging", label: "Emerging Climate Tech" },
+      { href: "/risks/emerging", label: "Supply Chain Climate Risk" },
+    ]},
+  { title: "EMERGING RISKS", links: [
+      { href: "/risks/emerging", label: "Quantum Encryption" },
+      { href: "/risks/emerging", label: "Satellite Cyber" },
+      { href: "/risks/emerging", label: "Autonomous Vehicle" },
+      { href: "/risks/emerging", label: "Drone Third-Party Injury" },
+    ]},
+  { title: "STRATEGIC RISKS", links: [
+      { href: "/risks/m-a-transaction-risk", label: "M&A Transaction Risk" },
+      { href: "/risks/third-party-vendor-risk", label: "Third-Party Vendor Risk" },
+      { href: "/risks/currency-fluctuation", label: "Currency Fluctuation" },
+      { href: "/risks/ai-product-liability", label: "AI Product Liability" },
+    ]},
+  { title: "COMPLIANCE RISKS", links: [
+      { href: "/risks/contract-risk-exposure", label: "Contract Risk Exposure" },
+      { href: "/risks/ip-infringement", label: "IP Infringement" },
+      { href: "/risks/securities-litigation", label: "Securities Litigation" },
+      { href: "/risks/aml-violation", label: "AML Violation" },
+    ]},
+];
+
+// ─── Offerings: 2 rows × 4 cols (8 categories, excluding technology-platforms) ───
+const OFFERINGS = [
+  { title: "INSURANCE SOLUTIONS", links: [
+      { href: "/offerings/property-sfsp", label: "Property All-Risks" },
+      { href: "/offerings/business-interruption", label: "Business Interruption" },
+      { href: "/offerings/contingent-bi", label: "Contingent BI" },
+      { href: "/offerings/equipment-breakdown", label: "Equipment Breakdown" },
+    ]},
+  { title: "CYBER & DIGITAL RISK", links: [
+      { href: "/offerings/cyber-first-party", label: "Cyber First Party" },
+      { href: "/offerings/cyber-third-party", label: "Cyber Third Party Liability" },
+      { href: "/offerings/cyber-regulatory-defense", label: "Regulatory Defense" },
+      { href: "/offerings/cyber-ransomware", label: "Ransomware Protection" },
+    ]},
+  { title: "WARRANTY & GUARANTEE", links: [
+      { href: "/offerings/product-warranty-program", label: "Product Warranty Design" },
+      { href: "/offerings/extended-warranty-program", label: "Extended Warranty Design" },
+      { href: "/offerings/performance-bonds", label: "Performance Bonds" },
+      { href: "/offerings/bid-bonds", label: "Bid Bonds" },
+    ]},
+  { title: "ALTERNATIVE RISK TRANSFER", links: [
+      { href: "/offerings/captive-insurance", label: "Captive Insurance" },
+      { href: "/offerings/parametric-insurance", label: "Parametric Solutions" },
+      { href: "/offerings/ils-cat-bonds", label: "ILS / Cat Bonds" },
+      { href: "/offerings/risk-retention-groups", label: "Risk Retention Groups" },
+    ]},
+  { title: "AI CONTRACT & ANALYTICS", links: [
+      { href: "/offerings/ai-contract-risk-analytics", label: "AI Contract Analytics" },
+      { href: "/offerings/contract-compliance-checker", label: "Compliance Checker" },
+      { href: "/offerings/ma-risk-due-diligence", label: "M&A Due Diligence" },
+      { href: "/offerings/category/ai-contract-analytics", label: "View All →", bold: true },
+    ]},
+  { title: "INDUSTRY PROGRAMS", links: [
+      { href: "/offerings/financial-services-program", label: "Financial Services" },
+      { href: "/offerings/healthcare-program", label: "Healthcare" },
+      { href: "/offerings/manufacturing-program", label: "Manufacturing" },
+      { href: "/offerings/energy-program", label: "Energy & Renewables" },
+    ]},
+  { title: "ADVISORY & CONSULTING", links: [
+      { href: "/offerings/erm-consulting", label: "ERM Consulting" },
+      { href: "/offerings/climate-risk-advisory", label: "Climate Risk Advisory" },
+      { href: "/offerings/ma-risk-advisory", label: "M&A Risk Advisory" },
+      { href: "/offerings/claims-advocacy", label: "Claims Advocacy" },
+    ]},
+  { title: "EMERGING & FRONTIER RISK", links: [
+      { href: "/offerings/crypto-insurance", label: "Crypto & Digital Asset" },
+      { href: "/offerings/quantum-risk-insurance", label: "Quantum Computing" },
+      { href: "/offerings/drone-insurance", label: "Drone / UAV" },
+      { href: "/offerings/space-insurance", label: "Space & Satellite" },
+    ]},
+];
+
+function OfferingsMega() {
+  return (
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Offerings</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <MegaGrid items={OFFERINGS} />
+        <div className="px-6 pb-4 pt-0">
+          <Link
+            href="/offerings"
+            className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            View All Offerings →
+          </Link>
+        </div>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  );
+}
+
+// ─── Solutions: 2 rows × 4 cols ───
+const SOLUTIONS = [
+  { title: "PROPERTY ASSET PROTECTION", links: [
+      { href: "/solutions/property-asset-protection", label: "Property & Asset Protection" },
+      { href: "/solutions/property-sfsp", label: "Property All-Risks" },
+      { href: "/solutions/business-interruption", label: "Business Interruption" },
+      { href: "/solutions/contingent-bi", label: "Contingent BI" },
+    ]},
+  { title: "LIABILITY & GOVERNANCE", links: [
+      { href: "/solutions/liability-governance", label: "Liability & Governance" },
+      { href: "/solutions/product-liability", label: "Product Liability" },
+      { href: "/solutions/professional-indemnity", label: "Professional Indemnity" },
+      { href: "/solutions/directors-officers", label: "Directors & Officers" },
+    ]},
+  { title: "FINANCIAL & TRANSACTION", links: [
+      { href: "/solutions/financial-transaction-risk", label: "Financial & Transaction Risk" },
+      { href: "/solutions/trade-credit", label: "Trade Credit" },
+      { href: "/solutions/surety-bonds", label: "Surety Bonds" },
+      { href: "/solutions/ma-insurance", label: "M&A Insurance" },
+    ]},
+  { title: "EMERGING RISK SOLUTIONS", links: [
+      { href: "/solutions/emerging-risk-solutions", label: "Emerging Risk Solutions" },
+      { href: "/solutions/climate-risk", label: "Climate Risk Solutions" },
+      { href: "/solutions/ai-risk", label: "AI Risk Solutions" },
+      { href: "/solutions/space-insurance", label: "Space Insurance" },
+    ]},
+  { title: "ALTERNATIVE RISK TRANSFER", links: [
+      { href: "/solutions/alternative-risk-transfer", label: "Alternative Risk Transfer" },
+      { href: "/solutions/captive-insurance", label: "Captive Insurance" },
+      { href: "/solutions/parametric-insurance", label: "Parametric Insurance" },
+      { href: "/solutions/ils-cat-bonds", label: "ILS / Cat Bonds" },
+    ]},
+  { title: "RISK ENGINEERING", links: [
+      { href: "/solutions/risk-engineering", label: "Risk Engineering & Loss Prevention" },
+      { href: "/solutions/property-asset-protection", label: "Property & Asset Protection" },
+      { href: "/solutions/claims-advocacy", label: "Claims Advocacy" },
+      { href: "/solutions/business-interruption", label: "Business Interruption" },
+    ]},
+  { title: "PROGRAM ARCHITECTURE", links: [
+      { href: "/solutions/global-program-architecture", label: "Global Program Architecture" },
+      { href: "/solutions/tcor-analytics", label: "TCOR Analytics" },
+      { href: "/solutions/long-tenor-infrastructure", label: "Long-Tenor Infrastructure" },
+      { href: "/solutions/risk-engineering", label: "Risk Engineering" },
+    ]},
+  { title: "SPECIALISED PROGRAMS", links: [
+      { href: "/solutions/property-asset-protection", label: "Property Solutions" },
+      { href: "/solutions/liability-governance", label: "Liability Shield" },
+      { href: "/solutions/alternative-risk-transfer", label: "Alternative Risk Transfer" },
+      { href: "/solutions", label: "View All Solutions →", bold: true },
+    ]},
+];
+
+// ─── Outcomes: 2 rows × 4 cols ───
+const OUTCOMES = [
+  { title: "PROPERTY CASES", links: [
+      { href: "/outcomes/factory-fire", label: "Factory Fire — BI + Rebuild" },
+      { href: "/outcomes/supplier-flood", label: "Supplier Flood — CBI" },
+      { href: "/outcomes/nhai-highway", label: "NHAI Highway Concession" },
+      { href: "/outcomes/solar-park", label: "500 MW Solar Park" },
+    ]},
+  { title: "LIABILITY CASES", links: [
+      { href: "/outcomes/unicorn-ipo", label: "Unicorn IPO — D&O" },
+      { href: "/outcomes/pe-fund-exit", label: "PE Fund Exit — W&I" },
+      { href: "/outcomes/it-ransomware", label: "IT Ransomware Attack" },
+      { href: "/outcomes/sebi-adviser", label: "SEBI Adviser PI" },
+    ]},
+  { title: "RISK SCENARIOS", links: [
+      { href: "/risks/emerging", label: "Emerging Risks" },
+      { href: "/risks/industry-specific", label: "Industry-Specific Risks" },
+      { href: "/risks/cross-industry", label: "Cross-Industry Risks" },
+      { href: "/risks/cross-functional", label: "Cross-Functional Risks" },
+    ]},
+  { title: "FINANCIAL OUTCOMES", links: [
+      { href: "/solutions/tcor-analytics", label: "TCOR Analytics" },
+      { href: "/solutions/claims-advocacy", label: "Claims Advocacy" },
+      { href: "/outcomes", label: "View All Outcomes →", bold: true },
+    ]},
+  { title: "INFRASTRUCTURE", links: [
+      { href: "/outcomes/nhai-highway", label: "NHAI Highway" },
+      { href: "/solutions/long-tenor-infrastructure", label: "Long-Tenor Programs" },
+      { href: "/outcomes/solar-park", label: "Solar Park" },
+      { href: "/outcomes", label: "View All →", bold: true },
+    ]},
+  { title: "CYBER OUTCOMES", links: [
+      { href: "/outcomes/it-ransomware", label: "IT Ransomware Attack" },
+      { href: "/risks/cross-industry", label: "Ransomware" },
+      { href: "/risks/cross-industry", label: "Data Breach" },
+      { href: "/platform/cyber-intelligence", label: "Cyber Intelligence" },
+    ]},
+  { title: "PROPERTY", links: [
+      { href: "/outcomes/factory-fire", label: "Factory Fire" },
+      { href: "/outcomes/supplier-flood", label: "Supplier Flood" },
+      { href: "/solutions/property-asset-protection", label: "Property Solutions" },
+      { href: "/outcomes", label: "View All →", bold: true },
+    ]},
+  { title: "BROWSE ALL", links: [
+      { href: "/outcomes", label: "View All Outcomes →", bold: true },
+      { href: "/outcomes/unicorn-ipo", label: "Unicorn IPO" },
+      { href: "/outcomes/pe-fund-exit", label: "PE Fund Exit" },
+      { href: "/outcomes/factory-fire", label: "Factory Fire" },
+    ]},
+];
+
+// ─── Platform: 2 rows × 4 cols ───
+const PLATFORMS = [
+  { title: "RISK INTELLIGENCE", links: [
+      { href: "/platform/risk-intelligence-aggregator", label: "Risk Intelligence Aggregator" },
+      { href: "/platform/risk-diagnostic-engine", label: "Risk Diagnostic Engine" },
+      { href: "/platform/risk-dna-mapper", label: "Risk DNA Mapper" },
+      { href: "/platform/cyber-intelligence", label: "Cyber Intelligence" },
+    ]},
+  { title: "SUPPLY CHAIN", links: [
+      { href: "/platform/supply-chain-monitor", label: "Supply Chain Monitor" },
+      { href: "/platform/counterparty-assessment", label: "Counterparty Assessment" },
+      { href: "/platform/climate-scenario", label: "Climate Analytics" },
+      { href: "/platform/political-monitor", label: "Political Risk Monitor" },
+    ]},
+  { title: "REGULATORY & COMPLIANCE", links: [
+      { href: "/platform/regulatory-intelligence", label: "Regulatory Intelligence" },
+      { href: "/platform/contract-intelligence", label: "Contract Intelligence" },
+      { href: "/platform/ma-due-diligence", label: "M&A Due Diligence Suite" },
+      { href: "/platform", label: "View All Platforms →", bold: true },
+    ]},
+  { title: "ANALYTICS", links: [
+      { href: "/platform/risk-diagnostic-engine", label: "Risk Diagnostic Engine" },
+      { href: "/platform/risk-dna-mapper", label: "Risk DNA Mapper" },
+      { href: "/platform/climate-scenario", label: "Climate Scenario Analysis" },
+      { href: "/platform/cyber-intelligence", label: "Cyber Intelligence" },
+    ]},
+  { title: "EMERGING RISK", links: [
+      { href: "/platform/cyber-intelligence", label: "Cyber Threat Intelligence" },
+      { href: "/platform/climate-scenario", label: "Climate Analytics" },
+      { href: "/platform/political-monitor", label: "Political Risk Monitor" },
+      { href: "/platform", label: "View All Platforms →", bold: true },
+    ]},
+  { title: "DATA & INSIGHTS", links: [
+      { href: "/platform/risk-dna-mapper", label: "Risk DNA Mapper" },
+      { href: "/platform/risk-intelligence-aggregator", label: "Risk Intelligence Feed" },
+      { href: "/platform/risk-diagnostic-engine", label: "Diagnostic Engine" },
+      { href: "/platform", label: "View All →", bold: true },
+    ]},
+  { title: "MONITORING", links: [
+      { href: "/platform/supply-chain-monitor", label: "Supply Chain Monitor" },
+      { href: "/platform/counterparty-assessment", label: "Counterparty Assessment" },
+      { href: "/platform/political-monitor", label: "Political Risk Monitor" },
+      { href: "/platform/climate-scenario", label: "Climate Analytics" },
+    ]},
+  { title: "BROWSE ALL", links: [
+      { href: "/platform", label: "View All Platforms →", bold: true },
+      { href: "/platform/risk-diagnostic-engine", label: "Risk Diagnostic Engine" },
+      { href: "/platform/risk-dna-mapper", label: "Risk DNA Mapper" },
+      { href: "/platform/cyber-intelligence", label: "Cyber Intelligence" },
+    ]},
+];
 
 export function Navbar() {
   return (
@@ -39,49 +407,25 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Hero</span>
-                      </Link>
-                      <Link href="/#explore-risks" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Explore Risks</span>
-                      </Link>
-                      <Link href="/#offerings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Featured Offerings</span>
-                      </Link>
-                      <Link href="/#methodology" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Methodology</span>
-                      </Link>
-                      <Link href="/#industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Featured Industries</span>
-                      </Link>
-                      <Link href="/#solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Solutions</span>
-                      </Link>
-                      <Link href="/#why-trustflow" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Why Trustflow</span>
-                      </Link>
-                      <Link href="/#trust" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Trust & Social Proof</span>
-                      </Link>
-                      <Link href="/#insights" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Latest Insights</span>
-                      </Link>
-                    </div>
-                    <div className="pt-4 border-t border-slate-200">
-                      <Link href="/" className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
-                        Go to Homepage →
-                      </Link>
+                  <div className="w-[500px] p-4 bg-white">
+                    <div className="grid grid-cols-1 gap-2">
+                      {[
+                        { href: "/", label: "Homepage" },
+                        { href: "/about-us", label: "About Us" },
+                        { href: "/contact", label: "Contact Us" },
+                        { href: "/insights", label: "Insights" },
+                      ].map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group"
+                        >
+                          <ChevronRight className="h-4 w-4 text-blue-600" />
+                          <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                            {link.label}
+                          </span>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -90,263 +434,44 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Industries</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/industries/technology-digital" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Technology</span>
-                      </Link>
-                      <Link href="/industries/financial-services" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Financial Services</span>
-                      </Link>
-                      <Link href="/industries/healthcare-life-sciences" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Healthcare</span>
-                      </Link>
-                      <Link href="/industries/manufacturing-industrial" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Manufacturing</span>
-                      </Link>
-                      <Link href="/industries/energy-utilities" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Energy</span>
-                      </Link>
-                      <Link href="/industries/infrastructure-real-estate" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Real Estate</span>
-                      </Link>
-                      <Link href="/industries/transportation-logistics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Transportation</span>
-                      </Link>
-                      <Link href="/industries/retail-hospitality" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Retail</span>
-                      </Link>
-                      <Link href="/industries/agriculture-environment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Agriculture</span>
-                      </Link>
-                      <Link href="/industries/government-public-sector" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Government</span>
-                      </Link>
-                      <Link href="/industries/education-nonprofit" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Education</span>
-                      </Link>
-                      <Link href="/industries/emerging-industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Emerging Industries</span>
-                      </Link>
-                      <Link href="/industries" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Industries →</span>
-                      </Link>
-                    </div>
-                  </div>
+                  <MegaGrid items={INDUSTRIES} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Risks</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/risks/cross-industry" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cross-Industry Risks</span>
-                      </Link>
-                      <Link href="/risks/cross-functional" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cross-Functional Risks</span>
-                      </Link>
-                      <Link href="/risks/industry-specific" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Industry-Specific Risks</span>
-                      </Link>
-                      <Link href="/risks/emerging" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Emerging Risks</span>
-                      </Link>
-                      <Link href="/risks/risk-intelligence-center" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Intelligence Center</span>
-                      </Link>
-                      <Link href="/risks" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Risks →</span>
-                      </Link>
-                    </div>
-                  </div>
+                  <MegaGrid items={RISKS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <OfferingsCategoryMenu />
+              <OfferingsMega />
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/solutions/global-program-architecture" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Global Program Architecture</span>
-                      </Link>
-                      <Link href="/solutions/captive-insurance" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Captive Insurance & ART</span>
-                      </Link>
-                      <Link href="/solutions/risk-engineering" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Engineering & Loss Prevention</span>
-                      </Link>
-                      <Link href="/solutions/long-tenor-infrastructure" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Long-Tenor Infrastructure</span>
-                      </Link>
-                      <Link href="/solutions/tcor-analytics" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">TCOR Analytics & Benchmarking</span>
-                      </Link>
-                      <Link href="/solutions/claims-advocacy" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Claims Advocacy</span>
-                      </Link>
-                      <Link href="/solutions" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Solutions →</span>
-                      </Link>
-                    </div>
-                  </div>
+                  <MegaGrid items={SOLUTIONS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Outcomes</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/outcomes/unicorn-ipo" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Unicorn IPO — D&O</span>
-                      </Link>
-                      <Link href="/outcomes/pe-fund-exit" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">PE Fund Exit — W&I</span>
-                      </Link>
-                      <Link href="/outcomes/it-ransomware" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">IT Ransomware Attack</span>
-                      </Link>
-                      <Link href="/outcomes/factory-fire" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Factory Fire — BI + Rebuild</span>
-                      </Link>
-                      <Link href="/outcomes/solar-park" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">500 MW Solar Park</span>
-                      </Link>
-                      <Link href="/outcomes/nhai-highway" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">NHAI Highway Concession</span>
-                      </Link>
-                      <Link href="/outcomes/supplier-flood" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Supplier Flood — CBI</span>
-                      </Link>
-                      <Link href="/outcomes/sebi-adviser" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">SEBI Adviser PI</span>
-                      </Link>
-                      <Link href="/outcomes" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Outcomes →</span>
-                      </Link>
-                    </div>
-                  </div>
+                  <MegaGrid items={OUTCOMES} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[900px] p-6 bg-white">
-                    <div className="grid grid-cols-4 gap-x-12 gap-y-2 mb-5">
-                      <Link href="/platform/risk-diagnostic-engine" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#0052CC" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Diagnostic Engine</span>
-                      </Link>
-                      <Link href="/platform/risk-dna-mapper" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#2563EB" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk DNA Mapper</span>
-                      </Link>
-                      <Link href="/platform/cyber-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#DC2626" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Cyber Intelligence</span>
-                      </Link>
-                      <Link href="/platform/counterparty-assessment" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Counterparty Analytics</span>
-                      </Link>
-                      <Link href="/platform/contract-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Contract Intelligence</span>
-                      </Link>
-                      <Link href="/platform/regulatory-intelligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#7C3AED" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Regulatory Intelligence</span>
-                      </Link>
-                      <Link href="/platform/risk-intelligence-aggregator" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Risk Aggregator</span>
-                      </Link>
-                      <Link href="/platform/supply-chain-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Supply Chain Monitor</span>
-                      </Link>
-                      <Link href="/platform/climate-scenario" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#F59E0B" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Climate Analytics</span>
-                      </Link>
-                      <Link href="/platform/political-monitor" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#0D9488" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">Political Risk Monitor</span>
-                      </Link>
-                      <Link href="/platform/ma-due-diligence" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5" style={{ color: "#059669" }} />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">M&A Due Diligence</span>
-                      </Link>
-                      <Link href="/platform" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group">
-                        <ChevronRight className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors ">View All Platforms →</span>
-                      </Link>
-                    </div>
-                  </div>
+                  <MegaGrid items={PLATFORMS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Company</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[300px] p-4 bg-white">
-                    <div className="flex flex-col gap-2">
-                      <Link href="/about-us#about" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
-                        About Us
-                      </Link>
-                      <Link href="/about-us#leadership" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
-                        Leadership & Culture
-                      </Link>
-                      <Link href="/about-us#offices" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
-                        Our Offices
-                      </Link>
-                      <Link href="/contact" className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all text-sm font-semibold text-slate-800 hover:text-blue-600">
-                        Contact Us
-                      </Link>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
+                <Link href="/about-us" className={navigationMenuTriggerStyle()}>
+                  Company
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -357,7 +482,6 @@ export function Navbar() {
             <Button className="bg-primary text-white hover:bg-primary/90">
               <div className="text-left leading-tight">
                 <div className="text-[10px] opacity-90">Contact Us</div>
-
               </div>
             </Button>
           </Link>
@@ -381,6 +505,14 @@ export function Navbar() {
                       Business Risk Architecture Platform
                     </span>
                   </Link>
+                </div>
+                <div>
+                  <Link href="/" className="text-lg font-semibold text-primary">Home</Link>
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                    <Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link>
+                    <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+                    <Link href="/insights" className="hover:text-primary transition-colors">Insights</Link>
+                  </div>
                 </div>
                 <div>
                   <Link href="/industries" className="text-lg font-semibold text-primary">Industries</Link>
@@ -412,15 +544,9 @@ export function Navbar() {
                 <div>
                   <Link href="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/offerings/category/insurance-solutions" className="hover:text-primary transition-colors">Insurance Solutions</Link>
-                    <Link href="/offerings/category/cyber-digital-risk" className="hover:text-primary transition-colors">Cyber & Digital Risk</Link>
-                    <Link href="/offerings/category/warranty-guarantee" className="hover:text-primary transition-colors">Warranty & Guarantee</Link>
-                    <Link href="/offerings/category/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
-                    <Link href="/offerings/category/ai-contract-analytics" className="hover:text-primary transition-colors">AI Contract & Analytics</Link>
-                    <Link href="/offerings/category/industry-programs" className="hover:text-primary transition-colors">Industry Programs</Link>
-                    <Link href="/offerings/category/advisory-consulting" className="hover:text-primary transition-colors">Advisory & Consulting</Link>
-                    <Link href="/offerings/category/technology-platforms" className="hover:text-primary transition-colors">Technology Platforms</Link>
-                    <Link href="/offerings/category/emerging-frontier-risk" className="hover:text-primary transition-colors">Emerging Frontier Risk</Link>
+                    {Object.entries(CATEGORY_GROUPS).map(([key, cat]) => (
+                      <Link key={key} href={`/offerings/category/${key}`} className="hover:text-primary transition-colors">{cat.label}</Link>
+                    ))}
                   </div>
                 </div>
                 <div>
@@ -428,10 +554,14 @@ export function Navbar() {
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
                     <Link href="/solutions/global-program-architecture" className="hover:text-primary transition-colors">Global Program Architecture</Link>
                     <Link href="/solutions/captive-insurance" className="hover:text-primary transition-colors">Captive Insurance & ART</Link>
-                    <Link href="/solutions/long-tenor-infrastructure" className="hover:text-primary transition-colors">Long-Tenor Infrastructure Programs</Link>
+                    <Link href="/solutions/risk-engineering" className="hover:text-primary transition-colors">Risk Engineering & Loss Prevention</Link>
+                    <Link href="/solutions/long-tenor-infrastructure" className="hover:text-primary transition-colors">Long-Tenor Infrastructure</Link>
                     <Link href="/solutions/tcor-analytics" className="hover:text-primary transition-colors">TCOR Analytics & Benchmarking</Link>
                     <Link href="/solutions/claims-advocacy" className="hover:text-primary transition-colors">Claims Advocacy</Link>
-                    <Link href="/solutions/risk-engineering" className="hover:text-primary transition-colors">Risk Engineering & Loss Prevention</Link>
+                    <Link href="/solutions/property-asset-protection" className="hover:text-primary transition-colors">Property & Asset Protection</Link>
+                    <Link href="/solutions/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
+                    <Link href="/solutions/emerging-risk-solutions" className="hover:text-primary transition-colors">Emerging Risk Solutions</Link>
+                    <Link href="/solutions/liability-governance" className="hover:text-primary transition-colors">Liability & Governance Shield</Link>
                   </div>
                 </div>
                 <div>
@@ -460,7 +590,7 @@ export function Navbar() {
                     <Link href="/platform/regulatory-intelligence" className="hover:text-primary transition-colors">Regulatory Intelligence</Link>
                     <Link href="/platform/climate-scenario" className="hover:text-primary transition-colors">Climate Scenario Analysis</Link>
                     <Link href="/platform/risk-intelligence-aggregator" className="hover:text-primary transition-colors">Risk Intelligence Aggregator</Link>
-                    <Link href="/platform/api-integrations" className="hover:text-primary transition-colors">API Integrations</Link>
+                    <Link href="/platform/counterparty-assessment" className="hover:text-primary transition-colors">Counterparty Assessment</Link>
                   </div>
                 </div>
                 <div>
@@ -477,7 +607,6 @@ export function Navbar() {
                     <Button className="w-full justify-start">
                       <div className="text-left leading-tight">
                         <div className="text-[10px] opacity-90">Contact Us</div>
-
                       </div>
                     </Button>
                   </Link>
