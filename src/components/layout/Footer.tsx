@@ -22,7 +22,7 @@ export function Footer() {
             <div className="space-y-2 pt-2">
               <div className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors cursor-pointer">
                 <Mail className="w-3.5 h-3.5" />
-                <span className="text-[10px]">connect@trustgrid.ai</span>
+                <span className="text-[10px]">connect@trustflow.in</span>
               </div>
               <div className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors cursor-pointer">
                 <Phone className="w-3.5 h-3.5" />
@@ -178,7 +178,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-slate-200 text-[10px] text-slate-500 gap-4">
           <div>
-            &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
+            &copy; {new Date().getFullYear()} Trust Flow. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <Link href="#" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>

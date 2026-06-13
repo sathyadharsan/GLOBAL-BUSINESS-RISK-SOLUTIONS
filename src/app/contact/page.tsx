@@ -23,7 +23,7 @@ const offices = Object.fromEntries(
 
 const groups: SidebarGroup[] = [
   {
-    label: "CONTACT",
+    label: "CONNECT WITH US",
     items: [
       { id: "diagnostic-form", label: "Risk Diagnostic Form", icon: FileText },
       { id: "hotline", label: "Direct Contact", icon: Phone },
@@ -133,9 +133,9 @@ export default function Contact() {
       groups={groups}
       activeId={activeTab}
       onItemSelect={(id) => setActiveTab(id)}
-      heroTitle="Connect with our Risk Architects"
-      heroSubtitle="Get a free 30-minute diagnostic session to evaluate your current coverage structure, audit regulatory alignment, and quantify your Total Cost of Risk."
-      heroBadges={["24/7 Claims Response", "Global Advisers", "Candour & Efficacy"]}
+      heroTitle="Risk Advisory Contact"
+      heroSubtitle="Speak with our risk, insurance, cyber, ESG, resilience, and governance specialists to discuss your business priorities, emerging risks, and strategic resilience objectives."
+      heroBadges={["Enterprise Risk Advisory", "Cyber & Digital Resilience", "Insurance & Risk Intelligence"]}
     >
       
       {/* 1. Header */}
@@ -143,7 +143,7 @@ export default function Contact() {
         <div>
           <h2 className="text-xl font-bold text-primary font-serif">
             {isForm && "Risk Diagnostic"}
-            {isHotline && "Claims & Direct Hotline"}
+            {isHotline && "Risk Advisory Contact"}
             {isLocations && "Global Operations Network"}
             {isOffice && offices[activeTab as keyof typeof offices]?.name}
           </h2>
@@ -190,19 +190,19 @@ export default function Contact() {
           <div className="relative z-10 space-y-2 max-w-4xl">
             <span className="text-[10px] font-bold uppercase tracking-widest bg-blue-600/50 px-2 py-0.5 rounded border border-blue-500/20">
               {isForm && "Diagnostics"}
-              {isHotline && "Specialist Advocacy"}
+              {isHotline && "Enterprise Advisory"}
               {isLocations && "Office Locations"}
               {isOffice && "Office Details"}
             </span>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
               {isForm && "Quantify Your Total Cost of Risk (TCOR)"}
-              {isHotline && "24/7 Emergency Claims Hotline"}
+              {isHotline && "Risk Advisory Contact"}
               {isLocations && "Our International Offices"}
               {isOffice && offices[activeTab as keyof typeof offices]?.name}
             </h2>
             <p className="text-sm text-gray-300">
               {isForm && "Submit corporate details for a candidate audit assessment."}
-              {isHotline && "Immediate technical response for complex, high-severity claims."}
+              {isHotline && "Strategic guidance for Enterprise Risk Management, Governance, and Operational Resilience."}
               {isLocations && "Serving clients across India, Singapore, and US."}
               {isOffice && "Contact details for direct office communication."}
             </p>
@@ -246,17 +246,17 @@ export default function Contact() {
           {isHotline && (
             <div className="max-w-4xl space-y-6">
               <p className="text-sm text-slate-600 leading-relaxed">
-                When a major property fire, marine cargo loss, or cyber ransomware incident occurs, the first 48 hours are critical. GBRS provides direct access to senior claims adjusters and legal advocates.
+                When navigating complex regulatory landscapes, cyber threats, or systemic vulnerabilities, expert guidance is critical. TRUSTFLOW provides direct access to senior risk architects, ESG specialists, and business continuity advisors.
               </p>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="border shadow-none bg-red-50/50 border-red-100 p-6">
                   <div className="flex items-center gap-2 text-red-700 font-bold mb-3">
                     <ShieldAlert className="w-5 h-5" />
-                    <h4>Claims Advocacy Hotline</h4>
+                    <h4>Risk Advisory Desk</h4>
                   </div>
                   <p className="text-xs text-red-900/80 leading-relaxed mb-4">
-                    For immediate dispatch of risk engineers, adjusters, and technical lawyers.
+                    For immediate consultation on Insurance Advisory, Cyber Risk mitigation, and Business Continuity planning.
                   </p>
                   <div className="text-lg font-bold text-red-700 font-mono">+1 (800) 555-LOSS</div>
                 </Card>
@@ -264,12 +264,12 @@ export default function Contact() {
                 <Card className="border shadow-none bg-blue-50/50 border-blue-100 p-6">
                   <div className="flex items-center gap-2 text-blue-700 font-bold mb-3">
                     <Phone className="w-5 h-5" />
-                    <h4>General Enquiries</h4>
+                    <h4>Business Advisory Enquiries</h4>
                   </div>
                   <p className="text-xs text-blue-900/80 leading-relaxed mb-4">
-                    For client onboarding, broker registration, and billing questions.
+                    For Governance, Risk & Compliance (GRC) assessments, enterprise partnerships, and general consulting inquiries.
                   </p>
-                  <div className="text-lg font-bold text-blue-700 font-mono">connect@trustgrid.ai</div>
+                  <div className="text-lg font-bold text-blue-700 font-mono">connect@trustflow.in</div>
                 </Card>
               </div>
             </div>

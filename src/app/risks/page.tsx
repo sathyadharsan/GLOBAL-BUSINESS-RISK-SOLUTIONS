@@ -157,7 +157,7 @@ export default function RisksLanding() {
       <div className="mt-16 bg-slate-900 rounded-xl p-8 md:p-12 text-center text-white">
         <Shield className="h-12 w-12 text-blue-400 mx-auto mb-4" />
         <h3 className="text-2xl font-bold font-serif mb-3">
-          The World&apos;s Most Comprehensive Business Risk Architecture Platform
+          Risk Advisory Insurance & Resilience Solutions
         </h3>
         <p className="text-slate-300 max-w-2xl mx-auto mb-6">
           Our risk architects design intelligent protection strategies tailored to your organization&apos;s unique risk profile. AI-powered diagnostics, real-time threat intelligence, and board-level advisory.

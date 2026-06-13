@@ -527,14 +527,14 @@ export const officeLocations = [
     id: "us-office",
     name: "US Office",
     address: "501 E Kennedy Blvd Suite 1400\nTampa, FL 33602, United States",
-    email: "connect@trustgrid.ai",
+    email: "connect@trustflow.in",
     phone: "+91 9513288612"
   },
   {
     id: "singapore-office",
     name: "Singapore Office",
     address: "5 Temasek Boulevard, 17th Floor\nSingapore 038985",
-    email: "connect@trustgrid.ai",
+    email: "connect@trustflow.in",
     phone: "+65 6050 5235"
   },
   {
@@ -548,14 +548,14 @@ export const officeLocations = [
     id: "mumbai-office",
     name: "Mumbai Office",
     address: "WeWork, Raheja Platinum,\nRoad, off Andheri - Kurla Road,\nSag Baug, Marol, Andheri East,\nMumbai, Maharashtra 400059",
-    email: "cs@trustgrid.in",
+    email: "cs@trustflow.in",
     phone: "+91 9513088612"
   },
   {
     id: "bangalore-office",
     name: "Bangalore Office",
     address: "WeWork, 13th floor, Tin Factory,\nSalarpuria Magnificia, 78, Old Madras Rd,\nnext to KR Puram, Mahadevapura,\nBengaluru, Karnataka 560016",
-    email: "cs@trustgrid.in",
+    email: "cs@trustflow.in",
     phone: "+91 9513088612"
   }
 ];

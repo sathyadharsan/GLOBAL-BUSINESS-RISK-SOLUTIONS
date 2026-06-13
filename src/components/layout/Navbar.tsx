@@ -476,7 +476,7 @@ export function Navbar() {
               TRUSTFLOW
             </span>
             <span className="text-xs font-normal text-muted-foreground mt-1">
-              Business Risk Architecture Platform
+              Risk Advisory Insurance & Resilience Solutions
             </span>
           </Link>
         </div>
@@ -564,7 +564,7 @@ export function Navbar() {
                       TRUSTFLOW
                     </span>
                     <span className="text-xs font-normal text-muted-foreground mt-1">
-                      Business Risk Architecture Platform
+                      Risk Advisory Insurance Resilience Solutions
                     </span>
                   </Link>
                 </div>

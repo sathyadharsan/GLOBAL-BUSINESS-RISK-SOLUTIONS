@@ -386,7 +386,7 @@ export default function AboutUs() {
             <div className="flex-1 bg-slate-800/80 backdrop-blur rounded-xl border border-slate-700/50 p-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-slate-800 transition-colors cursor-pointer">
               <Mail className="w-6 h-6 text-green-400" />
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</p>
-              <p className="text-sm font-medium">connect@trustgrid.ai</p>
+              <p className="text-sm font-medium">connect@trustflow.in</p>
             </div>
             <div className="flex-1 bg-slate-800/80 backdrop-blur rounded-xl border border-slate-700/50 p-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-slate-800 transition-colors cursor-pointer">
               <Phone className="w-6 h-6 text-purple-400" />
