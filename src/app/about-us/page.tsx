@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Target, Zap, Users } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { officeLocations, leadershipTeam, newLeadershipTeam } from "@/data/siteContent";
 
 const offices = officeLocations.map(office => ({
@@ -14,7 +13,7 @@ const offices = officeLocations.map(office => ({
   phone: office.phone
 }));
 
-const teamMembers = leadershipTeam.flatMap((dept) => 
+const teamMembers = leadershipTeam.flatMap((dept) =>
   dept.members.map((m) => ({ ...m, dept: dept.name, initials: m.name.split(' ').map(n => n[0]).join('') }))
 );
 
@@ -204,7 +203,7 @@ export default function AboutUs() {
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/95 to-slate-900/80" />
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
@@ -246,10 +245,46 @@ export default function AboutUs() {
             <div className="flex-1 bg-slate-800/80 backdrop-blur rounded-xl border border-slate-700/50 p-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-slate-800 transition-colors cursor-pointer">
               <Phone className="w-6 h-6 text-purple-400" />
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
-              <p className="text-sm font-medium">+91 9513288612<br/>+65 6050 5235</p>
+              <p className="text-sm font-medium">+91 9513288612<br />+65 6050 5235</p>
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* 4. CTA CONTACT SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+          <div className="relative rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #2563eb 0%, #4f46e5 60%, #7c3aed 100%)" }}>
+            {/* Decorative blobs */}
+            <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-20" style={{ background: "radial-gradient(circle, #fff 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
+            <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #fff 0%, transparent 70%)", transform: "translate(-30%, 30%)" }} />
+
+            <div className="relative z-10 px-8 py-16 text-center text-white space-y-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-200">Global Business Risk Solutions</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+                The AI-Native Platform for Risk, Insurance & Resilience
+              </h2>
+              <p className="text-blue-100 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                From underwriting and claims to enterprise risk, cyber risk, ESG, and disaster management—manage risk proactively at scale.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
+                <Link href="/contact">
+                  <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 shadow-lg">
+                    Book for Consulting
+                  </button>
+                </Link>
+                <a
+                  href="tel:+919513288612"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 border border-white/30 text-white font-bold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur"
+                >
+                  <Phone className="w-4 h-4" /> Talk to a Risk Expert
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
