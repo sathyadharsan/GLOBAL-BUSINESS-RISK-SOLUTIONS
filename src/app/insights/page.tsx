@@ -45,7 +45,7 @@ export default function Insights() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {insights.map((insight, i) => (
-              <div key={i} className="group cursor-pointer border p-6 rounded-lg hover:shadow-md transition-all flex flex-col justify-between">
+              <Link key={i} href={`/insights/${insight.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="group cursor-pointer border p-6 rounded-lg hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-semibold text-blue-600 tracking-wider uppercase bg-blue-50 px-2 py-1 rounded">{insight.type}</span>
@@ -59,7 +59,7 @@ export default function Insights() {
                 <div className="text-sm font-medium text-blue-600 inline-flex items-center mt-auto">
                   Read article <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
