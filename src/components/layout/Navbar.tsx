@@ -391,6 +391,7 @@ const COMPANY = [
       { href: "/about-us", label: "About Us" },
       { href: "/about-us#about", label: "Our Story & Mission" },
       { href: "/about-us#why-risk", label: "Why Risk Intelligence" },
+      { href: "/ecosystem", label: "Ecosystem" },
       { href: "/about-us#by-the-numbers", label: "By The Numbers" },
     ]},
   { title: "OUR TEAM", links: [
@@ -662,6 +663,7 @@ export function Navbar() {
                     <Link href="/about-us#why-risk" className="hover:text-primary transition-colors">Why Risk Intelligence</Link>
                     <Link href="/about-us#by-the-numbers" className="hover:text-primary transition-colors">By The Numbers</Link>
                     <Link href="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Teams</Link>
+                    <Link href="/ecosystem" className="hover:text-primary transition-colors">Ecosystem</Link>
                     <Link href="/about-us#offices" className="hover:text-primary transition-colors">Our Offices</Link>
                     <Link href="/insights" className="hover:text-primary transition-colors">Insights & Research</Link>
                     <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>

@@ -29,7 +29,7 @@ export default async function InsightArticle({ params }: { params: Promise<{ slu
             This is a placeholder article page for <strong>{title}</strong>. 
           </p>
           <p>
-            In a complete implementation, this page would fetch the full content of the insight report, whitepaper, or market outlook from a CMS (Content Management System) or local data file based on the URL slug <code>{params.slug}</code>.
+            In a complete implementation, this page would fetch the full content of the insight report, whitepaper, or market outlook from a CMS (Content Management System) or local data file based on the URL slug <code>{slug}</code>.
           </p>
           <p>
             For now, the routing is working correctly and you have successfully navigated to the dedicated article page!

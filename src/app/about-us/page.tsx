@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Target, Zap, Users, TrendingUp, Shield, Eye, BarChart3, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Target, Zap, Users, TrendingUp, Shield, Eye, BarChart3, Clock, Network, ArrowRight } from "lucide-react";
 import { officeLocations, leadershipTeam, newLeadershipTeam } from "@/data/siteContent";
 
 const offices = officeLocations.map(office => ({
@@ -207,6 +207,38 @@ export default function AboutUs() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5 ECOSYSTEM PREVIEW */}
+      <section id="ecosystem-preview" className="py-20 bg-slate-900 border-t border-slate-800 text-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl space-y-6">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 px-3 py-1 rounded-full border border-blue-800">
+                <Network className="w-4 h-4" /> GLOBAL ECOSYSTEM
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Partnering to Build the Future of <span className="text-blue-400">Risk Intelligence</span>
+              </h2>
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
+                GBRS collaborates with leading global technology, insurance, cyber security, ESG, and cloud providers to deliver next-generation risk intelligence and resilience solutions.
+              </p>
+              <div className="pt-4">
+                <Link href="/ecosystem" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 py-2">
+                  Explore Our Ecosystem <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
+               {["Insurance", "Cyber Security", "Risk & Compliance", "Climate & ESG", "AI Intelligence", "Cloud Infrastructure"].map((cat, i) => (
+                 <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center hover:bg-slate-800 transition-colors flex items-center justify-center min-h-[80px]">
+                   <div className="text-sm font-semibold text-slate-200 leading-tight">{cat}</div>
+                 </div>
+               ))}
+            </div>
           </div>
         </div>
       </section>
