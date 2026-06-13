@@ -17,7 +17,7 @@ import { officeLocations } from "@/data/siteContent";
 const offices = Object.fromEntries(
   officeLocations.map(office => [
     office.id,
-    { name: office.name, address: office.address, email: office.email || "connect@gbrs.com", phone: office.phone }
+    { name: office.name, address: office.address, email: office.email || "connect@trustflow.in", phone: office.phone }
   ])
 );
 
