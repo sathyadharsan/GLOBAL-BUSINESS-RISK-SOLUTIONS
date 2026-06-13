@@ -6,8 +6,8 @@ import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
-import { 
-  FileText, ShieldAlert, Globe, Phone, MapPin, 
+import {
+  FileText, ShieldAlert, Globe, Phone, MapPin,
   ArrowRight, Shield, Target, LayoutGrid, CheckCircle2, ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -70,7 +70,7 @@ function ContactFormInner() {
             <input name="lastName" type="text" required className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-primary">Corporate Email</label>
@@ -85,33 +85,41 @@ function ContactFormInner() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-primary">Annual Revenue</label>
-            <select name="revenue" className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
-              <option>&lt;₹10Cr</option>
-              <option>₹10–200Cr</option>
-              <option>₹200–2,000Cr</option>
-              <option>₹2,000Cr+</option>
-              <option>Listed/MNC</option>
+            <select defaultValue="" name="revenue" className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
+              <option value="" disabled>Select Revenue</option>
+              <option value="Under 10Cr">Under ₹10Cr</option>
+              <option value="10-200Cr">₹10–200Cr</option>
+              <option value="200-2000Cr">₹200–2,000Cr</option>
+              <option value="2000Cr+">₹2,000Cr+</option>
+              <option value="Listed">Listed/MNC</option>
             </select>
           </div>
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-primary">Primary Risk Concern</label>
-            <select name="riskConcern" className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
-              <option>Property &amp; BI</option>
-              <option>Liability Suite</option>
-              <option>Cyber Incident</option>
-              <option>D&amp;O &amp; Governance</option>
-              <option>Trade &amp; Political Risk</option>
-              <option>Environmental</option>
-              <option>Other</option>
+            <select
+              defaultValue=""
+              name="riskConcern"
+              className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white"
+            >
+              <option value="" disabled>
+                Select Risk Concern
+              </option>
+              <option value="Property & BI">Property &amp; BI</option>
+              <option value="Liability Suite">Liability Suite</option>
+              <option value="Cyber Incident">Cyber Incident</option>
+              <option value="D&O & Governance">D&amp;O &amp; Governance</option>
+              <option value="Trade & Political Risk">Trade &amp; Political Risk</option>
+              <option value="Environmental">Environmental</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>
-        
+
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-primary">Message / Inquiry Details</label>
           <textarea name="message" rows={4} className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"></textarea>
         </div>
-        
+
         <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700 h-11 text-xs font-semibold">
           Request Free Risk Assessment
         </Button>
@@ -137,7 +145,7 @@ export default function Contact() {
       heroSubtitle="Speak with our risk, insurance, cyber, ESG, resilience, and governance specialists to discuss your business priorities, emerging risks, and strategic resilience objectives."
       heroBadges={["Enterprise Risk Advisory", "Cyber & Digital Resilience", "Insurance & Risk Intelligence"]}
     >
-      
+
       {/* 1. Header */}
       <div className="mb-6 pb-3 border-b flex items-center justify-between">
         <div>
@@ -183,7 +191,7 @@ export default function Contact() {
 
       {/* 3. DETAIL EXPANSION CARD */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-md overflow-hidden mt-8 animate-in fade-in slide-in-from-bottom-4 duration-300">
-        
+
         {/* Banner */}
         <div className="p-6 text-white bg-primary relative border-b border-white/5">
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-transparent z-0" />
@@ -210,7 +218,7 @@ export default function Contact() {
         </div>
 
         <div className="p-6 md:p-8">
-          
+
           {/* A. Diagnostic Form */}
           {isForm && (
             <div className="grid lg:grid-cols-2 gap-10">
@@ -248,7 +256,7 @@ export default function Contact() {
               <p className="text-sm text-slate-600 leading-relaxed">
                 When navigating complex regulatory landscapes, cyber threats, or systemic vulnerabilities, expert guidance is critical. TRUSTFLOW provides direct access to senior risk architects, ESG specialists, and business continuity advisors.
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="border shadow-none bg-red-50/50 border-red-100 p-6">
                   <div className="flex items-center gap-2 text-red-700 font-bold mb-3">
@@ -275,61 +283,61 @@ export default function Contact() {
             </div>
           )}
 
-{/* C. Office Locations - All Offices */}
-           {isLocations && (
-             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-               {Object.entries(offices).map(([id, office]) => (
-                 <div key={id} className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3 hover:shadow-md transition-shadow cursor-pointer" onClick={() => setActiveTab(id)}>
-                   <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
-                     <MapPin className="w-4 h-4 text-blue-600" />
-                     {office.name}
-                   </h4>
-                   <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
-                     {office.address}
-                   </p>
-                   <div className="text-xs space-y-1 pt-2">
-                     <p className="font-medium">{office.email}</p>
-                     <p className="font-semibold text-blue-600">{office.phone}</p>
-                   </div>
-                 </div>
-               ))}
-             </div>
-           )}
+          {/* C. Office Locations - All Offices */}
+          {isLocations && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Object.entries(offices).map(([id, office]) => (
+                <div key={id} className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3 hover:shadow-md transition-shadow cursor-pointer" onClick={() => setActiveTab(id)}>
+                  <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
+                    <MapPin className="w-4 h-4 text-blue-600" />
+                    {office.name}
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
+                    {office.address}
+                  </p>
+                  <div className="text-xs space-y-1 pt-2">
+                    <p className="font-medium">{office.email}</p>
+                    <p className="font-semibold text-blue-600">{office.phone}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
-           {/* D. Individual Office Detail */}
-           {isOffice && offices[activeTab as keyof typeof offices] && (
-             <div className="max-w-2xl space-y-6">
-               <div className="p-6 bg-slate-50 border border-slate-100 rounded-xl space-y-4">
-                 <h4 className="font-bold text-primary text-base flex items-center gap-2 border-b pb-3">
-                   <MapPin className="w-5 h-5 text-blue-600" />
-                   {offices[activeTab as keyof typeof offices].name}
-                 </h4>
-                 <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                   {offices[activeTab as keyof typeof offices].address}
-                 </p>
-                 <div className="grid grid-cols-2 gap-4 pt-2 border-t">
-                   <div>
-                     <p className="text-xs font-semibold text-slate-500 uppercase">Email</p>
-                     <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].email}</p>
-                   </div>
-                   <div>
-                     <p className="text-xs font-semibold text-slate-500 uppercase">Phone</p>
-                     <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].phone}</p>
-                   </div>
-                 </div>
-               </div>
-               <div className="flex gap-3">
-                 <Button variant="outline" onClick={() => setActiveTab("locations")} className="text-xs">
-                   View All Offices
-                 </Button>
-                 <Link href="/contact#diagnostic-form" className="w-full sm:w-auto">
-                   <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs w-full" onClick={() => setActiveTab("diagnostic-form")}>
-                     Request Consultation
-                   </Button>
-                 </Link>
-               </div>
-             </div>
-           )}
+          {/* D. Individual Office Detail */}
+          {isOffice && offices[activeTab as keyof typeof offices] && (
+            <div className="max-w-2xl space-y-6">
+              <div className="p-6 bg-slate-50 border border-slate-100 rounded-xl space-y-4">
+                <h4 className="font-bold text-primary text-base flex items-center gap-2 border-b pb-3">
+                  <MapPin className="w-5 h-5 text-blue-600" />
+                  {offices[activeTab as keyof typeof offices].name}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {offices[activeTab as keyof typeof offices].address}
+                </p>
+                <div className="grid grid-cols-2 gap-4 pt-2 border-t">
+                  <div>
+                    <p className="text-xs font-semibold text-slate-500 uppercase">Email</p>
+                    <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].email}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-slate-500 uppercase">Phone</p>
+                    <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].phone}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Button variant="outline" onClick={() => setActiveTab("locations")} className="text-xs">
+                  View All Offices
+                </Button>
+                <Link href="/contact#diagnostic-form" className="w-full sm:w-auto">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs w-full" onClick={() => setActiveTab("diagnostic-form")}>
+                    Request Consultation
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
 
         </div>
 
