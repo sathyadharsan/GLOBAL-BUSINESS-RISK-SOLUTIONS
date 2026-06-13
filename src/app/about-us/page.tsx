@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Target, Zap, Users } from "lucide-react";
+import { Mail, Phone, MapPin, Target, Zap, Users, TrendingUp, Shield, Eye, BarChart3, Clock } from "lucide-react";
 import { officeLocations, leadershipTeam, newLeadershipTeam } from "@/data/siteContent";
 
 const offices = officeLocations.map(office => ({
@@ -17,9 +17,59 @@ const teamMembers = leadershipTeam.flatMap((dept) =>
   dept.members.map((m) => ({ ...m, dept: dept.name, initials: m.name.split(' ').map(n => n[0]).join('') }))
 );
 
+const gbrsCapabilities = [
+  "Enterprise Risk Management (ERM)",
+  "Governance, Risk & Compliance (GRC)",
+  "Cyber Risk & Digital Resilience",
+  "Insurance Risk & Claims Intelligence",
+  "Climate, ESG & Sustainability Risk",
+  "Crisis & Disaster Risk Management",
+  "Business Continuity & Resilience Planning",
+  "Risk Intelligence & Predictive Analytics",
+  "AI Risk & Responsible AI Governance",
+];
+
+const whyRiskStats = [
+  {
+    stat: "70%+",
+    label: "of enterprise value driven by intangible assets",
+    detail: "Making organizations more vulnerable to cyber, reputational, and operational risks.",
+  },
+  {
+    stat: "$15T+",
+    label: "Projected cybercrime damages annually by 2029",
+    detail: "Making cyber resilience a board-level priority.",
+  },
+  {
+    stat: "80%+",
+    label: "of business disruptions originate outside traditional enterprise boundaries",
+    detail: "Including suppliers, ecosystems, regulations, and geopolitical events.",
+  },
+  {
+    stat: "3×",
+    label: "Faster recovery for mature risk & resilience programs",
+    detail: "Organizations with mature programs recover up to 3× faster from major disruptions.",
+  },
+  {
+    stat: "Minutes",
+    label: "AI-driven risk intelligence response time vs. days",
+    detail: "Enabling proactive decision-making and faster recovery.",
+  },
+];
+
+const byTheNumbers = [
+  { value: "500M+", label: "Risk, threat & behavioral signals monitored annually", icon: BarChart3 },
+  { value: "100+", label: "Risk categories across cyber, operational, financial, ESG, climate, regulatory & emerging tech", icon: Shield },
+  { value: "24×7", label: "Continuous intelligence monitoring", icon: Clock },
+  { value: "360°", label: "Integrated enterprise risk visibility", icon: Eye },
+];
+
+const coreOutcomes = ["Predict", "Prevent", "Protect", "Respond", "Recover"];
+
 export default function AboutUs() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
+
       {/* 1. ABOUT US SECTION */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
@@ -31,16 +81,20 @@ export default function AboutUs() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
-                Pioneering the Science of <span className="text-blue-600">Revenue Engineering</span>
+                Pioneering the Future of{" "}
+                <span className="text-blue-600">Risk Intelligence, Resilience & Trust</span>
               </h1>
               <p className="text-base text-slate-600 leading-relaxed">
-                At TrustGrid AI, we believe that revenue growth shouldn't be a guessing game. It's an engineering problem solvable with data, intelligence, and precision.
+                In today's hyper-connected world, risks emerge faster than organizations can traditionally identify, assess, and respond.
               </p>
               <p className="text-base text-slate-600 leading-relaxed">
-                Born from a convergence of enterprise sales expertise and advanced machine learning, we've built the world's most comprehensive Revenue Intelligence Platform. We don't just provide data; we provide the <strong>flow</strong>—the seamless connection between market signals, sales execution, and predictable revenue outcomes.
+                From cyber threats and regulatory disruptions to climate events, operational failures, supply-chain vulnerabilities, and AI-driven risks, the cost of being unprepared has never been higher.
               </p>
               <p className="text-base text-slate-600 leading-relaxed">
-                We partner with forward-thinking enterprises to dismantle silos, automate complex revenue workflows, and empower teams to achieve what was previously impossible: <strong>Growth on Autopilot</strong>.
+                At <strong>Global Business Risk Solutions (GBRS)</strong>, we help organizations move beyond reactive risk management to <strong>predictive, intelligence-driven resilience</strong>.
+              </p>
+              <p className="text-base text-slate-600 leading-relaxed">
+                By combining deep domain expertise, AI-powered analytics, governance frameworks, and real-time risk intelligence, we enable enterprises, governments, insurers, and critical infrastructure operators to anticipate threats, make faster decisions, and build sustainable resilience.
               </p>
             </div>
 
@@ -54,9 +108,21 @@ export default function AboutUs() {
                     </div>
                     <h3 className="text-xl font-bold text-slate-900">Our Mission</h3>
                   </div>
-                  <p className="text-slate-700 leading-relaxed">
-                    To help enterprises build <span className="text-blue-600 font-semibold">predictable</span>, <span className="text-blue-600 font-semibold">scalable</span>, and <span className="text-purple-600 font-semibold border-b-2 border-purple-200">compounding</span> revenue engines powered by AI.
+                  <p className="text-slate-700 leading-relaxed mb-3">
+                    We help organizations create a{" "}
+                    <span className="text-blue-600 font-semibold">360° Risk Intelligence View</span>{" "}
+                    across operations, technology, finance, compliance, cyber security, climate exposure, and emerging threats.
                   </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {coreOutcomes.map((outcome) => (
+                      <span
+                        key={outcome}
+                        className="px-3 py-1 rounded-full text-xs font-bold bg-blue-600 text-white tracking-wide"
+                      >
+                        {outcome}
+                      </span>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
 
@@ -66,29 +132,15 @@ export default function AboutUs() {
                     <div className="p-2 bg-orange-100 rounded-lg">
                       <Zap className="w-5 h-5 text-orange-500" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">What We Do</h3>
+                    <h3 className="text-xl font-bold text-slate-900">What Makes GBRS Different</h3>
                   </div>
                   <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="text-slate-700 font-medium">AI-powered demand generation</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="text-slate-700 font-medium">Sales intelligence & automation</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="text-slate-700 font-medium">Revenue operations optimization</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="text-slate-700 font-medium">ARR acceleration & retention</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="text-slate-700 font-medium">Predictive revenue forecasting</span>
-                    </li>
+                    {gbrsCapabilities.map((cap) => (
+                      <li key={cap} className="flex items-start gap-3">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+                        <span className="text-slate-700 font-medium">{cap}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
@@ -97,7 +149,69 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 2. LEADERSHIP & CULTURE SECTION */}
+      {/* 2. WHY RISK INTELLIGENCE MATTERS */}
+      <section id="why-risk" className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+              <TrendingUp className="w-4 h-4" /> WHY RISK INTELLIGENCE MATTERS
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+              The Stakes Have Never Been <span className="text-blue-600">Higher</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyRiskStats.map((item, index) => (
+              <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                <CardContent className="p-6 space-y-3">
+                  <div className="text-3xl font-extrabold text-blue-600 group-hover:text-blue-700 transition-colors">
+                    {item.stat}
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 leading-snug">{item.label}</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">{item.detail}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. BY THE NUMBERS */}
+      <section id="by-the-numbers" className="py-20 bg-white border-t border-slate-200">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+              <BarChart3 className="w-4 h-4" /> BY THE NUMBERS
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+              GBRS <span className="text-blue-600">Vision in Action</span>
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed">
+              Building AI-Powered Risk Intelligence Platforms that help organizations see risks earlier, understand impacts faster, respond with confidence, recover stronger, and build long-term resilience.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {byTheNumbers.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group text-center">
+                  <CardContent className="p-8 space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 mx-auto flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="text-4xl font-extrabold text-blue-600 group-hover:text-blue-700 transition-colors">
+                      {item.value}
+                    </div>
+                    <p className="text-xs text-slate-500 leading-relaxed">{item.label}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. LEADERSHIP & CULTURE SECTION */}
       <section id="leadership" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -108,7 +222,7 @@ export default function AboutUs() {
               Leadership & <span className="text-blue-600">Teams</span>
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
-              A powerhouse of AI architects, blockchain experts, and industry consultants building the future of autonomous revenue.
+              A powerhouse of risk domain experts, AI architects, governance specialists, and resilience practitioners building the future of enterprise risk intelligence.
             </p>
           </div>
 
@@ -198,7 +312,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 3. OUR OFFICES SECTION */}
+      {/* 5. OUR OFFICES SECTION */}
       <section id="offices" className="py-20 bg-slate-900 text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center" }} />
@@ -252,7 +366,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* 4. CTA CONTACT SECTION */}
+      {/* 6. CTA CONTACT SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-5xl">
           <div className="relative rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #2563eb 0%, #4f46e5 60%, #7c3aed 100%)" }}>
@@ -263,10 +377,10 @@ export default function AboutUs() {
             <div className="relative z-10 px-8 py-16 text-center text-white space-y-6">
               <p className="text-xs font-bold uppercase tracking-widest text-blue-200">Global Business Risk Solutions</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
-                The AI-Native Platform for Risk, Insurance & Resilience
+                Transform Risk Management into Risk Intelligence
               </h2>
               <p className="text-blue-100 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                From underwriting and claims to enterprise risk, cyber risk, ESG, and disaster management—manage risk proactively at scale.
+                We are building the next generation of AI-powered platforms, advisory services, and operational frameworks that help organizations thrive in an increasingly uncertain world — turning Compliance into Confidence, and Resilience into Competitive Advantage.
               </p>
 
               {/* Buttons */}

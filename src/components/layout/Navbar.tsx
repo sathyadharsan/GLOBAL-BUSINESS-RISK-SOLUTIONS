@@ -385,6 +385,34 @@ const OUTCOMES = [
     ]},
 ];
 
+// ─── Company: 1 row × 4 cols ───
+const COMPANY = [
+  { title: "ABOUT GBRS", links: [
+      { href: "/about-us", label: "About Us" },
+      { href: "/about-us#about", label: "Our Story & Mission" },
+      { href: "/about-us#why-risk", label: "Why Risk Intelligence" },
+      { href: "/about-us#by-the-numbers", label: "By The Numbers" },
+    ]},
+  { title: "OUR TEAM", links: [
+      { href: "/about-us#leadership", label: "Leadership & Teams" },
+      { href: "/about-us#leadership", label: "Risk Management & AI" },
+      { href: "/about-us#leadership", label: "Technical & Operations" },
+      { href: "/about-us#leadership", label: "Strategic Practice Leads" },
+    ]},
+  { title: "OUR OFFICES", links: [
+      { href: "/about-us#offices", label: "All Offices" },
+      { href: "/about-us#offices", label: "India — Bengaluru" },
+      { href: "/about-us#offices", label: "India — Mumbai" },
+      { href: "/about-us#offices", label: "Singapore & US" },
+    ]},
+  { title: "CONNECT", links: [
+      { href: "/contact", label: "Contact Us", bold: true },
+      { href: "/insights", label: "Insights & Research" },
+      { href: "/contact", label: "Book for Consulting" },
+      { href: "/contact", label: "Talk to a Risk Expert" },
+    ]},
+];
+
 // ─── Platform: 2 rows × 4 cols ───
 const PLATFORMS = [
   { title: "RISK INTELLIGENCE", links: [
@@ -501,9 +529,10 @@ export function Navbar() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/about-us" className={navigationMenuTriggerStyle()}>
-                  Company
-                </Link>
+                <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <MegaGrid items={COMPANY} />
+                </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -628,9 +657,13 @@ export function Navbar() {
                 <div>
                   <Link href="/about-us" className="text-lg font-semibold text-primary">Company</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/about-us#about" className="hover:text-primary transition-colors">About Us</Link>
-                    <Link href="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Culture</Link>
+                    <Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link>
+                    <Link href="/about-us#about" className="hover:text-primary transition-colors">Our Story & Mission</Link>
+                    <Link href="/about-us#why-risk" className="hover:text-primary transition-colors">Why Risk Intelligence</Link>
+                    <Link href="/about-us#by-the-numbers" className="hover:text-primary transition-colors">By The Numbers</Link>
+                    <Link href="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Teams</Link>
                     <Link href="/about-us#offices" className="hover:text-primary transition-colors">Our Offices</Link>
+                    <Link href="/insights" className="hover:text-primary transition-colors">Insights & Research</Link>
                     <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
                   </div>
                 </div>
