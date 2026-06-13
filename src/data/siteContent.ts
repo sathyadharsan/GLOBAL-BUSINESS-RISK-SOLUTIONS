@@ -525,38 +525,109 @@ export type SolutionSlug = string;
 export const officeLocations = [
   {
     id: "us-office",
-    name: "New York (HQ)",
-    address: "100 Wall Street, Suite 2500\nNew York, NY 10005\nUnited States",
-    email: "ny@gbrs.com",
-    phone: "+1 (212) 555-0198"
+    name: "US Office",
+    address: "501 E Kennedy Blvd Suite 1400\nTampa, FL 33602, United States",
+    email: "connect@trustgrid.ai",
+    phone: "+91 9513288612"
   },
   {
     id: "singapore-office",
-    name: "Singapore",
-    address: "MBFC Tower 3, #18-02\n8 Marina Boulevard\nSingapore 018981",
-    email: "sg@gbrs.com",
-    phone: "+65 6702 1890"
+    name: "Singapore Office",
+    address: "5 Temasek Boulevard, 17th Floor\nSingapore 038985",
+    email: "connect@trustgrid.ai",
+    phone: "+65 6050 5235"
   },
   {
     id: "india-office",
-    name: "India (GIFT City)",
-    address: "Unit 1202, Tower A\nGIFT City, Gandhinagar\nGujarat 382355\nIndia",
-    email: "gift@gbrs.com",
-    phone: "+91 79 4000 8800"
+    name: "India Office",
+    address: "TRUSTGRID.AI INNNOVATION PVT LTD\nSuite : 32 , 235, BINNAMANGALA,\n2nd Floor, 13th Cross Road,\nIndira Nagar 2nd Stage, Hoysala Nagar,\nBengaluru – 560038 , India",
+    email: "",
+    phone: ""
   },
   {
     id: "mumbai-office",
-    name: "Mumbai",
-    address: "42, Maker Chamber VI\nNariman Point\nMumbai 400021\nIndia",
-    email: "mumbai@gbrs.com",
-    phone: "+91 22 6000 7700"
+    name: "Mumbai Office",
+    address: "WeWork, Raheja Platinum,\nRoad, off Andheri - Kurla Road,\nSag Baug, Marol, Andheri East,\nMumbai, Maharashtra 400059",
+    email: "cs@trustgrid.in",
+    phone: "+91 9513088612"
   },
   {
     id: "bangalore-office",
-    name: "Bangalore",
-    address: "Level 3, Prestige Technopark\nSarjapur-Marathahalli Outer Ring Road\nBangalore 560103\nIndia",
-    email: "blr@gbrs.com",
-    phone: "+91 80 4000 9900"
+    name: "Bangalore Office",
+    address: "WeWork, 13th floor, Tin Factory,\nSalarpuria Magnificia, 78, Old Madras Rd,\nnext to KR Puram, Mahadevapura,\nBengaluru, Karnataka 560016",
+    email: "cs@trustgrid.in",
+    phone: "+91 9513088612"
+  }
+];
+
+export const newLeadershipTeam = [
+  {
+    id: "leadership-risk-ai-governance",
+    name: "Leadership Team – Risk Management, AI & Governance",
+    members: [
+      {
+        id: "murali",
+        name: "Murali Venkat",
+        title: "Chief AI & Risk Officer (CAIRO)",
+        location: "India",
+        bio: "Chief AI & Risk Officer (CAIRO)",
+        image: ""
+      },
+      {
+        id: "sowmya",
+        name: "Sowmya Venugopal",
+        title: "Global Head of Business Risk & ESG",
+        location: "India",
+        bio: "Global Head of Business Risk & ESG",
+        image: ""
+      },
+      {
+        id: "vinod",
+        name: "Vinod",
+        title: "Enterprise Risk Director",
+        location: "India",
+        bio: "Enterprise Risk Director",
+        image: ""
+      },
+      {
+        id: "kumaraguru",
+        name: "Kumaraguru",
+        title: "Head of Cyber Risk & Digital Resilience",
+        location: "India",
+        bio: "Head of Cyber Risk & Digital Resilience",
+        image: ""
+      },
+      {
+        id: "narayanan",
+        name: "Narayanan",
+        title: "Head of Governance, Risk & Compliance (GRC)",
+        location: "India",
+        bio: "Head of Governance, Risk & Compliance (GRC)",
+        image: ""
+      }
+    ]
+  },
+  {
+    id: "additional-strategic-practice-leads",
+    name: "Additional Strategic Practice Leads",
+    members: [
+      {
+        id: "risk-intelligence-lead",
+        name: "TBD",
+        title: "Head – Risk Intelligence, Analytics & Predictive Insights",
+        location: "Global",
+        bio: "Head – Risk Intelligence, Analytics & Predictive Insights – TBD",
+        image: ""
+      },
+      {
+        id: "crisis-disaster-lead",
+        name: "TBD",
+        title: "Head – Crisis & Disaster Risk Management",
+        location: "Global",
+        bio: "Head – Crisis & Disaster Risk Management – TBD",
+        image: ""
+      }
+    ]
   }
 ];
 
@@ -796,12 +867,12 @@ export const leadershipTeam = [
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
       },
       {
-        id: "santhosh",
-        name: "Santhosh S",
+        id: "sathya",
+        name: "Sathya M",
         title: "AI Engineering (Intern)",
         location: "India",
-        bio: "AI engineering intern supporting research and development in risk AI.",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+        bio: "AI engineering intern driving innovative solutions in machine learning and risk analytics.",
+        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
       }
     ]
   }

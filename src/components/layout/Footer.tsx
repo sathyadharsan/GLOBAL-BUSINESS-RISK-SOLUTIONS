@@ -26,7 +26,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors cursor-pointer">
                 <Phone className="w-3.5 h-3.5" />
-                <span className="text-[10px]">+1 5512288612</span>
+                <span className="text-[10px]">+91 9513288612</span>
               </div>
             </div>
             <div className="flex gap-3 pt-2">
@@ -123,18 +123,22 @@ export function Footer() {
                 {office.address}
               </p>
               <div className="space-y-2 ml-6 pt-2">
-                <div className="flex items-center gap-2 text-slate-500">
-                  <Mail className="w-3.5 h-3.5" />
-                  <a href={`mailto:${office.email}`} className="text-xs hover:text-blue-600 transition-colors">
-                    {office.email}
-                  </a>
-                </div>
-                <div className="flex items-center gap-2 text-slate-500">
-                  <Phone className="w-3.5 h-3.5" />
-                  <a href={`tel:${office.phone}`} className="text-xs hover:text-blue-600 transition-colors">
-                    {office.phone}
-                  </a>
-                </div>
+                {office.email && (
+                  <div className="flex items-center gap-2 text-slate-500">
+                    <Mail className="w-3.5 h-3.5" />
+                    <a href={`mailto:${office.email}`} className="text-xs hover:text-blue-600 transition-colors">
+                      {office.email}
+                    </a>
+                  </div>
+                )}
+                {office.phone && (
+                  <div className="flex items-center gap-2 text-slate-500">
+                    <Phone className="w-3.5 h-3.5" />
+                    <a href={`tel:${office.phone}`} className="text-xs hover:text-blue-600 transition-colors">
+                      {office.phone}
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Target, Zap, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { officeLocations, leadershipTeam } from "@/data/siteContent";
+import { officeLocations, leadershipTeam, newLeadershipTeam } from "@/data/siteContent";
 
 const offices = officeLocations.map(office => ({
   title: office.name,
@@ -113,24 +113,88 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
-                <CardContent className="p-4 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
-                    {member.initials}
-                  </div>
-                  <div className="overflow-hidden">
-                    <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs text-slate-500 truncate mt-0.5">
-                      {member.title}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          {/* 1. Technical & Operational Teams (Original Team) */}
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-800 mb-6 pb-2 border-b border-slate-200">
+              Technical & Operational Teams
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {teamMembers.map((member, index) => (
+                <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                      {member.initials}
+                    </div>
+                    <div className="overflow-hidden">
+                      <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs text-slate-500 truncate mt-0.5">
+                        {member.title}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* 2. Leadership Team – Risk Management, AI & Governance */}
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-800 mb-6 pb-2 border-b border-slate-200">
+              Leadership Team – Risk Management, AI & Governance
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {newLeadershipTeam[0].members.map((member, index) => {
+                const initials = member.name === "TBD" ? "T" : member.name.split(' ').map(n => n[0]).join('');
+                return (
+                  <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                    <CardContent className="p-4 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                        {initials}
+                      </div>
+                      <div className="overflow-hidden">
+                        <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                          {member.name}
+                        </h4>
+                        <p className="text-xs text-slate-500 truncate mt-0.5">
+                          {member.title}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 3. Additional Strategic Practice Leads */}
+          <div>
+            <h3 className="text-xl font-bold text-slate-800 mb-6 pb-2 border-b border-slate-200">
+              Additional Strategic Practice Leads
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {newLeadershipTeam[1].members.map((member, index) => {
+                const initials = member.name === "TBD" ? "T" : member.name.split(' ').map(n => n[0]).join('');
+                return (
+                  <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                    <CardContent className="p-4 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                        {initials}
+                      </div>
+                      <div className="overflow-hidden">
+                        <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                          {member.name}
+                        </h4>
+                        <p className="text-xs text-slate-500 truncate mt-0.5">
+                          {member.title}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
