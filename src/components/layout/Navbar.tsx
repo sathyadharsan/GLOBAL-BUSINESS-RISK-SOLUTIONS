@@ -1,7 +1,7 @@
-"use client";
+
 
 import * as React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -39,7 +39,7 @@ function MegaGrid({
             {col.links.map((l) => (
               <Link
                 key={l.href + l.label}
-                href={l.href}
+                to={l.href}
                 className={cn(LINK, l.bold && "bg-blue-50 text-blue-700 font-semibold")}
               >
                 {CHEV}
@@ -271,7 +271,7 @@ function OfferingsMega() {
         <MegaGrid items={OFFERINGS} />
         <div className="px-6 pb-4 pt-0">
           <Link
-            href="/offerings"
+            to="/offerings"
             className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
           >
             View All Offerings →
@@ -471,7 +471,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
         <div className="flex items-center">
-          <Link href="/" className="flex flex-col items-center text-center">
+          <Link to="/" className="flex flex-col items-center text-center">
             <span className="text-xl font-bold tracking-tight text-primary leading-tight">
               TRUSTFLOW
             </span>
@@ -540,7 +540,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/contact">
+          <Link to="/contact">
             <Button className="bg-primary text-white hover:bg-primary/90">
               <div className="text-left leading-tight">
                 <div className="text-[10px] opacity-90">Contact Us</div>
@@ -559,7 +559,7 @@ export function Navbar() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
               <div className="flex flex-col gap-6 pt-10 pb-8">
                 <div>
-                  <Link href="/" className="flex flex-col items-center text-center mb-4">
+                  <Link to="/" className="flex flex-col items-center text-center mb-4">
                     <span className="text-xl font-bold tracking-tight text-primary leading-tight">
                       TRUSTFLOW
                     </span>
@@ -569,108 +569,108 @@ export function Navbar() {
                   </Link>
                 </div>
                 <div>
-                  <Link href="/" className="text-lg font-semibold text-primary">Home</Link>
+                  <Link to="/" className="text-lg font-semibold text-primary">Home</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link>
-                    <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
-                    <Link href="/insights" className="hover:text-primary transition-colors">Insights</Link>
+                    <Link to="/about-us" className="hover:text-primary transition-colors">About Us</Link>
+                    <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+                    <Link to="/insights" className="hover:text-primary transition-colors">Insights</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/industries" className="text-lg font-semibold text-primary">Industries</Link>
+                  <Link to="/industries" className="text-lg font-semibold text-primary">Industries</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/industries/technology-digital" className="hover:text-primary transition-colors">Technology & Digital</Link>
-                    <Link href="/industries/manufacturing-industrial" className="hover:text-primary transition-colors">Manufacturing & Industrial</Link>
-                    <Link href="/industries/energy-utilities" className="hover:text-primary transition-colors">Energy & Utilities</Link>
-                    <Link href="/industries/financial-services" className="hover:text-primary transition-colors">Financial Services</Link>
-                    <Link href="/industries/infrastructure-real-estate" className="hover:text-primary transition-colors">Infrastructure & Real Estate</Link>
-                    <Link href="/industries/transportation-logistics" className="hover:text-primary transition-colors">Transportation & Logistics</Link>
-                    <Link href="/industries/agriculture-environment" className="hover:text-primary transition-colors">Agriculture & Environment</Link>
-                    <Link href="/industries/healthcare-life-sciences" className="hover:text-primary transition-colors">Healthcare & Life Sciences</Link>
-                    <Link href="/industries/retail-hospitality" className="hover:text-primary transition-colors">Retail & Hospitality</Link>
-                    <Link href="/industries/government-public-sector" className="hover:text-primary transition-colors">Government & Public Sector</Link>
-                    <Link href="/industries/education-nonprofit" className="hover:text-primary transition-colors">Education & Non-Profit</Link>
-                    <Link href="/industries/emerging-industries" className="hover:text-primary transition-colors">Emerging Industries</Link>
+                    <Link to="/industries/technology-digital" className="hover:text-primary transition-colors">Technology & Digital</Link>
+                    <Link to="/industries/manufacturing-industrial" className="hover:text-primary transition-colors">Manufacturing & Industrial</Link>
+                    <Link to="/industries/energy-utilities" className="hover:text-primary transition-colors">Energy & Utilities</Link>
+                    <Link to="/industries/financial-services" className="hover:text-primary transition-colors">Financial Services</Link>
+                    <Link to="/industries/infrastructure-real-estate" className="hover:text-primary transition-colors">Infrastructure & Real Estate</Link>
+                    <Link to="/industries/transportation-logistics" className="hover:text-primary transition-colors">Transportation & Logistics</Link>
+                    <Link to="/industries/agriculture-environment" className="hover:text-primary transition-colors">Agriculture & Environment</Link>
+                    <Link to="/industries/healthcare-life-sciences" className="hover:text-primary transition-colors">Healthcare & Life Sciences</Link>
+                    <Link to="/industries/retail-hospitality" className="hover:text-primary transition-colors">Retail & Hospitality</Link>
+                    <Link to="/industries/government-public-sector" className="hover:text-primary transition-colors">Government & Public Sector</Link>
+                    <Link to="/industries/education-nonprofit" className="hover:text-primary transition-colors">Education & Non-Profit</Link>
+                    <Link to="/industries/emerging-industries" className="hover:text-primary transition-colors">Emerging Industries</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/risks" className="text-lg font-semibold text-primary">Risks</Link>
+                  <Link to="/risks" className="text-lg font-semibold text-primary">Risks</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/risks/cross-industry" className="hover:text-primary transition-colors">Cross-Industry Risks</Link>
-                    <Link href="/risks/cross-functional" className="hover:text-primary transition-colors">Cross-Functional Risks</Link>
-                    <Link href="/risks/industry-specific" className="hover:text-primary transition-colors">Industry-Specific Risks</Link>
-                    <Link href="/risks/emerging" className="hover:text-primary transition-colors">Emerging Risks</Link>
-                    <Link href="/risks/risk-intelligence-center" className="hover:text-primary transition-colors">Risk Intelligence Center</Link>
+                    <Link to="/risks/cross-industry" className="hover:text-primary transition-colors">Cross-Industry Risks</Link>
+                    <Link to="/risks/cross-functional" className="hover:text-primary transition-colors">Cross-Functional Risks</Link>
+                    <Link to="/risks/industry-specific" className="hover:text-primary transition-colors">Industry-Specific Risks</Link>
+                    <Link to="/risks/emerging" className="hover:text-primary transition-colors">Emerging Risks</Link>
+                    <Link to="/risks/risk-intelligence-center" className="hover:text-primary transition-colors">Risk Intelligence Center</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
+                  <Link to="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
                     {Object.entries(CATEGORY_GROUPS).map(([key, cat]) => (
-                      <Link key={key} href={`/offerings/category/${key}`} className="hover:text-primary transition-colors">{cat.label}</Link>
+                      <Link key={key} to={`/offerings/category/${key}`} className="hover:text-primary transition-colors">{cat.label}</Link>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <Link href="/solutions" className="text-lg font-semibold text-primary">Solutions</Link>
+                  <Link to="/solutions" className="text-lg font-semibold text-primary">Solutions</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/solutions/global-program-architecture" className="hover:text-primary transition-colors">Global Program Architecture</Link>
-                    <Link href="/solutions/captive-insurance" className="hover:text-primary transition-colors">Captive Insurance & ART</Link>
-                    <Link href="/solutions/risk-engineering" className="hover:text-primary transition-colors">Risk Engineering & Loss Prevention</Link>
-                    <Link href="/solutions/long-tenor-infrastructure" className="hover:text-primary transition-colors">Long-Tenor Infrastructure</Link>
-                    <Link href="/solutions/tcor-analytics" className="hover:text-primary transition-colors">TCOR Analytics & Benchmarking</Link>
-                    <Link href="/solutions/claims-advocacy" className="hover:text-primary transition-colors">Claims Advocacy</Link>
-                    <Link href="/solutions/property-asset-protection" className="hover:text-primary transition-colors">Property & Asset Protection</Link>
-                    <Link href="/solutions/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
-                    <Link href="/solutions/emerging-risk-solutions" className="hover:text-primary transition-colors">Emerging Risk Solutions</Link>
-                    <Link href="/solutions/liability-governance" className="hover:text-primary transition-colors">Liability & Governance Shield</Link>
+                    <Link to="/solutions/global-program-architecture" className="hover:text-primary transition-colors">Global Program Architecture</Link>
+                    <Link to="/solutions/captive-insurance" className="hover:text-primary transition-colors">Captive Insurance & ART</Link>
+                    <Link to="/solutions/risk-engineering" className="hover:text-primary transition-colors">Risk Engineering & Loss Prevention</Link>
+                    <Link to="/solutions/long-tenor-infrastructure" className="hover:text-primary transition-colors">Long-Tenor Infrastructure</Link>
+                    <Link to="/solutions/tcor-analytics" className="hover:text-primary transition-colors">TCOR Analytics & Benchmarking</Link>
+                    <Link to="/solutions/claims-advocacy" className="hover:text-primary transition-colors">Claims Advocacy</Link>
+                    <Link to="/solutions/property-asset-protection" className="hover:text-primary transition-colors">Property & Asset Protection</Link>
+                    <Link to="/solutions/alternative-risk-transfer" className="hover:text-primary transition-colors">Alternative Risk Transfer</Link>
+                    <Link to="/solutions/emerging-risk-solutions" className="hover:text-primary transition-colors">Emerging Risk Solutions</Link>
+                    <Link to="/solutions/liability-governance" className="hover:text-primary transition-colors">Liability & Governance Shield</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/outcomes" className="text-lg font-semibold text-primary">Outcomes</Link>
+                  <Link to="/outcomes" className="text-lg font-semibold text-primary">Outcomes</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/outcomes/unicorn-ipo" className="hover:text-primary transition-colors">Unicorn IPO — D&O</Link>
-                    <Link href="/outcomes/pe-fund-exit" className="hover:text-primary transition-colors">PE Fund Exit — W&I</Link>
-                    <Link href="/outcomes/it-ransomware" className="hover:text-primary transition-colors">IT Ransomware Attack</Link>
-                    <Link href="/outcomes/factory-fire" className="hover:text-primary transition-colors">Factory Fire — BI + Rebuild</Link>
-                    <Link href="/outcomes/solar-park" className="hover:text-primary transition-colors">500 MW Solar Park</Link>
-                    <Link href="/outcomes/nhai-highway" className="hover:text-primary transition-colors">NHAI Highway Concession</Link>
-                    <Link href="/outcomes/supplier-flood" className="hover:text-primary transition-colors">Supplier Flood — CBI</Link>
-                    <Link href="/outcomes/sebi-adviser" className="hover:text-primary transition-colors">SEBI Adviser PI</Link>
+                    <Link to="/outcomes/unicorn-ipo" className="hover:text-primary transition-colors">Unicorn IPO — D&O</Link>
+                    <Link to="/outcomes/pe-fund-exit" className="hover:text-primary transition-colors">PE Fund Exit — W&I</Link>
+                    <Link to="/outcomes/it-ransomware" className="hover:text-primary transition-colors">IT Ransomware Attack</Link>
+                    <Link to="/outcomes/factory-fire" className="hover:text-primary transition-colors">Factory Fire — BI + Rebuild</Link>
+                    <Link to="/outcomes/solar-park" className="hover:text-primary transition-colors">500 MW Solar Park</Link>
+                    <Link to="/outcomes/nhai-highway" className="hover:text-primary transition-colors">NHAI Highway Concession</Link>
+                    <Link to="/outcomes/supplier-flood" className="hover:text-primary transition-colors">Supplier Flood — CBI</Link>
+                    <Link to="/outcomes/sebi-adviser" className="hover:text-primary transition-colors">SEBI Adviser PI</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/platform" className="text-lg font-semibold text-primary">Platform</Link>
+                  <Link to="/platform" className="text-lg font-semibold text-primary">Platform</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/platform/risk-diagnostic-engine" className="hover:text-primary transition-colors">Risk Diagnostic Engine</Link>
-                    <Link href="/platform/risk-dna-mapper" className="hover:text-primary transition-colors">Risk DNA Mapper</Link>
-                    <Link href="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Threat Intelligence</Link>
-                    <Link href="/platform/contract-intelligence" className="hover:text-primary transition-colors">Contract Intelligence</Link>
-                    <Link href="/platform/ma-due-diligence" className="hover:text-primary transition-colors">M&A Due Diligence Suite</Link>
-                    <Link href="/platform/supply-chain-monitor" className="hover:text-primary transition-colors">Supply Chain Risk Monitor</Link>
-                    <Link href="/platform/political-monitor" className="hover:text-primary transition-colors">Political Risk Monitor</Link>
-                    <Link href="/platform/regulatory-intelligence" className="hover:text-primary transition-colors">Regulatory Intelligence</Link>
-                    <Link href="/platform/climate-scenario" className="hover:text-primary transition-colors">Climate Scenario Analysis</Link>
-                    <Link href="/platform/risk-intelligence-aggregator" className="hover:text-primary transition-colors">Risk Intelligence Aggregator</Link>
-                    <Link href="/platform/counterparty-assessment" className="hover:text-primary transition-colors">Counterparty Assessment</Link>
+                    <Link to="/platform/risk-diagnostic-engine" className="hover:text-primary transition-colors">Risk Diagnostic Engine</Link>
+                    <Link to="/platform/risk-dna-mapper" className="hover:text-primary transition-colors">Risk DNA Mapper</Link>
+                    <Link to="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Threat Intelligence</Link>
+                    <Link to="/platform/contract-intelligence" className="hover:text-primary transition-colors">Contract Intelligence</Link>
+                    <Link to="/platform/ma-due-diligence" className="hover:text-primary transition-colors">M&A Due Diligence Suite</Link>
+                    <Link to="/platform/supply-chain-monitor" className="hover:text-primary transition-colors">Supply Chain Risk Monitor</Link>
+                    <Link to="/platform/political-monitor" className="hover:text-primary transition-colors">Political Risk Monitor</Link>
+                    <Link to="/platform/regulatory-intelligence" className="hover:text-primary transition-colors">Regulatory Intelligence</Link>
+                    <Link to="/platform/climate-scenario" className="hover:text-primary transition-colors">Climate Scenario Analysis</Link>
+                    <Link to="/platform/risk-intelligence-aggregator" className="hover:text-primary transition-colors">Risk Intelligence Aggregator</Link>
+                    <Link to="/platform/counterparty-assessment" className="hover:text-primary transition-colors">Counterparty Assessment</Link>
                   </div>
                 </div>
                 <div>
-                  <Link href="/about-us" className="text-lg font-semibold text-primary">Company</Link>
+                  <Link to="/about-us" className="text-lg font-semibold text-primary">Company</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
-                    <Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link>
-                    <Link href="/about-us#about" className="hover:text-primary transition-colors">Our Story & Mission</Link>
-                    <Link href="/about-us#why-risk" className="hover:text-primary transition-colors">Why Risk Intelligence</Link>
-                    <Link href="/about-us#by-the-numbers" className="hover:text-primary transition-colors">By The Numbers</Link>
-                    <Link href="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Teams</Link>
-                    <Link href="/ecosystem" className="hover:text-primary transition-colors">Ecosystem</Link>
-                    <Link href="/about-us#offices" className="hover:text-primary transition-colors">Our Offices</Link>
-                    <Link href="/insights" className="hover:text-primary transition-colors">Insights & Research</Link>
-                    <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+                    <Link to="/about-us" className="hover:text-primary transition-colors">About Us</Link>
+                    <Link to="/about-us#about" className="hover:text-primary transition-colors">Our Story & Mission</Link>
+                    <Link to="/about-us#why-risk" className="hover:text-primary transition-colors">Why Risk Intelligence</Link>
+                    <Link to="/about-us#by-the-numbers" className="hover:text-primary transition-colors">By The Numbers</Link>
+                    <Link to="/about-us#leadership" className="hover:text-primary transition-colors">Leadership & Teams</Link>
+                    <Link to="/ecosystem" className="hover:text-primary transition-colors">Ecosystem</Link>
+                    <Link to="/about-us#offices" className="hover:text-primary transition-colors">Our Offices</Link>
+                    <Link to="/insights" className="hover:text-primary transition-colors">Insights & Research</Link>
+                    <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 mt-6">
-                  <Link href="/contact">
+                  <Link to="/contact">
                     <Button className="w-full justify-start">
                       <div className="text-left leading-tight">
                         <div className="text-[10px] opacity-90">Contact Us</div>

@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -282,7 +282,7 @@ export function PlatformsLandingLayout() {
             {filteredEntries.map(([slug, data]) => {
               const Icon = data.icon;
               return (
-                <Link key={slug} href={`/platform/${slug}`}>
+                <Link key={slug} to={`/platform/${slug}`}>
                   <Card className="group border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md flex flex-col h-full cursor-pointer">
                     <CardHeader className="pb-3">
                       <div className="flex items-start justify-between mb-2">
@@ -333,7 +333,7 @@ export function PlatformsLandingLayout() {
               if (!data) return null;
               const Icon = data.icon;
               return (
-                <Link key={slug} href={`/platform/${slug}`}>
+                <Link key={slug} to={`/platform/${slug}`}>
                   <Card className="border border-slate-200 bg-white shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                     <CardHeader className="pb-3">
                       <div className="flex items-center gap-3 mb-2">
@@ -549,7 +549,7 @@ export function PlatformsLandingLayout() {
               </h3>
               <div className="space-y-4">
                 {TOP_RISKS.map((risk, i) => (
-                  <Link href={`/risks/${risk.slug}`} key={i} className="block group">
+                  <Link to={`/risks/${risk.slug}`} key={i} className="block group">
                     <Card className="border border-slate-200 bg-white hover:border-red-500 transition-all p-4">
                       <div className="flex justify-between items-center">
                         <div>
@@ -572,7 +572,7 @@ export function PlatformsLandingLayout() {
               </h3>
               <div className="space-y-4">
                 {TOP_SOLUTIONS.map((sol, i) => (
-                  <Link href={`/solutions/${sol.slug}`} key={i} className="block group">
+                  <Link to={`/solutions/${sol.slug}`} key={i} className="block group">
                     <Card className="border border-slate-200 bg-white hover:border-blue-500 transition-all p-4">
                       <div className="flex justify-between items-center">
                         <div>

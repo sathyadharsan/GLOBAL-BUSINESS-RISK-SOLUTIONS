@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import {  useNavigate  } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import {
   Cpu, Factory, Zap, Landmark, Truck, Wheat, Stethoscope, TrendingUp,
@@ -103,7 +103,7 @@ interface IndustriesDashboardProps {
 }
 
 export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const activeCategory = getCategoryForSlug(activeSlug);
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = industriesData[activeSlug];
@@ -111,7 +111,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
   const heroImage = INDUSTRY_IMAGES[activeSlug] || INDUSTRY_IMAGES["default"];
 
   const handleSelect = (id: string) => {
-    router.push(`/industries/${id}`);
+    navigate(`/industries/${id}`);
   };
 
   return (
@@ -287,7 +287,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                 <h4 className="text-xs font-bold text-primary">Ready for sector-specific risk assessment?</h4>
                 <p className="text-[10px] text-muted-foreground">Connect with our industry practice leaders.</p>
               </div>
-              <Button onClick={() => router.push("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
+              <Button onClick={() => navigate("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
                 Request Sector Assessment
               </Button>
             </div>

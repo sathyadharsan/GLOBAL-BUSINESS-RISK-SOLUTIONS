@@ -1,6 +1,6 @@
 import { HeroSlider } from "@/components/sections/HeroSlider";
 import { CheckCircle2, ChevronRight, LayoutGrid } from "lucide-react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import type { DynamicPageContent } from "@/data/siteContent";
 
 export function DynamicLayout({ data }: { data: DynamicPageContent }) {
@@ -52,7 +52,7 @@ export function DynamicLayout({ data }: { data: DynamicPageContent }) {
             Book a 30-minute diagnostic session with our specialized risk architects.
           </p>
           <Link 
-            href="/contact" 
+            to="/contact" 
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-semibold transition-all"
           >
             Book Your Diagnostic <ChevronRight className="w-5 h-5" />

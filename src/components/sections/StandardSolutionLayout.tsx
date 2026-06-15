@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -474,7 +474,7 @@ export function StandardSolutionLayout({
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {relatedRisks.map((risk, i) => (
-                <Link href={risk.href || "#"} key={i} className="block group">
+                <Link to={risk.href || "#"} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-red-500 transition-all h-full">
                     <CardHeader className="pb-3">
                       <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2 group-hover:bg-red-100 transition-colors">
@@ -507,7 +507,7 @@ export function StandardSolutionLayout({
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {relatedOfferings.map((offering, i) => (
-                <Link href={offering.href || "#"} key={i} className="block group">
+                <Link to={offering.href || "#"} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
                     <CardHeader className="pb-3">
                       <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2 group-hover:bg-blue-100 transition-colors">
@@ -540,7 +540,7 @@ export function StandardSolutionLayout({
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {relatedPlatforms.map((platform, i) => (
-                <Link href={platform.href || "#"} key={i} className="block group">
+                <Link to={platform.href || "#"} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
                     <CardHeader className="pb-3">
                       <div className="w-9 h-9 rounded bg-purple-50 flex items-center justify-center mb-2 group-hover:bg-purple-100 transition-colors">

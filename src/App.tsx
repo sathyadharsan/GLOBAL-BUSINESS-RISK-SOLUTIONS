@@ -1,0 +1,79 @@
+import { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { ChatbotProvider } from '@/components/chatbot/ChatbotProvider';
+
+// Lazy load pages
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const AboutUsSlugDetail = lazy(() => import('./pages/AboutUs/SlugDetail'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Ecosystem = lazy(() => import('./pages/Ecosystem'));
+const Industries = lazy(() => import('./pages/Industries'));
+const IndustriesSlugDetail = lazy(() => import('./pages/Industries/SlugDetail'));
+const Insights = lazy(() => import('./pages/Insights'));
+const InsightsSlugDetail = lazy(() => import('./pages/Insights/SlugDetail'));
+const OfferingsCategoryCategoryDetail = lazy(() => import('./pages/Offerings/Category/CategoryDetail'));
+const Offerings = lazy(() => import('./pages/Offerings'));
+const OfferingsSlugDetail = lazy(() => import('./pages/Offerings/SlugDetail'));
+const Outcomes = lazy(() => import('./pages/Outcomes'));
+const OutcomesSlugDetail = lazy(() => import('./pages/Outcomes/SlugDetail'));
+const Home = lazy(() => import('./pages/Home'));
+const Platform = lazy(() => import('./pages/Platform'));
+const PlatformSlugDetail = lazy(() => import('./pages/Platform/SlugDetail'));
+const Risks = lazy(() => import('./pages/Risks'));
+const RisksSlugDetail = lazy(() => import('./pages/Risks/SlugDetail'));
+const SolutionsAlternativeRiskTransfer = lazy(() => import('./pages/Solutions/AlternativeRiskTransfer'));
+const SolutionsEmergingRiskSolutions = lazy(() => import('./pages/Solutions/EmergingRiskSolutions'));
+const SolutionsFinancialTransactionRisk = lazy(() => import('./pages/Solutions/FinancialTransactionRisk'));
+const SolutionsLiabilityGovernance = lazy(() => import('./pages/Solutions/LiabilityGovernance'));
+const Solutions = lazy(() => import('./pages/Solutions'));
+const SolutionsPropertyAssetProtection = lazy(() => import('./pages/Solutions/PropertyAssetProtection'));
+const SolutionsSlugDetail = lazy(() => import('./pages/Solutions/SlugDetail'));
+
+function App() {
+  console.log("App mounted");
+  return (
+    <Router>
+      <div className="min-h-full flex flex-col font-sans">
+        <Navbar />
+        <ChatbotProvider>
+          <main className="flex-1">
+            <Suspense fallback={<div className="flex h-[50vh] items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+              <Routes>
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/about-us/:slug" element={<AboutUsSlugDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/ecosystem" element={<Ecosystem />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/:slug" element={<IndustriesSlugDetail />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/:slug" element={<InsightsSlugDetail />} />
+          <Route path="/offerings/category/:category" element={<OfferingsCategoryCategoryDetail />} />
+          <Route path="/offerings" element={<Offerings />} />
+          <Route path="/offerings/:slug" element={<OfferingsSlugDetail />} />
+          <Route path="/outcomes" element={<Outcomes />} />
+          <Route path="/outcomes/:slug" element={<OutcomesSlugDetail />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/platform" element={<Platform />} />
+          <Route path="/platform/:slug" element={<PlatformSlugDetail />} />
+          <Route path="/risks" element={<Risks />} />
+          <Route path="/risks/:slug" element={<RisksSlugDetail />} />
+          <Route path="/solutions/alternative-risk-transfer" element={<SolutionsAlternativeRiskTransfer />} />
+          <Route path="/solutions/emerging-risk-solutions" element={<SolutionsEmergingRiskSolutions />} />
+          <Route path="/solutions/financial-transaction-risk" element={<SolutionsFinancialTransactionRisk />} />
+          <Route path="/solutions/liability-governance" element={<SolutionsLiabilityGovernance />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/property-asset-protection" element={<SolutionsPropertyAssetProtection />} />
+          <Route path="/solutions/:slug" element={<SolutionsSlugDetail />} />
+              </Routes>
+            </Suspense>
+          </main>
+        </ChatbotProvider>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

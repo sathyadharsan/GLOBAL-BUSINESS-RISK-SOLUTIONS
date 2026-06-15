@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import {  useNavigate  } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import {
   Briefcase, Shield, Flame, Sun, Landmark, Waves, Scale, FileWarning,
@@ -55,7 +55,7 @@ interface UseCasesDashboardProps {
 }
 
 export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const activeCategory = getCategoryForSlug(activeSlug);
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = useCasesData[activeSlug];
@@ -63,7 +63,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
   const heroImage = USECASE_IMAGES[activeSlug] || USECASE_IMAGES["default"];
 
   const handleSelect = (id: string) => {
-    router.push(`/outcomes/${id}`);
+    navigate(`/outcomes/${id}`);
   };
 
   return (
@@ -240,7 +240,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                 <h4 className="text-xs font-bold text-primary">Facing a similar complex operational scenario?</h4>
                 <p className="text-[10px] text-muted-foreground">Let&apos;s build a proactive risk architecture before your next event occurs.</p>
               </div>
-              <Button onClick={() => router.push("/contact")} className="bg-purple-600 hover:bg-purple-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
+              <Button onClick={() => navigate("/contact")} className="bg-purple-600 hover:bg-purple-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
                 Discuss Your Scenario
               </Button>
             </div>

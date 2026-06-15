@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import {  useNavigate  } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -58,7 +58,7 @@ interface AboutUsDashboardProps {
 }
 
 export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const activeCategory = getCategoryForSlug(activeSlug);
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentData = aboutUsData[activeSlug];
@@ -66,7 +66,7 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
   const heroImage = ABOUT_IMAGES[activeSlug] || ABOUT_IMAGES["default"];
 
   const handleSelect = (id: string) => {
-    router.push(`/about-us/${id}`);
+    navigate(`/about-us/${id}`);
   };
 
   return (
@@ -217,7 +217,7 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
                 <h4 className="text-xs font-bold text-primary">Interested in partnering with us?</h4>
                 <p className="text-[10px] text-muted-foreground">Start a diagnostic conversation with our advisory desk today.</p>
               </div>
-              <Button onClick={() => router.push("/contact")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
+              <Button onClick={() => navigate("/contact")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
                 Get In Touch
               </Button>
             </div>

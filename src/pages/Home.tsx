@@ -1,12 +1,13 @@
-"use client";
+
 
 import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen, Server, LineChart, Brain, Network } from "lucide-react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { HeroSlider, HeroSlide } from "@/components/sections/HeroSlider";
 
 export default function Home() {
+  console.log("Home rendered");
   const slides: HeroSlide[] = [
     {
       title: (
@@ -297,7 +298,7 @@ export default function Home() {
             ].map((card, i) => {
               const Icon = card.icon;
               return (
-                <Link key={i} href={card.href} className="group">
+                <Link key={i} to={card.href} className="group">
                   <div className="h-full bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                     <div className="flex items-start justify-between mb-4">
                       <div className={`w-12 h-12 rounded-xl bg-${card.color}-50 flex items-center justify-center group-hover:bg-${card.color}-600 transition-colors`}>
@@ -367,7 +368,7 @@ export default function Home() {
               const Icon = risk.icon;
               return (
                 <div key={risk.id}>
-                  <Link href={`/risks/${risk.id}`} className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:bg-white hover:border-blue-300 transition-all duration-300 block">
+                  <Link to={`/risks/${risk.id}`} className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:bg-white hover:border-blue-300 transition-all duration-300 block">
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                         <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
@@ -402,7 +403,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {featuredOfferings.map((offering, i) => (
-              <Link key={i} href={offering.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+              <Link key={i} to={offering.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
                 <div className="flex-1">
                   <offering.icon className="h-8 w-8 text-blue-600 mb-4" />
                   <h3 className="text-base font-bold text-primary mb-2 font-serif">
@@ -496,7 +497,7 @@ export default function Home() {
           >
             {industries.map((ind, i) => (
               <div key={ind.slug} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] xl:w-[calc(20%-20px)]">
-                <Link href={`/industries/${ind.slug}`} className="group bg-slate-50 border border-slate-200/60 hover:bg-white hover:border-blue-500/30 p-5 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-[230px]">
+                <Link to={`/industries/${ind.slug}`} className="group bg-slate-50 border border-slate-200/60 hover:bg-white hover:border-blue-500/30 p-5 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-[230px]">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                       <ind.icon className="w-5 h-5" />
@@ -534,7 +535,7 @@ export default function Home() {
               const Icon = solution.icon;
               return (
                 <div key={solution.id}>
-                  <Link href={`/solutions/${solution.id}`} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 block">
+                  <Link to={`/solutions/${solution.id}`} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 block">
                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                       <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
                     </div>
@@ -671,7 +672,7 @@ export default function Home() {
             </div>
             
             <div className="flex items-center gap-3 shrink-0">
-              <Link href="/insights" className="text-blue-600 font-semibold hover:text-blue-800 flex items-center text-sm mr-4 hidden sm:flex">
+              <Link to="/insights" className="text-blue-600 font-semibold hover:text-blue-800 flex items-center text-sm mr-4 hidden sm:flex">
                 View all publications <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <button
@@ -782,7 +783,7 @@ export default function Home() {
             ].map((platform, i) => {
               const Icon = platform.icon;
               return (
-                <Link key={i} href={platform.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                <Link key={i} to={platform.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
                   <div className="flex-1">
                     <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                       <Icon className="h-5 w-5 text-blue-600 group-hover:text-white" />
@@ -804,7 +805,7 @@ export default function Home() {
             })}
           </div>
           <div className="text-center mt-10">
-            <Link href="/platform">
+            <Link to="/platform">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
                 View All 45+ Platforms <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -825,7 +826,7 @@ export default function Home() {
             Connect with our senior risk architects for a comprehensive assessment and customized risk transfer architecture.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg h-14 px-8">
                 <div className="text-left">
                   <div className="text-xs opacity-90">Call Us For</div>
@@ -833,7 +834,7 @@ export default function Home() {
                 </div>
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold h-14 px-8">
                 <div className="text-left">
                   <div className="text-xs opacity-90">Schedule</div>

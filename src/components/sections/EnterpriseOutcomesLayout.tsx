@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -531,7 +531,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                 const Icon = platformDetail?.icon || Target;
                 return (
                   <Link
-                    href={`/platform/${plat}`}
+                    to={`/platform/${plat}`}
                     key={i}
                     className="block group"
                   >

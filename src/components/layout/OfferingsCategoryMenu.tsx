@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+import { Link } from 'react-router-dom';
 import {
   NavigationMenuContent,
   NavigationMenuItem,
@@ -23,7 +23,7 @@ export function OfferingsCategoryMenu() {
               return (
                 <Link
                   key={key}
-                  href={`/offerings/category/${key}`}
+                  to={`/offerings/category/${key}`}
                   className="flex items-start gap-2.5 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all group"
                 >
                   <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
@@ -37,7 +37,7 @@ export function OfferingsCategoryMenu() {
             })}
           </div>
           <div className="pt-4 border-t border-slate-200">
-            <Link href="/offerings" className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+            <Link to="/offerings" className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
               View All Offerings →
             </Link>
           </div>

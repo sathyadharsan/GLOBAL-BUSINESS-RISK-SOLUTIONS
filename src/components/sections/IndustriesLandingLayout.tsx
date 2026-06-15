@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -162,7 +162,7 @@ export function IndustriesLandingLayout() {
             ].map((industry) => {
               const Icon = INDUSTRY_ICONS[industry.slug] || Shield;
               return (
-                <Link key={industry.slug} href={`/industries/${industry.slug}`}>
+                <Link key={industry.slug} to={`/industries/${industry.slug}`}>
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow h-full cursor-pointer">
                     <CardHeader className="pb-3">
                       <div className="flex items-center gap-3 mb-2">
@@ -213,7 +213,7 @@ export function IndustriesLandingLayout() {
                 "healthcare-life-sciences": "Healthcare & Life Sciences",
               };
               return (
-                <Link key={slug} href={`/industries/${slug}`}>
+                <Link key={slug} to={`/industries/${slug}`}>
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md transition-shadow">
                     <CardHeader className="pb-3">
                       <div className="flex items-center gap-3 mb-2">

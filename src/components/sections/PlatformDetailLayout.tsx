@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -598,7 +598,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
               if (!risk) return null;
               const Icon = risk.icon || AlertTriangle;
               return (
-                <Link href={`/risks/${riskSlug}`} key={i} className="block group">
+                <Link to={`/risks/${riskSlug}`} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-red-500 transition-all h-full">
                     <CardHeader className="pb-3">
                       <div className="w-11 h-11 rounded-lg bg-red-50 flex items-center justify-center mb-3 group-hover:bg-red-100 transition-colors">
@@ -644,7 +644,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                 solution?.description ||
                 "Specialized risk transfer program";
               return (
-                <Link href={`/solutions/${solSlug}`} key={i} className="block group">
+                <Link to={`/solutions/${solSlug}`} key={i} className="block group">
                   <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
                     <CardHeader className="pb-3">
                       <div className="w-11 h-11 rounded-lg bg-[#EAF2FF] flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors">
@@ -686,7 +686,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                 if (!plat) return null;
                 const Icon = plat.icon || Target;
                 return (
-                  <Link href={`/platform/${moduleSlug}`} key={i} className="block group">
+                  <Link to={`/platform/${moduleSlug}`} key={i} className="block group">
                     <Card className="border-slate-300 bg-white shadow-sm hover:shadow-md group-hover:border-blue-500 transition-all h-full">
                       <CardContent className="p-6 flex items-start gap-4">
                         <div className="w-11 h-11 rounded-lg bg-[#EAF2FF] flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">

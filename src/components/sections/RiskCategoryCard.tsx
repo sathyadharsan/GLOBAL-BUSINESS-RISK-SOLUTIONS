@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { riskCategories, risksData } from "@/data/risksData";
 
@@ -36,7 +36,7 @@ export default function RiskCategoryCard({ category }: RiskCategoryCardProps) {
           return (
             <Link
               key={risk.id}
-              href={`/risks/${risk.id}`}
+              to={`/risks/${risk.id}`}
               className="flex items-center gap-3 p-3 rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-slate-200 transition-all duration-200"
             >
               <div className="flex-shrink-0">
@@ -63,7 +63,7 @@ export default function RiskCategoryCard({ category }: RiskCategoryCardProps) {
         })}
         {category.risks.length > 3 && (
           <Link
-            href={`/risks/${category.id}`}
+            to={`/risks/${category.id}`}
             className="block text-center text-sm font-medium text-primary hover:text-primary/80"
           >
             View all {category.risks.length} risks in this category →

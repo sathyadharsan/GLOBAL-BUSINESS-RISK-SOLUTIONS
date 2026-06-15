@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import {  useNavigate  } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import {
   Building2, Shield, Activity, Anchor, Briefcase, Globe,
@@ -63,14 +63,14 @@ interface OfferingsDashboardProps {
 }
 
 export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const activeCategory = getCategoryForSlug(activeSlug);
   const activeConfig = SECTIONS_CONFIG[activeCategory];
   const currentOfferingData = offeringsData[activeSlug] || offeringsData["property-sfsp"];
   const activeGroupItems = CATEGORY_ITEMS[activeCategory] || [];
 
   const handleSelect = (id: string) => {
-    router.push(`/offerings/${id}`);
+    navigate(`/offerings/${id}`);
   };
 
   return (
@@ -341,7 +341,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                     <h4 className="text-sm font-bold text-primary font-serif">Need specialized risk architecture?</h4>
                     <p className="text-xs text-muted-foreground">Book a free 30-minute diagnostic session with our senior risk underwriters.</p>
                   </div>
-                  <Button onClick={() => router.push("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm w-full sm:w-auto h-11 px-6">
+                  <Button onClick={() => navigate("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm w-full sm:w-auto h-11 px-6">
                     Request Free Risk Assessment
                   </Button>
                 </div>

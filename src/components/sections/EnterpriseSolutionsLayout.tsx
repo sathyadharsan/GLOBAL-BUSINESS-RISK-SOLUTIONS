@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -216,7 +216,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
                   </p>
                   <div className="pt-4 flex items-center justify-between border-t border-slate-100">
                     <Link
-                      href={`/offerings/${offering.slug}`}
+                      to={`/offerings/${offering.slug}`}
                       className="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
                     >
                       Learn More

@@ -1,7 +1,7 @@
-"use client";
+
 
 import * as React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -147,7 +147,7 @@ export default function RiskDiagnostic() {
           <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
             Our risk architects will provide a detailed analysis of your organization's risk profile and coverage gaps.
           </p>
-          <Link href="/contact">
+          <Link to="/contact">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               Book Free Risk Diagnostic <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone, Cloud, Database, Server, Box, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { officeLocations } from "@/data/siteContent";
@@ -13,7 +13,7 @@ export function Footer() {
         {/* Mega Menu Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-8 mb-4">
           <div className="md:col-span-3 lg:col-span-2 space-y-4 pr-8">
-            <Link href="/" className="inline-block text-xl font-bold tracking-tight text-slate-900">
+            <Link to="/" className="inline-block text-xl font-bold tracking-tight text-slate-900">
               TRUSTFLOW
             </Link>
             <p className="text-xs text-slate-500 leading-relaxed pr-4">
@@ -30,13 +30,13 @@ export function Footer() {
               </div>
             </div>
             <div className="flex gap-3 pt-2">
-              <Link href="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-600 transition-all">
+              <Link to="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-600 transition-all">
                 <span className="text-[10px] font-bold">in</span>
               </Link>
-              <Link href="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-400 transition-all">
+              <Link to="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-400 transition-all">
                 <span className="text-[10px] font-bold">tw</span>
               </Link>
-              <Link href="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-800 transition-all">
+              <Link to="#" className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-blue-800 transition-all">
                 <span className="text-[10px] font-bold">fb</span>
               </Link>
             </div>
@@ -45,59 +45,59 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-800">Platform</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/platform/risk-diagnostic-engine" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk Diagnostic Engine</Link></li>
-              <li><Link href="/platform/risk-dna-mapper" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk DNA Mapper</Link></li>
-              <li><Link href="/platform/cyber-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Cyber Intelligence</Link></li>
-              <li><Link href="/platform/counterparty-assessment" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Counterparty Analytics</Link></li>
-              <li><Link href="/platform/contract-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Contract Intelligence</Link></li>
-              <li><Link href="/platform/regulatory-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Regulatory Intelligence</Link></li>
+              <li><Link to="/platform/risk-diagnostic-engine" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk Diagnostic Engine</Link></li>
+              <li><Link to="/platform/risk-dna-mapper" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk DNA Mapper</Link></li>
+              <li><Link to="/platform/cyber-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Cyber Intelligence</Link></li>
+              <li><Link to="/platform/counterparty-assessment" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Counterparty Analytics</Link></li>
+              <li><Link to="/platform/contract-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Contract Intelligence</Link></li>
+              <li><Link to="/platform/regulatory-intelligence" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Regulatory Intelligence</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-800">Solutions</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/solutions/global-program-architecture" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Global Program Architecture</Link></li>
-              <li><Link href="/solutions/captive-insurance" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Captive Insurance & ART</Link></li>
-              <li><Link href="/solutions/risk-engineering" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk Engineering</Link></li>
-              <li><Link href="/solutions/long-tenor-infrastructure" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Long-Tenor Infrastructure</Link></li>
-              <li><Link href="/solutions/tcor-analytics" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">TCOR Analytics</Link></li>
-              <li><Link href="/solutions/claims-advocacy" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Claims Advocacy</Link></li>
+              <li><Link to="/solutions/global-program-architecture" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Global Program Architecture</Link></li>
+              <li><Link to="/solutions/captive-insurance" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Captive Insurance & ART</Link></li>
+              <li><Link to="/solutions/risk-engineering" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Risk Engineering</Link></li>
+              <li><Link to="/solutions/long-tenor-infrastructure" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Long-Tenor Infrastructure</Link></li>
+              <li><Link to="/solutions/tcor-analytics" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">TCOR Analytics</Link></li>
+              <li><Link to="/solutions/claims-advocacy" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Claims Advocacy</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-800">Offerings</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/offerings/category/insurance-solutions" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Insurance Solutions</Link></li>
-              <li><Link href="/offerings/category/cyber-digital-risk" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Cyber & Digital Risk</Link></li>
-              <li><Link href="/offerings/category/warranty-guarantee" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Warranty & Guarantee</Link></li>
-              <li><Link href="/offerings/category/alternative-risk-transfer" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Alternative Risk Transfer</Link></li>
-              <li><Link href="/offerings/category/ai-contract-analytics" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">AI Contract & Analytics</Link></li>
-              <li><Link href="/offerings/category/industry-programs" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Industry Programs</Link></li>
+              <li><Link to="/offerings/category/insurance-solutions" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Insurance Solutions</Link></li>
+              <li><Link to="/offerings/category/cyber-digital-risk" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Cyber & Digital Risk</Link></li>
+              <li><Link to="/offerings/category/warranty-guarantee" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Warranty & Guarantee</Link></li>
+              <li><Link to="/offerings/category/alternative-risk-transfer" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Alternative Risk Transfer</Link></li>
+              <li><Link to="/offerings/category/ai-contract-analytics" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">AI Contract & Analytics</Link></li>
+              <li><Link to="/offerings/category/industry-programs" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Industry Programs</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-800">Industries</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/industries/technology-digital" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Technology</Link></li>
-              <li><Link href="/industries/financial-services" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Financial Services</Link></li>
-              <li><Link href="/industries/healthcare-life-sciences" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Healthcare</Link></li>
-              <li><Link href="/industries/manufacturing-industrial" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Manufacturing</Link></li>
-              <li><Link href="/industries/energy-utilities" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Energy</Link></li>
-              <li><Link href="/industries/infrastructure-real-estate" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Real Estate</Link></li>
+              <li><Link to="/industries/technology-digital" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Technology</Link></li>
+              <li><Link to="/industries/financial-services" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Financial Services</Link></li>
+              <li><Link to="/industries/healthcare-life-sciences" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Healthcare</Link></li>
+              <li><Link to="/industries/manufacturing-industrial" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Manufacturing</Link></li>
+              <li><Link to="/industries/energy-utilities" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Energy</Link></li>
+              <li><Link to="/industries/infrastructure-real-estate" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Real Estate</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-800">Company</h4>
             <ul className="space-y-2.5">
-              <li><Link href="/about-us#about" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">About Us</Link></li>
-              <li><Link href="/about-us#leadership" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Leadership & Culture</Link></li>
-              <li><Link href="/about-us#offices" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Our Offices</Link></li>
-              <li><Link href="/about-us/careers" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Contact Us</Link></li>
+              <li><Link to="/about-us#about" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">About Us</Link></li>
+              <li><Link to="/about-us#leadership" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Leadership & Culture</Link></li>
+              <li><Link to="/about-us#offices" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Our Offices</Link></li>
+              <li><Link to="/about-us/careers" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -181,12 +181,12 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Trust Flow. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link href="#" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-slate-800 transition-colors">Security</Link>
-            <Link href="#" className="hover:text-slate-800 transition-colors">Copyright</Link>
-            <Link href="#" className="hover:text-slate-800 transition-colors">Cookies</Link>
-            <Link href="#" className="hover:text-slate-800 transition-colors">Sitemap</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Terms of Service</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Security</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Copyright</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Cookies</Link>
+            <Link to="#" className="hover:text-slate-800 transition-colors">Sitemap</Link>
           </div>
         </div>
 

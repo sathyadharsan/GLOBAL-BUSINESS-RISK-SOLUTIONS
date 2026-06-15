@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -654,7 +654,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.relatedRisks.map((item, i) => (
                           <Link
                             key={i}
-                            href={`/risks/${Object.keys(risksData).find(key => risksData[key].label === item) || ""}`}
+                            to={`/risks/${Object.keys(risksData).find(key => risksData[key].label === item) || ""}`}
                           >
                             <span className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-200 cursor-pointer hover:bg-red-100 transition-colors">
                               {item}

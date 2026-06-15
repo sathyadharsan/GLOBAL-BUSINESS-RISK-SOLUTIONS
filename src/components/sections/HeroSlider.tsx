@@ -1,8 +1,8 @@
-"use client";
+
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface HeroSlide {
@@ -106,7 +106,7 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
               {activeSlide.buttons.map((btn, i) => {
                 if (btn.href) {
                   return (
-                    <Link key={i} href={btn.href} className="inline-flex">
+                    <Link key={i} to={btn.href} className="inline-flex">
                       <Button
                         size="lg"
                         variant={btn.variant || "default"}

@@ -1,12 +1,13 @@
-"use client";
+
 
 import * as React from "react";
-import { usePathname } from "next/navigation";
+import {  useLocation  } from 'react-router-dom';
 import { useChatbot } from "@/hooks/useChatbot";
 import { ChatbotWidget } from "@/components/chatbot/ChatbotWidget";
 
 export function ChatbotProvider({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const location = useLocation();
+  const pathname = location.pathname;
   const chatbot = useChatbot(pathname);
 
   return (

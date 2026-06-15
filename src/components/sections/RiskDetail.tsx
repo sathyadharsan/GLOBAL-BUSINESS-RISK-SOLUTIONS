@@ -1,7 +1,7 @@
-"use client";
+
 
 import * as React from "react";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -41,7 +41,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
         <div className="text-center space-y-4">
           <h1 className="text-3xl font-bold text-primary">Risk Not Found</h1>
           <p className="text-muted-foreground">The requested risk category or detail page does not exist.</p>
-          <Link href="/risks">
+          <Link to="/risks">
             <Button className="bg-primary hover:bg-primary/90 text-white">
               ← Back to Risk Library
             </Button>
@@ -113,7 +113,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
               return (
                 <Link
                   key={riskItem.id}
-                  href={`/risks/${riskItem.id}`}
+                  to={`/risks/${riskItem.id}`}
                   className="group border rounded-xl border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
                 >
                   <div className="p-6 space-y-4">
@@ -141,7 +141,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           </div>
 
           <div className="mt-12 text-center">
-            <Link href="/risks">
+            <Link to="/risks">
               <Button variant="outline" className="border-slate-200 text-primary hover:bg-slate-50">
                 ← View All Risk Categories
               </Button>
@@ -173,7 +173,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
             <div className="flex items-center gap-3 mb-4">
               {category && (
                 <Link
-                  href={`/risks/${category.id}`}
+                  to={`/risks/${category.id}`}
                   className="text-xs font-semibold px-2 py-1 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
                 >
                   ← {category.label}
@@ -289,7 +289,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           </div>
           <div className="flex flex-wrap gap-2">
             {risk.relatedIndustries.map((industry, i) => (
-              <Link key={i} href={`/industries/${industry}`}>
+              <Link key={i} to={`/industries/${industry}`}>
                 <Badge variant="outline" className="text-xs hover:bg-primary/5 cursor-pointer px-3 py-1">
                   {industry === "all" ? "All Industries" : industry.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
                 </Badge>
@@ -305,7 +305,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           </div>
           <div className="flex flex-wrap gap-2">
             {risk.relatedOfferings.map((offering, i) => (
-              <Link key={i} href={`/offerings/${offering}`}>
+              <Link key={i} to={`/offerings/${offering}`}>
                 <Badge variant="outline" className="text-xs hover:bg-primary/5 cursor-pointer px-3 py-1">
                   {offering.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase())}
                 </Badge>
@@ -365,7 +365,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
             Get a specialized risk assessment for this specific threat to your organization.
           </p>
-          <Link href="/contact">
+          <Link to="/contact">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               Request Risk Assessment <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
