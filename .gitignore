@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# vite build
+dist/
+# tar archives
+*.tar
+*.tar.gz
+*.tgz
