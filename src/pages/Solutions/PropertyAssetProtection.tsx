@@ -5,7 +5,7 @@ import { offeringsData } from "@/data/offeringsData";
 
 export async function generateMetadata() {
   return {
-    title: "Property & Asset Protection Solutions | Global Business Risk Solutions",
+    title: "Property & Asset Protection Solutions | TRUSTFLOW",
     description: "Comprehensive protection for buildings, machinery, inventory, and revenue streams against fire, natural disasters, theft, and operational perils.",
   };
 }

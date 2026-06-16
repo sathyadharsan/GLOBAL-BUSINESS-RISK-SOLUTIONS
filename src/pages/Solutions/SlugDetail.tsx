@@ -24,7 +24,7 @@ export async function generateMetadata({
   const offeringData = offeringsData[slug];
   if (offeringData) {
     return {
-      title: `${offeringData.title} | Global Business Risk Solutions`,
+      title: `${offeringData.title} | TRUSTFLOW`,
       description: offeringData.shortDescription || offeringData.executiveOverview,
     };
   }
@@ -34,7 +34,7 @@ export async function generateMetadata({
     const solutionData = solutionsData[slug];
     if (solutionData) {
       return {
-        title: `${solutionData.title} | Global Business Risk Solutions`,
+        title: `${solutionData.title} | TRUSTFLOW`,
         description: solutionData.description,
       };
     }
@@ -44,7 +44,7 @@ export async function generateMetadata({
   const solutionData = solutionsData[slug];
   if (solutionData) {
     return {
-      title: `${solutionData.title} | Global Business Risk Solutions`,
+      title: `${solutionData.title} | TRUSTFLOW`,
       description: solutionData.description,
     };
   }

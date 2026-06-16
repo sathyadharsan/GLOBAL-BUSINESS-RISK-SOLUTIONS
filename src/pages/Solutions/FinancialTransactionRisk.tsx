@@ -5,7 +5,7 @@ import { offeringsData } from "@/data/offeringsData";
 
 export async function generateMetadata() {
   return {
-    title: "Financial & Transaction Risk Solutions | Global Business Risk Solutions",
+    title: "Financial & Transaction Risk Solutions | TRUSTFLOW",
     description: "Coverage for accounts receivable, contractual guarantees, transaction risk, and political uncertainty in emerging markets.",
   };
 }

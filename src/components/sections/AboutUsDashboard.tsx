@@ -84,9 +84,9 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
         </div>
         <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">About GBRS</span>
+            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">About TRUSTFLOW</span>
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
-              About Global Business Risk Solutions
+              About TRUSTFLOW
             </h1>
             <p className="text-base md:text-lg text-gray-200 max-w-3xl leading-relaxed">
               We are risk architects — not insurance agents. We design structural balance sheet protection for the world&apos;s most dynamic enterprises across 150+ countries.

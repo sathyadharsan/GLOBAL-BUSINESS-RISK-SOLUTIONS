@@ -884,7 +884,7 @@ export const aboutUsData: Record<string, DynamicPageContent> = {
     title: "Company Overview",
     subtitle: "Protect the Balance Sheet. Enable the Business Plan.",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    description: "Global Business Risk Solutions operates at the intersection of corporate governance, capital efficiency, and strategic risk transfer. We act as trusted advisors to executive boards, risk managers, and institutional investors across 150+ countries. Our approach transcends traditional brokerage—we build resilient architectures that withstand the complexities of the modern global economy.",
+    description: "TRUSTFLOW operates at the intersection of corporate governance, capital efficiency, and strategic risk transfer. We act as trusted advisors to executive boards, risk managers, and institutional investors across 150+ countries. Our approach transcends traditional brokerage—we build resilient architectures that withstand the complexities of the modern global economy.",
     features: [
       { title: "Enterprise Value Preserved", description: "Securing physical assets, intellectual property, brand equity, and stakeholder trust against tail risks." },
       { title: "Earnings Volatility Reduced", description: "Stabilizing cash flow, safeguarding debt covenants, and ensuring investor confidence during disruptions." },

@@ -194,7 +194,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                 <div className="flex-1 bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm space-y-4 hover:shadow transition-shadow border-l-4 border-l-blue-500">
                   <div className="flex items-center gap-2 text-blue-600 font-extrabold text-xs uppercase tracking-wider border-b pb-2">
                     <Layers className="w-4.5 h-4.5" />
-                    <span>GBRS Solution Architecture</span>
+                    <span>TRUSTFLOW Solution Architecture</span>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

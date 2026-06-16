@@ -5,7 +5,7 @@ import { offeringsData } from "@/data/offeringsData";
 
 export async function generateMetadata() {
   return {
-    title: "Liability & Governance Shield Solutions | Global Business Risk Solutions",
+    title: "Liability & Governance Shield Solutions | TRUSTFLOW",
     description: "Protection against third-party claims, product liability, professional errors, board decisions, and evolving AI and cyber liabilities.",
   };
 }

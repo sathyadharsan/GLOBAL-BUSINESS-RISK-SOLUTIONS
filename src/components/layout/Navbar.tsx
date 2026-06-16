@@ -387,7 +387,7 @@ const OUTCOMES = [
 
 // ─── Company: 1 row × 4 cols ───
 const COMPANY = [
-  { title: "ABOUT GBRS", links: [
+  { title: "ABOUT TRUSTFLOW", links: [
       { href: "/about-us", label: "About Us" },
       { href: "/about-us#about", label: "Our Story & Mission" },
       { href: "/about-us#why-risk", label: "Why Risk Intelligence" },

@@ -17,7 +17,7 @@ const teamMembers = leadershipTeam.flatMap((dept) =>
   dept.members.map((m) => ({ ...m, dept: dept.name, initials: m.name.split(' ').map(n => n[0]).join('') }))
 );
 
-const gbrsCapabilities = [
+const trustflowCapabilities = [
   "Enterprise Risk Management (ERM)",
   "Governance, Risk & Compliance (GRC)",
   "Cyber Risk & Digital Resilience",
@@ -91,7 +91,7 @@ export default function AboutUs() {
                 From cyber threats and regulatory disruptions to climate events, operational failures, supply-chain vulnerabilities, and AI-driven risks, the cost of being unprepared has never been higher.
               </p>
               <p className="text-base text-slate-600 leading-relaxed">
-                At <strong>Global Business Risk Solutions (GBRS)</strong>, we help organizations move beyond reactive risk management to <strong>predictive, intelligence-driven resilience</strong>.
+                At <strong>TRUSTFLOW</strong>, we help organizations move beyond reactive risk management to <strong>predictive, intelligence-driven resilience</strong>.
               </p>
               <p className="text-base text-slate-600 leading-relaxed">
                 By combining deep domain expertise, AI-powered analytics, governance frameworks, and real-time risk intelligence, we enable enterprises, governments, insurers, and critical infrastructure operators to anticipate threats, make faster decisions, and build sustainable resilience.
@@ -132,10 +132,10 @@ export default function AboutUs() {
                     <div className="p-2 bg-orange-100 rounded-lg">
                       <Zap className="w-5 h-5 text-orange-500" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">What Makes GBRS Different</h3>
+                    <h3 className="text-xl font-bold text-slate-900">What Makes TRUSTFLOW Different</h3>
                   </div>
                   <ul className="space-y-4">
-                    {gbrsCapabilities.map((cap) => (
+                    {trustflowCapabilities.map((cap) => (
                       <li key={cap} className="flex items-start gap-3">
                         <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
                         <span className="text-slate-700 font-medium">{cap}</span>
@@ -184,7 +184,7 @@ export default function AboutUs() {
               <BarChart3 className="w-4 h-4" /> BY THE NUMBERS
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-              GBRS <span className="text-blue-600">Vision in Action</span>
+              TRUSTFLOW <span className="text-blue-600">Vision in Action</span>
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
               Building AI-Powered Risk Intelligence Platforms that help organizations see risks earlier, understand impacts faster, respond with confidence, recover stronger, and build long-term resilience.
@@ -223,7 +223,7 @@ export default function AboutUs() {
                 Partnering to Build the Future of <span className="text-blue-400">Risk Intelligence</span>
               </h2>
               <p className="text-base md:text-lg text-slate-300 leading-relaxed">
-                GBRS collaborates with leading global technology, insurance, cyber security, ESG, and cloud providers to deliver next-generation risk intelligence and resilience solutions.
+                TRUSTFLOW collaborates with leading global technology, insurance, cyber security, ESG, and cloud providers to deliver next-generation risk intelligence and resilience solutions.
               </p>
               <div className="pt-4">
                 <Link to="/ecosystem" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 py-2">
@@ -407,7 +407,7 @@ export default function AboutUs() {
             <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #fff 0%, transparent 70%)", transform: "translate(-30%, 30%)" }} />
 
             <div className="relative z-10 px-8 py-16 text-center text-white space-y-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-blue-200">Global Business Risk Solutions</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-200">TRUSTFLOW</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
                 Transform Risk Management into Risk Intelligence
               </h2>

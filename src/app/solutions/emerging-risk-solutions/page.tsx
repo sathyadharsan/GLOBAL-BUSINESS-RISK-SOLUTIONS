@@ -5,7 +5,7 @@ import { offeringsData } from "@/data/offeringsData";
 
 export async function generateMetadata() {
   return {
-    title: "Emerging Risk Solutions | Global Business Risk Solutions",
+    title: "Emerging Risk Solutions | TRUSTFLOW",
     description: "Parametric triggers, AI liability, space insurance, climate risk, and cyber-physical convergence addressing novel enterprise exposures.",
   };
 }

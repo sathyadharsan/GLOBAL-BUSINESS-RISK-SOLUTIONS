@@ -69,14 +69,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (slug === "risk-intelligence-center") {
     return {
-      title: "Risk Intelligence Center | Global Business Risk Solutions",
+      title: "Risk Intelligence Center | TRUSTFLOW",
       description: "Premium dashboard for monitoring top enterprise, cyber, regulatory and climate risks",
     };
   }
 
   if (slug === "risk-diagnostic") {
     return {
-      title: "Risk Diagnostic | Global Business Risk Solutions",
+      title: "Risk Diagnostic | TRUSTFLOW",
       description: "Board-level risk dashboard with exposure analysis and coverage gaps",
     };
   }
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const isRisk = risksData[slug];
   if (isRisk) {
     return {
-      title: `${isRisk.label} | Global Business Risk Solutions`,
+      title: `${isRisk.label} | TRUSTFLOW`,
       description: isRisk.description,
     };
   }

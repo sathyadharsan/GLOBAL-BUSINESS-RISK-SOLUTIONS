@@ -12,7 +12,7 @@ export async function generateMetadata({
   const data = aboutUsData[slug];
   if (!data) return { title: "Not Found" };
   return {
-    title: `${data.title} | Global Business Risk Solutions`,
+    title: `${data.title} | TRUSTFLOW`,
     description: data.description,
   };
 }
