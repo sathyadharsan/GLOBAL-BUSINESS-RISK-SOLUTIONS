@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { TwoPanelLayout, SidebarGroup } from "@/components/layout/TwoPanelLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {  useSearchParams  } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   FileText, ShieldAlert, Globe, Phone, MapPin,
   ArrowRight, Shield, Target, LayoutGrid, CheckCircle2, ChevronRight
@@ -266,7 +266,7 @@ export default function Contact() {
                   <p className="text-xs text-red-900/80 leading-relaxed mb-4">
                     For immediate consultation on Insurance Advisory, Cyber Risk mitigation, and Business Continuity planning.
                   </p>
-                  <div className="text-lg font-bold text-red-700 font-mono">+1 (800) 555-LOSS</div>
+                  <div className="text-lg font-bold text-red-700 font-mono"> +91 951328861</div>
                 </Card>
 
                 <Card className="border shadow-none bg-blue-50/50 border-blue-100 p-6">
@@ -277,7 +277,7 @@ export default function Contact() {
                   <p className="text-xs text-blue-900/80 leading-relaxed mb-4">
                     For Governance, Risk & Compliance (GRC) assessments, enterprise partnerships, and general consulting inquiries.
                   </p>
-                  <div className="text-lg font-bold text-blue-700 font-mono">connect@trustflow.in</div>
+                  <div className="text-lg font-bold text-blue-700 font-mono">Sales@trustflow.in</div>
                 </Card>
               </div>
             </div>

@@ -26,9 +26,12 @@ const OFFERTING_IMAGES: Record<string, string> = {
   "trade-credit-2": "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
   "political-risk-2": "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
   "m&a-warranty": "https://images.unsplash.com/photo-1542744095-e262ec83c320?q=80&w=2070&auto=format&fit=crop",
-  "marine-cargo": "https://images.unsplash.com/photo-1581091226814-5c5a0e1e8b2d?q=80&w=2070&auto=format&fit=crop",
+  "marine-cargo-2": "https://images.unsplash.com/photo-1581091226814-5c5a0e1e8b2d?q=80&w=2070&auto=format&fit=crop",
   "parametric": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2072&auto=format&fit=crop",
-  "fidelity": "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+  "crime-fidelity": "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
+  "space-insurance": "https://images.unsplash.com/photo-1446776811953-ab9d6f5b7ca0?q=80&w=2070&auto=format&fit=crop",
+  "ai-liability-advanced": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2070&auto=format&fit=crop",
+  "climate-risk-advisory": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
   "default": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
 };
 

@@ -45,9 +45,9 @@ const CATEGORY_ITEMS: Record<string, { id: string; label: string; icon: React.Co
     { id: "marine-hull-2", label: "Commercial Motor & Fleet", icon: Truck },
   ],
   emerging: [
-    { id: "ai-liability", label: "AI & Algorithmic Liability", icon: Cpu, badge: "New" },
-    { id: "space", label: "Space & Satellite", icon: Rocket, badge: "New" },
-    { id: "climate-esg", label: "Climate & ESG", icon: Leaf, badge: "New" },
+    { id: "ai-liability-advanced", label: "AI & Algorithmic Liability", icon: Cpu, badge: "New" },
+    { id: "space-insurance", label: "Space & Satellite", icon: Rocket, badge: "New" },
+    { id: "climate-risk-advisory", label: "Climate & ESG", icon: Leaf, badge: "New" },
   ],
 };
 
