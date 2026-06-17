@@ -235,16 +235,350 @@ export default function AboutUs() {
             <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
                {["Insurance", "Cyber Security", "Risk & Compliance", "Climate & ESG", "AI Intelligence", "Cloud Infrastructure"].map((cat, i) => (
                  <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center hover:bg-slate-800 transition-colors flex items-center justify-center min-h-[80px]">
-                   <div className="text-sm font-semibold text-slate-200 leading-tight">{cat}</div>
-                 </div>
-               ))}
-            </div>
-          </div>
-        </div>
-      </section>
+<div className="text-sm font-semibold text-slate-200 leading-tight">{cat}</div>
+                  </div>
+                ))}
+             </div>
+           </div>
+         </div>
+       </section>
 
-      {/* 4. LEADERSHIP & CULTURE SECTION */}
-      <section id="leadership" className="py-20 bg-slate-50 border-t border-slate-200">
+       {/* NEW EXECUTIVE SECTIONS - BEFORE LEADERSHIP */}
+
+       {/* SECTION 1 — VISION: THE NORTH STAR */}
+       <section id="vision" className="py-20 bg-white border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Target className="w-4 h-4" /> VISION: THE NORTH STAR
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               India's Guardian of Risk Intelligence
+             </h2>
+             <p className="text-base text-slate-600 leading-relaxed">
+               To be India's unyielding guardian of risk intelligence, architecting a resilient nation where every enterprise thrives securely in the $55 trillion economy of 2047.
+             </p>
+             <p className="text-base text-slate-600 leading-relaxed">
+               We envision an India where risk becomes a source of competitive advantage, uncertainty is mastered, and resilience drives exponential growth.
+             </p>
+           </div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+             {[
+               { value: "10%", label: "of India's GDP secured in assets" },
+               { value: "40%", label: "reduction in preventable economic losses" },
+               { value: "Antifragile", label: "systems built" },
+               { value: "Global", label: "Risk Intelligence Powerhouse" }
+             ].map((item, index) => (
+               <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group text-center">
+                 <CardContent className="p-8 space-y-4">
+                   <div className="text-4xl font-extrabold text-blue-600 group-hover:text-blue-700 transition-colors">
+                     {item.value}
+                   </div>
+                   <p className="text-xs text-slate-500 leading-relaxed">{item.label}</p>
+                 </CardContent>
+               </Card>
+             ))}
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 2 — MISSION */}
+       <section id="mission" className="py-20 bg-slate-50 border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="max-w-4xl mx-auto text-center space-y-8">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Zap className="w-4 h-4" /> MISSION
+             </span>
+             <blockquote className="relative">
+               <div className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight italic">
+                 "We do not merely manage risk — we master it."
+               </div>
+               <p className="text-base text-slate-600 mt-4">
+                 Turning uncertainty into advantage, vulnerability into strength, and threat into triumph.
+               </p>
+             </blockquote>
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 3 — CORE VALUES */}
+       <section id="core-values" className="py-20 bg-white border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Shield className="w-4 h-4" /> WHAT WE VALUE
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               Core Values
+             </h2>
+           </div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             {[
+               { title: "Sentinel Mindset", desc: "Always vigilant, proactive, and ahead of risks.", icon: Eye },
+               { title: "Intellectual Honesty", desc: "Face reality with courage and data — no illusions.", icon: BarChart3 },
+               { title: "Owner's Urgency", desc: "Treat every client's risk as our own.", icon: Zap },
+               { title: "Technological Audacity", desc: "Boldly push frontiers in AI, quantum, and complex systems.", icon: Network },
+               { title: "Collaborative Resilience", desc: "Strengthen ecosystems and win together.", icon: Users },
+               { title: "Long-Term Stewardship", desc: "Build solutions that endure for generations.", icon: Clock }
+             ].map((item, index) => {
+               const Icon = item.icon;
+               return (
+                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                   <CardContent className="p-6 space-y-4">
+                     <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 mx-auto flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                       <Icon className="w-5 h-5" />
+                     </div>
+                     <h3 className="text-lg font-bold text-slate-900 text-center">{item.title}</h3>
+                     <p className="text-sm text-slate-600 text-center leading-relaxed">{item.desc}</p>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 4 — WORK CULTURE */}
+       <section id="work-culture" className="py-20 bg-slate-50 border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Users className="w-4 h-4" /> HOW WE OPERATE
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               Work Culture
+             </h2>
+             <p className="text-base text-slate-600 leading-relaxed">
+               We foster a high-trust, high-performance culture where exceptional people do extraordinary work.
+             </p>
+           </div>
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+             {[
+               { title: "Performance with Purpose", desc: "Intense ownership and results that matter.", icon: Target },
+               { title: "Intellectual Rigor & Curiosity", desc: "Deep thinking, continuous learning, and deliberate red-teaming.", icon: BarChart3 },
+               { title: "Radical Candor", desc: "Direct, respectful feedback with full psychological safety.", icon: Users },
+               { title: "Speed with Discipline", desc: "Move fast, but never compromise quality or safety.", icon: Zap },
+               { title: "Diverse Collaboration", desc: "Multidisciplinary teams of risk experts, technologists, domain specialists, ex-military, and civil servants.", icon: Network },
+               { title: "Meaningful Impact", desc: "Every role contributes directly to India's economic sovereignty.", icon: TrendingUp }
+             ].map((item, index) => {
+               const Icon = item.icon;
+               return (
+                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                   <CardContent className="p-6 flex items-start gap-4">
+                     <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                       <Icon className="w-4 h-4" />
+                     </div>
+                     <div>
+                       <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
+                       <p className="text-sm text-slate-600 mt-1 leading-relaxed">{item.desc}</p>
+                     </div>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+           <p className="text-center text-sm text-slate-500 mt-8 max-w-3xl mx-auto">
+             We support wellbeing through flexible work, mental health resources, and wellness programs — because resilient organizations begin with resilient people.
+           </p>
+         </div>
+       </section>
+
+       {/* SECTION 5 — LEADERSHIP PRINCIPLES */}
+       <section id="leadership-principles" className="py-20 bg-white border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Shield className="w-4 h-4" /> LEADERSHIP PRINCIPLES
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               Leadership Principles
+             </h2>
+             <p className="text-base text-slate-600 leading-relaxed">
+               Our leaders are expected to embody these principles:
+             </p>
+           </div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             {[
+               { title: "Lead from the Front", icon: Shield, desc: "Take ownership in crises and give credit in success." },
+               { title: "Develop Future Sentinels", icon: Users, desc: "Actively coach and grow the next generation of risk leaders." },
+               { title: "Think in Systems", icon: Network, desc: "Always connect decisions to long-term national and client outcomes." },
+               { title: "Practice Radical Candor", icon: Zap, desc: "Be clear and kind — never politically correct." },
+               { title: "Embrace Intellectual Humility", icon: BarChart3, desc: "Admit mistakes quickly and learn faster." },
+               { title: "Stay Mission Obsessed", icon: Target, desc: "Keep India's resilience and clients' success as the ultimate priority." },
+               { title: "Decide with Courage", icon: TrendingUp, desc: "Make bold calls backed by rigorous analysis, not consensus-seeking." }
+             ].map((item, index) => {
+               const Icon = item.icon;
+               return (
+                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
+                   <CardContent className="p-6 space-y-4">
+                     <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                       <Icon className="w-4 h-4" />
+                     </div>
+                     <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
+                     <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 6 — EMPLOYEE VALUE PROPOSITION (EVP) */}
+       <section id="evp" className="py-20 bg-slate-900 text-white border-t border-slate-800">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 px-3 py-1 rounded-full border border-blue-800">
+               <Users className="w-4 h-4" /> BE A SENTINEL
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+               Employee Value Proposition
+             </h2>
+             <p className="text-base text-slate-300 leading-relaxed">
+               "Be a Sentinel. Shape India's Future. Grow Without Limits."
+             </p>
+           </div>
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+             {[
+               { title: "Nationally Critical Projects", desc: "Work on nationally critical and intellectually challenging problems that truly matter.", icon: Shield },
+               { title: "AI & Quantum Risk Exposure", desc: "Gain unparalleled exposure to cutting-edge AI, quantum risk modeling, and large-scale resilience projects.", icon: Network },
+               { title: "Equity Upside", desc: "Receive significant equity upside as we scale into a multi-billion-dollar risk intelligence leader.", icon: TrendingUp },
+               { title: "TrustFlow Academy", desc: "Access continuous learning through TrustFlow Academy and mentorship from top experts.", icon: Users },
+               { title: "Expert Mentorship", desc: "Join a high-caliber, mission-driven team that values excellence and integrity.", icon: Target },
+               { title: "Flexible Work & Compensation", desc: "Enjoy competitive compensation, flexible work, and strong wellbeing support.", icon: Zap }
+             ].map((item, index) => {
+               const Icon = item.icon;
+               return (
+                 <Card key={index} className="border-slate-700/50 bg-slate-800/50 backdrop-blur rounded-xl overflow-hidden group">
+                   <CardContent className="p-6 flex items-start gap-4">
+                     <div className="w-10 h-10 rounded-full bg-blue-900/50 text-blue-400 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                       <Icon className="w-4 h-4" />
+                     </div>
+                     <div>
+                       <h3 className="text-base font-bold text-white">{item.title}</h3>
+                       <p className="text-sm text-slate-300 mt-1 leading-relaxed">{item.desc}</p>
+                     </div>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 7 — STRATEGIC COMMITMENTS (2025–2047) */}
+       <section id="strategic-commitments" className="py-20 bg-white border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Clock className="w-4 h-4" /> STRATEGIC COMMITMENTS
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               2025–2047
+             </h2>
+           </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+             {[
+               {
+                 title: "Protect & Propel Growth",
+                 items: [
+                   "• Intelligent risk guardians for 100,000+ enterprises by 2030",
+                   "• 35% reduction in supply chain disruptions for 5,000+ companies"
+                 ],
+                 icon: Shield
+               },
+               {
+                 title: "Build the Resilient Backbone",
+                 items: [
+                   "• Embed resilience across India's $1.4 trillion+ infrastructure",
+                   "• Train 1 million risk professionals via TrustFlow Academy by 2035"
+                 ],
+                 icon: Network
+               },
+               {
+                 title: "Fuel the Economic Engine",
+                 items: [
+                   "• Deliver ₹7+ in economic value for every ₹1 invested in risk mitigation",
+                   "• Help unlock $1 trillion in FDI by 2040"
+                 ],
+                 icon: TrendingUp
+               },
+               {
+                 title: "Lead with the Future",
+                 items: [
+                   "• Launch India's first Quantum-Resistant Risk Engine by 2032",
+                   "• Achieve 99.9% accuracy in predictive risk modeling"
+                 ],
+                 icon: Target
+               }
+             ].map((pillar, index) => {
+               const Icon = pillar.icon;
+               return (
+                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden">
+                   <CardContent className="p-6 space-y-4">
+                     <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+                       <Icon className="w-4 h-4" />
+                     </div>
+                     <h3 className="text-lg font-bold text-slate-900">{pillar.title}</h3>
+                     <ul className="space-y-2">
+                       {pillar.items.map((item, i) => (
+                         <li key={i} className="text-xs text-slate-600 leading-relaxed">{item}</li>
+                       ))}
+                     </ul>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+         </div>
+       </section>
+
+       {/* SECTION 8 — INNOVATION FRAMEWORK */}
+       <section id="innovation-framework" className="py-20 bg-slate-50 border-t border-slate-200">
+         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+               <Zap className="w-4 h-4" /> INNOVATION FRAMEWORK
+             </span>
+             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+               Data → Insight → Intelligence → Invincibility
+             </h2>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+             {[
+               { pillar: "AI & Predictive Analytics", m2030: "90%+ accuracy in anomaly forecasting", m2047: "99.9% with Quantum-AI hybrids", icon: Network },
+               { pillar: "Digital Twin Systems", m2030: "10 major industrial zones", m2047: "500+ clusters & corridors", icon: Target },
+               { pillar: "Blockchain & Audit Trails", m2030: "1,000 enterprises", m2047: "10% of India's corporate data", icon: Shield },
+               { pillar: "Cyber-Physical Defense", m2030: "500+ critical assets", m2047: "Autonomous national defense grid", icon: Zap },
+               { pillar: "Climate Adaptive Risk", m2030: "500+ corporations", m2047: "Full national sustainable alignment", icon: TrendingUp }
+             ].map((item, index) => {
+               const Icon = item.icon;
+               return (
+                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden">
+                   <CardContent className="p-4 space-y-3">
+                     <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+                       <Icon className="w-3 h-3" />
+                     </div>
+                     <h4 className="text-xs font-bold text-slate-900 text-center">{item.pillar}</h4>
+                     <div>
+                       <p className="text-[10px] font-semibold text-blue-600 text-center mb-1">2030 Milestone</p>
+                       <p className="text-[10px] text-slate-600 text-center leading-tight">{item.m2030}</p>
+                     </div>
+                     <div>
+                       <p className="text-[10px] font-semibold text-purple-600 text-center mb-1">2047 Vision</p>
+                       <p className="text-[10px] text-slate-600 text-center leading-tight">{item.m2047}</p>
+                     </div>
+                   </CardContent>
+                 </Card>
+               );
+             })}
+           </div>
+         </div>
+       </section>
+
+       {/* 4. LEADERSHIP & CULTURE SECTION */}
+       <section id="leadership" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
