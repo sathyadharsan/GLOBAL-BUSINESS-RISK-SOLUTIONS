@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
+  NavChevronOnly,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight } from "lucide-react";
@@ -266,7 +267,13 @@ const OFFERINGS = [
 function OfferingsMega() {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger>Offerings</NavigationMenuTrigger>
+      <Link
+        to="/offerings"
+        className={cn(navigationMenuTriggerStyle())}
+      >
+        Offerings
+      </Link>
+      <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
       <NavigationMenuContent>
         <MegaGrid items={OFFERINGS} />
         <div className="px-6 pb-4 pt-0">
@@ -486,21 +493,39 @@ export function Navbar() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                <Link
+                  to="/"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Home
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={HOME} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Industries</NavigationMenuTrigger>
+                <Link
+                  to="/industries"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Industries
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={INDUSTRIES} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Risks</NavigationMenuTrigger>
+                <Link
+                  to="/risks"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Risks
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={RISKS} />
                 </NavigationMenuContent>
@@ -509,28 +534,52 @@ export function Navbar() {
               <OfferingsMega />
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                <Link
+                  to="/solutions"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Solutions
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={SOLUTIONS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Outcomes</NavigationMenuTrigger>
+                <Link
+                  to="/outcomes"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Outcomes
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={OUTCOMES} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
+                <Link
+                  to="/platform"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Platform
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={PLATFORMS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                <Link
+                  to="/about-us"
+                  className={cn(navigationMenuTriggerStyle())}
+                >
+                  Company
+                </Link>
+                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
                 <NavigationMenuContent>
                   <MegaGrid items={COMPANY} />
                 </NavigationMenuContent>
