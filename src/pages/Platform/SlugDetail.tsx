@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { platformData } from "@/data/platformData";
 import { PlatformDetailLayout } from "@/components/sections/PlatformDetailLayout";
 
@@ -10,31 +11,9 @@ const SLUG_ALIASES: Record<string, string> = {
   "supply-chain-risk": "supply-chain-monitor",
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const resolved = SLUG_ALIASES[slug] || slug;
-  const data = platformData[resolved];
-  if (!data) return { title: "Platform Not Found" };
-  return {
-    title: `${data.title} | TRUSTFLOW Platform Suite`,
-    description: data.description.substring(0, 160) + "...",
-  };
-}
-
-export function generateStaticParams() {
-  return Object.keys(platformData).map((slug) => ({ slug }));
-}
-
-export default async function PlatformPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default function PlatformPage() {
+  const { slug } = useParams();
+  if (!slug) return <Navigate to="/404" replace />;
   const resolved = SLUG_ALIASES[slug] || slug;
   const platform = platformData[resolved];
   if (!platform) return <Navigate to="/404" replace />;

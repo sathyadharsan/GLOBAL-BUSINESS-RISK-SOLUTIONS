@@ -1,10 +1,11 @@
 import { ArrowLeft } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-export default async function InsightArticle({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function InsightArticle() {
+  const { slug } = useParams();
   
-  // Convert slug back to title case for display
+  if (!slug) return <Link to="/insights">Slug not found</Link>;
+
   const title = slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
   return (

@@ -1,8 +1,27 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, Component, ReactNode } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ChatbotProvider } from '@/components/chatbot/ChatbotProvider';
+
+class ErrorBoundary extends Component<{ children: ReactNode; fallback?: ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode; fallback?: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: Error) {
+    console.error('Page error:', error);
+  }
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || <div className="p-8 text-center">Something went wrong loading this page.</div>;
+    }
+    return this.props.children;
+  }
+}
 
 // Lazy load pages
 const AboutUs = lazy(() => import('./pages/AboutUs'));
@@ -39,8 +58,9 @@ function App() {
         <Navbar />
         <ChatbotProvider>
           <main className="flex-1">
-            <Suspense fallback={<div className="flex h-[50vh] items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-              <Routes>
+              <ErrorBoundary>
+                <Suspense fallback={<div className="flex h-[50vh] items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+                  <Routes>
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/about-us/:slug" element={<AboutUsSlugDetail />} />
           <Route path="/contact" element={<Contact />} />
@@ -66,9 +86,10 @@ function App() {
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/solutions/property-asset-protection" element={<SolutionsPropertyAssetProtection />} />
           <Route path="/solutions/:slug" element={<SolutionsSlugDetail />} />
-              </Routes>
-            </Suspense>
-          </main>
+</Routes>
+                </Suspense>
+              </ErrorBoundary>
+            </main>
         </ChatbotProvider>
         <Footer />
       </div>

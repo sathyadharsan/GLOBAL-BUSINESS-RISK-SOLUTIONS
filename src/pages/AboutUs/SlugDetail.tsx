@@ -1,32 +1,11 @@
 import { Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { aboutUsData } from "@/data/siteContent";
 import { AboutUsDashboard } from "@/components/sections/AboutUsDashboard";
-import type { Metadata } from "next";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const data = aboutUsData[slug];
-  if (!data) return { title: "Not Found" };
-  return {
-    title: `${data.title} | TRUSTFLOW`,
-    description: data.description,
-  };
-}
-
-export function generateStaticParams() {
-  return Object.keys(aboutUsData).map((slug) => ({ slug }));
-}
-
-export default async function AboutUsPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default function AboutUsPage() {
+  const { slug } = useParams();
+  if (!slug) return <Navigate to="/404" replace />;
   const data = aboutUsData[slug];
   if (!data) return <Navigate to="/404" replace />;
   return <AboutUsDashboard activeSlug={slug} />;

@@ -565,6 +565,66 @@ export const risksData: Record<string, RiskData> = {
     relatedIndustries: ["technology", "healthcare", "financial-services", "legal", "retail"], relatedOfferings: ["privacy", "cyber"], relatedSolutions: ["Data Privacy", "Cross-Border Advisory"]
   },
 
+  "ai-product-liability": {
+    slug: "ai-product-liability", label: "AI Product Liability", description: "Harmful or biased decisions from AI systems",
+    longDescription: "Enterprise-level AI product liability from biased algorithms, autonomous decisions, generative outputs, and model failures that cause bodily injury, financial loss, discrimination, or operational harm. The exposure combines product liability, technology errors and omissions, cyber, and emerging regulatory liability.",
+    icon: Brain, color: "#7C3AED", costOfRisk: "$5M–$100M per claim; AI Act fines up to 7% of global revenue", currentState: "Emerging — EU AI Act, NIST AI RMF, and sector AI rules are creating new liability baselines", timeValueOfMitigation: "Pre-deployment — Model validation, monitoring, and insurance placement before launch",
+    likelihood: "Likely",
+    businessImpact: {
+      operational: "Model suspension; incident response; customer remediation",
+      financial: "Defense costs; settlements; regulatory penalties; product recall or retraining",
+      regulatory: "AI Act, DPDP, sector safety, and consumer protection investigations",
+      reputational: "Loss of trust in AI-enabled products and governance failures"
+    },
+    potentialImplications: ["Algorithmic bias claims", "Autonomous system injury", "Generative AI hallucination liability", "Regulatory enforcement", "Product recall or shutdown", "Technology E&O coverage disputes", "Class action aggregation", "Board oversight scrutiny"],
+    relatedIndustries: ["technology", "healthcare", "financial-services", "automotive", "retail", "all"], relatedOfferings: ["ai-liability-advanced", "cyber-risk-advisory", "product-liability-2"], relatedSolutions: ["AI Risk Solutions", "Technology E&O", "Cyber Liability"]
+  },
+
+  "securities-litigation": {
+    slug: "securities-litigation", label: "Securities Litigation", description: "Shareholder claims of misrepresentation or omission",
+    longDescription: "Enterprise-level securities litigation from alleged misstatements, omissions, forecast failures, IPO disclosures, M&A announcements, or regulatory investigations. Public companies, SPACs, PE-backed issuers, and high-growth private companies can face multiplicative defense and settlement exposure.",
+    icon: Scale, color: "#1E40AF", costOfRisk: "$5M–$500M per settlement; defense costs can exceed $20M before merits", currentState: "Active — Securities class actions remain elevated across IPO, SPAC, crypto, AI, and climate disclosure themes", timeValueOfMitigation: "12–24 month discovery — Early case assessment and D&O tower adequacy are critical",
+    likelihood: "Possible",
+    businessImpact: {
+      operational: "Board and management distraction; disclosure controls; governance remediation",
+      financial: "Defense fees; settlements; D&O retentions; valuation impact",
+      regulatory: "SEC, SEBI, FCA, and exchange investigations",
+      reputational: "Investor confidence erosion and governance scrutiny"
+    },
+    potentialImplications: ["Shareholder class action", "Derivative suits", "Regulatory parallel proceedings", "D&O coverage disputes", "Executive indemnification pressure", "Settlement allocation disputes", "Disclosure control overhaul", "Board turnover"],
+    relatedIndustries: ["financial-services", "technology", "healthcare", "energy", "all"], relatedOfferings: ["d-o", "directors-officers", "ma-risk-advisory"], relatedSolutions: ["Directors & Officers", "Governance Advisory", "M&A Insurance"]
+  },
+
+  "aml-violation": {
+    slug: "aml-violation", label: "AML Violation", description: "Anti-money laundering and financial crime compliance failures",
+    longDescription: "Enterprise-level anti-money laundering, sanctions, and financial crime compliance failures from inadequate customer due diligence, transaction monitoring, beneficial ownership controls, or suspicious activity reporting. Exposure is acute for banks, fintechs, crypto platforms, payment providers, and cross-border trade businesses.",
+    icon: Banknote, color: "#B91C1C", costOfRisk: "$10M–$1B+ in fines; licensing restrictions and monitor obligations", currentState: "Intensifying — OFAC, FinCEN, FATF, and India AML enforcement are expanding beneficial ownership and sanctions screening expectations", timeValueOfMitigation: "Continuous — Real-time screening and audit trails are the lowest-cost control before enforcement",
+    likelihood: "Likely",
+    businessImpact: {
+      operational: "Transaction holds; remediation programs; independent monitor oversight",
+      financial: "Fines; penalties; legal defense; compliance system investment",
+      regulatory: "AML, sanctions, licensing, and reporting enforcement",
+      reputational: "Counterparty de-risking and loss of banking relationships"
+    },
+    potentialImplications: ["Civil and criminal penalties", "License suspension", "Deferred prosecution agreements", "Beneficial ownership gaps", "Sanctions violations", "SAR reporting failures", "Correspondent banking loss", "Executive accountability"],
+    relatedIndustries: ["financial-services", "fintech", "crypto", "legal", "real-estate", "all"], relatedOfferings: ["regulatory-advisory", "cyber-regulatory-defense", "crime-fidelity"], relatedSolutions: ["Regulatory Compliance", "Financial Crime Advisory", "Cyber Regulatory Defense"]
+  },
+
+  "risk-intelligence-center": {
+    slug: "risk-intelligence-center", label: "Risk Intelligence Center", description: "Centralized risk signals, analytics, and advisory response",
+    longDescription: "Enterprise-level risk intelligence capability that consolidates cyber, geopolitical, supply chain, regulatory, climate, and financial signals into actionable board and executive decision support. The center connects monitoring, analytics, insurance gap identification, and crisis response workflows.",
+    icon: Target, color: "#0D9488", costOfRisk: "$10M–$100M from delayed detection; severe crises can exceed $1B in cascading losses", currentState: "Strategic priority — Enterprises are consolidating fragmented alerts into continuous intelligence and response platforms", timeValueOfMitigation: "Continuous — Early warning and pre-event mitigation are materially cheaper than crisis response",
+    likelihood: "Very Likely",
+    businessImpact: {
+      operational: "Signal triage; incident playbooks; cross-functional response",
+      financial: "Loss prevention; insurance recovery optimization; avoided downtime",
+      regulatory: "Audit trails; disclosure readiness; governance reporting",
+      reputational: "Stakeholder confidence through proactive risk visibility"
+    },
+    potentialImplications: ["Delayed crisis detection", "Fragmented executive reporting", "Uninsured emerging exposures", "Regulatory disclosure gaps", "Supply chain blind spots", "Cyber-physical convergence", "Board oversight gaps", "Premium and capacity disadvantage"],
+    relatedIndustries: ["all", "financial-services", "technology", "energy", "manufacturing", "healthcare"], relatedOfferings: ["risk-diagnostic-engine-enterprise", "policy-gap-analyzer-platform", "regulatory-advisory"], relatedSolutions: ["Global Program Architecture", "TCOR Analytics & Benchmarking", "AI Risk Solutions"]
+  },
+
   "esg-risk": {
     slug: "esg-risk", label: "ESG Risk", description: "Environmental, Social, and Governance related litigation and fines",
     longDescription: "Enterprise-level ESG risk from mandatory disclosure under CSRD, SEC Rules, Green Deal, CBAM. Greenwashing litigation rising. $500B+ green bond destabilization risk.",

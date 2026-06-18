@@ -213,6 +213,102 @@ export const solutionsData: Record<string, DynamicPageContent> = {
       { title: "Insurance Gap Detection", description: "Identification of coverage shortfalls against contractual obligations." },
       { title: "Risk Scoring", description: "Automated risk scoring for vendor and customer contract portfolios." }
     ]
+  },
+  "product-liability": {
+    slug: "product-liability",
+    title: "Product Liability",
+    subtitle: "Consumer safety, product defect, and recall exposure protection",
+    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    description: "Specialized product liability architecture for manufacturers, distributors, and consumer-facing brands managing bodily injury, property damage, and recall risk.",
+    features: [
+      { title: "Product Defect Liability", description: "Coverage for manufacturing, design, and warning defects across consumer and industrial products." },
+      { title: "Recall Cost Coordination", description: "Claims, crisis management, and product withdrawal cost support for affected product lines." },
+      { title: "Global Limit Structuring", description: "Per-occurrence and aggregate limits aligned to jurisdictional litigation exposure." }
+    ]
+  },
+  "professional-indemnity": {
+    slug: "professional-indemnity",
+    title: "Professional Indemnity",
+    subtitle: "Errors, omissions, and advisory liability protection",
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    description: "Professional liability coverage for advisory, consulting, technology, and financial services firms facing negligence, breach of duty, and client financial loss claims.",
+    features: [
+      { title: "Advisory Liability", description: "Defense and indemnity for alleged errors, omissions, and negligent professional services." },
+      { title: "Contractual Liability Alignment", description: "Coverage mapping against client contract indemnity and limitation clauses." },
+      { title: "Retroactive Protection", description: "Claims-made structuring with appropriate retroactive dates and run-off planning." }
+    ]
+  },
+  "directors-officers": {
+    slug: "directors-officers",
+    title: "Directors & Officers",
+    subtitle: "Board, executive, and securities claim protection",
+    heroImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=2070&auto=format&fit=crop",
+    description: "Directors and officers liability architecture protecting leadership teams, boards, and corporate entities from securities, governance, regulatory, and fiduciary claims.",
+    features: [
+      { title: "Side A DIC Protection", description: "Personal asset protection for directors and officers when indemnification is unavailable." },
+      { title: "Securities Defense", description: "Coverage for shareholder claims, prospectus allegations, and regulatory investigations." },
+      { title: "IPO and M&A Readiness", description: "Limit and tower structuring for public-company, private-equity, and transaction scenarios." }
+    ]
+  },
+  "trade-credit": {
+    slug: "trade-credit",
+    title: "Trade Credit",
+    subtitle: "Accounts receivable protection against customer default",
+    heroImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+    description: "Trade credit insurance and advisory for enterprises protecting accounts receivable from customer insolvency, protracted default, and political non-payment events.",
+    features: [
+      { title: "Receivables Protection", description: "Coverage for commercial insolvency and prolonged payment default by customers." },
+      { title: "Buyer Risk Monitoring", description: "Credit assessment and early-warning signals across domestic and export customer portfolios." },
+      { title: "Working Capital Support", description: "Bankable insured receivables that support financing and sales expansion." }
+    ]
+  },
+  "surety-bonds": {
+    slug: "surety-bonds",
+    title: "Surety Bonds",
+    subtitle: "Performance, payment, and working-capital guarantee solutions",
+    heroImage: "https://images.unsplash.com/photo-1541888087401-443b2fbbfa78?q=80&w=2070&auto=format&fit=crop",
+    description: "Surety and bond structuring for infrastructure, construction, public-sector, and commercial contracts requiring performance and payment guarantees.",
+    features: [
+      { title: "Performance Guarantees", description: "Bond capacity for contractors and project owners meeting concession and procurement obligations." },
+      { title: "Working Capital Optimization", description: "Bank guarantee replacement and credit-line preservation through surety capacity." },
+      { title: "Project Compliance", description: "Bond documentation aligned to lender, public-sector, and contract requirements." }
+    ]
+  },
+  "ma-insurance": {
+    slug: "ma-insurance",
+    title: "M&A Insurance",
+    subtitle: "Warranty, indemnity, tax, and transaction risk transfer",
+    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    description: "M&A insurance solutions for private-equity exits, strategic acquisitions, and divestitures requiring warranty, indemnity, tax, and liability risk transfer.",
+    features: [
+      { title: "Warranty & Indemnity", description: "Breach of warranty coverage supporting clean exits and reduced escrow requirements." },
+      { title: "Tax and Title Coverage", description: "Specialized transaction policies for identified tax, title, and regulatory exposures." },
+      { title: "Deal Process Integration", description: "Coverage alignment with due diligence, negotiation, signing, and closing timelines." }
+    ]
+  },
+  "climate-risk": {
+    slug: "climate-risk",
+    title: "Climate Risk Solutions",
+    subtitle: "Physical, transition, and parametric climate risk transfer",
+    heroImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
+    description: "Climate risk solutions combining scenario analytics, resilience advisory, parametric triggers, and insurance structures for physical and transition exposures.",
+    features: [
+      { title: "Physical Risk Transfer", description: "Property, catastrophe, and parametric structures for flood, wind, wildfire, heat, and supply disruption." },
+      { title: "Transition Risk Advisory", description: "Carbon, stranded asset, disclosure, and regulatory transition exposure mapping." },
+      { title: "Scenario-Based Structuring", description: "TCFD-aligned scenario modeling to calibrate limits, triggers, and risk appetite." }
+    ]
+  },
+  "ai-risk": {
+    slug: "ai-risk",
+    title: "AI Risk Solutions",
+    subtitle: "AI governance, liability, model, and cyber-physical exposure protection",
+    heroImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop",
+    description: "AI risk solutions for organizations deploying autonomous systems, machine learning models, generative AI, and AI-enabled products across regulated markets.",
+    features: [
+      { title: "AI Liability Mapping", description: "Coverage analysis for algorithmic bias, autonomous decisions, model failure, and product liability." },
+      { title: "Governance Controls", description: "Risk controls aligned to EU AI Act, NIST, sector rules, and internal model-risk frameworks." },
+      { title: "Cyber-Physical Integration", description: "Coordinated cyber, technology E&O, and specialty coverage for AI-enabled systems." }
+    ]
   }
 };
 

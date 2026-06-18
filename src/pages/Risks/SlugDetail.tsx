@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { risksData, riskCategories } from "@/data/risksData";
 import { EnterpriseRiskLayout } from "@/components/sections/EnterpriseRiskLayout";
-import type { Metadata } from "next";
 import { AlertTriangle, Lock, Activity, HelpCircle, Building2, BarChart3, CheckCircle2, TrendingUp, ChevronRight, Shield } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -64,59 +64,10 @@ const CATEGORY_KPIS: Record<string, { value: string; label: string }[]> = {
   ],
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-
-  if (slug === "risk-intelligence-center") {
-    return {
-      title: "Risk Intelligence Center | TRUSTFLOW",
-      description: "Premium dashboard for monitoring top enterprise, cyber, regulatory and climate risks",
-    };
-  }
-
-  if (slug === "risk-diagnostic") {
-    return {
-      title: "Risk Diagnostic | TRUSTFLOW",
-      description: "Board-level risk dashboard with exposure analysis and coverage gaps",
-    };
-  }
-
-  const isCategory = riskCategories[slug];
-  if (isCategory) {
-    return {
-      title: `${isCategory.label} | TRUSTFLOW Enterprise Risk Architecture`,
-      description: CATEGORY_DESCRIPTIONS[slug] || isCategory.label,
-    };
-  }
-  const isRisk = risksData[slug];
-  if (isRisk) {
-    return {
-      title: `${isRisk.label} | TRUSTFLOW`,
-      description: isRisk.description,
-    };
-  }
-  return { title: "Not Found" };
-}
-
-export function generateStaticParams() {
-  const params: { slug: string }[] = [
-    { slug: "risk-intelligence-center" },
-    { slug: "risk-diagnostic" },
-  ];
-  for (const slug of Object.keys(riskCategories)) {
-    params.push({ slug });
-  }
-  for (const slug of Object.keys(risksData)) {
-    params.push({ slug });
-  }
-  for (const alias of Object.keys(SLUG_ALIASES)) {
-    params.push({ slug: alias });
-  }
-  return params;
-}
-
-export default async function RiskPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function RiskPage() {
+  const { slug } = useParams();
+  
+  if (!slug) return <Navigate to="/404" replace />;
 
   const resolvedSlug = SLUG_ALIASES[slug] || slug;
 
@@ -211,7 +162,7 @@ export default async function RiskPage({ params }: { params: Promise<{ slug: str
   }
 
   const risk = risksData[resolvedSlug];
-  if (!risk) return null;
+  if (!risk) return <Navigate to="/404" replace />;
 
   return (
     <EnterpriseRiskLayout
