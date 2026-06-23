@@ -50,13 +50,13 @@ export default function RiskCategoryCard({ category }: RiskCategoryCardProps) {
                 )}
               </div>
               <div className="flex-1 space-y-1">
-                <h4 className="text-sm font-medium text-primary">{risk.label}</h4>
-                <p className="text-xs text-muted-foreground line-clamp-2">
+                <h4 className="text-base font-medium text-primary">{risk.label}</h4>
+                <p className="text-sm text-muted-foreground line-clamp-2">
                   {risk.description}
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <span className="text-xs">→</span>
+                <span className="text-sm">→</span>
               </div>
             </Link>
           );
@@ -64,7 +64,7 @@ export default function RiskCategoryCard({ category }: RiskCategoryCardProps) {
         {category.risks.length > 3 && (
           <Link
             to={`/risks/${category.id}`}
-            className="block text-center text-sm font-medium text-primary hover:text-primary/80"
+            className="block text-center text-base font-medium text-primary hover:text-primary/80"
           >
             View all {category.risks.length} risks in this category →
           </Link>

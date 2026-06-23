@@ -99,7 +99,7 @@ export function SolutionsDashboard({ activeSlug }: SolutionsDashboardProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
         <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest bg-[#1E5EFF]/20 text-[#60A5FA] px-2 py-0.5 rounded">
+            <span className="text-sm font-bold uppercase tracking-widest bg-[#1E5EFF]/20 text-[#60A5FA] px-2 py-0.5 rounded">
               {category}
             </span>
             <h1 className="text-[40px] md:text-[52px] font-bold tracking-tight font-serif leading-[1.1] text-white">

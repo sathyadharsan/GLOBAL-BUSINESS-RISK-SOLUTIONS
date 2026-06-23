@@ -55,7 +55,7 @@ export function HeroBackground({
         >
           {/* Breadcrumb Navigation */}
           {breadcrumbs.length > 0 && (
-            <nav className="flex items-center gap-2 text-xs text-blue-300 mb-6 font-medium">
+            <nav className="flex items-center gap-2 text-sm text-blue-300 mb-6 font-medium">
               <Home className="h-3 w-3" />
               {breadcrumbs.map((crumb, i) => (
                 <React.Fragment key={i}>
@@ -87,7 +87,7 @@ export function HeroBackground({
               {badges.map((badge, i) => (
                 <span 
                   key={i} 
-                  className="text-xs font-semibold px-4 py-2 bg-white/10 rounded-full border border-white/10"
+                  className="text-sm font-semibold px-4 py-2 bg-white/10 rounded-full border border-white/10"
                 >
                   {badge}
                 </span>
@@ -133,7 +133,7 @@ export function HeroBackground({
                   <p className="text-3xl md:text-4xl font-bold text-blue-400 font-serif mb-1">
                     {stat.val}
                   </p>
-                  <p className="text-xs text-gray-300 uppercase tracking-wider">{stat.label}</p>
+                  <p className="text-sm text-gray-300 uppercase tracking-wider">{stat.label}</p>
                 </div>
               ))}
             </div>

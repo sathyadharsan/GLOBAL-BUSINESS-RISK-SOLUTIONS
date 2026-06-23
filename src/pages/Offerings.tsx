@@ -82,7 +82,7 @@ export default function OfferingsMarketplace() {
       <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Enterprise Overview
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
@@ -112,7 +112,7 @@ export default function OfferingsMarketplace() {
                     <div className="text-base font-semibold text-slate-700">
                       {kpi.label}
                     </div>
-                    <p className="text-xs text-slate-500 leading-snug px-2">
+                    <p className="text-sm text-slate-500 leading-snug px-2">
                       {kpi.desc}
                     </p>
                   </CardContent>
@@ -155,10 +155,10 @@ export default function OfferingsMarketplace() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <p className="text-base text-slate-600 leading-snug">{cap.desc}</p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={j} className="flex items-start gap-2 text-base text-slate-700">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -225,7 +225,7 @@ export default function OfferingsMarketplace() {
                   key={key}
                   onClick={() => setSelectedCategory(key)}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all border",
+                    "flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold transition-all border",
                     isActive
                       ? "bg-white text-primary shadow-md border-slate-200 ring-2 ring-blue-500/20"
                       : "bg-white/60 text-slate-500 border-slate-100 hover:bg-white hover:text-primary hover:shadow-sm"
@@ -267,26 +267,26 @@ export default function OfferingsMarketplace() {
                         {offering.title}
                       </CardTitle>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-sm">
                       {offering.matrix?.scale?.split(" ").pop() || "All Scales"}
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                  <p className="text-base text-slate-600 line-clamp-3 leading-relaxed">
                     {offering.shortDescription || offering.valueText}
                   </p>
                   
                   <div className="pt-2">
-                    <div className="text-xs font-semibold text-blue-600 mb-2">Industry Applicability:</div>
+                    <div className="text-sm font-semibold text-blue-600 mb-2">Industry Applicability:</div>
                     <div className="flex flex-wrap gap-1.5">
                       {offering.industryApplicability?.slice(0, 3).map((industry, i) => (
-                        <span key={i} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded text-xs font-medium">
+                        <span key={i} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded text-sm font-medium">
                           {industry}
                         </span>
                       ))}
                       {offering.industryApplicability && offering.industryApplicability.length > 3 && (
-                        <span className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-medium">
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-sm font-medium">
                           +{offering.industryApplicability.length - 3} more
                         </span>
                       )}
@@ -296,7 +296,7 @@ export default function OfferingsMarketplace() {
                   <div className="pt-4 flex items-center justify-between border-t border-slate-100">
                     <Link
                       to={`/offerings/${offering.slug}`}
-                      className="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1 group"
+                      className="text-base font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1 group"
                     >
                       Learn More
                       <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -336,13 +336,13 @@ export default function OfferingsMarketplace() {
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = "/contact"}>
                 <div className="text-left leading-tight">
                   <div className="text-[10px] opacity-90">Offering</div>
-                  <div className="text-sm font-bold">Readiness Assessment</div>
+                  <div className="text-base font-bold">Readiness Assessment</div>
                 </div>
               </Button>
               <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" onClick={() => window.location.href = "/contact"}>
                 <div className="text-left leading-tight">
                   <div className="text-[10px] opacity-90">Call Us For</div>
-                  <div className="text-sm font-bold">Free Consultation</div>
+                  <div className="text-base font-bold">Free Consultation</div>
                 </div>
               </Button>
             </div>

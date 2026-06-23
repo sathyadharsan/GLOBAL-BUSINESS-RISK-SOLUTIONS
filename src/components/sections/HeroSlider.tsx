@@ -90,7 +90,7 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
           }}
         >
           {activeSlide.badge && (
-            <span className="inline-block text-xs font-bold text-blue-300 uppercase tracking-widest bg-blue-600/20 px-4 py-1.5 rounded-full border border-blue-400/30 mb-6">
+            <span className="inline-block text-sm font-bold text-blue-300 uppercase tracking-widest bg-blue-600/20 px-4 py-1.5 rounded-full border border-blue-400/30 mb-6">
               {activeSlide.badge}
             </span>
           )}

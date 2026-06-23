@@ -45,7 +45,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
             >
               Enterprise Risk Solutions
             </Badge>
@@ -61,7 +61,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Consultation
@@ -69,7 +69,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Framework
@@ -83,7 +83,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
       <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Enterprise Overview
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
@@ -143,10 +143,10 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <p className="text-base text-slate-600 leading-snug">{cap.desc}</p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={j} className="flex items-start gap-2 text-base text-slate-700">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -177,7 +177,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
                   <span className="text-2xl font-bold text-blue-600">{i + 1}</span>
                 </div>
                 <h3 className="font-semibold text-slate-900">{step}</h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-sm text-slate-500">
                   {i === 0 && "Quantify and qualify business risks across operations"}
                   {i === 1 && "Evaluate exposure magnitude and frequency"}
                   {i === 2 && "Structure optimal insurance and retention strategy"}
@@ -208,16 +208,16 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
                   <CardTitle className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                     {offering.title}
                   </CardTitle>
-                  <p className="text-sm text-slate-500">{offering.subtitle}</p>
+                  <p className="text-base text-slate-500">{offering.subtitle}</p>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                  <p className="text-base text-slate-600 line-clamp-3 leading-relaxed">
                     {offering.shortDescription || offering.valueText}
                   </p>
                   <div className="pt-4 flex items-center justify-between border-t border-slate-100">
                     <Link
                       to={`/offerings/${offering.slug}`}
-                      className="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                      className="text-base font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
                     >
                       Learn More
                       <ChevronRight className="h-4 w-4" />
@@ -246,7 +246,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
             {Array.from(new Set(relatedOfferings.flatMap(o => o.industryApplicability || []))).slice(0, 8).map((industry) => (
               <div key={industry} className="bg-white p-4 rounded-lg border border-slate-200 text-center hover:shadow-md transition-shadow">
                 <Building2 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <span className="text-sm font-medium text-slate-700">{industry}</span>
+                <span className="text-base font-medium text-slate-700">{industry}</span>
               </div>
             ))}
           </div>
@@ -266,7 +266,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Consultation
@@ -274,7 +274,7 @@ export function EnterpriseSolutionsLayout({ category, relatedOfferings }: Enterp
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Schedule Risk Assessment

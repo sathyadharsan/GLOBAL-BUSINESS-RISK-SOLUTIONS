@@ -129,7 +129,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
         </div>
         <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
-            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Industry Practices</span>
+            <span className="text-sm font-bold text-blue-400 uppercase tracking-widest">Industry Practices</span>
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               Enterprise Risk Consulting Microsites
             </h1>
@@ -156,7 +156,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                   if (firstItem) handleSelect(firstItem.id);
                 }}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all border",
+                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold transition-all border",
                   isActive
                     ? "bg-white text-primary shadow-md border-slate-200 ring-2 ring-blue-500/20"
                     : "bg-white/60 text-slate-500 border-slate-100 hover:bg-white hover:text-primary hover:shadow-sm"
@@ -171,7 +171,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
 
         {/* Sector Showcase Cards Grid */}
         <div className="space-y-4">
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider px-1">
+          <div className="text-sm font-bold text-slate-400 uppercase tracking-wider px-1">
             {activeConfig.label} Practices ({activeGroupItems.length})
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -194,7 +194,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                       <div className="p-1.5 rounded-lg bg-slate-50" style={{ color: activeConfig.color }}>
                         <item.icon className="h-4.5 w-4.5" />
                       </div>
-                      <h3 className="text-sm font-extrabold text-primary tracking-tight leading-tight">{item.label}</h3>
+                      <h3 className="text-base font-extrabold text-primary tracking-tight leading-tight">{item.label}</h3>
                     </div>
                     <p className="text-[11px] text-muted-foreground line-clamp-3 leading-relaxed">
                       {data?.description || "Industry-specific risk architecture and coverage solutions."}
@@ -226,7 +226,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
                   {currentData.title}
                 </h2>
-                <p className="text-sm text-gray-300">{currentData.subtitle}</p>
+                <p className="text-base text-gray-300">{currentData.subtitle}</p>
               </div>
             </div>
 
@@ -238,9 +238,9 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 pb-2 border-b">
                       <Target className="h-5 w-5 text-blue-600" />
-                      <h3 className="text-sm font-extrabold text-primary font-serif uppercase tracking-wide">Industry Risk Profile</h3>
+                      <h3 className="text-base font-extrabold text-primary font-serif uppercase tracking-wide">Industry Risk Profile</h3>
                     </div>
-                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed">{currentData.description}</p>
+                    <p className="text-sm md:text-base text-slate-600 leading-relaxed">{currentData.description}</p>
                   </div>
 
                   <div className="p-5 bg-slate-50 border-l-4 border-blue-500 rounded-r-xl relative overflow-hidden">
@@ -252,7 +252,7 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                         <Lightbulb className="w-3.5 h-3.5" />
                         <span>SECTOR INSIGHT</span>
                       </div>
-                      <blockquote className="text-xs md:text-sm italic font-medium leading-relaxed text-slate-700">
+                      <blockquote className="text-sm md:text-base italic font-medium leading-relaxed text-slate-700">
                         &ldquo;Every industry has distinct risk characteristics. Our practice leaders design coverage that matches your operational reality.&rdquo;
                       </blockquote>
                     </div>
@@ -263,14 +263,14 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
                 <div className="lg:col-span-6 space-y-4">
                   <div className="flex items-center gap-2 pb-2 border-b">
                     <Layers className="h-5 w-5 text-blue-600" />
-                    <h3 className="text-sm font-extrabold text-primary font-serif uppercase tracking-wide">Critical Coverage Architecture</h3>
+                    <h3 className="text-base font-extrabold text-primary font-serif uppercase tracking-wide">Critical Coverage Architecture</h3>
                   </div>
                   <div className="space-y-3">
                     {currentData.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-sm transition-all duration-300">
                         <CheckCircle2 className="h-4.5 w-4.5 text-blue-500 shrink-0 mt-0.5" />
                         <div>
-                          <h4 className="text-xs md:text-sm font-bold text-primary">{feature.title}</h4>
+                          <h4 className="text-sm md:text-base font-bold text-primary">{feature.title}</h4>
                           <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">{feature.description}</p>
                         </div>
                       </div>
@@ -284,10 +284,10 @@ export function IndustriesDashboard({ activeSlug }: IndustriesDashboardProps) {
             {/* Bottom CTA */}
             <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="space-y-1">
-                <h4 className="text-xs font-bold text-primary">Ready for sector-specific risk assessment?</h4>
+                <h4 className="text-sm font-bold text-primary">Ready for sector-specific risk assessment?</h4>
                 <p className="text-[10px] text-muted-foreground">Connect with our industry practice leaders.</p>
               </div>
-              <Button onClick={() => navigate("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
+              <Button onClick={() => navigate("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-bold h-10 px-5 text-sm shadow shrink-0 border-0">
                 Request Sector Assessment
               </Button>
             </div>

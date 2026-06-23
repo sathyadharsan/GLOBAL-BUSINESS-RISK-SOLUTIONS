@@ -85,7 +85,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                 >
                   <Icon className="w-6 h-6" />
                 </div>
-                <span className="text-xs font-semibold px-2 py-1 bg-white/10 rounded-full text-white">
+                <span className="text-sm font-semibold px-2 py-1 bg-white/10 rounded-full text-white">
                   Risk Category
                 </span>
               </div>
@@ -130,7 +130,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                       <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-blue-600 transition-colors">
                         {riskItem.label}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         {riskItem.description}
                       </p>
                     </div>
@@ -174,7 +174,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
               {category && (
                 <Link
                   to={`/risks/${category.id}`}
-                  className="text-xs font-semibold px-2 py-1 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
+                  className="text-sm font-semibold px-2 py-1 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
                 >
                   ← {category.label}
                 </Link>
@@ -188,7 +188,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                 <Icon className="w-6 h-6" />
               </div>
               {category && (
-                <span className="text-xs font-semibold px-2 py-1 bg-white/10 rounded-full text-white">
+                <span className="text-sm font-semibold px-2 py-1 bg-white/10 rounded-full text-white">
                   {category.label}
                 </span>
               )}
@@ -255,10 +255,10 @@ export function RiskDetail({ slug }: RiskDetailProps) {
             {Object.entries(risk.businessImpact).map(([key, value]) => (
               <Card key={key} className="border border-slate-200">
                 <CardContent className="p-4">
-                  <h4 className="text-xs font-semibold text-slate-500 uppercase mb-2">
+                  <h4 className="text-sm font-semibold text-slate-500 uppercase mb-2">
                     {key.replace(/([A-Z])/g, " $1").trim()} Impact
                   </h4>
-                  <p className="text-sm text-primary">{value}</p>
+                  <p className="text-base text-primary">{value}</p>
                 </CardContent>
               </Card>
             ))}
@@ -275,7 +275,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
               {risk.potentialImplications.map((implication, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                  <span className="text-slate-600 text-sm leading-relaxed">{implication}</span>
+                  <span className="text-slate-600 text-base leading-relaxed">{implication}</span>
                 </li>
               ))}
             </ul>
@@ -290,7 +290,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           <div className="flex flex-wrap gap-2">
             {risk.relatedIndustries.map((industry, i) => (
               <Link key={i} to={`/industries/${industry}`}>
-                <Badge variant="outline" className="text-xs hover:bg-primary/5 cursor-pointer px-3 py-1">
+                <Badge variant="outline" className="text-sm hover:bg-primary/5 cursor-pointer px-3 py-1">
                   {industry === "all" ? "All Industries" : industry.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
                 </Badge>
               </Link>
@@ -306,7 +306,7 @@ export function RiskDetail({ slug }: RiskDetailProps) {
           <div className="flex flex-wrap gap-2">
             {risk.relatedOfferings.map((offering, i) => (
               <Link key={i} to={`/offerings/${offering}`}>
-                <Badge variant="outline" className="text-xs hover:bg-primary/5 cursor-pointer px-3 py-1">
+                <Badge variant="outline" className="text-sm hover:bg-primary/5 cursor-pointer px-3 py-1">
                   {offering.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase())}
                 </Badge>
               </Link>
@@ -325,35 +325,35 @@ export function RiskDetail({ slug }: RiskDetailProps) {
                 <Shield className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Prevent</h3>
-              <p className="text-xs text-slate-500">Implement controls to reduce likelihood</p>
+              <p className="text-sm text-slate-500">Implement controls to reduce likelihood</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="h-6 w-6 text-amber-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Detect</h3>
-              <p className="text-xs text-slate-500">Identify risk events early</p>
+              <p className="text-sm text-slate-500">Identify risk events early</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4">
                 <Lock className="h-6 w-6 text-emerald-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Transfer</h3>
-              <p className="text-xs text-slate-500">Insurance and risk sharing solutions</p>
+              <p className="text-sm text-slate-500">Insurance and risk sharing solutions</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mx-auto mb-4">
                 <Activity className="h-6 w-6 text-orange-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Respond</h3>
-              <p className="text-xs text-slate-500">Activate incident response protocols</p>
+              <p className="text-sm text-slate-500">Activate incident response protocols</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-violet-50 flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-6 w-6 text-violet-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Recover</h3>
-              <p className="text-xs text-slate-500">Restore operations and learn</p>
+              <p className="text-sm text-slate-500">Restore operations and learn</p>
             </div>
           </div>
         </section>

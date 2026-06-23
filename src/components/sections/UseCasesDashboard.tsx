@@ -81,7 +81,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
         </div>
         <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-4">
-            <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Case Portfolios</span>
+            <span className="text-sm font-bold text-purple-400 uppercase tracking-widest">Case Portfolios</span>
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
               Real-World Use Cases & Case Studies
             </h1>
@@ -108,7 +108,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                   if (firstItem) handleSelect(firstItem.id);
                 }}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all border",
+                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold transition-all border",
                   isActive
                     ? "bg-white text-primary shadow-md border-slate-200 ring-2 ring-blue-500/20"
                     : "bg-white/60 text-slate-500 border-slate-100 hover:bg-white hover:text-primary hover:shadow-sm"
@@ -139,7 +139,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                   <div className="p-1.5 rounded-lg bg-slate-50" style={{ color: activeConfig.color }}>
                     <item.icon className="h-4.5 w-4.5" />
                   </div>
-                  <h3 className="text-xs font-bold text-primary truncate leading-tight">{item.label}</h3>
+                  <h3 className="text-sm font-bold text-primary truncate leading-tight">{item.label}</h3>
                 </div>
                 {item.badge && (
                   <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full shrink-0 bg-red-100 text-red-700">{item.badge}</span>
@@ -161,7 +161,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                   <span className="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-2 py-0.5 rounded border border-white/10">{activeConfig.label}</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">{currentData.title}</h2>
-                <p className="text-sm text-gray-300">{currentData.subtitle}</p>
+                <p className="text-base text-gray-300">{currentData.subtitle}</p>
               </div>
             </div>
 
@@ -176,11 +176,11 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                   1
                 </div>
                 <div className="flex-1 bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm space-y-4 hover:shadow transition-shadow border-l-4 border-l-red-500">
-                  <div className="flex items-center gap-2 text-red-600 font-extrabold text-xs uppercase tracking-wider border-b pb-2">
+                  <div className="flex items-center gap-2 text-red-600 font-extrabold text-sm uppercase tracking-wider border-b pb-2">
                     <AlertTriangle className="w-4.5 h-4.5" />
                     <span>The Scenario & Challenge</span>
                   </div>
-                  <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                     {currentData.description}
                   </p>
                 </div>
@@ -192,7 +192,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                   2
                 </div>
                 <div className="flex-1 bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm space-y-4 hover:shadow transition-shadow border-l-4 border-l-blue-500">
-                  <div className="flex items-center gap-2 text-blue-600 font-extrabold text-xs uppercase tracking-wider border-b pb-2">
+                  <div className="flex items-center gap-2 text-blue-600 font-extrabold text-sm uppercase tracking-wider border-b pb-2">
                     <Layers className="w-4.5 h-4.5" />
                     <span>TRUSTFLOW Solution Architecture</span>
                   </div>
@@ -202,8 +202,8 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                       <div key={i} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50/50 border border-slate-100">
                         <CheckCircle2 className="h-4.5 w-4.5 text-blue-500 shrink-0 mt-0.5" />
                         <div>
-                          <h4 className="text-xs font-bold text-primary">{feature.title}</h4>
-                          <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 leading-relaxed">{feature.description}</p>
+                          <h4 className="text-sm font-bold text-primary">{feature.title}</h4>
+                          <p className="text-[10px] md:text-sm text-muted-foreground mt-0.5 leading-relaxed">{feature.description}</p>
                         </div>
                       </div>
                     ))}
@@ -225,7 +225,7 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
                       <Lightbulb className="w-3.5 h-3.5" />
                       <span>KEY TAKEAWAY</span>
                     </div>
-                    <blockquote className="text-xs md:text-sm italic font-medium leading-relaxed text-slate-700">
+                    <blockquote className="text-sm md:text-base italic font-medium leading-relaxed text-slate-700">
                       &ldquo;Every major loss or corporate event is a stress test for your insurance program. The difference between financial devastation and seamless recovery lies in the structural quality of the architecture built before the event occurred.&rdquo;
                     </blockquote>
                   </div>
@@ -237,10 +237,10 @@ export function UseCasesDashboard({ activeSlug }: UseCasesDashboardProps) {
             {/* Bottom CTA */}
             <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="space-y-1">
-                <h4 className="text-xs font-bold text-primary">Facing a similar complex operational scenario?</h4>
+                <h4 className="text-sm font-bold text-primary">Facing a similar complex operational scenario?</h4>
                 <p className="text-[10px] text-muted-foreground">Let&apos;s build a proactive risk architecture before your next event occurs.</p>
               </div>
-              <Button onClick={() => navigate("/contact")} className="bg-purple-600 hover:bg-purple-700 text-white font-bold h-10 px-5 text-xs shadow shrink-0 border-0">
+              <Button onClick={() => navigate("/contact")} className="bg-purple-600 hover:bg-purple-700 text-white font-bold h-10 px-5 text-sm shadow shrink-0 border-0">
                 Discuss Your Scenario
               </Button>
             </div>

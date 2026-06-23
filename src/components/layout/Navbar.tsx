@@ -279,7 +279,7 @@ function OfferingsMega() {
         <div className="px-6 pb-4 pt-0">
           <Link
             to="/offerings"
-            className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+            className="text-base font-bold text-blue-600 hover:text-blue-800 transition-colors"
           >
             View All Offerings →
           </Link>
@@ -482,7 +482,7 @@ export function Navbar() {
             <span className="text-xl font-bold tracking-tight text-primary leading-tight">
               TRUSTFLOW
             </span>
-            <span className="text-xs font-normal text-muted-foreground mt-1">
+            <span className="text-sm font-normal text-muted-foreground mt-1">
               Risk Advisory Insurance & Resilience Solutions
             </span>
           </Link>
@@ -612,14 +612,14 @@ export function Navbar() {
                     <span className="text-xl font-bold tracking-tight text-primary leading-tight">
                       TRUSTFLOW
                     </span>
-                    <span className="text-xs font-normal text-muted-foreground mt-1">
+                    <span className="text-sm font-normal text-muted-foreground mt-1">
                       Risk Advisory Insurance Resilience Solutions
                     </span>
                   </Link>
                 </div>
                 <div>
                   <Link to="/" className="text-lg font-semibold text-primary">Home</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/about-us" className="hover:text-primary transition-colors">About Us</Link>
                     <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
                     <Link to="/insights" className="hover:text-primary transition-colors">Insights</Link>
@@ -627,7 +627,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/industries" className="text-lg font-semibold text-primary">Industries</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/industries/technology-digital" className="hover:text-primary transition-colors">Technology & Digital</Link>
                     <Link to="/industries/manufacturing-industrial" className="hover:text-primary transition-colors">Manufacturing & Industrial</Link>
                     <Link to="/industries/energy-utilities" className="hover:text-primary transition-colors">Energy & Utilities</Link>
@@ -644,7 +644,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/risks" className="text-lg font-semibold text-primary">Risks</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/risks/cross-industry" className="hover:text-primary transition-colors">Cross-Industry Risks</Link>
                     <Link to="/risks/cross-functional" className="hover:text-primary transition-colors">Cross-Functional Risks</Link>
                     <Link to="/risks/industry-specific" className="hover:text-primary transition-colors">Industry-Specific Risks</Link>
@@ -654,7 +654,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     {Object.entries(CATEGORY_GROUPS).map(([key, cat]) => (
                       <Link key={key} to={`/offerings/category/${key}`} className="hover:text-primary transition-colors">{cat.label}</Link>
                     ))}
@@ -662,7 +662,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/solutions" className="text-lg font-semibold text-primary">Solutions</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/solutions/global-program-architecture" className="hover:text-primary transition-colors">Global Program Architecture</Link>
                     <Link to="/solutions/captive-insurance" className="hover:text-primary transition-colors">Captive Insurance & ART</Link>
                     <Link to="/solutions/risk-engineering" className="hover:text-primary transition-colors">Risk Engineering & Loss Prevention</Link>
@@ -677,7 +677,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/outcomes" className="text-lg font-semibold text-primary">Outcomes</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/outcomes/unicorn-ipo" className="hover:text-primary transition-colors">Unicorn IPO — D&O</Link>
                     <Link to="/outcomes/pe-fund-exit" className="hover:text-primary transition-colors">PE Fund Exit — W&I</Link>
                     <Link to="/outcomes/it-ransomware" className="hover:text-primary transition-colors">IT Ransomware Attack</Link>
@@ -690,7 +690,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/platform" className="text-lg font-semibold text-primary">Platform</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/platform/risk-diagnostic-engine" className="hover:text-primary transition-colors">Risk Diagnostic Engine</Link>
                     <Link to="/platform/risk-dna-mapper" className="hover:text-primary transition-colors">Risk DNA Mapper</Link>
                     <Link to="/platform/cyber-intelligence" className="hover:text-primary transition-colors">Cyber Threat Intelligence</Link>
@@ -706,7 +706,7 @@ export function Navbar() {
                 </div>
                 <div>
                   <Link to="/about-us" className="text-lg font-semibold text-primary">Company</Link>
-                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-sm text-muted-foreground">
+                  <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
                     <Link to="/about-us" className="hover:text-primary transition-colors">About Us</Link>
                     <Link to="/about-us#about" className="hover:text-primary transition-colors">Our Story & Mission</Link>
                     <Link to="/about-us#why-risk" className="hover:text-primary transition-colors">Why Risk Intelligence</Link>

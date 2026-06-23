@@ -78,7 +78,7 @@ export function OfferingLayout({
             <h2 className="text-3xl font-bold text-primary">Coverage Architecture</h2>
           </div>
           <div className="overflow-hidden rounded-xl border shadow-sm">
-            <table className="w-full text-left text-sm text-muted-foreground">
+            <table className="w-full text-left text-base text-muted-foreground">
               <thead className="bg-blue-50/50 text-primary font-semibold border-b">
                 <tr>
                   <th className="px-6 py-4 w-1/3">Term / Category</th>
@@ -138,7 +138,7 @@ export function OfferingLayout({
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="border shadow-none bg-white">
               <CardHeader className="pb-3 border-b bg-gray-50/50">
-                <div className="text-sm font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 1</div>
+                <div className="text-base font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 1</div>
                 <CardTitle className="text-xl text-primary">Enterprise Scale</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
@@ -148,7 +148,7 @@ export function OfferingLayout({
 
             <Card className="border shadow-none bg-white">
               <CardHeader className="pb-3 border-b bg-gray-50/50">
-                <div className="text-sm font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 2</div>
+                <div className="text-base font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 2</div>
                 <CardTitle className="text-xl text-primary">Operational Scope</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
@@ -158,7 +158,7 @@ export function OfferingLayout({
 
             <Card className="border shadow-none bg-white">
               <CardHeader className="pb-3 border-b bg-gray-50/50">
-                <div className="text-sm font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 3</div>
+                <div className="text-base font-bold uppercase text-muted-foreground tracking-wider mb-1">Dimension 3</div>
                 <CardTitle className="text-xl text-primary">Duration</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">

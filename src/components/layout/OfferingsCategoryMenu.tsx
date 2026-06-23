@@ -28,7 +28,7 @@ export function OfferingsCategoryMenu() {
                 >
                   <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div className="flex flex-col min-w-0">
-                    <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                    <span className="text-base font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
                       {category.label}
                     </span>
                   </div>
@@ -37,7 +37,7 @@ export function OfferingsCategoryMenu() {
             })}
           </div>
           <div className="pt-4 border-t border-slate-200">
-            <Link to="/offerings" className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+            <Link to="/offerings" className="text-base font-semibold text-blue-600 hover:text-blue-800 transition-colors">
               View All Offerings →
             </Link>
           </div>

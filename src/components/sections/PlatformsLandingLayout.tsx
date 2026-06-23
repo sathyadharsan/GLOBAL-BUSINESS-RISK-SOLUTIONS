@@ -128,7 +128,7 @@ export function PlatformsLandingLayout() {
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
             >
               Platform Suite
             </Badge>
@@ -141,7 +141,7 @@ export function PlatformsLandingLayout() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Assessment
@@ -149,7 +149,7 @@ export function PlatformsLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Platform Guide
@@ -164,7 +164,7 @@ export function PlatformsLandingLayout() {
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+              <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
                 Executive Overview
               </Badge>
               <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-4">
@@ -195,7 +195,7 @@ export function PlatformsLandingLayout() {
       <section className="w-full bg-slate-50 py-14 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Measurable Scale
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
@@ -218,7 +218,7 @@ export function PlatformsLandingLayout() {
                   <div className="text-base font-semibold text-slate-700">
                     {stat.label}
                   </div>
-                  <p className="text-xs text-slate-500 leading-snug px-2">
+                  <p className="text-sm text-slate-500 leading-snug px-2">
                     Verified benchmark
                   </p>
                 </CardContent>
@@ -241,7 +241,7 @@ export function PlatformsLandingLayout() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                    <p className="text-base text-slate-600 leading-snug">{cap.desc}</p>
                   </CardContent>
                 </Card>
               );
@@ -269,7 +269,7 @@ export function PlatformsLandingLayout() {
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
-                  className="px-3 py-2 text-xs font-semibold rounded-md data-[state=active]:bg-[#1E5EFF] data-[state=active]:text-white hover:bg-slate-200/50 hover:text-[#0B1F3A] transition-colors"
+                  className="px-3 py-2 text-sm font-semibold rounded-md data-[state=active]:bg-[#1E5EFF] data-[state=active]:text-white hover:bg-slate-200/50 hover:text-[#0B1F3A] transition-colors"
                 >
                   {cat.label}
                 </TabsTrigger>
@@ -298,11 +298,11 @@ export function PlatformsLandingLayout() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col justify-between">
-                      <p className="text-sm text-slate-600 leading-snug mb-3">
+                      <p className="text-base text-slate-600 leading-snug mb-3">
                         {data.description.split('.')[0]}.
                       </p>
                       <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-auto">
-                        <span className="text-xs font-semibold text-blue-600 flex items-center gap-1">
+                        <span className="text-sm font-semibold text-blue-600 flex items-center gap-1">
                           View Details <ChevronRight className="h-3 w-3" />
                         </span>
                       </div>
@@ -346,12 +346,12 @@ export function PlatformsLandingLayout() {
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col justify-between">
-                      <p className="text-sm text-slate-600 leading-snug mb-3">
+                      <p className="text-base text-slate-600 leading-snug mb-3">
                         {data.description.split('.')[0]}.
                       </p>
                       <ul className="space-y-2 mt-2">
                         {data.features.slice(0, 3).map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                          <li key={idx} className="flex items-start gap-2 text-base text-slate-700">
                             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{feature}</span>
                           </li>
@@ -401,8 +401,8 @@ export function PlatformsLandingLayout() {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">{cat.label}</h3>
-                  <p className="text-xs text-slate-500 mb-3">{cat.count} platforms</p>
-                  <div className="text-xs font-semibold text-blue-600 flex items-center justify-center gap-0.5">
+                  <p className="text-sm text-slate-500 mb-3">{cat.count} platforms</p>
+                  <div className="text-sm font-semibold text-blue-600 flex items-center justify-center gap-0.5">
                     Explore Platforms <ChevronRight className="h-3 w-3" />
                   </div>
                 </Card>
@@ -416,7 +416,7 @@ export function PlatformsLandingLayout() {
       <section className="py-14 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Architecture Framework
             </Badge>
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">Technical Architecture Layers</h2>
@@ -427,11 +427,11 @@ export function PlatformsLandingLayout() {
               <CardContent className="p-6">
                 <Database className="h-8 w-8 text-blue-600 mb-4" />
                 <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Data Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">Ingestion from public filings, unstructured news, and corporate metrics.</p>
+                <p className="text-base text-slate-600 mb-4">Ingestion from public filings, unstructured news, and corporate metrics.</p>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>OAuth Integrations</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Blockchain Document Vault</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Real-Time Sync API</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>OAuth Integrations</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Blockchain Document Vault</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Real-Time Sync API</span></li>
                 </ul>
               </CardContent>
             </Card>
@@ -439,11 +439,11 @@ export function PlatformsLandingLayout() {
               <CardContent className="p-6">
                 <Activity className="h-8 w-8 text-purple-600 mb-4" />
                 <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Processing Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">AI engines parsing contract terms and modeling exposure paths.</p>
+                <p className="text-base text-slate-600 mb-4">AI engines parsing contract terms and modeling exposure paths.</p>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>ML Risk Scoring (0-100)</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>NLP Clause Extraction</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>Geopolitical Signal Overlay</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>ML Risk Scoring (0-100)</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>NLP Clause Extraction</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" /><span>Geopolitical Signal Overlay</span></li>
                 </ul>
               </CardContent>
             </Card>
@@ -451,11 +451,11 @@ export function PlatformsLandingLayout() {
               <CardContent className="p-6">
                 <BarChart3 className="h-8 w-8 text-emerald-600 mb-4" />
                 <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">Output Layer</h4>
-                <p className="text-sm text-slate-600 mb-4">Board-level heat maps, policy gap alerts, and broker portals.</p>
+                <p className="text-base text-slate-600 mb-4">Board-level heat maps, policy gap alerts, and broker portals.</p>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Executive Dashboards</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Exportable PDF Briefings</span></li>
-                  <li className="flex items-start gap-2 text-sm text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Incident Playbook Access</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Executive Dashboards</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Exportable PDF Briefings</span></li>
+                  <li className="flex items-start gap-2 text-base text-slate-700"><CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /><span>Incident Playbook Access</span></li>
                 </ul>
               </CardContent>
             </Card>
@@ -467,7 +467,7 @@ export function PlatformsLandingLayout() {
       <section className="py-14 bg-white border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-10">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Industry Outcome Mapping
             </Badge>
             <h2 className="text-[28px] font-bold text-[#0B1F3A] font-serif tracking-tight">
@@ -485,7 +485,7 @@ export function PlatformsLandingLayout() {
                   <TabsTrigger
                     key={tab.industry}
                     value={tab.industry}
-                    className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
+                    className="w-full justify-start px-4 py-2.5 text-base font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
                   >
                     {tab.industry}
                   </TabsTrigger>
@@ -508,7 +508,7 @@ export function PlatformsLandingLayout() {
                               <AlertTriangle className="h-4 w-4 text-red-600" />
                               Vertical Challenge
                             </h3>
-                            <p className="text-sm text-slate-700 leading-relaxed">{tab.challenge}</p>
+                            <p className="text-base text-slate-700 leading-relaxed">{tab.challenge}</p>
                           </div>
                         </div>
 
@@ -520,7 +520,7 @@ export function PlatformsLandingLayout() {
                             </h3>
                             <div className="flex flex-wrap gap-2">
                               {tab.platforms.map((pName, idx) => (
-                                <span key={idx} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
+                                <span key={idx} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200">
                                   {pName}
                                 </span>
                               ))}
@@ -553,8 +553,8 @@ export function PlatformsLandingLayout() {
                     <Card className="border border-slate-200 bg-white hover:border-red-500 transition-all p-4">
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors">{risk.label}</h4>
-                          <p className="text-xs text-slate-500">{risk.description}</p>
+                          <h4 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">{risk.label}</h4>
+                          <p className="text-sm text-slate-500">{risk.description}</p>
                         </div>
                         <ChevronRight className="h-4 w-4 text-slate-300 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
                       </div>
@@ -576,8 +576,8 @@ export function PlatformsLandingLayout() {
                     <Card className="border border-slate-200 bg-white hover:border-blue-500 transition-all p-4">
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{sol.title}</h4>
-                          <p className="text-xs text-slate-500">{sol.description}</p>
+                          <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{sol.title}</h4>
+                          <p className="text-sm text-slate-500">{sol.description}</p>
                         </div>
                         <ChevronRight className="h-4 w-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                       </div>
@@ -616,11 +616,11 @@ export function PlatformsLandingLayout() {
                     <BarChart3 className="h-4 w-4 text-[#1E5EFF]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">{diag.title}</h3>
-                    <p className="text-sm text-slate-600 leading-snug">{diag.description}</p>
+                    <h3 className="text-base font-bold text-[#0B1F3A] mb-1">{diag.title}</h3>
+                    <p className="text-base text-slate-600 leading-snug">{diag.description}</p>
                     <Button
                       variant="link"
-                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-xs font-semibold uppercase tracking-wide"
+                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-sm font-semibold uppercase tracking-wide"
                       onClick={() => (window.location.href = "/contact")}
                     >
                       Start Assessment <ChevronRight className="h-3.5 w-3.5 ml-1" />
@@ -646,7 +646,7 @@ export function PlatformsLandingLayout() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Consultation
@@ -654,7 +654,7 @@ export function PlatformsLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment
@@ -662,7 +662,7 @@ export function PlatformsLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

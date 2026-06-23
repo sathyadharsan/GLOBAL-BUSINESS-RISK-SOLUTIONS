@@ -146,7 +146,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="font-semibold text-sm uppercase tracking-wide"
+                className="font-semibold text-base uppercase tracking-wide"
                 style={{ backgroundColor: platformColor, color: "white" }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = `${platformColor}90`)
@@ -160,7 +160,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Platform Guide
@@ -176,7 +176,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
           <div className="text-center mb-12">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4"
             >
               Enterprise Overview
             </Badge>
@@ -205,7 +205,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                     <div className="text-base font-semibold text-slate-700">
                       {kpi.label}
                     </div>
-                    <p className="text-xs text-slate-500 leading-snug px-2">
+                    <p className="text-sm text-slate-500 leading-snug px-2">
                       Enterprise capability
                     </p>
                   </CardContent>
@@ -232,14 +232,14 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3 pt-0 flex-1 flex flex-col">
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {cap.description}
                     </p>
                     <ul className="space-y-2 mt-auto">
                       {cap.bullets.map((bullet, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-2 text-sm text-slate-700"
+                          className="flex items-start gap-2 text-base text-slate-700"
                         >
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{bullet}</span>
@@ -281,7 +281,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                   <TabsTrigger
                     key={tab.label}
                     value={tab.label}
-                    className="w-full justify-start px-4 py-3 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
+                    className="w-full justify-start px-4 py-3 text-base font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
                   >
                     {tab.label}
                   </TabsTrigger>
@@ -306,7 +306,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.challenges.map((item, i) => (
                               <li
                                 key={i}
-                                className="flex items-start gap-3 text-sm text-slate-700"
+                                className="flex items-start gap-3 text-base text-slate-700"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
                                 <span>{item}</span>
@@ -323,7 +323,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.riskExposure.map((item, i) => (
                               <li
                                 key={i}
-                                className="flex items-start gap-3 text-sm text-slate-700"
+                                className="flex items-start gap-3 text-base text-slate-700"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
                                 <span>{item}</span>
@@ -340,7 +340,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.recommendedArchitecture.map((item, i) => (
                               <li
                                 key={i}
-                                className="flex items-start gap-3 text-sm text-slate-700"
+                                className="flex items-start gap-3 text-base text-slate-700"
                               >
                                 <CheckCircle2 className="h-4 w-4 text-purple-600 shrink-0 mt-0.5" />
                                 <span>{item}</span>
@@ -360,7 +360,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.businessBenefits.map((item, i) => (
                               <li
                                 key={i}
-                                className="flex items-start gap-3 text-sm text-slate-700"
+                                className="flex items-start gap-3 text-base text-slate-700"
                               >
                                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                                 <span>{item}</span>
@@ -377,7 +377,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.useCases.map((item, i) => (
                               <li
                                 key={i}
-                                className="flex items-start gap-3 text-sm text-slate-700"
+                                className="flex items-start gap-3 text-base text-slate-700"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
                                 <span>{item}</span>
@@ -394,7 +394,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.relatedPlatforms.map((item, i) => (
                               <span
                                 key={i}
-                                className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
+                                className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200"
                               >
                                 {item}
                               </span>
@@ -410,7 +410,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                             {tab.relatedRisks.map((item, i) => (
                               <span
                                 key={i}
-                                className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-200"
+                                className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-base font-medium border border-red-200"
                               >
                                 {item}
                               </span>
@@ -452,21 +452,21 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                       <Icon className="h-6 w-6 text-[#1E5EFF]" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wider">
+                      <span className="text-sm font-semibold text-[#1E5EFF] uppercase tracking-wider">
                         Phase {i + 1}
                       </span>
                       <h4 className="font-bold text-[#0B1F3A] text-lg mt-1">
                         {phase.title}
                       </h4>
-                      <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                      <p className="text-base text-slate-600 mt-2 leading-relaxed">
                         {phase.description}
                       </p>
                     </div>
                     <div className="pt-3 border-t border-slate-200">
-                      <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                      <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-1">
                         Business Outcome
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed">
+                      <p className="text-base text-slate-700 leading-relaxed">
                         {phase.outcome}
                       </p>
                     </div>
@@ -504,30 +504,30 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                     </h4>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-1">
                       Primary Challenge
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {tab.challenges[0]}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-1">
                       Business Outcome
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {tab.businessBenefits[0]}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-[#1E5EFF] uppercase tracking-wide mb-1">
                       Relevant Platform
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {tab.relatedPlatforms.slice(0, 2).map((item, j) => (
                         <span
                           key={j}
-                          className="px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium border border-purple-200"
+                          className="px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
                         >
                           {item}
                         </span>
@@ -565,10 +565,10 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                       <Zap className="h-5 w-5 text-amber-500" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-[#0B1F3A]">
+                      <h3 className="text-base font-bold text-[#0B1F3A]">
                         {useCase}
                       </h3>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      <p className="text-sm text-slate-600 mt-1 leading-relaxed">
                         Strategic implementation scenario
                       </p>
                     </div>
@@ -609,7 +609,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-relaxed">
+                      <p className="text-base text-slate-600 leading-relaxed">
                         {risk.description}
                       </p>
                     </CardContent>
@@ -655,7 +655,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-relaxed">
+                      <p className="text-base text-slate-600 leading-relaxed">
                         {description}
                       </p>
                     </CardContent>
@@ -696,7 +696,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
                           <h3 className="text-base font-bold text-[#0B1F3A] mb-1 group-hover:text-blue-600 transition-colors">
                             {plat.title}
                           </h3>
-                          <p className="text-sm text-slate-600 leading-relaxed">
+                          <p className="text-base text-slate-600 leading-relaxed">
                             {plat.subtitle}
                           </p>
                         </div>
@@ -725,7 +725,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="text-white font-semibold text-xs uppercase tracking-widest"
+                className="text-white font-semibold text-sm uppercase tracking-widest"
                 style={{ backgroundColor: platformColor }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = `${platformColor}90`)
@@ -739,7 +739,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment
@@ -747,7 +747,7 @@ export function PlatformDetailLayout({ slug }: PlatformDetailLayoutProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

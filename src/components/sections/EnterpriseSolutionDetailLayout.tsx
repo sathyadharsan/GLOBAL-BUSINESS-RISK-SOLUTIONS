@@ -45,7 +45,7 @@ export function EnterpriseSolutionDetailLayout({
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
             >
               {hero.badge}
             </Badge>
@@ -61,7 +61,7 @@ export function EnterpriseSolutionDetailLayout({
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 {hero.primaryCTA}
@@ -69,7 +69,7 @@ export function EnterpriseSolutionDetailLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 {hero.secondaryCTA}
@@ -85,7 +85,7 @@ export function EnterpriseSolutionDetailLayout({
           <div className="text-center mb-12">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4"
             >
               Enterprise Overview
             </Badge>
@@ -114,7 +114,7 @@ export function EnterpriseSolutionDetailLayout({
                     <div className="text-base font-semibold text-slate-700">
                       {kpi.label}
                     </div>
-                    <p className="text-xs text-slate-500 leading-snug px-2">
+                    <p className="text-sm text-slate-500 leading-snug px-2">
                       {kpi.description}
                     </p>
                   </CardContent>
@@ -141,14 +141,14 @@ export function EnterpriseSolutionDetailLayout({
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3 pt-0">
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {cap.description}
                     </p>
                     <ul className="space-y-2">
                       {cap.bullets.map((bullet, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-2 text-sm text-slate-700"
+                          className="flex items-start gap-2 text-base text-slate-700"
                         >
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{bullet}</span>
@@ -189,7 +189,7 @@ export function EnterpriseSolutionDetailLayout({
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent"
+                  className="w-full justify-start px-4 py-2.5 text-base font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -213,7 +213,7 @@ export function EnterpriseSolutionDetailLayout({
                         {tab.content.industryChallenges.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
                             <span>{item}</span>
@@ -231,7 +231,7 @@ export function EnterpriseSolutionDetailLayout({
                         {tab.content.industryRiskExposure.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-[#1E5EFF] shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -249,7 +249,7 @@ export function EnterpriseSolutionDetailLayout({
                         {tab.content.recommendedOfferings.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -271,7 +271,7 @@ export function EnterpriseSolutionDetailLayout({
                             key={i}
                             to={`/risks/${item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
                           >
-                            <span className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-200 cursor-pointer hover:bg-red-100 transition-colors">
+                            <span className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-base font-medium border border-red-200 cursor-pointer hover:bg-red-100 transition-colors">
                               {item}
                             </span>
                           </Link>
@@ -288,7 +288,7 @@ export function EnterpriseSolutionDetailLayout({
                         {tab.content.relatedPlatforms.map((item, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
+                            className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200"
                           >
                             {item}
                           </span>
@@ -305,7 +305,7 @@ export function EnterpriseSolutionDetailLayout({
                         {tab.content.industryBenefits.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -339,7 +339,7 @@ export function EnterpriseSolutionDetailLayout({
                   <span className="text-2xl font-bold text-blue-600">{i + 1}</span>
                 </div>
                 <h3 className="font-semibold text-slate-900">{step.title}</h3>
-                <p className="text-xs text-slate-500 max-w-[200px]">
+                <p className="text-sm text-slate-500 max-w-[200px]">
                   {step.description}
                 </p>
               </div>
@@ -370,7 +370,7 @@ export function EnterpriseSolutionDetailLayout({
                   <h4 className="font-bold text-[#0B1F3A] mb-2 text-lg">
                     {impact.title}
                   </h4>
-                  <p className="text-sm text-slate-600 leading-snug">
+                  <p className="text-base text-slate-600 leading-snug">
                     {impact.description}
                   </p>
                 </CardContent>
@@ -399,12 +399,12 @@ export function EnterpriseSolutionDetailLayout({
                     <div className="w-9 h-9 rounded bg-red-50 flex items-center justify-center mb-2 group-hover:bg-red-100 transition-colors">
                       <AlertTriangle className="h-4 w-4 text-red-600" />
                     </div>
-                    <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-red-600 transition-colors">
+                    <CardTitle className="text-base font-bold text-[#0B1F3A] group-hover:text-red-600 transition-colors">
                       {risk.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {risk.description}
                     </p>
                   </CardContent>
@@ -434,12 +434,12 @@ export function EnterpriseSolutionDetailLayout({
                     <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2 group-hover:bg-blue-100 transition-colors">
                       <Shield className="h-4 w-4 text-[#1E5EFF]" />
                     </div>
-                    <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">
+                    <CardTitle className="text-base font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">
                       {offering.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {offering.description}
                     </p>
                   </CardContent>
@@ -469,12 +469,12 @@ export function EnterpriseSolutionDetailLayout({
                     <div className="w-9 h-9 rounded bg-purple-50 flex items-center justify-center mb-2 group-hover:bg-purple-100 transition-colors">
                       <BarChart3 className="h-4 w-4 text-purple-600" />
                     </div>
-                    <CardTitle className="text-sm font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">
+                    <CardTitle className="text-base font-bold text-[#0B1F3A] group-hover:text-blue-600 transition-colors">
                       {platform.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {platform.description}
                     </p>
                   </CardContent>
@@ -507,10 +507,10 @@ export function EnterpriseSolutionDetailLayout({
                     <Building2 className="h-4 w-4 text-[#1E5EFF]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-[#0B1F3A] mb-1">
+                    <h4 className="text-base font-bold text-[#0B1F3A] mb-1">
                       {item.industry}
                     </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {item.applicability}
                     </p>
                   </div>
@@ -540,14 +540,14 @@ export function EnterpriseSolutionDetailLayout({
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-7 h-7 rounded-full bg-[#1E5EFF] text-white flex items-center justify-center text-xs font-bold">
+                    <div className="w-7 h-7 rounded-full bg-[#1E5EFF] text-white flex items-center justify-center text-sm font-bold">
                       {i + 1}
                     </div>
-                    <CardTitle className="text-sm font-bold text-[#0B1F3A]">
+                    <CardTitle className="text-base font-bold text-[#0B1F3A]">
                       {program.title}
                     </CardTitle>
                   </div>
-                  <p className="text-xs text-slate-500 leading-snug">
+                  <p className="text-sm text-slate-500 leading-snug">
                     {program.description}
                   </p>
                 </CardHeader>
@@ -556,7 +556,7 @@ export function EnterpriseSolutionDetailLayout({
                     {program.features.map((f, j) => (
                       <li
                         key={j}
-                        className="text-xs text-slate-600 flex items-start gap-2"
+                        className="text-sm text-slate-600 flex items-start gap-2"
                       >
                         <CheckCircle2 className="h-3 w-3 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{f}</span>
@@ -583,7 +583,7 @@ export function EnterpriseSolutionDetailLayout({
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 {executiveCTA.primaryCTA}
@@ -591,7 +591,7 @@ export function EnterpriseSolutionDetailLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 {executiveCTA.secondaryCTA}
@@ -599,7 +599,7 @@ export function EnterpriseSolutionDetailLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

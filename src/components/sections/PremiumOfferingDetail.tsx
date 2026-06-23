@@ -54,7 +54,7 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
           <div className="max-w-4xl space-y-6">
             <div className="flex items-center gap-3">
               <Shield className="h-10 w-10 text-blue-400" />
-              <span className="text-sm font-bold uppercase tracking-widest text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full border border-blue-500/30">
+              <span className="text-base font-bold uppercase tracking-widest text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full border border-blue-500/30">
                 {offering.category.replace(/-/g, " ").toUpperCase()}
               </span>
             </div>
@@ -66,7 +66,7 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               {offering.industryApplicability?.slice(0, 3).map((industry, i) => (
-                <span key={i} className="text-xs font-medium px-3 py-1.5 bg-white/10 backdrop-blur rounded-full border border-white/10 hover:bg-white/15 transition-colors">
+                <span key={i} className="text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur rounded-full border border-white/10 hover:bg-white/15 transition-colors">
                   {industry}
                 </span>
               ))}
@@ -127,7 +127,7 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
             {offering.industryApplicability?.map((industry, i) => (
               <div key={i} className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-100">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span className="text-sm font-medium text-slate-700">{industry}</span>
+                <span className="text-base font-medium text-slate-700">{industry}</span>
               </div>
             ))}
           </div>
@@ -174,7 +174,7 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
               <h3 className="text-xl font-bold text-slate-900 mb-4 font-serif">Related Risks</h3>
               <div className="flex flex-wrap gap-2">
                 {offering.relatedRisks?.map((risk, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100">
+                  <span key={i} className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-base font-medium border border-blue-100">
                     {risk}
                   </span>
                 ))}
@@ -184,7 +184,7 @@ export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) 
               <h3 className="text-xl font-bold text-slate-900 mb-4 font-serif">Related Platforms</h3>
               <div className="flex flex-wrap gap-2">
                 {offering.relatedPlatforms?.map((platform, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-100">
+                  <span key={i} className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-100">
                     {platform}
                   </span>
                 ))}

@@ -53,7 +53,7 @@ export function IndustriesLandingLayout() {
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
             >
               Industry Practices
             </Badge>
@@ -66,7 +66,7 @@ export function IndustriesLandingLayout() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Assessment
@@ -74,7 +74,7 @@ export function IndustriesLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Industry Guide
@@ -88,7 +88,7 @@ export function IndustriesLandingLayout() {
       <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Enterprise Overview
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
@@ -110,7 +110,7 @@ export function IndustriesLandingLayout() {
                   <div className="text-base font-semibold text-slate-700">
                     {stat.label}
                   </div>
-                  <p className="text-xs text-slate-500 leading-snug px-2">
+                  <p className="text-sm text-slate-500 leading-snug px-2">
                     Enterprise capability
                   </p>
                 </CardContent>
@@ -175,11 +175,11 @@ export function IndustriesLandingLayout() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-snug mb-3">
+                      <p className="text-base text-slate-600 leading-snug mb-3">
                         Specialized risk architecture and insurance solutions for {industry.label.toLowerCase()}.
                       </p>
                       <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                        <span className="text-xs font-semibold text-blue-600 flex items-center gap-1">
+                        <span className="text-sm font-semibold text-blue-600 flex items-center gap-1">
                           View Details <ChevronRight className="h-3 w-3" />
                         </span>
                       </div>
@@ -224,19 +224,19 @@ export function IndustriesLandingLayout() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600 leading-snug mb-3">
+                      <p className="text-base text-slate-600 leading-snug mb-3">
                         Comprehensive risk solutions with specialized coverage architecture.
                       </p>
                       <ul className="space-y-2">
-                        <li className="flex items-start gap-2 text-sm text-slate-700">
+                        <li className="flex items-start gap-2 text-base text-slate-700">
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>Cyber & Technology Risk</span>
                         </li>
-                        <li className="flex items-start gap-2 text-sm text-slate-700">
+                        <li className="flex items-start gap-2 text-base text-slate-700">
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>D&O & Professional Liability</span>
                         </li>
-                        <li className="flex items-start gap-2 text-sm text-slate-700">
+                        <li className="flex items-start gap-2 text-base text-slate-700">
                           <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>Business Interruption</span>
                         </li>
@@ -278,8 +278,8 @@ export function IndustriesLandingLayout() {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">{cat.label}</h3>
-                  <p className="text-xs text-slate-500 mb-3">Specialized risk solutions</p>
-                  <div className="text-xs font-semibold text-blue-600">Explore Practice</div>
+                  <p className="text-sm text-slate-500 mb-3">Specialized risk solutions</p>
+                  <div className="text-sm font-semibold text-blue-600">Explore Practice</div>
                 </Card>
               );
             })}
@@ -313,11 +313,11 @@ export function IndustriesLandingLayout() {
                     <BarChart3 className="h-4 w-4 text-[#1E5EFF]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">{diag.title}</h3>
-                    <p className="text-sm text-slate-600 leading-snug">{diag.description}</p>
+                    <h3 className="text-base font-bold text-[#0B1F3A] mb-1">{diag.title}</h3>
+                    <p className="text-base text-slate-600 leading-snug">{diag.description}</p>
                     <Button
                       variant="link"
-                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-xs font-semibold uppercase tracking-wide"
+                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-sm font-semibold uppercase tracking-wide"
                       onClick={() => (window.location.href = "/contact")}
                     >
                       Start Assessment <ChevronRight className="h-3.5 w-3.5 ml-1" />
@@ -344,7 +344,7 @@ export function IndustriesLandingLayout() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Consultation
@@ -352,7 +352,7 @@ export function IndustriesLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment
@@ -360,7 +360,7 @@ export function IndustriesLandingLayout() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

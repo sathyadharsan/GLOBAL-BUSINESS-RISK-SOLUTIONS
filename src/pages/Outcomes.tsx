@@ -118,7 +118,7 @@ export default function OutcomesPage() {
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 text-sm font-semibold tracking-widest uppercase"
             >
               Enterprise Outcomes
             </Badge>
@@ -135,7 +135,7 @@ export default function OutcomesPage() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="font-semibold text-sm uppercase tracking-wide bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white"
+                className="font-semibold text-base uppercase tracking-wide bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Assessment
@@ -143,7 +143,7 @@ export default function OutcomesPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Overview
@@ -160,7 +160,7 @@ export default function OutcomesPage() {
             <div>
               <Badge
                 variant="secondary"
-                className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+                className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4"
               >
                 Executive Overview
               </Badge>
@@ -255,7 +255,7 @@ export default function OutcomesPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {cap.description}
                     </p>
                   </CardContent>
@@ -284,7 +284,7 @@ export default function OutcomesPage() {
                 <div>
                   <Badge
                     variant="secondary"
-                    className={`w-fit text-xs font-semibold tracking-widest uppercase mb-1 ${config.bgClass} ${config.textClass} ${config.borderClass}`}
+                    className={`w-fit text-sm font-semibold tracking-widest uppercase mb-1 ${config.bgClass} ${config.textClass} ${config.borderClass}`}
                   >
                     {config.label}
                   </Badge>
@@ -308,15 +308,15 @@ export default function OutcomesPage() {
                           >
                             {config.label}
                           </div>
-                          <h3 className="text-sm font-bold text-[#0B1F3A] leading-tight">
+                          <h3 className="text-base font-bold text-[#0B1F3A] leading-tight">
                             {outcome.title}
                           </h3>
-                          <p className="text-xs text-slate-500 leading-snug">
+                          <p className="text-sm text-slate-500 leading-snug">
                             {outcome.subtitle}
                           </p>
                         </div>
                         <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
-                          <span className="text-xs font-semibold text-blue-600 group-hover:underline">
+                          <span className="text-sm font-semibold text-blue-600 group-hover:underline">
                             View Case Study
                           </span>
                           <ArrowRight className="h-3.5 w-3.5 text-blue-600 group-hover:translate-x-1 transition-transform" />
@@ -345,7 +345,7 @@ export default function OutcomesPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="text-white font-semibold text-xs uppercase tracking-widest bg-[#1E5EFF] hover:bg-[#1E5EFF]/90"
+                className="text-white font-semibold text-sm uppercase tracking-widest bg-[#1E5EFF] hover:bg-[#1E5EFF]/90"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Consultation
@@ -353,7 +353,7 @@ export default function OutcomesPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment

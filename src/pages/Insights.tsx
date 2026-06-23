@@ -48,15 +48,15 @@ export default function Insights() {
               <Link key={i} to={`/insights/${insight.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="group cursor-pointer border p-6 rounded-lg hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-blue-600 tracking-wider uppercase bg-blue-50 px-2 py-1 rounded">{insight.type}</span>
-                    <span className="text-xs text-muted-foreground">{insight.date}</span>
+                    <span className="text-sm font-semibold text-blue-600 tracking-wider uppercase bg-blue-50 px-2 py-1 rounded">{insight.type}</span>
+                    <span className="text-sm text-muted-foreground">{insight.date}</span>
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors leading-snug">{insight.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-base text-muted-foreground mb-6 leading-relaxed">
                     {insight.desc}
                   </p>
                 </div>
-                <div className="text-sm font-medium text-blue-600 inline-flex items-center mt-auto">
+                <div className="text-base font-medium text-blue-600 inline-flex items-center mt-auto">
                   Read article <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>

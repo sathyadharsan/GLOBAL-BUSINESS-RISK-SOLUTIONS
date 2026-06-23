@@ -66,7 +66,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
             {outcome.category && (
               <Badge
                 variant="secondary"
-                className="w-fit bg-white/10 text-white border-white/20 text-xs font-semibold tracking-widest uppercase"
+                className="w-fit bg-white/10 text-white border-white/20 text-sm font-semibold tracking-widest uppercase"
               >
                 {outcome.category}
               </Badge>
@@ -83,7 +83,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="font-semibold text-sm uppercase tracking-wide"
+                className="font-semibold text-base uppercase tracking-wide"
                 style={{ backgroundColor: brandColor, color: "white" }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = `${brandColor}90`)
@@ -97,7 +97,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Download Case Study
@@ -113,7 +113,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
           <div className="text-center mb-12">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4"
             >
               Enterprise Overview
             </Badge>
@@ -143,7 +143,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     <div className="text-base font-semibold text-slate-700">
                       {kpi.label}
                     </div>
-                    <p className="text-xs text-slate-500 leading-snug px-2">
+                    <p className="text-sm text-slate-500 leading-snug px-2">
                       Enterprise capability
                     </p>
                   </CardContent>
@@ -170,7 +170,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3 pt-0 flex-1 flex flex-col">
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-base text-slate-600 leading-relaxed">
                       {cap.description}
                     </p>
                   </CardContent>
@@ -208,7 +208,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                   <TabsTrigger
                     key={tab.industry}
                     value={tab.industry}
-                    className="w-full justify-start px-4 py-3 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
+                    className="w-full justify-start px-4 py-3 text-base font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent after:hidden"
                   >
                     {tab.industry}
                   </TabsTrigger>
@@ -231,7 +231,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                               <AlertTriangle className="h-5 w-5 text-red-600" />
                               Industry Challenges
                             </h3>
-                            <p className="text-sm text-slate-700 leading-relaxed">
+                            <p className="text-base text-slate-700 leading-relaxed">
                               {tab.challenge}
                             </p>
                           </div>
@@ -240,7 +240,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                               <Shield className="h-5 w-5 text-[#1E5EFF]" />
                               Risk Exposures
                             </h3>
-                            <p className="text-sm text-slate-700 leading-relaxed">
+                            <p className="text-base text-slate-700 leading-relaxed">
                               This outcome addresses critical exposures including{" "}
                               {tab.challenge.toLowerCase()} through comprehensive
                               risk transfer and incident response.
@@ -254,7 +254,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                               <Globe className="h-5 w-5 text-purple-600" />
                               Core Platform
                             </h3>
-                            <span className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
+                            <span className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200">
                               {tab.platform}
                             </span>
                           </div>
@@ -263,7 +263,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                               <FileText className="h-5 w-5 text-amber-600" />
                               Recommended Architecture
                             </h3>
-                            <p className="text-sm text-slate-700 leading-relaxed">
+                            <p className="text-base text-slate-700 leading-relaxed">
                               Platform-driven risk assessment combined with
                               specialized insurance program design and incident
                               response retainer for this sector.
@@ -283,7 +283,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                               ].map((benefit, idx) => (
                                 <li
                                   key={idx}
-                                  className="flex items-start gap-2 text-sm text-slate-700"
+                                  className="flex items-start gap-2 text-base text-slate-700"
                                 >
                                   <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                                   <span>{benefit}</span>
@@ -325,21 +325,21 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     <Activity className="h-6 w-6 text-[#1E5EFF]" />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wider">
+                    <span className="text-sm font-semibold text-[#1E5EFF] uppercase tracking-wider">
                       Phase {i + 1}
                     </span>
                     <h4 className="font-bold text-[#0B1F3A] text-lg mt-1">
                       {impact.phase}
                     </h4>
-                    <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                    <p className="text-base text-slate-600 mt-2 leading-relaxed">
                       {impact.description}
                     </p>
                   </div>
                   <div className="pt-3 border-t border-slate-200">
-                    <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-1">
                       Business Outcome
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {impact.outcome}
                     </p>
                   </div>
@@ -376,26 +376,26 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     </h4>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-1">
                       Primary Challenge
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {map.challenge}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-1">
                       Business Outcome
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {map.outcome}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#1E5EFF] uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-[#1E5EFF] uppercase tracking-wide mb-1">
                       Relevant Platform
                     </p>
-                    <span className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
+                    <span className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200">
                       {map.relevantPlatform}
                     </span>
                   </div>
@@ -460,7 +460,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-base text-slate-600 leading-relaxed">
                       Risk category addressed by this outcome through strategic
                       risk transfer and expert claims advocacy.
                     </p>
@@ -500,7 +500,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-base text-slate-600 leading-relaxed">
                       Specialized risk transfer program designed to address this
                       exposure.
                     </p>
@@ -544,7 +544,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
                           <h3 className="text-base font-bold text-[#0B1F3A] mb-1 group-hover:text-blue-600 transition-colors">
                             {platformDetail?.title || plat}
                           </h3>
-                          <p className="text-sm text-slate-600 leading-relaxed">
+                          <p className="text-base text-slate-600 leading-relaxed">
                             {platformDetail?.subtitle || "Supporting platform"}
                           </p>
                         </div>
@@ -572,7 +572,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="text-white font-semibold text-xs uppercase tracking-widest"
+                className="text-white font-semibold text-sm uppercase tracking-widest"
                 style={{ backgroundColor: brandColor }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = `${brandColor}90`)
@@ -586,7 +586,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Request Assessment
@@ -594,7 +594,7 @@ export function EnterpriseOutcomesLayout({ slug }: EnterpriseOutcomesLayoutProps
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

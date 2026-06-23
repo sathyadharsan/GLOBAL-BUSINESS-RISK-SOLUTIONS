@@ -78,7 +78,7 @@ export function TwoPanelLayout({
               id={`mobile-tab-${item.id}`}
               onClick={() => handleSelect(item.id)}
               className={cn(
-                "flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-full whitespace-nowrap transition-all border shrink-0",
+                "flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-all border shrink-0",
                 isSelected
                   ? "bg-blue-50 border-blue-200 text-blue-600 shadow-sm"
                   : "bg-gray-50 border-gray-100 text-muted-foreground hover:bg-gray-100"
@@ -180,7 +180,7 @@ export function TwoPanelLayout({
                       {heroBadges.map((badge, i) => (
                         <span 
                           key={i} 
-                          className="text-xs font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
+                          className="text-sm font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
                         >
                           {badge}
                         </span>
@@ -217,7 +217,7 @@ export function TwoPanelLayout({
                     {heroBadges.map((badge, i) => (
                       <span 
                         key={i} 
-                        className="text-xs font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
+                        className="text-sm font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
                       >
                         {badge}
                       </span>

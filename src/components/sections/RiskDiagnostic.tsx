@@ -163,22 +163,22 @@ function RiskScoreCard({ score, rank }: { score: RiskScore; rank: number }) {
     <Card className="border border-slate-200 hover:shadow-lg transition-shadow">
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <Badge variant="outline" className="text-xs" style={{ color: score.color, borderColor: score.color }}>
+          <Badge variant="outline" className="text-sm" style={{ color: score.color, borderColor: score.color }}>
             #{rank}
           </Badge>
-          <span className="text-xs font-medium" style={{ color: score.color }}>
+          <span className="text-sm font-medium" style={{ color: score.color }}>
             {score.trend === "up" ? "↑ Rising" : score.trend === "down" ? "↓ Declining" : "→ Stable"}
           </span>
         </div>
         <h3 className="font-bold text-primary mb-1">{score.risk}</h3>
-        <p className="text-xs text-slate-500 mb-4">{score.category}</p>
+        <p className="text-sm text-slate-500 mb-4">{score.category}</p>
         <div className="w-full bg-slate-100 rounded-full h-2 mb-2">
           <div
             className="h-2 rounded-full transition-all"
             style={{ width: `${score.score}%`, backgroundColor: score.color }}
           />
         </div>
-        <p className="text-xs text-slate-400">Risk Score: {score.score}/100</p>
+        <p className="text-sm text-slate-400">Risk Score: {score.score}/100</p>
       </CardContent>
     </Card>
   );
@@ -192,7 +192,7 @@ function ExposureCard({ title, value, description, icon: Icon }: { title: string
       </div>
       <h3 className="text-lg font-bold text-primary mb-2">{title}</h3>
       <p className="text-2xl font-bold text-slate-800 mb-1">{value}</p>
-      <p className="text-xs text-slate-500">{description}</p>
+      <p className="text-sm text-slate-500">{description}</p>
     </div>
   );
 }
@@ -203,30 +203,30 @@ function RiskScoreMatrix({ scores }: { scores: RiskScore[] }) {
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-slate-200">
-            <th className="text-left py-3 text-xs font-semibold text-slate-600 uppercase">Risk</th>
-            <th className="text-center py-3 text-xs font-semibold text-slate-600 uppercase">Category</th>
-            <th className="text-center py-3 text-xs font-semibold text-slate-600 uppercase">Likelihood</th>
-            <th className="text-center py-3 text-xs font-semibold text-slate-600 uppercase">Impact</th>
-            <th className="text-center py-3 text-xs font-semibold text-slate-600 uppercase">Score</th>
+            <th className="text-left py-3 text-sm font-semibold text-slate-600 uppercase">Risk</th>
+            <th className="text-center py-3 text-sm font-semibold text-slate-600 uppercase">Category</th>
+            <th className="text-center py-3 text-sm font-semibold text-slate-600 uppercase">Likelihood</th>
+            <th className="text-center py-3 text-sm font-semibold text-slate-600 uppercase">Impact</th>
+            <th className="text-center py-3 text-sm font-semibold text-slate-600 uppercase">Score</th>
           </tr>
         </thead>
         <tbody>
           {scores.map((s, i) => (
             <tr key={i} className="border-b border-slate-100 last:border-0">
-              <td className="py-3 text-sm font-medium text-primary">{s.risk}</td>
-              <td className="py-3 text-center text-xs text-slate-500">{s.category}</td>
+              <td className="py-3 text-base font-medium text-primary">{s.risk}</td>
+              <td className="py-3 text-center text-sm text-slate-500">{s.category}</td>
               <td className="py-3 text-center">
-                <span className="text-xs font-medium" style={{ color: s.color }}>
+                <span className="text-sm font-medium" style={{ color: s.color }}>
                   {["", "Low", "Medium", "High", "Very High", "Extreme"][s.likelihood]}
                 </span>
               </td>
               <td className="py-3 text-center">
-                <span className="text-xs font-medium" style={{ color: s.color }}>
+                <span className="text-sm font-medium" style={{ color: s.color }}>
                   {["", "Minimal", "Low", "Medium", "High", "Critical"][s.impact]}
                 </span>
               </td>
               <td className="py-3 text-center">
-                <span className="text-sm font-bold" style={{ color: s.color }}>{s.score}</span>
+                <span className="text-base font-bold" style={{ color: s.color }}>{s.score}</span>
               </td>
             </tr>
           ))}

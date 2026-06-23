@@ -148,15 +148,15 @@ function QuickLeadForm({ stage, onInput, onSubmit, onSkip, primaryColor }: { sta
       {stage.options ? (
         <div className="space-y-1">
           {stage.options!.map(opt => (
-            <button key={opt} onClick={() => { onInput(stage.field, opt); onSubmit(); }} className="w-full text-left px-3 py-2 text-xs font-medium rounded-lg border border-slate-200 hover:border-current transition-all" style={{ color: local === opt ? primaryColor : "#374151", backgroundColor: local === opt ? primaryColor + "0A" : "transparent" }}>
+            <button key={opt} onClick={() => { onInput(stage.field, opt); onSubmit(); }} className="w-full text-left px-3 py-2 text-sm font-medium rounded-lg border border-slate-200 hover:border-current transition-all" style={{ color: local === opt ? primaryColor : "#374151", backgroundColor: local === opt ? primaryColor + "0A" : "transparent" }}>
               {opt}
             </button>
           ))}
         </div>
       ) : (
         <form onSubmit={e => { e.preventDefault(); submit(); }} className="flex gap-2">
-          <input data-lead-input type={stage.type === "email" ? "email" : stage.type === "phone" ? "tel" : "text"} value={local} onChange={e => setLocal(e.target.value)} placeholder={stage.placeholder || ""} className="flex-1 min-w-0 px-3 py-2 text-sm rounded-lg border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400" onFocus={e => { e.target.style.boxShadow = "0 0 0 2px " + primaryColor + "60"; }} onBlur={e => { e.target.style.boxShadow = ""; }} />
-          <button type="submit" disabled={!local.trim()} className="px-4 py-2 text-xs font-bold rounded-lg transition-all disabled:opacity-40 text-white whitespace-nowrap" style={{ backgroundColor: primaryColor }}>Send</button>
+          <input data-lead-input type={stage.type === "email" ? "email" : stage.type === "phone" ? "tel" : "text"} value={local} onChange={e => setLocal(e.target.value)} placeholder={stage.placeholder || ""} className="flex-1 min-w-0 px-3 py-2 text-base rounded-lg border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400" onFocus={e => { e.target.style.boxShadow = "0 0 0 2px " + primaryColor + "60"; }} onBlur={e => { e.target.style.boxShadow = ""; }} />
+          <button type="submit" disabled={!local.trim()} className="px-4 py-2 text-sm font-bold rounded-lg transition-all disabled:opacity-40 text-white whitespace-nowrap" style={{ backgroundColor: primaryColor }}>Send</button>
         </form>
       )}
       <div className="flex justify-between mt-1.5">
@@ -176,15 +176,15 @@ function ActiveLeadForm({ stage, leadData, onInput, onSubmit, onSkip, primaryCol
       {stage.options ? (
         <div className="space-y-1 max-h-[120px] overflow-y-auto">
           {stage.options!.map(opt => (
-            <button key={opt} onClick={() => { onInput(stage.field, opt); onSubmit(); }} className="w-full text-left px-3 py-2 text-xs font-medium rounded-lg border border-slate-200 hover:border-current transition-all" style={{ color: currentValue === opt ? primaryColor : "#374151", backgroundColor: currentValue === opt ? primaryColor + "0A" : "transparent", borderColor: currentValue === opt ? primaryColor + "50" : undefined }}>
+            <button key={opt} onClick={() => { onInput(stage.field, opt); onSubmit(); }} className="w-full text-left px-3 py-2 text-sm font-medium rounded-lg border border-slate-200 hover:border-current transition-all" style={{ color: currentValue === opt ? primaryColor : "#374151", backgroundColor: currentValue === opt ? primaryColor + "0A" : "transparent", borderColor: currentValue === opt ? primaryColor + "50" : undefined }}>
               {opt}
             </button>
           ))}
         </div>
       ) : (
         <form onSubmit={e => { e.preventDefault(); if (currentValue.trim()) { onInput(stage.field, currentValue); onSubmit(); } }} className="flex gap-2">
-          <input autoFocus type={stage.type === "email" ? "email" : stage.type === "phone" ? "tel" : "text"} value={currentValue} onChange={e => onInput(stage.field, e.target.value)} placeholder={stage.placeholder || "Enter your answer"} className="flex-1 min-w-0 px-3 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400" onFocus={e => { e.target.style.boxShadow = "0 0 0 2px " + primaryColor + "50"; }} onBlur={e => { e.target.style.boxShadow = ""; }} />
-          <button type="submit" disabled={!currentValue.trim()} className="px-4 py-2.5 text-xs font-bold rounded-lg transition-all disabled:opacity-40 text-white whitespace-nowrap" style={{ backgroundColor: primaryColor }}>Next</button>
+          <input autoFocus type={stage.type === "email" ? "email" : stage.type === "phone" ? "tel" : "text"} value={currentValue} onChange={e => onInput(stage.field, e.target.value)} placeholder={stage.placeholder || "Enter your answer"} className="flex-1 min-w-0 px-3 py-2.5 text-base rounded-lg border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400" onFocus={e => { e.target.style.boxShadow = "0 0 0 2px " + primaryColor + "50"; }} onBlur={e => { e.target.style.boxShadow = ""; }} />
+          <button type="submit" disabled={!currentValue.trim()} className="px-4 py-2.5 text-sm font-bold rounded-lg transition-all disabled:opacity-40 text-white whitespace-nowrap" style={{ backgroundColor: primaryColor }}>Next</button>
         </form>
       )}
       <div className="flex justify-between items-center mt-1.5">
@@ -200,7 +200,7 @@ function MessageInput({ inputValue, setInputValue, onSend, disabled, primaryColo
   return (
     <form onSubmit={submit} className="px-4 py-3 bg-white border-t border-slate-200 shrink-0">
       <div className="flex gap-2 items-center">
-        <input ref={ref} type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Ask about risks, insurance, compliance..." disabled={disabled} className="flex-1 min-w-0 px-4 py-2.5 text-sm rounded-full border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400 bg-slate-50/80 disabled:opacity-60" onFocus={e => { e.target.style.borderColor = primaryColor + "70"; e.target.style.boxShadow = "0 0 0 3px " + primaryColor + "18"; }} onBlur={e => { e.target.style.borderColor = ""; e.target.style.boxShadow = ""; }} />
+        <input ref={ref} type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Ask about risks, insurance, compliance..." disabled={disabled} className="flex-1 min-w-0 px-4 py-2.5 text-base rounded-full border border-slate-300 focus:outline-none text-slate-800 placeholder:text-slate-400 bg-slate-50/80 disabled:opacity-60" onFocus={e => { e.target.style.borderColor = primaryColor + "70"; e.target.style.boxShadow = "0 0 0 3px " + primaryColor + "18"; }} onBlur={e => { e.target.style.borderColor = ""; e.target.style.boxShadow = ""; }} />
         <button type="submit" disabled={disabled || !inputValue.trim()} className="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md transition-all hover:shadow-lg hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100" style={{ backgroundColor: primaryColor }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>

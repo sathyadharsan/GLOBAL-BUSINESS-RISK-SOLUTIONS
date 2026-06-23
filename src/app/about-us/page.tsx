@@ -74,7 +74,7 @@ export default function AboutUs() {
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="mb-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+            <span className="text-sm font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
               ABOUT US
             </span>
           </div>
@@ -117,7 +117,7 @@ export default function AboutUs() {
                     {coreOutcomes.map((outcome) => (
                       <span
                         key={outcome}
-                        className="px-3 py-1 rounded-full text-xs font-bold bg-blue-600 text-white tracking-wide"
+                        className="px-3 py-1 rounded-full text-sm font-bold bg-blue-600 text-white tracking-wide"
                       >
                         {outcome}
                       </span>
@@ -153,7 +153,7 @@ export default function AboutUs() {
       <section id="why-risk" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
               <TrendingUp className="w-4 h-4" /> WHY RISK INTELLIGENCE MATTERS
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
@@ -167,8 +167,8 @@ export default function AboutUs() {
                   <div className="text-3xl font-extrabold text-blue-600 group-hover:text-blue-700 transition-colors">
                     {item.stat}
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 leading-snug">{item.label}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{item.detail}</p>
+                  <h4 className="text-base font-bold text-slate-900 leading-snug">{item.label}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.detail}</p>
                 </CardContent>
               </Card>
             ))}
@@ -180,7 +180,7 @@ export default function AboutUs() {
       <section id="by-the-numbers" className="py-20 bg-white border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
               <BarChart3 className="w-4 h-4" /> BY THE NUMBERS
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
@@ -202,7 +202,7 @@ export default function AboutUs() {
                     <div className="text-4xl font-extrabold text-blue-600 group-hover:text-blue-700 transition-colors">
                       {item.value}
                     </div>
-                    <p className="text-xs text-slate-500 leading-relaxed">{item.label}</p>
+                    <p className="text-sm text-slate-500 leading-relaxed">{item.label}</p>
                   </CardContent>
                 </Card>
               );
@@ -216,7 +216,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl space-y-6">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 px-3 py-1 rounded-full border border-blue-800">
+              <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-400 bg-blue-900/50 px-3 py-1 rounded-full border border-blue-800">
                 <Network className="w-4 h-4" /> GLOBAL ECOSYSTEM
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
@@ -226,7 +226,7 @@ export default function AboutUs() {
                 TRUSTFLOW collaborates with leading global technology, insurance, cyber security, ESG, and cloud providers to deliver next-generation risk intelligence and resilience solutions.
               </p>
               <div className="pt-4">
-                <Link href="/ecosystem" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 py-2">
+                <Link href="/ecosystem" className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-700 h-11 px-8 py-2">
                   Explore Our Ecosystem <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -235,7 +235,7 @@ export default function AboutUs() {
             <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
                {["Insurance", "Cyber Security", "Risk & Compliance", "Climate & ESG", "AI Intelligence", "Cloud Infrastructure"].map((cat, i) => (
                  <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center hover:bg-slate-800 transition-colors flex items-center justify-center min-h-[80px]">
-                   <div className="text-sm font-semibold text-slate-200 leading-tight">{cat}</div>
+                   <div className="text-base font-semibold text-slate-200 leading-tight">{cat}</div>
                  </div>
                ))}
             </div>
@@ -247,7 +247,7 @@ export default function AboutUs() {
       <section id="leadership" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 bg-blue-100/50 px-3 py-1 rounded-full border border-blue-200">
               <Users className="w-4 h-4" /> WORLD-CLASS TALENT
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
@@ -267,14 +267,14 @@ export default function AboutUs() {
               {teamMembers.map((member, index) => (
                 <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
                   <CardContent className="p-4 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                    <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-base">
                       {member.initials}
                     </div>
                     <div className="overflow-hidden">
-                      <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                      <h4 className="text-base font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-slate-500 truncate mt-0.5">
+                      <p className="text-sm text-slate-500 truncate mt-0.5">
                         {member.title}
                       </p>
                     </div>
@@ -295,14 +295,14 @@ export default function AboutUs() {
                 return (
                   <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-base">
                         {initials}
                       </div>
                       <div className="overflow-hidden">
-                        <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                        <h4 className="text-base font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
                           {member.name}
                         </h4>
-                        <p className="text-xs text-slate-500 truncate mt-0.5">
+                        <p className="text-sm text-slate-500 truncate mt-0.5">
                           {member.title}
                         </p>
                       </div>
@@ -324,14 +324,14 @@ export default function AboutUs() {
                 return (
                   <Card key={index} className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white rounded-xl overflow-hidden group">
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 font-bold flex items-center justify-center shrink-0 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors text-base">
                         {initials}
                       </div>
                       <div className="overflow-hidden">
-                        <h4 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                        <h4 className="text-base font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
                           {member.name}
                         </h4>
-                        <p className="text-xs text-slate-500 truncate mt-0.5">
+                        <p className="text-sm text-slate-500 truncate mt-0.5">
                           {member.title}
                         </p>
                       </div>
@@ -365,15 +365,15 @@ export default function AboutUs() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg font-bold">{office.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed whitespace-pre-line min-h-[80px]">
+                  <p className="text-base text-slate-400 leading-relaxed whitespace-pre-line min-h-[80px]">
                     {office.address}
                   </p>
                   <div className="pt-4 border-t border-slate-700/50 space-y-1">
                     {office.email && (
-                      <p className="text-xs text-slate-300 hover:text-white transition-colors cursor-pointer">{office.email}</p>
+                      <p className="text-sm text-slate-300 hover:text-white transition-colors cursor-pointer">{office.email}</p>
                     )}
                     {office.phone && (
-                      <p className="text-xs font-medium text-slate-300">{office.phone}</p>
+                      <p className="text-sm font-medium text-slate-300">{office.phone}</p>
                     )}
                   </div>
                 </CardContent>
@@ -385,13 +385,13 @@ export default function AboutUs() {
           <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 max-w-2xl mx-auto">
             <div className="flex-1 bg-slate-800/80 backdrop-blur rounded-xl border border-slate-700/50 p-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-slate-800 transition-colors cursor-pointer">
               <Mail className="w-6 h-6 text-green-400" />
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</p>
-              <p className="text-sm font-medium">connect@trustflow.in</p>
+              <p className="text-sm font-bold uppercase tracking-wider text-slate-400">Email Us</p>
+              <p className="text-base font-medium">connect@trustflow.in</p>
             </div>
             <div className="flex-1 bg-slate-800/80 backdrop-blur rounded-xl border border-slate-700/50 p-6 flex flex-col items-center justify-center gap-2 text-center hover:bg-slate-800 transition-colors cursor-pointer">
               <Phone className="w-6 h-6 text-purple-400" />
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
-              <p className="text-sm font-medium">+91 9513288612<br />+65 6050 5235</p>
+              <p className="text-sm font-bold uppercase tracking-wider text-slate-400">Call Us</p>
+              <p className="text-base font-medium">+91 9513288612<br />+65 6050 5235</p>
             </div>
           </div>
 
@@ -407,7 +407,7 @@ export default function AboutUs() {
             <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #fff 0%, transparent 70%)", transform: "translate(-30%, 30%)" }} />
 
             <div className="relative z-10 px-8 py-16 text-center text-white space-y-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-blue-200">TRUSTFLOW</p>
+              <p className="text-sm font-bold uppercase tracking-widest text-blue-200">TRUSTFLOW</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
                 Transform Risk Management into Risk Intelligence
               </h2>
@@ -418,13 +418,13 @@ export default function AboutUs() {
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
                 <Link href="/contact">
-                  <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 shadow-lg">
+                  <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-blue-700 font-bold text-base hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 shadow-lg">
                     Book for Consulting
                   </button>
                 </Link>
                 <a
                   href="tel:+919513288612"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 border border-white/30 text-white font-bold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 border border-white/30 text-white font-bold text-base hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur"
                 >
                   <Phone className="w-4 h-4" /> Talk to a Risk Expert
                 </a>

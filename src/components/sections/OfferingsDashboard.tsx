@@ -88,7 +88,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["22 Product Lines", "150+ Countries", "A++ Rated Carriers"].map((badge, i) => (
-                <span key={i} className="text-xs font-semibold px-3 py-1 bg-white/10 hover:bg-white/15 rounded-full border border-white/10 transition-colors">
+                <span key={i} className="text-sm font-semibold px-3 py-1 bg-white/10 hover:bg-white/15 rounded-full border border-white/10 transition-colors">
                   {badge}
                 </span>
               ))}
@@ -113,7 +113,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                   if (firstItem) handleSelect(firstItem.id);
                 }}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all border",
+                  "flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold transition-all border",
                   isActive
                     ? "bg-white text-primary shadow-md border-slate-200 ring-2 ring-blue-500/20"
                     : "bg-white/60 text-slate-500 border-slate-100 hover:bg-white hover:text-primary hover:shadow-sm"
@@ -132,7 +132,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
             <h2 className="text-xl font-bold text-primary tracking-tight font-serif">
               {activeConfig.label}
             </h2>
-            <p className="text-xs text-muted-foreground mt-0.5">
+            <p className="text-sm text-muted-foreground mt-0.5">
               Select a product below to view coverage details
             </p>
           </div>
@@ -171,7 +171,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                               <item.icon className="h-4 w-4" />
                             </div>
                           )}
-                          <h3 className="text-xs font-bold text-primary truncate leading-tight">{item.label}</h3>
+                          <h3 className="text-sm font-bold text-primary truncate leading-tight">{item.label}</h3>
                         </div>
                         {item.badge && (
                           <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full shrink-0 bg-blue-100 text-blue-700">
@@ -217,7 +217,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                     <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif leading-tight">
                       {currentOfferingData.title}
                     </h2>
-                    <p className="text-sm text-gray-300">{currentOfferingData.subtitle}</p>
+                    <p className="text-base text-gray-300">{currentOfferingData.subtitle}</p>
                   </div>
                 </div>
 
@@ -229,7 +229,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                       <Target className="h-5 w-5 text-blue-600" />
                       <h3 className="text-base font-bold text-primary font-serif">Enterprise Value Positioning</h3>
                     </div>
-                    <p className="text-sm text-slate-600 leading-relaxed max-w-5xl">{currentOfferingData.valueText}</p>
+                    <p className="text-base text-slate-600 leading-relaxed max-w-5xl">{currentOfferingData.valueText}</p>
                   </div>
 
                   {/* Challenges & Architecture Grid */}
@@ -243,7 +243,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                       </div>
                       <div className="space-y-3">
                         {currentOfferingData.challenges?.map((challenge, i) => (
-                          <div key={i} className="flex items-start gap-2.5 bg-slate-50/50 p-3 rounded-lg border border-slate-100 text-xs">
+                          <div key={i} className="flex items-start gap-2.5 bg-slate-50/50 p-3 rounded-lg border border-slate-100 text-sm">
                             <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: activeConfig.color }} />
                             <span className="text-slate-600 leading-relaxed">{challenge}</span>
                           </div>
@@ -258,7 +258,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                         <h3 className="text-base font-bold text-primary font-serif">Coverage Architecture</h3>
                       </div>
                       <div className="border border-slate-200 rounded-lg overflow-hidden max-h-[350px] overflow-y-auto">
-                        <table className="w-full text-left text-xs">
+                        <table className="w-full text-left text-sm">
                           <thead className="bg-slate-50 text-primary font-bold border-b sticky top-0 z-10">
                             <tr>
                               <th className="px-4 py-3 w-1/3">Term</th>
@@ -289,7 +289,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                           <Lightbulb className="w-3.5 h-3.5" />
                           <span>EXPERT COMMENTARY</span>
                         </div>
-                        <blockquote className="text-sm md:text-base italic font-medium leading-relaxed text-slate-700">
+                        <blockquote className="text-base md:text-base italic font-medium leading-relaxed text-slate-700">
                           &ldquo;{currentOfferingData.expertCommentary}&rdquo;
                         </blockquote>
                       </div>
@@ -305,7 +305,7 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {currentOfferingData.indiaContext.map((point, i) => (
-                          <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-blue-50/20 border border-blue-100 text-xs">
+                          <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-blue-50/20 border border-blue-100 text-sm">
                             <CheckCircle2 className="h-4 w-4 text-blue-500 shrink-0 mt-0.5" />
                             <span className="text-slate-700 leading-relaxed">{point}</span>
                           </div>
@@ -320,15 +320,15 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="p-4 bg-slate-50 border border-slate-100 rounded-lg text-center">
                           <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Enterprise Scale</div>
-                          <div className="text-xs font-semibold text-primary truncate">{currentOfferingData.matrix.scale}</div>
+                          <div className="text-sm font-semibold text-primary truncate">{currentOfferingData.matrix.scale}</div>
                         </div>
                         <div className="p-4 bg-slate-50 border border-slate-100 rounded-lg text-center">
                           <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Operational Scope</div>
-                          <div className="text-xs font-semibold text-primary truncate">{currentOfferingData.matrix.scope}</div>
+                          <div className="text-sm font-semibold text-primary truncate">{currentOfferingData.matrix.scope}</div>
                         </div>
                         <div className="p-4 bg-slate-50 border border-slate-100 rounded-lg text-center">
                           <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Duration / Tenor</div>
-                          <div className="text-xs font-semibold text-primary truncate">{currentOfferingData.matrix.duration}</div>
+                          <div className="text-sm font-semibold text-primary truncate">{currentOfferingData.matrix.duration}</div>
                         </div>
                       </div>
                     </div>
@@ -338,8 +338,8 @@ export function OfferingsDashboard({ activeSlug }: OfferingsDashboardProps) {
                 {/* CTA */}
                 <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="space-y-1">
-                    <h4 className="text-sm font-bold text-primary font-serif">Need specialized risk architecture?</h4>
-                    <p className="text-xs text-muted-foreground">Book a free 30-minute diagnostic session with our senior risk underwriters.</p>
+                    <h4 className="text-base font-bold text-primary font-serif">Need specialized risk architecture?</h4>
+                    <p className="text-sm text-muted-foreground">Book a free 30-minute diagnostic session with our senior risk underwriters.</p>
                   </div>
                   <Button onClick={() => navigate("/contact")} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm w-full sm:w-auto h-11 px-6">
                     Request Free Risk Assessment

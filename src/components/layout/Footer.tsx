@@ -16,7 +16,7 @@ export function Footer() {
             <Link to="/" className="inline-block text-xl font-bold tracking-tight text-slate-900">
               TRUSTFLOW
             </Link>
-            <p className="text-xs text-slate-500 leading-relaxed pr-4">
+            <p className="text-sm text-slate-500 leading-relaxed pr-4">
               Architecting enterprise-grade non-life insurance and risk transfer solutions across industries, infrastructure, governance, and global operations.
             </p>
             <div className="space-y-2 pt-2">
@@ -117,16 +117,16 @@ export function Footer() {
             <div key={idx} className="space-y-4">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-slate-500 mt-0.5" />
-                <h3 className="text-xs font-bold text-slate-800 tracking-wider">{office.name}</h3>
+                <h3 className="text-sm font-bold text-slate-800 tracking-wider">{office.name}</h3>
               </div>
-              <p className="text-xs leading-relaxed text-slate-500 whitespace-pre-line ml-6">
+              <p className="text-sm leading-relaxed text-slate-500 whitespace-pre-line ml-6">
                 {office.address}
               </p>
               <div className="space-y-2 ml-6 pt-2">
                 {office.email && (
                   <div className="flex items-center gap-2 text-slate-500">
                     <Mail className="w-3.5 h-3.5" />
-                    <a href={`mailto:${office.email}`} className="text-xs hover:text-blue-600 transition-colors">
+                    <a href={`mailto:${office.email}`} className="text-sm hover:text-blue-600 transition-colors">
                       {office.email}
                     </a>
                   </div>
@@ -134,7 +134,7 @@ export function Footer() {
                 {office.phone && (
                   <div className="flex items-center gap-2 text-slate-500">
                     <Phone className="w-3.5 h-3.5" />
-                    <a href={`tel:${office.phone}`} className="text-xs hover:text-blue-600 transition-colors">
+                    <a href={`tel:${office.phone}`} className="text-sm hover:text-blue-600 transition-colors">
                       {office.phone}
                     </a>
                   </div>
@@ -155,23 +155,23 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-16 text-slate-400 grayscale opacity-70">
           <div className="flex items-center gap-2">
             <Cloud className="w-5 h-5" />
-            <span className="font-semibold text-sm">Salesforce</span>
+            <span className="font-semibold text-base">Salesforce</span>
           </div>
           <div className="flex items-center gap-2">
             <Database className="w-5 h-5" />
-            <span className="font-semibold text-sm">HubSpot</span>
+            <span className="font-semibold text-base">HubSpot</span>
           </div>
           <div className="flex items-center gap-2">
             <Box className="w-5 h-5" />
-            <span className="font-semibold text-sm">Microsoft</span>
+            <span className="font-semibold text-base">Microsoft</span>
           </div>
           <div className="flex items-center gap-2">
             <Server className="w-5 h-5" />
-            <span className="font-semibold text-sm">AWS</span>
+            <span className="font-semibold text-base">AWS</span>
           </div>
           <div className="flex items-center gap-2">
             <Globe className="w-5 h-5" />
-            <span className="font-semibold text-sm">Google Cloud</span>
+            <span className="font-semibold text-base">Google Cloud</span>
           </div>
         </div>
 

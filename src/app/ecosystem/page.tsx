@@ -76,14 +76,14 @@ export default function Ecosystem() {
                       <Icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <CardTitle className="text-xl mb-2">{category.title}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed text-slate-600">
+                    <CardDescription className="text-base leading-relaxed text-slate-600">
                       {category.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {category.partners.map((partner, pIndex) => (
-                        <span key={pIndex} className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700">
+                        <span key={pIndex} className="inline-flex items-center px-2.5 py-1 rounded-md text-sm font-medium bg-slate-100 text-slate-700">
                           {partner}
                         </span>
                       ))}

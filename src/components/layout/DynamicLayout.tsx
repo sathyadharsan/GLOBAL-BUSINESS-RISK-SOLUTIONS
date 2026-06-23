@@ -36,7 +36,7 @@ export function DynamicLayout({ data }: { data: DynamicPageContent }) {
                   <CheckCircle2 className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                   <h3 className="font-semibold text-primary">{feature.title}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground ml-8">
+                <p className="text-base text-muted-foreground ml-8">
                   {feature.description}
                 </p>
               </div>

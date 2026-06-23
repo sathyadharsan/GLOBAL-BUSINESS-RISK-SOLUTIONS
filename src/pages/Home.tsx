@@ -207,8 +207,8 @@ export default function Home() {
                     <Icon className="h-6 w-6 text-blue-400" />
                   </div>
                   <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-1">{stat.value}</div>
-                  <div className="text-sm font-semibold text-slate-300 uppercase tracking-wider">{stat.label}</div>
-                  <div className="text-xs text-slate-500 mt-1">{stat.sublabel}</div>
+                  <div className="text-base font-semibold text-slate-300 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-sm text-slate-500 mt-1">{stat.sublabel}</div>
                 </div>
               );
             })}
@@ -220,11 +220,11 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Risk Command Center</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Enterprise Risk Command Center</span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
               Comprehensive Risk Intelligence Platform
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mx-auto">
               One integrated architecture spanning industries, risk categories, insurance solutions, technology platforms, and measurable business outcomes.
             </p>
           </div>
@@ -309,7 +309,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-primary mb-3 font-serif group-hover:text-blue-600 transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed mb-4 flex-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                       {card.description}
                     </p>
                     <div className="pt-4 border-t border-slate-200">
@@ -327,7 +327,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <span className="text-xs font-bold text-blue-600 group-hover:text-blue-800 flex items-center">
+                      <span className="text-sm font-bold text-blue-600 group-hover:text-blue-800 flex items-center">
                         Explore {card.title} <ChevronRight className="ml-1 h-3 w-3" />
                       </span>
                     </div>
@@ -344,9 +344,9 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Risk Library</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Risk Library</span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">Explore Risk Categories</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+              <p className="text-muted-foreground text-base leading-relaxed max-w-2xl">
                 Navigate through 200+ risk categories across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.
               </p>
             </div>
@@ -393,9 +393,9 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Protection</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Enterprise Protection</span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">Featured Risk Offerings</h2>
-              <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
+              <p className="text-muted-foreground max-w-2xl text-base leading-relaxed">
                 78 specialized risk transfer products engineered to protect enterprise balance sheets across every asset class, liability exposure, and emerging risk frontier.
               </p>
             </div>
@@ -409,12 +409,12 @@ export default function Home() {
                   <h3 className="text-base font-bold text-primary mb-2 font-serif">
                     {offering.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {offering.desc}
                   </p>
                 </div>
                 <div className="pt-4 mt-4 border-t border-slate-100">
-                  <span className="text-xs font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                  <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
                     Explore <ChevronRight className="ml-1 h-3 w-3" />
                   </span>
                 </div>
@@ -428,7 +428,7 @@ export default function Home() {
       <section id="methodology" className="py-24 bg-white border-y">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Advisory Framework</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Advisory Framework</span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
               Five-Step Risk Architecture Process
             </h2>
@@ -446,7 +446,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-primary font-serif">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -467,9 +467,9 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-16">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Sector Competencies</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Sector Competencies</span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary font-serif tracking-tight">Industry-Specialized Risk Architecture</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 We do not believe in generic policies. Our practice leaders structure coverages that match the precise operational realities of your sector.
               </p>
             </div>
@@ -502,7 +502,7 @@ export default function Home() {
                     <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                       <ind.icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-sm font-bold text-primary group-hover:text-blue-600 transition-colors">{ind.name}</h3>
+                    <h3 className="text-base font-bold text-primary group-hover:text-blue-600 transition-colors">{ind.name}</h3>
                     <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-3">
                       {ind.desc}
                     </p>
@@ -521,11 +521,11 @@ export default function Home() {
       <section id="solutions" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Business Outcomes</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Business Outcomes</span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
               Risk Management Solutions
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mx-auto">
               Group by business outcomes to achieve measurable risk reduction and compliance.
             </p>
           </div>
@@ -542,7 +542,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
                       {solution.label}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {solution.desc}
                     </p>
                   </Link>
@@ -557,7 +557,7 @@ export default function Home() {
       <section id="why-trustflow" className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Differentiators</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Differentiators</span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
               Why TRUSTFLOW
             </h2>
@@ -574,7 +574,7 @@ export default function Home() {
                   <h3 className="text-lg font-bold text-primary font-serif">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -588,7 +588,7 @@ export default function Home() {
       <section id="trust" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase">Institutional Validation</h3>
+            <h3 className="text-sm font-bold tracking-widest text-slate-400 uppercase">Institutional Validation</h3>
             <h2 className="text-2xl md:text-3xl font-bold font-serif text-primary tracking-tight">Trusted by Market Leaders</h2>
             
             <div className="flex flex-wrap justify-center gap-3 pt-6 max-w-4xl mx-auto">
@@ -602,7 +602,7 @@ export default function Home() {
               ].map((label) => (
                 <div
                   key={label}
-                  className="px-4 py-2 border border-slate-200 rounded-full text-xs font-semibold text-slate-500 bg-white shadow-sm"
+                  className="px-4 py-2 border border-slate-200 rounded-full text-sm font-semibold text-slate-500 bg-white shadow-sm"
                 >
                   {label}
                 </div>
@@ -628,9 +628,9 @@ export default function Home() {
                 </blockquote>
               </div>
               <div className="flex items-center gap-3.5 pt-8 border-t border-slate-100 mt-8">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xs">CFO</div>
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">CFO</div>
                 <div>
-                  <div className="text-xs font-bold text-primary">Chief Financial Officer</div>
+                  <div className="text-sm font-bold text-primary">Chief Financial Officer</div>
                   <div className="text-[10px] text-muted-foreground">Global SaaS Enterprise (Listed)</div>
                 </div>
               </div>
@@ -641,19 +641,19 @@ export default function Home() {
               <div className="space-y-4">
                 <Award className="w-8 h-8 text-blue-300" />
                 <h3 className="text-lg font-bold font-serif tracking-tight">Structured Advocacy</h3>
-                <p className="text-xs text-blue-100 leading-relaxed">
+                <p className="text-sm text-blue-100 leading-relaxed">
                   We don&apos;t just negotiate prices. TRUSTFLOW manages claims from notification to payout, leveraging pre-agreed insurer SLA templates to reduce delays.
                 </p>
               </div>
 
               <div className="space-y-4 pt-6 border-t border-blue-600/30">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-blue-200">Average Claim Processing</span>
-                  <span className="text-sm font-extrabold text-blue-300">14 Days</span>
+                  <span className="text-sm text-blue-200">Average Claim Processing</span>
+                  <span className="text-base font-extrabold text-blue-300">14 Days</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-blue-200">Claim Approval Ratio</span>
-                  <span className="text-sm font-extrabold text-blue-300">99.2%</span>
+                  <span className="text-sm text-blue-200">Claim Approval Ratio</span>
+                  <span className="text-base font-extrabold text-blue-300">99.2%</span>
                 </div>
               </div>
             </div>
@@ -667,12 +667,12 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Industry Updates</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Industry Updates</span>
               <h2 className="text-3xl font-bold text-primary font-serif tracking-tight">Latest Risk Insights</h2>
             </div>
             
             <div className="flex items-center gap-3 shrink-0">
-              <Link to="/insights" className="text-blue-600 font-semibold hover:text-blue-800 flex items-center text-sm mr-4 hidden sm:flex">
+              <Link to="/insights" className="text-blue-600 font-semibold hover:text-blue-800 flex items-center text-base mr-4 hidden sm:flex">
                 View all publications <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <button
@@ -724,11 +724,11 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Enterprise Advisory</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Enterprise Advisory</span>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">
               Senior Risk Architects & Advisory
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mx-auto">
               Practice leaders with deep domain expertise across technology, healthcare, energy, infrastructure, financial services, and emerging sectors.
             </p>
           </div>
@@ -751,7 +751,7 @@ export default function Home() {
                     <Icon className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="text-base font-bold text-primary mb-2 font-serif">{service.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{service.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
                 </div>
               );
             })}
@@ -764,9 +764,9 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex justify-between items-end mb-12">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Technology Suite</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-widest">Technology Suite</span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight font-serif">AI-Powered Risk Platforms</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+              <p className="text-muted-foreground text-base leading-relaxed max-w-2xl">
                 45+ proprietary tools for risk assessment, monitoring, compliance, and insurance optimization.
               </p>
             </div>
@@ -791,12 +791,12 @@ export default function Home() {
                     <h3 className="text-base font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
                       {platform.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {platform.desc}
                     </p>
                   </div>
                   <div className="pt-4 mt-4 border-t border-slate-100">
-                    <span className="text-xs font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                    <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
                       Explore Platform <ChevronRight className="ml-1 h-3 w-3" />
                     </span>
                   </div>
@@ -829,16 +829,16 @@ export default function Home() {
             <Link to="/contact">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg h-14 px-8">
                 <div className="text-left">
-                  <div className="text-xs opacity-90">Call Us For</div>
-                  <div className="text-sm font-bold">Free Consultation</div>
+                  <div className="text-sm opacity-90">Call Us For</div>
+                  <div className="text-base font-bold">Free Consultation</div>
                 </div>
               </Button>
             </Link>
             <Link to="/contact">
               <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold h-14 px-8">
                 <div className="text-left">
-                  <div className="text-xs opacity-90">Schedule</div>
-                  <div className="text-sm font-bold">Executive Briefing</div>
+                  <div className="text-sm opacity-90">Schedule</div>
+                  <div className="text-base font-bold">Executive Briefing</div>
                 </div>
               </Button>
             </Link>

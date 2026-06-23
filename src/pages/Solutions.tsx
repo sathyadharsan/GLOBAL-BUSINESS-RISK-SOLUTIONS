@@ -23,7 +23,7 @@ export default function SolutionsPage() {
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-6">
-            <Badge variant="secondary" className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase">
+            <Badge variant="secondary" className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase">
               Enterprise Risk Solutions
             </Badge>
             <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
@@ -33,10 +33,10 @@ export default function SolutionsPage() {
               Enterprise risk transfer architectures that protect balance sheets, preserve enterprise value, reduce earnings volatility, and enable strategic growth.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
+              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
                 Request Consultation
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide" onClick={() => (window.location.href = "/contact")}>
                 Speak With Specialist
               </Button>
             </div>
@@ -48,7 +48,7 @@ export default function SolutionsPage() {
       <section className="w-full bg-white py-14 border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4">
+            <Badge variant="secondary" className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4">
               Enterprise Overview
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-bold text-slate-900 font-serif tracking-tight mb-3">
@@ -113,10 +113,10 @@ export default function SolutionsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <p className="text-base text-slate-600 leading-snug">{cap.desc}</p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={j} className="flex items-start gap-2 text-base text-slate-700">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -156,11 +156,11 @@ export default function SolutionsPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="flex-1 flex flex-col">
-                    <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed mb-4">
+                    <p className="text-base text-slate-600 line-clamp-3 leading-relaxed mb-4">
                       {category.description}
                     </p>
                     <div className="mt-auto pt-4 border-t border-slate-100">
-                      <span className="text-sm font-semibold text-blue-600 flex items-center gap-1 group-hover:text-blue-800">
+                      <span className="text-base font-semibold text-blue-600 flex items-center gap-1 group-hover:text-blue-800">
                         Explore Solutions
                         <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </span>
@@ -195,7 +195,7 @@ export default function SolutionsPage() {
             ].map((risk, i) => (
               <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
                 <risk.icon className="h-8 w-8 text-blue-600" />
-                <span className="text-sm font-medium text-slate-700">{risk.title}</span>
+                <span className="text-base font-medium text-slate-700">{risk.title}</span>
               </div>
             ))}
           </div>
@@ -239,10 +239,10 @@ export default function SolutionsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-slate-600 mb-3">{program.desc}</p>
+                  <p className="text-base text-slate-600 mb-3">{program.desc}</p>
                   <ul className="space-y-1">
                     {program.features.map((f, j) => (
-                      <li key={j} className="text-xs text-slate-500 flex items-center gap-1">
+                      <li key={j} className="text-sm text-slate-500 flex items-center gap-1">
                         <span className="w-1 h-1 bg-blue-600 rounded-full" />
                         {f}
                       </li>
@@ -266,10 +266,10 @@ export default function SolutionsPage() {
               Book a consultation with our senior risk architects to design a customized risk transfer program.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
+              <Button size="lg" className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
                 Book Consultation
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest" onClick={() => (window.location.href = "/contact")}>
                 Request Proposal
               </Button>
             </div>

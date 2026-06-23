@@ -10,12 +10,12 @@ export default function InsightArticle() {
 
   return (
     <div className="container mx-auto px-4 md:px-8 py-16">
-      <Link to="/insights" className="inline-flex items-center text-sm font-medium text-blue-600 mb-8 hover:text-blue-800 transition-colors">
+      <Link to="/insights" className="inline-flex items-center text-base font-medium text-blue-600 mb-8 hover:text-blue-800 transition-colors">
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Insights
       </Link>
       
       <div className="max-w-3xl">
-        <span className="text-xs font-semibold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4 inline-block">
+        <span className="text-sm font-semibold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4 inline-block">
           Article
         </span>
         <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">

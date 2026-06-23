@@ -76,16 +76,16 @@ export default function RisksLanding() {
                       <CardTitle className="text-base font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
                         {cat.label}
                       </CardTitle>
-                      <Badge variant="secondary" className="text-xs mt-1">
+                      <Badge variant="secondary" className="text-sm mt-1">
                         {cat.count} Risks
                       </Badge>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-slate-600 leading-snug mb-3">{cat.description}</p>
+                  <p className="text-base text-slate-600 leading-snug mb-3">{cat.description}</p>
                   <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                    <span className="text-xs font-semibold text-blue-600 flex items-center gap-1">
+                    <span className="text-sm font-semibold text-blue-600 flex items-center gap-1">
                       Explore Category <ChevronRight className="h-3 w-3" />
                     </span>
                   </div>
@@ -122,16 +122,16 @@ export default function RisksLanding() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4">{risk.description}</p>
+                  <p className="text-base text-slate-600 leading-relaxed mb-4">{risk.description}</p>
                   <div className="space-y-3">
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Cost of Risk</span>
-                      <span className="text-sm text-slate-700 leading-snug">{risk.costOfRisk.split("per")[0].trim()}</span>
+                      <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Cost of Risk</span>
+                      <span className="text-base text-slate-700 leading-snug">{risk.costOfRisk.split("per")[0].trim()}</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Likelihood</span>
+                      <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Likelihood</span>
                       <span
-                        className="text-xs font-bold px-2.5 py-0.5 rounded-full"
+                        className="text-sm font-bold px-2.5 py-0.5 rounded-full"
                         style={{
                           backgroundColor: `${risk.likelihood === "Almost Certain" ? "#DC2626" : risk.likelihood === "Very Likely" ? "#EA580C" : risk.likelihood === "Likely" ? "#F97316" : risk.likelihood === "Possible" ? "#F59E0B" : "#6B7280"}20`,
                           color: risk.likelihood === "Almost Certain" ? "#DC2626" : risk.likelihood === "Very Likely" ? "#EA580C" : risk.likelihood === "Likely" ? "#F97316" : risk.likelihood === "Possible" ? "#F59E0B" : "#6B7280",
@@ -142,7 +142,7 @@ export default function RisksLanding() {
                     </div>
                   </div>
                   <div className="pt-3 mt-3 border-t border-slate-100">
-                    <span className="text-xs font-semibold text-blue-600 flex items-center gap-1">
+                    <span className="text-sm font-semibold text-blue-600 flex items-center gap-1">
                       View Full Analysis <ChevronRight className="h-3 w-3" />
                     </span>
                   </div>
@@ -165,13 +165,13 @@ export default function RisksLanding() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/platform/risk-diagnostic-engine"
-            className="px-6 py-3 bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide rounded-lg transition-colors"
+            className="px-6 py-3 bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide rounded-lg transition-colors"
           >
             Book Free Risk Diagnostic
           </Link>
           <Link
             to="/contact"
-            className="px-6 py-3 bg-white/10 text-white font-semibold text-sm uppercase tracking-wide rounded-lg border border-white/20 hover:bg-white/20 transition-colors"
+            className="px-6 py-3 bg-white/10 text-white font-semibold text-base uppercase tracking-wide rounded-lg border border-white/20 hover:bg-white/20 transition-colors"
           >
             Speak With Advisor
           </Link>

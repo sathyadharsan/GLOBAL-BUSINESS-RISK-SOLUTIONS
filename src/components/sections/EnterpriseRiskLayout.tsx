@@ -433,7 +433,7 @@ export function EnterpriseRiskLayout({
           <div className="max-w-4xl space-y-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase"
+              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
             >
               {categoryBadge}
             </Badge>
@@ -446,7 +446,7 @@ export function EnterpriseRiskLayout({
             <div className="flex flex-wrap gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-wide"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Book Consultation
@@ -454,7 +454,7 @@ export function EnterpriseRiskLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-wide"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Run Risk Diagnostic
@@ -470,7 +470,7 @@ export function EnterpriseRiskLayout({
           <div className="text-center mb-12">
             <Badge
               variant="secondary"
-              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-xs font-semibold tracking-widest uppercase mb-4"
+              className="w-fit bg-[#EAF2FF] text-[#0B1F3A] border-slate-200 text-sm font-semibold tracking-widest uppercase mb-4"
             >
               Executive Overview
             </Badge>
@@ -501,7 +501,7 @@ export function EnterpriseRiskLayout({
                   <div className="text-base font-semibold text-slate-700">
                     {kpi.label}
                   </div>
-                  <p className="text-xs text-slate-500 leading-snug px-2">
+                  <p className="text-sm text-slate-500 leading-snug px-2">
                     Enterprise capability
                   </p>
                 </CardContent>
@@ -537,10 +537,10 @@ export function EnterpriseRiskLayout({
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-0">
-                  <p className="text-sm text-slate-600 leading-snug">{cap.desc}</p>
+                  <p className="text-base text-slate-600 leading-snug">{cap.desc}</p>
                   <ul className="space-y-2">
                     {cap.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={j} className="flex items-start gap-2 text-base text-slate-700">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -574,7 +574,7 @@ export function EnterpriseRiskLayout({
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="w-full justify-start px-4 py-2.5 text-sm font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent"
+                  className="w-full justify-start px-4 py-2.5 text-base font-semibold data-[selected]:text-[#0B1F3A] data-[selected]:border-l-[3px] data-[selected]:border-[#1E5EFF] rounded-none bg-transparent"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -598,7 +598,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.industryChallenges.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
                             <span>{item}</span>
@@ -616,7 +616,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.industryRiskExposure.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-[#1E5EFF] shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -634,7 +634,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.recommendedOfferings.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -656,7 +656,7 @@ export function EnterpriseRiskLayout({
                             key={i}
                             to={`/risks/${Object.keys(risksData).find(key => risksData[key].label === item) || ""}`}
                           >
-                            <span className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-200 cursor-pointer hover:bg-red-100 transition-colors">
+                            <span className="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-base font-medium border border-red-200 cursor-pointer hover:bg-red-100 transition-colors">
                               {item}
                             </span>
                           </Link>
@@ -673,7 +673,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.relatedPlatforms.map((item, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
+                            className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200"
                           >
                             {item}
                           </span>
@@ -690,7 +690,7 @@ export function EnterpriseRiskLayout({
                         {tab.content.industryBenefits.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-sm text-slate-700"
+                            className="flex items-start gap-3 text-base text-slate-700"
                           >
                             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                             <span>{item}</span>
@@ -747,12 +747,12 @@ export function EnterpriseRiskLayout({
                   <div className="w-9 h-9 rounded bg-[#EAF2FF] flex items-center justify-center mb-2">
                     <BarChart3 className="h-4 w-4 text-[#1E5EFF]" />
                   </div>
-                  <CardTitle className="text-sm font-bold text-[#0B1F3A]">
+                  <CardTitle className="text-base font-bold text-[#0B1F3A]">
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-slate-600 leading-snug">
+                  <p className="text-base text-slate-600 leading-snug">
                     {solution.description}
                   </p>
                 </CardContent>
@@ -797,7 +797,7 @@ export function EnterpriseRiskLayout({
                 className="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:shadow-md transition-shadow"
               >
                 <Globe className="h-5 w-5 text-blue-600 mx-auto mb-2" />
-                <span className="text-sm font-semibold text-slate-800">{industry}</span>
+                <span className="text-base font-semibold text-slate-800">{industry}</span>
               </div>
             ))}
           </div>
@@ -831,15 +831,15 @@ export function EnterpriseRiskLayout({
                     <FileText className="h-4 w-4 text-[#1E5EFF]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A] mb-1">
+                    <h3 className="text-base font-bold text-[#0B1F3A] mb-1">
                       {diag.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-snug">
+                    <p className="text-base text-slate-600 leading-snug">
                       {diag.description}
                     </p>
                     <Button
                       variant="link"
-                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-xs font-semibold uppercase tracking-wide"
+                      className="px-0 mt-2 text-[#1E5EFF] hover:text-[#0B1F3A] text-sm font-semibold uppercase tracking-wide"
                       onClick={() => (window.location.href = "/contact")}
                     >
                       Start Assessment <ChevronRight className="h-3.5 w-3.5 ml-1" />
@@ -865,7 +865,7 @@ export function EnterpriseRiskLayout({
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <Button
                 size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-xs uppercase tracking-widest"
+                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Schedule Consultation
@@ -873,7 +873,7 @@ export function EnterpriseRiskLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Speak With Specialist
@@ -881,7 +881,7 @@ export function EnterpriseRiskLayout({
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-xs uppercase tracking-widest"
+                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-sm uppercase tracking-widest"
                 onClick={() => (window.location.href = "/contact")}
               >
                 <Download className="h-4 w-4 mr-2" />

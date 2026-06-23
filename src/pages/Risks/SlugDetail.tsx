@@ -125,18 +125,18 @@ export default function RiskPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                    <p className="text-base text-slate-600 leading-relaxed mb-4">
                       {riskDetail.description}
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-start gap-2">
-                        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Cost of Risk</span>
-                        <span className="text-sm text-slate-700 leading-snug">{riskDetail.costOfRisk}</span>
+                        <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Cost of Risk</span>
+                        <span className="text-base text-slate-700 leading-snug">{riskDetail.costOfRisk}</span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Likelihood</span>
+                        <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide w-24 shrink-0">Likelihood</span>
                         <span
-                          className="text-xs font-bold px-2.5 py-0.5 rounded-full"
+                          className="text-sm font-bold px-2.5 py-0.5 rounded-full"
                           style={{
                             backgroundColor: `${riskDetail.likelihood === "Almost Certain" ? "#DC2626" : riskDetail.likelihood === "Very Likely" ? "#EA580C" : riskDetail.likelihood === "Likely" ? "#F97316" : riskDetail.likelihood === "Possible" ? "#F59E0B" : "#6B7280"}20`,
                             color: riskDetail.likelihood === "Almost Certain" ? "#DC2626" : riskDetail.likelihood === "Very Likely" ? "#EA580C" : riskDetail.likelihood === "Likely" ? "#F97316" : riskDetail.likelihood === "Possible" ? "#F59E0B" : "#6B7280",
@@ -147,7 +147,7 @@ export default function RiskPage() {
                       </div>
                     </div>
                     <div className="pt-3 mt-3 border-t border-slate-100">
-                      <span className="text-xs font-semibold text-blue-600 flex items-center gap-1">
+                      <span className="text-sm font-semibold text-blue-600 flex items-center gap-1">
                         View Full Analysis <ChevronRight className="h-3 w-3" />
                       </span>
                     </div>
@@ -224,10 +224,10 @@ export default function RiskPage() {
             {Object.entries(risk.businessImpact).map(([key, value]) => (
               <Card key={key} className="border border-slate-200">
                 <CardContent className="p-4">
-                  <h4 className="text-xs font-semibold text-slate-500 uppercase mb-2">
+                  <h4 className="text-sm font-semibold text-slate-500 uppercase mb-2">
                     {key.replace(/([A-Z])/g, " $1").trim()} Impact
                   </h4>
-                  <p className="text-sm text-primary">{value}</p>
+                  <p className="text-base text-primary">{value}</p>
                 </CardContent>
               </Card>
             ))}
@@ -244,7 +244,7 @@ export default function RiskPage() {
               {risk.potentialImplications.map((implication, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                  <span className="text-slate-600 text-sm leading-relaxed">{implication}</span>
+                  <span className="text-slate-600 text-base leading-relaxed">{implication}</span>
                 </li>
               ))}
             </ul>
@@ -260,7 +260,7 @@ export default function RiskPage() {
             {risk.relatedIndustries.map((industry, i) => (
               <span
                 key={i}
-                className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-full text-sm font-medium border border-slate-200 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-full text-base font-medium border border-slate-200 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer"
               >
                 {industry === "all" ? "All Industries" : industry.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
               </span>
@@ -277,7 +277,7 @@ export default function RiskPage() {
             {risk.relatedOfferings.map((offering, i) => (
               <span
                 key={i}
-                className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 cursor-pointer hover:bg-blue-100 transition-colors"
+                className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-base font-medium border border-blue-200 cursor-pointer hover:bg-blue-100 transition-colors"
               >
                 {offering.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase())}
               </span>
@@ -285,7 +285,7 @@ export default function RiskPage() {
             {risk.relatedSolutions.map((solution, i) => (
               <span
                 key={`sol-${i}`}
-                className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200"
+                className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-base font-medium border border-purple-200"
               >
                 {solution}
               </span>
@@ -304,35 +304,35 @@ export default function RiskPage() {
                 <Shield className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Prevent</h3>
-              <p className="text-xs text-slate-500">Implement controls to reduce likelihood</p>
+              <p className="text-sm text-slate-500">Implement controls to reduce likelihood</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-4">
                 <AlertTriangle className="h-6 w-6 text-amber-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Detect</h3>
-              <p className="text-xs text-slate-500">Identify risk events early</p>
+              <p className="text-sm text-slate-500">Identify risk events early</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4">
                 <Lock className="h-6 w-6 text-emerald-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Transfer</h3>
-              <p className="text-xs text-slate-500">Insurance and risk sharing solutions</p>
+              <p className="text-sm text-slate-500">Insurance and risk sharing solutions</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mx-auto mb-4">
                 <Activity className="h-6 w-6 text-orange-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Respond</h3>
-              <p className="text-xs text-slate-500">Activate incident response protocols</p>
+              <p className="text-sm text-slate-500">Activate incident response protocols</p>
             </div>
             <div className="bg-white rounded-xl border border-slate-200 p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-violet-50 flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-6 w-6 text-violet-600" />
               </div>
               <h3 className="font-bold text-primary mb-2">Recover</h3>
-              <p className="text-xs text-slate-500">Restore operations and learn</p>
+              <p className="text-sm text-slate-500">Restore operations and learn</p>
             </div>
           </div>
         </section>
@@ -345,7 +345,7 @@ export default function RiskPage() {
             Get a specialized risk assessment for this specific threat to your organization.
           </p>
           <a href="/contact">
-            <button className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold px-6 py-3 rounded-lg text-sm uppercase tracking-wide transition-colors">
+            <button className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold px-6 py-3 rounded-lg text-base uppercase tracking-wide transition-colors">
               Request Risk Assessment
             </button>
           </a>

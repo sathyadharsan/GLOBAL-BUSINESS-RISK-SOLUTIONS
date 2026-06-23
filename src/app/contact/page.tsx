@@ -47,7 +47,7 @@ function ContactFormInner() {
   return (
     <div className="space-y-6">
       {isSubmitted && (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 font-medium text-xs">
+        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 font-medium text-sm">
           ✓ Your consultation request has been received. A senior risk architect will contact you within 24 hours.
         </div>
       )}
@@ -62,30 +62,30 @@ function ContactFormInner() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">First Name</label>
-            <input name="firstName" type="text" required className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            <label className="text-sm font-semibold text-primary">First Name</label>
+            <input name="firstName" type="text" required className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">Last Name</label>
-            <input name="lastName" type="text" required className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">Corporate Email</label>
-            <input name="email" type="email" required className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
-          </div>
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">Company / Organization</label>
-            <input name="company" type="text" required className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            <label className="text-sm font-semibold text-primary">Last Name</label>
+            <input name="lastName" type="text" required className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">Annual Revenue</label>
-            <select defaultValue="" name="revenue" className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
+            <label className="text-sm font-semibold text-primary">Corporate Email</label>
+            <input name="email" type="email" required className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-sm font-semibold text-primary">Company / Organization</label>
+            <input name="company" type="text" required className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1.5">
+            <label className="text-sm font-semibold text-primary">Annual Revenue</label>
+            <select defaultValue="" name="revenue" className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
               <option value="" disabled>Select Revenue</option>
               <option value="Under 10Cr">Under ₹10Cr</option>
               <option value="10-200Cr">₹10–200Cr</option>
@@ -95,11 +95,11 @@ function ContactFormInner() {
             </select>
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-primary">Primary Risk Concern</label>
+            <label className="text-sm font-semibold text-primary">Primary Risk Concern</label>
             <select
               defaultValue=""
               name="riskConcern"
-              className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white"
+              className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white"
             >
               <option value="" disabled>
                 Select Risk Concern
@@ -116,11 +116,11 @@ function ContactFormInner() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-primary">Message / Inquiry Details</label>
-          <textarea name="message" rows={4} className="w-full p-2.5 text-xs border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"></textarea>
+          <label className="text-sm font-semibold text-primary">Message / Inquiry Details</label>
+          <textarea name="message" rows={4} className="w-full p-2.5 text-sm border rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"></textarea>
         </div>
 
-        <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700 h-11 text-xs font-semibold">
+        <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700 h-11 text-sm font-semibold">
           Request Free Risk Assessment
         </Button>
       </form>
@@ -155,7 +155,7 @@ export default function Contact() {
             {isLocations && "Global Operations Network"}
             {isOffice && offices[activeTab as keyof typeof offices]?.name}
           </h2>
-          <p className="text-xs text-muted-foreground mt-0.5">
+          <p className="text-sm text-muted-foreground mt-0.5">
             Click any section in the sidebar to switch contacts
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function Contact() {
             >
               <div className="flex items-center gap-2">
                 <Icon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-600" : "text-slate-500")} />
-                <h3 className="text-xs font-bold text-primary truncate leading-tight">
+                <h3 className="text-sm font-bold text-primary truncate leading-tight">
                   {item.label}
                 </h3>
               </div>
@@ -208,7 +208,7 @@ export default function Contact() {
               {isLocations && "Our International Offices"}
               {isOffice && offices[activeTab as keyof typeof offices]?.name}
             </h2>
-            <p className="text-sm text-gray-300">
+            <p className="text-base text-gray-300">
               {isForm && "Submit corporate details for a candidate audit assessment."}
               {isHotline && "Strategic guidance for Enterprise Risk Management, Governance, and Operational Resilience."}
               {isLocations && "Serving clients across India, Singapore, and US."}
@@ -228,11 +228,11 @@ export default function Contact() {
                 </Suspense>
               </div>
               <div className="space-y-6 bg-slate-50 p-6 rounded-xl border border-slate-100">
-                <h4 className="text-sm font-bold text-primary flex items-center gap-2 border-b pb-3">
+                <h4 className="text-base font-bold text-primary flex items-center gap-2 border-b pb-3">
                   <Target className="w-5 h-5 text-blue-600" />
                   What is included in the Diagnostic?
                 </h4>
-                <ul className="space-y-3.5 text-xs text-muted-foreground">
+                <ul className="space-y-3.5 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2.5 leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
                     <span><strong>Gap Analysis:</strong> Forensic audit of current policy wordings to uncover hidden exclusions and underinsurance.</span>
@@ -253,7 +253,7 @@ export default function Contact() {
           {/* B. Hotline Information */}
           {isHotline && (
             <div className="max-w-4xl space-y-6">
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-base text-slate-600 leading-relaxed">
                 When navigating complex regulatory landscapes, cyber threats, or systemic vulnerabilities, expert guidance is critical. TRUSTFLOW provides direct access to senior risk architects, ESG specialists, and business continuity advisors.
               </p>
 
@@ -263,7 +263,7 @@ export default function Contact() {
                     <ShieldAlert className="w-5 h-5" />
                     <h4>Risk Advisory Desk</h4>
                   </div>
-                  <p className="text-xs text-red-900/80 leading-relaxed mb-4">
+                  <p className="text-sm text-red-900/80 leading-relaxed mb-4">
                     For immediate consultation on Insurance Advisory, Cyber Risk mitigation, and Business Continuity planning.
                   </p>
                   <div className="text-lg font-bold text-red-700 font-mono">+1 (800) 555-LOSS</div>
@@ -274,7 +274,7 @@ export default function Contact() {
                     <Phone className="w-5 h-5" />
                     <h4>Business Advisory Enquiries</h4>
                   </div>
-                  <p className="text-xs text-blue-900/80 leading-relaxed mb-4">
+                  <p className="text-sm text-blue-900/80 leading-relaxed mb-4">
                     For Governance, Risk & Compliance (GRC) assessments, enterprise partnerships, and general consulting inquiries.
                   </p>
                   <div className="text-lg font-bold text-blue-700 font-mono">connect@trustflow.in</div>
@@ -288,14 +288,14 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.entries(offices).map(([id, office]) => (
                 <div key={id} className="p-5 bg-slate-50 border border-slate-100 rounded-xl space-y-3 hover:shadow-md transition-shadow cursor-pointer" onClick={() => setActiveTab(id)}>
-                  <h4 className="font-bold text-primary text-sm flex items-center gap-2 border-b pb-2">
+                  <h4 className="font-bold text-primary text-base flex items-center gap-2 border-b pb-2">
                     <MapPin className="w-4 h-4 text-blue-600" />
                     {office.name}
                   </h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
+                  <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
                     {office.address}
                   </p>
-                  <div className="text-xs space-y-1 pt-2">
+                  <div className="text-sm space-y-1 pt-2">
                     <p className="font-medium">{office.email}</p>
                     <p className="font-semibold text-blue-600">{office.phone}</p>
                   </div>
@@ -312,26 +312,26 @@ export default function Contact() {
                   <MapPin className="w-5 h-5 text-blue-600" />
                   {offices[activeTab as keyof typeof offices].name}
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                   {offices[activeTab as keyof typeof offices].address}
                 </p>
                 <div className="grid grid-cols-2 gap-4 pt-2 border-t">
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase">Email</p>
-                    <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].email}</p>
+                    <p className="text-sm font-semibold text-slate-500 uppercase">Email</p>
+                    <p className="text-base font-medium text-blue-600">{offices[activeTab as keyof typeof offices].email}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase">Phone</p>
-                    <p className="text-sm font-medium text-blue-600">{offices[activeTab as keyof typeof offices].phone}</p>
+                    <p className="text-sm font-semibold text-slate-500 uppercase">Phone</p>
+                    <p className="text-base font-medium text-blue-600">{offices[activeTab as keyof typeof offices].phone}</p>
                   </div>
                 </div>
               </div>
               <div className="flex gap-3">
-                <Button variant="outline" onClick={() => setActiveTab("locations")} className="text-xs">
+                <Button variant="outline" onClick={() => setActiveTab("locations")} className="text-sm">
                   View All Offices
                 </Button>
                 <Link href="/contact#diagnostic-form" className="w-full sm:w-auto">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs w-full" onClick={() => setActiveTab("diagnostic-form")}>
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm w-full" onClick={() => setActiveTab("diagnostic-form")}>
                     Request Consultation
                   </Button>
                 </Link>
