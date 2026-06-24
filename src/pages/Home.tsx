@@ -4,87 +4,21 @@ import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen, Server, LineChart, Brain, Network } from "lucide-react";
 import { Link } from 'react-router-dom';
-import { HeroSlider, HeroSlide } from "@/components/sections/HeroSlider";
+import { EnterpriseHomeHero } from "@/components/sections/EnterpriseHomeHero";
 
 export default function Home() {
   console.log("Home rendered");
-  const slides: HeroSlide[] = [
-    {
-      title: (
-        <>
-          Enterprise Risk Architecture<br />
-          <span className="text-blue-400">for a Complex World</span>
-        </>
-      ),
-      subtitle: "TRUSTFLOW helps organizations identify, assess, mitigate, transfer, and monitor risks across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.",
-      image: "https://images.unsplash.com/photo-1486406146906-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-      badge: "Enterprise Risk",
-      buttons: [
-        { label: "Book Risk Assessment", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/contact" },
-        { label: "Explore Solutions", variant: "hero", href: "/offerings/property-sfsp" }
-      ]
-    },
-    {
-      title: (
-        <>
-          AI-Powered Risk Intelligence<br />
-          <span className="text-blue-400">at Enterprise Scale</span>
-        </>
-      ),
-      subtitle: "Proprietary algorithms and data models for predictive risk quantification across 150+ markets and regulatory environments.",
-      image: "https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop",
-      badge: "AI Intelligence",
-      buttons: [
-        { label: "See Our Platforms", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/platform" },
-        { label: "View Risk Categories", variant: "hero", href: "/risks" }
-      ]
-    },
-    {
-      title: (
-        <>
-          Global Insurance & Risk Transfer<br />
-          <span className="text-blue-400">With A++ Carrier Access</span>
-        </>
-      ),
-      subtitle: "Secure institutional capacity for high-risk assets across property, casualty, cyber, D&O, and specialty lines with direct Lloyd's and global carrier access.",
-      image: "https://images.unsplash.com/photo-1563986768609-322375bd5411?q=80&w=2070&auto=format&fit=crop",
-      badge: "Insurance Solutions",
-      buttons: [
-        { label: "Explore Offerings", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings" },
-        { label: "Get TCOR Audit", variant: "hero", href: "/contact" }
-      ]
-    },
-    {
-      title: (
-        <>
-          Supply Chain & Operational Resilience<br />
-          <span className="text-blue-400">For Modern Enterprises</span>
-        </>
-      ),
-      subtitle: "CBS coverage, supplier risk management, and business interruption protection designed for today's interconnected supply networks.",
-      image: "https://images.unsplash.com/photo-1586528125628-5c6a9e3b2d3c?q=80&w=2070&auto=format&fit=crop",
-      badge: "Operational Risk",
-      buttons: [
-        { label: "View Outcomes", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/outcomes" },
-        { label: "Supply Chain Coverage", variant: "hero", href: "/offerings/marine-cargo-2" }
-      ]
-    },
-    {
-      title: (
-        <>
-          Cyber, ESG & Emerging Risk Solutions<br />
-          <span className="text-blue-400">Future-Ready Protection</span>
-        </>
-      ),
-      subtitle: "Ransomware response, DPDP compliance, climate transition planning, and emerging risk frameworks for tomorrow's challenges.",
-      image: "https://images.unsplash.com/photo-1497442923101-fd6d7e3a2c2a?q=80&w=2070&auto=format&fit=crop",
-      badge: "Emerging Risk",
-      buttons: [
-        { label: "Cyber Solutions", className: "bg-blue-600 hover:bg-blue-700 border-0", href: "/offerings/cyber-first-party" },
-        { label: "ESG Framework", variant: "hero", href: "/solutions/liability-governance" }
-      ]
-    }
-  ];
+  const heroBadge = "Enterprise Risk";
+  const heroTitle = (
+    <>
+      Enterprise Risk Architecture<br />
+      <span className="text-[#2563EB]">for a Complex World</span>
+    </>
+  );
+  const heroSubtitle = "TRUSTFLOW helps organizations identify, assess, mitigate, transfer, and monitor risks across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.";
+  const heroPrimaryCta = { label: "Book Risk Assessment", href: "/contact" };
+  const heroSecondaryCta = { label: "Explore Solutions", href: "/offerings/property-sfsp" };
+  const heroCapabilityTags = ["Enterprise Risk", "AI Intelligence", "Insurance Solutions", "Operational Risk", "Emerging Risk"];
 
   const metrics = [
     { val: "200+", label: "Risk Categories", desc: "Cyber, operational, financial, regulatory, ESG", icon: Shield },
@@ -186,7 +120,14 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-slate-50 overflow-x-hidden">
       {/* 1. HERO */}
-      <HeroSlider slides={slides} />
+      <EnterpriseHomeHero
+        badge={heroBadge}
+        title={heroTitle}
+        subtitle={heroSubtitle}
+        primaryCta={heroPrimaryCta}
+        secondaryCta={heroSecondaryCta}
+        capabilityTags={heroCapabilityTags}
+      />
 
       {/* 2. ENTERPRISE STATISTICS STRIP */}
       <section className="relative z-30 bg-slate-900 border-b border-slate-800">

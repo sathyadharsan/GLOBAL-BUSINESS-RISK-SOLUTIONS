@@ -36,37 +36,30 @@ const OFFERTING_IMAGES: Record<string, string> = {
 };
 
 export function PremiumOfferingDetail({ offering }: PremiumOfferingDetailProps) {
-  const heroImage = OFFERTING_IMAGES[offering.slug] || OFFERTING_IMAGES["default"];
-  
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-            style={{ backgroundImage: `url('${heroImage}')` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
-          <div className="absolute inset-0 bg-black/20" />
+      <section className="relative w-full overflow-hidden bg-white border-b border-[#E2E8F0] py-16 md:py-20">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 right-[-10%] w-[480px] h-[480px] rounded-full bg-[#2563EB] opacity-[0.06] blur-3xl" />
         </div>
         <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
           <div className="max-w-4xl space-y-6">
             <div className="flex items-center gap-3">
-              <Shield className="h-10 w-10 text-blue-400" />
-              <span className="text-base font-bold uppercase tracking-widest text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full border border-blue-500/30">
+              <Shield className="h-10 w-10 text-[#2563EB]" />
+              <span className="text-base font-bold uppercase tracking-widest text-[#2563EB] bg-[#2563EB]/10 px-3 py-1 rounded-full border border-[#2563EB]/20">
                 {offering.category.replace(/-/g, " ").toUpperCase()}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight text-[#0F172A]">
               {offering.title}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed">
               {offering.subtitle}
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               {offering.industryApplicability?.slice(0, 3).map((industry, i) => (
-                <span key={i} className="text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur rounded-full border border-white/10 hover:bg-white/15 transition-colors">
+                <span key={i} className="text-sm font-medium px-3 py-1.5 bg-[#F8FAFC] text-slate-600 rounded-full border border-[#E2E8F0] hover:bg-slate-100 transition-colors">
                   {industry}
                 </span>
               ))}

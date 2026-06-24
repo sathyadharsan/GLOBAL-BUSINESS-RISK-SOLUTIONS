@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { OfferingData } from "@/data/offeringsData";
 import { buildEnterpriseContent } from "@/lib/enterpriseContentMapper";
+import { EnterprisePageHero } from "@/components/sections/EnterprisePageHero";
 
 interface CategoryInfo {
   label?: string;
@@ -195,54 +196,15 @@ export function CategoryClient({ category, categoryInfo, offerings }: CategoryCl
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* SECTION 1: FULL WIDTH HERO */}
-      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A] mb-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
-          <div className="max-w-4xl space-y-6">
-            <Badge
-              variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
-            >
-              {label}
-            </Badge>
-            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
-              Enterprise {label}
-            </h1>
-            <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">
-              {categoryInfo.description}
-            </p>
-            <p className="text-base text-slate-300 max-w-2xl leading-relaxed">
-              {firstOffering?.executiveOverview || firstOffering?.shortDescription || ""}
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Button
-                size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Book Consultation
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Request Assessment
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 1: HERO */}
+      <EnterprisePageHero
+        badge={label}
+        title={`Enterprise ${label}`}
+        subtitle={categoryInfo.description}
+        description={firstOffering?.executiveOverview || firstOffering?.shortDescription || ""}
+        primaryCta={{ label: "Book Consultation", onClick: () => (window.location.href = "/contact") }}
+        secondaryCta={{ label: "Request Assessment", onClick: () => (window.location.href = "/contact") }}
+      />
 
       {/* SECTION 2: ENTERPRISE METRICS & CAPABILITIES - SINGLE SECTION */}
       <section className="w-full bg-white py-14 border-b border-slate-200">

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { EnterprisePageHero } from "@/components/sections/EnterprisePageHero";
 import {
   CheckCircle2, ChevronRight, Shield, Database, Zap, Users, Briefcase,
   BarChart3, Download, Target, Globe, AlertTriangle, Layers, Activity, Landmark
@@ -113,51 +114,14 @@ export function PlatformsLandingLayout() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* SECTION 1: FULL WIDTH HERO */}
-      <section className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-[#0B1F3A] mb-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1518103241174-ebb0c2b2e1e5?q=80&w=2070&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/95 via-[#0B1F3A]/80 to-transparent" />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative container mx-auto px-6 md:px-8 h-full flex flex-col justify-center max-w-6xl">
-          <div className="max-w-4xl space-y-6">
-            <Badge
-              variant="secondary"
-              className="w-fit bg-[#1E5EFF]/20 text-[#60A5FA] border-[#1E5EFF]/40 backdrop-blur-sm text-sm font-semibold tracking-widest uppercase"
-            >
-              Platform Suite
-            </Badge>
-            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-tight font-serif leading-[1.1] text-white">
-              AI-Powered Risk Intelligence Platforms
-            </h1>
-            <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-snug">
-              Enterprise-grade tools for risk discovery, diagnostic mapping, transaction due diligence, and continuous threat monitoring.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Button
-                size="lg"
-                className="bg-[#1E5EFF] hover:bg-[#1E5EFF]/90 text-white font-semibold text-base uppercase tracking-wide"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Book Assessment
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 text-base uppercase tracking-wide"
-                onClick={() => (window.location.href = "/contact")}
-              >
-                Download Platform Guide
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 1: HERO */}
+      <EnterprisePageHero
+        badge="Platform Suite"
+        title="AI-Powered Risk Intelligence Platforms"
+        subtitle="Enterprise-grade tools for risk discovery, diagnostic mapping, transaction due diligence, and continuous threat monitoring."
+        primaryCta={{ label: "Book Assessment", onClick: () => (window.location.href = "/contact") }}
+        secondaryCta={{ label: "Download Platform Guide", onClick: () => (window.location.href = "/contact") }}
+      />
 
       {/* SECTION 2: EXECUTIVE OVERVIEW PROSE */}
       <section className="py-14 bg-white border-b border-slate-200">

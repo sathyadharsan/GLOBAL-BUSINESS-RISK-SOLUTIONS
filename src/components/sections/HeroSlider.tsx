@@ -59,25 +59,10 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
   const activeSlide = slides[currentIndex];
 
   return (
-    <section id="hero" className="relative h-[70vh] min-h-[600px] w-full overflow-hidden bg-slate-900">
-      {/* Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
-        >
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${slide.image}')` }}
-          />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-primary/80 to-slate-900/70" />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-      ))}
+    <section id="hero" className="relative min-h-[480px] w-full overflow-hidden bg-white border-b border-[#E2E8F0] py-16 md:py-20">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 right-[-10%] w-[480px] h-[480px] rounded-full bg-[#2563EB] opacity-[0.06] blur-3xl" />
+      </div>
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
@@ -90,14 +75,14 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
           }}
         >
           {activeSlide.badge && (
-            <span className="inline-block text-sm font-bold text-blue-300 uppercase tracking-widest bg-blue-600/20 px-4 py-1.5 rounded-full border border-blue-400/30 mb-6">
+            <span className="inline-block text-sm font-bold text-[#2563EB] uppercase tracking-widest bg-[#2563EB]/10 px-4 py-1.5 rounded-full border border-[#2563EB]/20 mb-6">
               {activeSlide.badge}
             </span>
           )}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 text-white font-serif">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 text-[#0F172A] font-serif">
             {activeSlide.title}
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mb-10 leading-relaxed">
             {activeSlide.subtitle}
           </p>
 
@@ -137,27 +122,27 @@ export function HeroSlider({ slides, autoRotateInterval = 5000 }: HeroSliderProp
           <>
             <button
               onClick={goToPrev}
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all z-30 border border-white/10"
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white hover:bg-[#F8FAFC] shadow-md flex items-center justify-center transition-all z-30 border border-[#E2E8F0]"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className="w-6 h-6 text-[#0F172A]" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all z-30 border border-white/10"
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white hover:bg-[#F8FAFC] shadow-md flex items-center justify-center transition-all z-30 border border-[#E2E8F0]"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className="w-6 h-6 text-[#0F172A]" />
             </button>
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-30">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goToSlide(i)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === currentIndex ? "w-10 bg-blue-400" : "w-2.5 bg-white/40 hover:bg-white/70"
+                    i === currentIndex ? "w-10 bg-[#2563EB]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />

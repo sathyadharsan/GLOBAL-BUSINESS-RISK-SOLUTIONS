@@ -156,90 +156,43 @@ export function TwoPanelLayout({
         {/* RIGHT CONTENT PANEL (Scrollable, fills remaining width) */}
         <main className="flex-1 min-w-0 overflow-y-auto px-4 py-8 md:px-10 bg-slate-50">
           
-          {/* Page Hero Strip with Background Image */}
-          <div className="mb-10 p-8 rounded-2xl text-white relative overflow-hidden shadow-sm border border-white/5 min-h-[300px] bg-primary">
-            {heroImage && (
-              <>
-                <div className="absolute inset-0 z-0">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-                    style={{ backgroundImage: `url('${heroImage}')` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
-                  <div className="absolute inset-0 bg-black/30" />
+          {/* Page Hero Strip */}
+          <div className="mb-10 p-8 rounded-2xl text-[#0F172A] relative overflow-hidden shadow-sm border border-[#E2E8F0] min-h-[300px] bg-white">
+            <div className="absolute -top-16 right-[-10%] w-72 h-72 rounded-full bg-[#2563EB] opacity-[0.06] blur-3xl pointer-events-none" />
+            <div className="relative z-10 max-w-4xl space-y-4">
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight font-serif leading-tight">
+                {heroTitle}
+              </h1>
+              <p className="text-base text-slate-600 max-w-3xl leading-relaxed">
+                {heroSubtitle}
+              </p>
+              {heroBadges.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {heroBadges.map((badge, i) => (
+                    <span
+                      key={i}
+                      className="text-sm font-semibold px-3 py-1 bg-[#2563EB]/10 text-[#2563EB] rounded-full border border-[#2563EB]/20"
+                    >
+                      {badge}
+                    </span>
+                  ))}
                 </div>
-                <div className="relative z-10 max-w-4xl space-y-4">
-                  <h1 className="text-3xl md:text-4xl font-bold tracking-tight font-serif leading-tight">
-                    {heroTitle}
-                  </h1>
-                  <p className="text-base text-gray-200 max-w-3xl leading-relaxed">
-                    {heroSubtitle}
-                  </p>
-                  {heroBadges.length > 0 && (
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {heroBadges.map((badge, i) => (
-                        <span 
-                          key={i} 
-                          className="text-sm font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
-                        >
-                          {badge}
-                        </span>
-                      ))}
+              )}
+              {heroStats && heroStats.length > 0 && (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 mt-6 border-t border-[#E2E8F0]">
+                  {heroStats.map((stat, i) => (
+                    <div key={i} className="text-center">
+                      <p className="text-2xl md:text-3xl font-bold text-[#2563EB] font-serif">
+                        {stat.val}
+                      </p>
+                      <p className="text-[10px] text-slate-500 uppercase tracking-wider">
+                        {stat.label}
+                      </p>
                     </div>
-                  )}
-                  {heroStats && heroStats.length > 0 && (
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 mt-6 border-t border-white/10">
-                      {heroStats.map((stat, i) => (
-                        <div key={i} className="text-center">
-                          <p className="text-2xl md:text-3xl font-bold text-blue-400 font-serif">
-                            {stat.val}
-                          </p>
-                          <p className="text-[10px] text-gray-300 uppercase tracking-wider">
-                            {stat.label}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  ))}
                 </div>
-              </>
-            )}
-            {!heroImage && (
-              <div className="relative z-10 max-w-4xl space-y-4">
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight font-serif leading-tight">
-                  {heroTitle}
-                </h1>
-                <p className="text-base text-gray-300 max-w-3xl leading-relaxed">
-                  {heroSubtitle}
-                </p>
-                {heroBadges.length > 0 && (
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {heroBadges.map((badge, i) => (
-                      <span 
-                        key={i} 
-                        className="text-sm font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {heroStats && heroStats.length > 0 && (
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 mt-6 border-t border-white/10">
-                    {heroStats.map((stat, i) => (
-                      <div key={i} className="text-center">
-                        <p className="text-2xl md:text-3xl font-bold text-blue-400 font-serif">
-                          {stat.val}
-                        </p>
-                        <p className="text-[10px] text-gray-300 uppercase tracking-wider">
-                          {stat.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* Children: content and cards */}

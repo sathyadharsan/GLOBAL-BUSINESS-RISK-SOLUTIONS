@@ -35,15 +35,9 @@ export function HeroBackground({
   stats = [],
 }: HeroBackgroundProps) {
   return (
-    <section className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
-      {/* Background Image with Dark Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{ backgroundImage: `url('${image}')` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
-        <div className="absolute inset-0 bg-black/30" />
+    <section className="relative min-h-[88vh] w-full overflow-hidden bg-white border-b border-[#E2E8F0] py-16 flex items-center">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 right-[-10%] w-[480px] h-[480px] rounded-full bg-[#2563EB] opacity-[0.06] blur-3xl" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
@@ -55,29 +49,29 @@ export function HeroBackground({
         >
           {/* Breadcrumb Navigation */}
           {breadcrumbs.length > 0 && (
-            <nav className="flex items-center gap-2 text-sm text-blue-300 mb-6 font-medium">
+            <nav className="flex items-center gap-2 text-sm text-slate-500 mb-6 font-medium">
               <Home className="h-3 w-3" />
               {breadcrumbs.map((crumb, i) => (
                 <React.Fragment key={i}>
                   {i > 0 && <ChevronRight className="h-3 w-3" />}
                   {crumb.href ? (
-                    <a href={crumb.href} className="hover:text-white transition-colors">
+                    <a href={crumb.href} className="hover:text-[#2563EB] transition-colors">
                       {crumb.label}
                     </a>
                   ) : (
-                    <span className="text-white">{crumb.label}</span>
+                    <span className="text-[#0F172A]">{crumb.label}</span>
                   )}
                 </React.Fragment>
               ))}
             </nav>
           )}
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 text-white font-serif">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 text-[#0F172A] font-serif">
             {title}
           </h1>
-          
+
           {subtitle && (
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mb-8 leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -85,9 +79,9 @@ export function HeroBackground({
           {badges.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2 mb-8">
               {badges.map((badge, i) => (
-                <span 
-                  key={i} 
-                  className="text-sm font-semibold px-4 py-2 bg-white/10 rounded-full border border-white/10"
+                <span
+                  key={i}
+                  className="text-sm font-semibold px-4 py-2 bg-[#2563EB]/10 text-[#2563EB] rounded-full border border-[#2563EB]/20"
                 >
                   {badge}
                 </span>
@@ -127,13 +121,13 @@ export function HeroBackground({
 
           {/* Enterprise Statistics Strip */}
           {stats.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-[#E2E8F0]">
               {stats.map((stat, i) => (
                 <div key={i} className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-blue-400 font-serif mb-1">
+                  <p className="text-3xl md:text-4xl font-bold text-[#2563EB] font-serif mb-1">
                     {stat.val}
                   </p>
-                  <p className="text-sm text-gray-300 uppercase tracking-wider">{stat.label}</p>
+                  <p className="text-sm text-slate-500 uppercase tracking-wider">{stat.label}</p>
                 </div>
               ))}
             </div>

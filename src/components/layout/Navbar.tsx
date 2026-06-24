@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -13,12 +14,23 @@ import {
   NavChevronOnly,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight } from "lucide-react";
+import { Menu, ChevronRight, Shield, ArrowRight } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   CATEGORY_GROUPS,
   getOfferingsByCategory,
 } from "@/data/offeringsData";
+
+function useScrolled(threshold = 16) {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
+  return scrolled;
+}
 
 const SECTION =
   "text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2 px-3 pt-1 border-b border-slate-100 pb-1.5";
@@ -273,7 +285,7 @@ function OfferingsMega() {
       >
         Offerings
       </Link>
-      <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+      <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
       <NavigationMenuContent>
         <MegaGrid items={OFFERINGS} />
         <div className="px-6 pb-4 pt-0">
@@ -474,16 +486,47 @@ const PLATFORMS = [
 ];
 
 export function Navbar() {
+  const scrolled = useScrolled();
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
+    <header className="sticky top-0 z-50 w-full px-3 pt-3 pb-2 md:px-6 md:pt-4">
+      <div className="relative mx-auto max-w-7xl">
+        {/* Ambient gradient glow — animates continuously, intensifies on scroll */}
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
+          <motion.div
+            className="absolute -top-10 left-8 h-28 w-28 rounded-full bg-blue-400/30 blur-3xl md:h-40 md:w-40"
+            animate={{ x: [0, 30, 0], y: [0, 12, 0], opacity: scrolled ? [0.5, 0.8, 0.5] : [0.3, 0.5, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute -top-8 right-12 h-28 w-28 rounded-full bg-violet-400/30 blur-3xl md:h-40 md:w-40"
+            animate={{ x: [0, -24, 0], y: [0, 16, 0], opacity: scrolled ? [0.5, 0.8, 0.5] : [0.3, 0.5, 0.3] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </div>
+
+        <div
+          className={cn(
+            "relative flex items-center justify-between gap-3 rounded-full border bg-white/75 backdrop-blur-xl transition-all duration-300 px-4 md:px-6",
+            scrolled
+              ? "h-14 border-white/60 bg-white/90 shadow-xl shadow-slate-900/10"
+              : "h-20 border-white/50 shadow-lg shadow-slate-900/5"
+          )}
+        >
         <div className="flex items-center">
-          <Link to="/" className="flex flex-col items-center text-center">
-            <span className="text-xl font-bold tracking-tight text-primary leading-tight">
-              TRUSTFLOW
+          <Link to="/" className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-sm shrink-0">
+              <Shield className="h-4.5 w-4.5" />
             </span>
-            <span className="text-sm font-normal text-muted-foreground mt-1">
-              Risk Advisory Insurance & Resilience Solutions
+            <span className="flex flex-col leading-tight">
+              <span className="text-xl font-bold tracking-tight text-primary">
+                TRUSTFLOW
+              </span>
+              {!scrolled && (
+                <span className="text-xs font-normal text-muted-foreground">
+                  Risk Advisory Insurance & Resilience Solutions
+                </span>
+              )}
             </span>
           </Link>
         </div>
@@ -499,7 +542,7 @@ export function Navbar() {
                 >
                   Home
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={HOME} />
                 </NavigationMenuContent>
@@ -512,7 +555,7 @@ export function Navbar() {
                 >
                   Industries
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={INDUSTRIES} />
                 </NavigationMenuContent>
@@ -525,7 +568,7 @@ export function Navbar() {
                 >
                   Risks
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={RISKS} />
                 </NavigationMenuContent>
@@ -540,7 +583,7 @@ export function Navbar() {
                 >
                   Solutions
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={SOLUTIONS} />
                 </NavigationMenuContent>
@@ -553,7 +596,7 @@ export function Navbar() {
                 >
                   Outcomes
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={OUTCOMES} />
                 </NavigationMenuContent>
@@ -566,7 +609,7 @@ export function Navbar() {
                 >
                   Platform
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={PLATFORMS} />
                 </NavigationMenuContent>
@@ -579,7 +622,7 @@ export function Navbar() {
                 >
                   Company
                 </Link>
-                <NavChevronOnly className="rounded-l-none px-1.5 py-1.5 -ml-px" />
+                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
                 <NavigationMenuContent>
                   <MegaGrid items={COMPANY} />
                 </NavigationMenuContent>
@@ -588,12 +631,11 @@ export function Navbar() {
           </NavigationMenu>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-5">
           <Link to="/contact">
-            <Button className="bg-primary text-white hover:bg-primary/90">
-              <div className="text-left leading-tight">
-                <div className="text-[10px] opacity-90">Contact Us</div>
-              </div>
+            <Button className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 hover:brightness-110 transition-all gap-2 px-5">
+              Contact Us
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>
@@ -601,19 +643,24 @@ export function Navbar() {
         {/* Mobile Nav */}
         <div className="lg:hidden flex items-center">
           <Sheet>
-            <SheetTrigger render={<Button variant="ghost" size="icon" />}>
+            <SheetTrigger render={<Button variant="ghost" size="icon" className="rounded-full" />}>
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
               <div className="flex flex-col gap-6 pt-10 pb-8">
                 <div>
-                  <Link to="/" className="flex flex-col items-center text-center mb-4">
-                    <span className="text-xl font-bold tracking-tight text-primary leading-tight">
-                      TRUSTFLOW
+                  <Link to="/" className="flex items-center gap-2.5 mb-4">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-violet-600 text-white shrink-0">
+                      <Shield className="h-4.5 w-4.5" />
                     </span>
-                    <span className="text-sm font-normal text-muted-foreground mt-1">
-                      Risk Advisory Insurance Resilience Solutions
+                    <span className="flex flex-col leading-tight">
+                      <span className="text-xl font-bold tracking-tight text-primary">
+                        TRUSTFLOW
+                      </span>
+                      <span className="text-xs font-normal text-muted-foreground">
+                        Risk Advisory Insurance & Resilience Solutions
+                      </span>
                     </span>
                   </Link>
                 </div>
@@ -720,16 +767,16 @@ export function Navbar() {
                 </div>
                 <div className="flex flex-col gap-3 mt-6">
                   <Link to="/contact">
-                    <Button className="w-full justify-start">
-                      <div className="text-left leading-tight">
-                        <div className="text-[10px] opacity-90">Contact Us</div>
-                      </div>
+                    <Button className="w-full justify-center rounded-full bg-gradient-to-r from-blue-600 to-violet-600 text-white gap-2">
+                      Contact Us
+                      <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
+        </div>
         </div>
       </div>
     </header>

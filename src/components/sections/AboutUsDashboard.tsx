@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { aboutUsData, leadershipTeam, officeLocations } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
+import { EnterprisePageHero } from "@/components/sections/EnterprisePageHero";
 
 const SECTIONS_CONFIG = {
   company: { label: "Company & Culture", color: "#1E3A5F", icon: BookOpen },
@@ -72,28 +73,12 @@ export function AboutUsDashboard({ activeSlug }: AboutUsDashboardProps) {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
 
-      {/* Page Hero with Background */}
-      <div className="relative h-[65vh] min-h-[500px] w-full overflow-hidden bg-primary">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-            style={{ backgroundImage: `url('${heroImage}')` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-        <div className="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center max-w-6xl">
-          <div className="max-w-4xl space-y-4">
-            <span className="text-sm font-bold text-emerald-400 uppercase tracking-widest">About TRUSTFLOW</span>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-serif leading-tight text-white">
-              About TRUSTFLOW
-            </h1>
-            <p className="text-base md:text-lg text-gray-200 max-w-3xl leading-relaxed">
-              We are risk architects — not insurance agents. We design structural balance sheet protection for the world&apos;s most dynamic enterprises across 150+ countries.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Page Hero */}
+      <EnterprisePageHero
+        badge="About TRUSTFLOW"
+        title="About TRUSTFLOW"
+        subtitle="We are risk architects — not insurance agents. We design structural balance sheet protection for the world's most dynamic enterprises across 150+ countries."
+      />
 
       {/* Main Content Container */}
       <div className="container mx-auto px-4 md:px-8 py-10 md:py-14 max-w-6xl space-y-10">
