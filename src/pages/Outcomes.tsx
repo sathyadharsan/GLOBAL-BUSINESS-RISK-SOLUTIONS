@@ -109,6 +109,13 @@ export default function OutcomesPage() {
         badge="Enterprise Outcomes"
         title={<>30 Enterprise Client<br /><span className="text-[#2563EB]">Outcome Case Studies</span></>}
         subtitle="Real-world risk scenarios demonstrating how integrated risk transfer architectures protect corporate cash flow and governance globally."
+        capabilityTags={["Enterprise Risk", "Insurance Solutions", "Risk Analytics", "Financial Risk", "Compliance"]}
+        stats={[
+          { value: "500+", label: "Case Studies" },
+          { value: "₹5000Cr+", label: "Assets Protected" },
+          { value: "98%", label: "Recovery" },
+          { value: "30+", label: "Countries" },
+        ]}
         primaryCta={{ label: "Book Assessment", onClick: () => (window.location.href = "/contact") }}
         secondaryCta={{ label: "Download Overview", onClick: () => (window.location.href = "/contact") }}
       />

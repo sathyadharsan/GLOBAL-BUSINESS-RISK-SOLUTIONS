@@ -15,8 +15,15 @@ export default function SolutionsPage() {
       {/* SECTION 1: HERO */}
       <EnterprisePageHero
         badge="Enterprise Risk Solutions"
-        title="Solutions"
+        title="Engineered Risk Transfer Solutions"
         subtitle="Enterprise risk transfer architectures that protect balance sheets, preserve enterprise value, reduce earnings volatility, and enable strategic growth."
+        capabilityTags={["Enterprise Risk", "Insurance Solutions", "Governance", "Financial Risk", "Business Continuity"]}
+        stats={[
+          { value: "100+", label: "Enterprise Programs" },
+          { value: "40+", label: "Specialists" },
+          { value: "95%", label: "Success" },
+          { value: "24x7", label: "Support" },
+        ]}
         primaryCta={{ label: "Request Consultation", onClick: () => (window.location.href = "/contact") }}
         secondaryCta={{ label: "Speak With Specialist", onClick: () => (window.location.href = "/contact") }}
       />

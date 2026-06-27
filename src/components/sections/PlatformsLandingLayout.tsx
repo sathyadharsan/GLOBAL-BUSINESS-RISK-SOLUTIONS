@@ -119,6 +119,13 @@ export function PlatformsLandingLayout() {
         badge="Platform Suite"
         title="AI-Powered Risk Intelligence Platforms"
         subtitle="Enterprise-grade tools for risk discovery, diagnostic mapping, transaction due diligence, and continuous threat monitoring."
+        capabilityTags={["AI Intelligence", "Risk Analytics", "Cyber Security", "Compliance", "Enterprise Risk"]}
+        stats={[
+          { value: "8", label: "AI Engines" },
+          { value: "250+", label: "Risk Rules" },
+          { value: "99.9%", label: "Availability" },
+          { value: "24x7", label: "Monitoring" },
+        ]}
         primaryCta={{ label: "Book Assessment", onClick: () => (window.location.href = "/contact") }}
         secondaryCta={{ label: "Download Platform Guide", onClick: () => (window.location.href = "/contact") }}
       />

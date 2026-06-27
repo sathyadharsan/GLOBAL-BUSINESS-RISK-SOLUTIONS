@@ -44,6 +44,13 @@ export function IndustriesLandingLayout() {
         badge="Industry Practices"
         title="Enterprise Risk Architecture by Industry"
         subtitle="Sector-specific risk consulting practices with dedicated expertise across 12 verticals."
+        capabilityTags={["Enterprise Risk", "Compliance", "Governance", "Supply Chain", "ESG"]}
+        stats={[
+          { value: "12+", label: "Industry Practices" },
+          { value: "150+", label: "Enterprise Clients" },
+          { value: "30+", label: "Countries" },
+          { value: "99%", label: "Compliance" },
+        ]}
         primaryCta={{ label: "Book Assessment", onClick: () => (window.location.href = "/contact") }}
         secondaryCta={{ label: "Download Industry Guide", onClick: () => (window.location.href = "/contact") }}
       />

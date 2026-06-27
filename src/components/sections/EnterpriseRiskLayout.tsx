@@ -425,6 +425,13 @@ export function EnterpriseRiskLayout({
         badge={categoryBadge}
         title={heroHeadline || `${categoryLabel} Risk Architecture`}
         subtitle={heroSubtitle || categoryDescription}
+        capabilityTags={["Enterprise Risk", "Cyber Security", "Risk Analytics", "Compliance", "Business Continuity"]}
+        stats={[
+          { value: "78+", label: "Risk Domains" },
+          { value: "24/7", label: "Monitoring" },
+          { value: "AI", label: "Powered" },
+          { value: "Enterprise", label: "Scale" },
+        ]}
         primaryCta={{ label: "Book Consultation", onClick: () => (window.location.href = "/contact") }}
         secondaryCta={{ label: "Run Risk Diagnostic", onClick: () => (window.location.href = "/contact") }}
       />

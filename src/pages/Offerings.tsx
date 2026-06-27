@@ -72,9 +72,12 @@ export default function OfferingsMarketplace() {
         subtitle="Enterprise-grade risk transfer, insurance, warranty, guarantee, contract intelligence, and risk analytics solutions designed for modern organizations."
         image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
         badges={["Marketplace"]}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Offerings" }
+        capabilityTags={["Insurance Solutions", "Risk Analytics", "Compliance", "Financial Risk", "Business Continuity"]}
+        stats={[
+          { val: "70+", label: "Solutions" },
+          { val: "500+", label: "Projects" },
+          { val: "30+", label: "Years" },
+          { val: "Global", label: "Coverage" },
         ]}
       />
 
