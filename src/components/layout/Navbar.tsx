@@ -1,7 +1,7 @@
 
 
 import * as React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -10,11 +10,48 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuTriggerNoChevron,
   navigationMenuTriggerStyle,
-  NavChevronOnly,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, Shield, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  ChevronRight,
+  Shield,
+  ArrowRight,
+  ArrowUpRight,
+  Cpu,
+  Globe2,
+  Briefcase,
+  TrendingUp,
+  Target,
+  Zap,
+  Database,
+  Wrench,
+  Monitor,
+  Building2,
+  Landmark,
+  HeartPulse,
+  ShoppingBag,
+  Tv,
+  Car,
+  CreditCard,
+  FlaskConical,
+  ShieldAlert,
+  ShieldCheck,
+  Fuel,
+  Plane,
+  GraduationCap,
+  Wheat,
+  Truck,
+  AlertTriangle,
+  FileText,
+  Gem,
+  Anchor,
+  Train,
+  Home,
+  Sparkles,
+} from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   CATEGORY_GROUPS,
@@ -33,10 +70,45 @@ function useScrolled(threshold = 16) {
 }
 
 const SECTION =
-  "text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2 px-3 pt-1 border-b border-slate-100 pb-1.5";
+  "text-sm font-extrabold text-slate-800 uppercase tracking-wide";
 const LINK =
-  "flex items-start gap-2 px-3 py-1.5 rounded text-[13px] transition-all text-slate-700 hover:text-blue-600 hover:bg-slate-50";
-const CHEV = <ChevronRight className="h-3 w-3 text-blue-600 flex-shrink-0 mt-0.5" />;
+  "group flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all text-slate-600 hover:text-blue-600 hover:bg-slate-50";
+
+// Keyword → icon matcher, shared by category headings and individual links,
+// so every label gets a relevant icon without hand-mapping 250+ entries.
+const ICON_RULES: { match: RegExp; icon: React.ComponentType<{ className?: string }> }[] = [
+  { match: /auto|vehicle|\bcar\b/i, icon: Car },
+  { match: /bank|landmark/i, icon: Landmark },
+  { match: /financial|insurance|credit|trade credit|surety/i, icon: CreditCard },
+  { match: /health|medical|hospital|life science/i, icon: HeartPulse },
+  { match: /pharma|bio|drug|chem/i, icon: FlaskConical },
+  { match: /cyber|ransomware|breach|fraud|hack/i, icon: ShieldAlert },
+  { match: /defence|government|public sector|compliance|governance/i, icon: ShieldCheck },
+  { match: /oil|gas|fuel/i, icon: Fuel },
+  { match: /energy|power|renewable|solar|utilit/i, icon: Zap },
+  { match: /tourism|hospitality|aviation|\bairline/i, icon: Plane },
+  { match: /education|training|allied/i, icon: GraduationCap },
+  { match: /agriculture|food|textile|wheat/i, icon: Wheat },
+  { match: /port|rail|highway/i, icon: Anchor },
+  { match: /transport|logistics|cargo|marine|supply chain/i, icon: Truck },
+  { match: /infrastructure|construction|real estate|cement|steel|engineering/i, icon: Building2 },
+  { match: /tech|digital|software|it &|semiconductor|electronics|telecom|science/i, icon: Monitor },
+  { match: /risk|liability|litigation|exposure|catastrophe/i, icon: AlertTriangle },
+  { match: /platform|engine|intelligence|analytics|diagnostic|mapper|monitor/i, icon: Database },
+  { match: /climate|esg|sustainab|emerging/i, icon: Globe2 },
+  { match: /contract|legal|director|advisory|consult/i, icon: FileText },
+  { match: /retail|fmcg|consumer|durable/i, icon: ShoppingBag },
+  { match: /media|entertainment/i, icon: Tv },
+  { match: /gems|jewellery/i, icon: Gem },
+  { match: /manufactur|msme|industrial/i, icon: Wrench },
+];
+
+function getThemeIcon(text: string) {
+  for (const rule of ICON_RULES) {
+    if (rule.match.test(text)) return rule.icon;
+  }
+  return Briefcase;
+}
 
 function MegaGrid({
   items,
@@ -44,25 +116,40 @@ function MegaGrid({
   items: { title: string; links: { href: string; label: string; bold?: boolean }[] }[];
 }) {
   return (
-    <div className="w-[1160px] p-6 bg-white">
-      <div className="grid grid-cols-4 gap-x-12 gap-y-0">
-        {items.map((col) => (
-          <div key={col.title} className="flex flex-col min-w-[200px]">
-            <div className={SECTION}>{col.title}</div>
-            {col.links.map((l) => (
-              <Link
-                key={l.href + l.label}
-                to={l.href}
-                className={cn(LINK, l.bold && "bg-blue-50 text-blue-700 font-semibold")}
-              >
-                {CHEV}
-                <span className="font-medium whitespace-nowrap leading-tight">
-                  {l.label}
-                </span>
-              </Link>
-            ))}
+    <div className="w-[1220px] p-8 bg-white">
+      <div className="grid grid-cols-4 gap-x-12 gap-y-8">
+        {items.map((col, idx) => {
+          const SectionIcon = getThemeIcon(col.title);
+          return (
+          <div
+            key={col.title}
+            className={cn(
+              "flex flex-col min-w-[200px]",
+              idx % 4 !== 0 && "md:border-l md:border-slate-100 md:pl-6"
+            )}
+          >
+            <div className="flex items-center gap-2 mb-3 pb-2.5 border-b border-slate-100">
+              <SectionIcon className="h-4 w-4 text-blue-500 shrink-0" />
+              <span className={SECTION}>{col.title}</span>
+            </div>
+            {col.links.map((l) => {
+              const LinkIcon = getThemeIcon(l.label);
+              return (
+                <Link
+                  key={l.href + l.label}
+                  to={l.href}
+                  className={cn(LINK, l.bold && "text-blue-600 font-semibold")}
+                >
+                  <LinkIcon className="h-4 w-4 text-slate-400 group-hover:text-blue-500 flex-shrink-0" />
+                  <span className="font-medium whitespace-nowrap leading-tight">
+                    {l.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -277,23 +364,28 @@ const OFFERINGS = [
 ];
 
 function OfferingsMega() {
+  const navigate = useNavigate();
+
   return (
     <NavigationMenuItem>
-      <Link
-        to="/offerings"
-        className={cn(navigationMenuTriggerStyle())}
+      <NavigationMenuTriggerNoChevron
+        className={cn(
+          navigationMenuTriggerStyle(),
+          "text-lg font-bold"
+        )}
+        onClick={() => navigate("/offerings")}
       >
+        <Sparkles className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
         Offerings
-      </Link>
-      <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+      </NavigationMenuTriggerNoChevron>
       <NavigationMenuContent>
         <MegaGrid items={OFFERINGS} />
-        <div className="px-6 pb-4 pt-0">
+        <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
           <Link
             to="/offerings"
-            className="text-base font-bold text-blue-600 hover:text-blue-800 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
           >
-            View All Offerings →
+            View All Offerings <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </NavigationMenuContent>
@@ -487,10 +579,18 @@ const PLATFORMS = [
 
 export function Navbar() {
   const scrolled = useScrolled();
+  const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-50 w-full px-3 pt-3 pb-2 md:px-6 md:pt-4">
-      <div className="relative mx-auto max-w-7xl">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300 border-b",
+        scrolled
+          ? "bg-white/90 backdrop-blur-md border-slate-200/80 shadow-sm py-2 px-4 md:px-6"
+          : "border-slate-100 bg-white/10 backdrop-blur-[2px] px-3 pt-3 pb-3 md:px-6 md:pt-4 md:pb-4"
+      )}
+    >
+      <div className="relative mx-auto max-w-[1400px]">
         {/* Ambient gradient glow — animates continuously, intensifies on scroll */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
           <motion.div
@@ -533,96 +633,133 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex flex-1 items-center justify-center">
-          <NavigationMenu>
-            <NavigationMenuList>
+          <NavigationMenu align="center">
+            <NavigationMenuList className="gap-3">
               <NavigationMenuItem>
-                <Link
-                  to="/"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/")}
                 >
+                  <Home className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Home
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={HOME} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link
-                  to="/industries"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/industries")}
                 >
+                  <Building2 className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Industries
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={INDUSTRIES} />
+                  <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
+                    <Link
+                      to="/industries"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
+                    >
+                      View All Industries <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link
-                  to="/risks"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/risks")}
                 >
+                  <ShieldAlert className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Risks
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={RISKS} />
+                  <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
+                    <Link
+                      to="/risks"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
+                    >
+                      View All Risks <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <OfferingsMega />
 
               <NavigationMenuItem>
-                <Link
-                  to="/solutions"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/solutions")}
                 >
+                  <Cpu className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Solutions
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={SOLUTIONS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link
-                  to="/outcomes"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/outcomes")}
                 >
+                  <TrendingUp className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Outcomes
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={OUTCOMES} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link
-                  to="/platform"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/platform")}
                 >
+                  <Database className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Platform
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={PLATFORMS} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link
-                  to="/about-us"
-                  className={cn(navigationMenuTriggerStyle())}
+                <NavigationMenuTriggerNoChevron
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-lg font-bold"
+                  )}
+                  onClick={() => navigate("/about-us")}
                 >
+                  <Briefcase className="h-4.5 w-4.5 mr-2 text-slate-400 group-hover/navigation-menu-trigger:text-blue-600 group-data-popup-open/navigation-menu-trigger:text-blue-600 group-data-open/navigation-menu-trigger:text-blue-600 transition-colors shrink-0" />
                   Company
-                </Link>
-                <NavChevronOnly className="h-9 w-5 px-0 -ml-1.5 rounded-md hover:bg-muted/70" />
+                </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
                   <MegaGrid items={COMPANY} />
                 </NavigationMenuContent>

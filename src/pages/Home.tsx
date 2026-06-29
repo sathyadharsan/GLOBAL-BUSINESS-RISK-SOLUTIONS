@@ -5,6 +5,59 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Leaf, Shield, Building2, Anchor, Briefcase, Activity, CheckCircle2, ChevronRight, Cpu, Factory, Zap, TrendingUp, Users, Check, Award, AlertTriangle, ChevronLeft, BarChart3, HeartPulse, Wheat, Rocket, Search, RefreshCw, Radar, Lock, Clock, FileText, Target, AlertCircle, Database, Share2, Truck, BookOpen, Server, LineChart, Brain, Network } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { EnterpriseHomeHero } from "@/components/sections/EnterpriseHomeHero";
+import { motion } from "framer-motion";
+
+function AnimatedCounter({ value, duration = 1.5 }: { value: string; duration?: number }) {
+  const numMatch = value.match(/^(\d+)(.*)$/);
+  const target = numMatch ? parseInt(numMatch[1], 10) : 0;
+  const suffix = numMatch ? numMatch[2] : "";
+
+  const [count, setCount] = React.useState(0);
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const [inView, setInView] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!inView) return;
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [target, duration, inView]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
+const COLOR_MAP: Record<string, { bg: string; text: string; hoverBg: string }> = {
+  blue: { bg: "bg-blue-50", text: "text-blue-600", hoverBg: "group-hover:bg-blue-600" },
+  red: { bg: "bg-red-50", text: "text-red-600", hoverBg: "group-hover:bg-red-600" },
+  emerald: { bg: "bg-emerald-50", text: "text-emerald-600", hoverBg: "group-hover:bg-emerald-600" },
+  purple: { bg: "bg-purple-50", text: "text-purple-600", hoverBg: "group-hover:bg-purple-600" },
+  cyan: { bg: "bg-cyan-50", text: "text-cyan-600", hoverBg: "group-hover:bg-cyan-600" },
+  amber: { bg: "bg-amber-50", text: "text-amber-600", hoverBg: "group-hover:bg-amber-600" },
+  indigo: { bg: "bg-indigo-50", text: "text-indigo-600", hoverBg: "group-hover:bg-indigo-600" },
+  teal: { bg: "bg-teal-50", text: "text-teal-600", hoverBg: "group-hover:bg-teal-600" },
+};
 
 export default function Home() {
   console.log("Home rendered");
@@ -12,7 +65,7 @@ export default function Home() {
   const heroTitle = (
     <>
       Enterprise Risk Architecture<br />
-      <span className="text-[#2563EB]">for a Complex World</span>
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">for a Complex World</span>
     </>
   );
   const heroSubtitle = "TRUSTFLOW helps organizations identify, assess, mitigate, transfer, and monitor risks across cyber, operational, financial, regulatory, ESG, supply chain, and emerging risk domains.";
@@ -147,7 +200,9 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 mb-4 group-hover:bg-blue-600/20 transition-colors">
                     <Icon className="h-6 w-6 text-blue-400" />
                   </div>
-                  <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-1">{stat.value}</div>
+                  <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-1">
+                    <AnimatedCounter value={stat.value} />
+                  </div>
                   <div className="text-base font-semibold text-slate-300 uppercase tracking-wider">{stat.label}</div>
                   <div className="text-sm text-slate-500 mt-1">{stat.sublabel}</div>
                 </div>
@@ -170,7 +225,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.08,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {[
               {
                 title: "Industries",
@@ -238,45 +307,58 @@ export default function Home() {
               },
             ].map((card, i) => {
               const Icon = card.icon;
+              const colors = COLOR_MAP[card.color] || COLOR_MAP.blue;
               return (
-                <Link key={i} to={card.href} className="group">
-                  <div className="h-full bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`w-12 h-12 rounded-xl bg-${card.color}-50 flex items-center justify-center group-hover:bg-${card.color}-600 transition-colors`}>
-                        <Icon className={`h-6 w-6 text-${card.color}-600 group-hover:text-white transition-colors`} />
+                <motion.div
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+                    },
+                  }}
+                >
+                  <Link to={card.href} className="group block h-full">
+                    <div className="h-full apple-card hover:apple-card-hover p-6 flex flex-col">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${colors.bg} ${colors.hoverBg}`}>
+                          <Icon className={`h-6 w-6 transition-colors duration-300 group-hover:text-white ${colors.text}`} />
+                        </div>
+                        <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                    </div>
-                    <h3 className="text-lg font-bold text-primary mb-3 font-serif group-hover:text-blue-600 transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                      {card.description}
-                    </p>
-                    <div className="pt-4 border-t border-slate-200">
-                      <div className="flex flex-wrap gap-1.5">
-                        {card.links.slice(0, 3).map((link, j) => (
-                          <span key={j} className="text-[10px] font-medium px-2 py-1 bg-white border border-slate-200 rounded text-slate-600">
-                            {link}
-                          </span>
-                        ))}
-                        {card.links.length > 3 && (
-                          <span className="text-[10px] font-medium px-2 py-1 bg-blue-50 border border-blue-100 rounded text-blue-600">
-                            +{card.links.length - 3} more
-                          </span>
-                        )}
+                      <h3 className="text-lg font-bold text-primary mb-3 font-serif group-hover:text-blue-600 transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                        {card.description}
+                      </p>
+                      <div className="pt-4 border-t border-slate-200">
+                        <div className="flex flex-wrap gap-1.5">
+                          {card.links.slice(0, 3).map((link, j) => (
+                            <span key={j} className="text-[10px] font-medium px-2 py-1 bg-white border border-slate-200 rounded text-slate-600">
+                              {link}
+                            </span>
+                          ))}
+                          {card.links.length > 3 && (
+                            <span className="text-[10px] font-medium px-2 py-1 bg-blue-50 border border-blue-100 rounded text-blue-600">
+                              +{card.links.length - 3} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="mt-4">
+                        <span className="text-sm font-bold text-blue-600 group-hover:text-blue-800 flex items-center">
+                          Explore {card.title} <ChevronRight className="ml-1 h-3 w-3" />
+                        </span>
                       </div>
                     </div>
-                    <div className="mt-4">
-                      <span className="text-sm font-bold text-blue-600 group-hover:text-blue-800 flex items-center">
-                        Explore {card.title} <ChevronRight className="ml-1 h-3 w-3" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -309,7 +391,7 @@ export default function Home() {
               const Icon = risk.icon;
               return (
                 <div key={risk.id}>
-                  <Link to={`/risks/${risk.id}`} className="group bg-slate-50 border border-slate-200 rounded-xl p-6 hover:bg-white hover:border-blue-300 transition-all duration-300 block">
+                  <Link to={`/risks/${risk.id}`} className="group apple-card hover:apple-card-hover p-6 block">
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                         <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
@@ -344,7 +426,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {featuredOfferings.map((offering, i) => (
-              <Link key={i} to={offering.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+              <Link key={i} to={offering.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
                 <div className="flex-1">
                   <offering.icon className="h-8 w-8 text-blue-600 mb-4" />
                   <h3 className="text-base font-bold text-primary mb-2 font-serif">
@@ -375,16 +457,48 @@ export default function Home() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.12,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-5 gap-8"
+          >
             {methodologyStepsFixed.map((step, idx) => {
               const StepIcon = step.icon;
               return (
-                <div key={step.step} className="relative">
+                <motion.div
+                  key={step.step}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.92, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                      transition: { duration: 0.6, ease: "easeOut" },
+                    },
+                  }}
+                  className="relative group/methodology"
+                >
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
-                      {step.step}
+                    <div className="relative">
+                      <motion.div
+                        className="absolute inset-0 rounded-full bg-blue-500/20 blur-md"
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.8, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: idx * 0.4 }}
+                      />
+                      <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl shadow-md border-4 border-white group-hover/methodology:scale-110 transition-transform duration-300">
+                        {step.step}
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-primary font-serif">
+                    <h3 className="text-lg font-bold text-primary font-serif group-hover/methodology:text-blue-600 transition-colors">
                       {step.title}
                     </h3>
                     <p className="text-base text-muted-foreground leading-relaxed">
@@ -396,10 +510,10 @@ export default function Home() {
                       <ChevronRight className="absolute top-1/2 -translate-y-1/2 right-0 w-5 h-5 text-blue-600" />
                     </div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -438,7 +552,7 @@ export default function Home() {
           >
             {industries.map((ind, i) => (
               <div key={ind.slug} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] xl:w-[calc(20%-20px)]">
-                <Link to={`/industries/${ind.slug}`} className="group bg-slate-50 border border-slate-200/60 hover:bg-white hover:border-blue-500/30 p-5 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-[230px]">
+                <Link to={`/industries/${ind.slug}`} className="group apple-card hover:apple-card-hover p-5 flex flex-col justify-between cursor-pointer h-[230px]">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                       <ind.icon className="w-5 h-5" />
@@ -476,7 +590,7 @@ export default function Home() {
               const Icon = solution.icon;
               return (
                 <div key={solution.id}>
-                  <Link to={`/solutions/${solution.id}`} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 block">
+                  <Link to={`/solutions/${solution.id}`} className="group apple-card hover:apple-card-hover p-6 block">
                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                       <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
                     </div>
@@ -638,7 +752,7 @@ export default function Home() {
           >
             {insights.map((post, i) => (
               <div key={i} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]">
-                <div className="group bg-white border border-slate-200 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-[200px]">
+                <div className="group apple-card hover:apple-card-hover p-6 flex flex-col justify-between h-[200px]">
                   <div className="space-y-3">
                     <div className="flex justify-between text-[10px] font-bold text-blue-600 uppercase tracking-wider">
                       <span>{post.type}</span>
@@ -687,7 +801,7 @@ export default function Home() {
             ].map((service, i) => {
               const Icon = service.icon;
               return (
-                <div key={i} className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300">
+                <div key={i} className="apple-card hover:apple-card-hover p-6">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
                     <Icon className="h-5 w-5 text-blue-600" />
                   </div>
@@ -724,7 +838,7 @@ export default function Home() {
             ].map((platform, i) => {
               const Icon = platform.icon;
               return (
-                <Link key={i} to={platform.href} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                <Link key={i} to={platform.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
                   <div className="flex-1">
                     <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                       <Icon className="h-5 w-5 text-blue-600 group-hover:text-white" />
@@ -756,19 +870,19 @@ export default function Home() {
       </section>
 
       {/* 11. EXECUTIVE CTA */}
-      <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
+      <section id="contact" className="py-24 bg-white text-slate-900 border-t border-slate-100 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
-          <Award className="h-12 w-12 text-blue-400 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif tracking-tight">
+          <Award className="h-12 w-12 text-blue-600 mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif tracking-tight text-slate-900">
             Ready to Architect Your<br />Enterprise Risk Strategy?
           </h2>
-          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
             Connect with our senior risk architects for a comprehensive assessment and customized risk transfer architecture.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg h-14 px-8">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg h-14 px-8 shadow-blue-600/15 hover:shadow-blue-600/25">
                 <div className="text-left">
                   <div className="text-sm opacity-90">Call Us For</div>
                   <div className="text-base font-bold">Free Consultation</div>
@@ -776,7 +890,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold h-14 px-8">
+              <Button size="lg" className="bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 font-semibold h-14 px-8 shadow-none hover:shadow-none">
                 <div className="text-left">
                   <div className="text-sm opacity-90">Schedule</div>
                   <div className="text-base font-bold">Executive Briefing</div>
