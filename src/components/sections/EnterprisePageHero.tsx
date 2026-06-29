@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 
 interface CtaConfig {
   label: string;
@@ -264,7 +265,7 @@ export function EnterprisePageHero({
               {stats.map((stat, i) => (
                 <div key={i}>
                   <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: accentColor }}>
-                    {stat.value}
+                    <AnimatedCounter value={stat.value} />
                   </p>
                   <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">{stat.label}</p>
                 </div>

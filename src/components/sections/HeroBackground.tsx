@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useLocation } from "react-router-dom";
+import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 
 interface BreadcrumbItem {
   label: string;
@@ -249,7 +250,7 @@ export function HeroBackground({
               {stats.map((stat, i) => (
                 <div key={i}>
                   <p className="text-3xl md:text-4xl font-bold font-serif text-blue-600">
-                    {stat.val}
+                    <AnimatedCounter value={stat.val} />
                   </p>
                   <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">{stat.label}</p>
                 </div>

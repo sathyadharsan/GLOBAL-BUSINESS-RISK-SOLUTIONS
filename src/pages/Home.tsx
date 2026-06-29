@@ -48,6 +48,15 @@ function AnimatedCounter({ value, duration = 1.5 }: { value: string; duration?: 
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
+const fadeContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+const fadeItem = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
 const COLOR_MAP: Record<string, { bg: string; text: string; hoverBg: string }> = {
   blue: { bg: "bg-blue-50", text: "text-blue-600", hoverBg: "group-hover:bg-blue-600" },
   red: { bg: "bg-red-50", text: "text-red-600", hoverBg: "group-hover:bg-red-600" },
@@ -375,7 +384,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               { id: "cyber", label: "Cyber Risks", icon: Shield, count: "56 risks" },
               { id: "ransomware", label: "Ransomware", icon: AlertCircle, count: "12 risks" },
@@ -390,7 +405,7 @@ export default function Home() {
             ].map((risk) => {
               const Icon = risk.icon;
               return (
-                <div key={risk.id}>
+                <motion.div key={risk.id} variants={fadeItem}>
                   <Link to={`/risks/${risk.id}`} className="group apple-card hover:apple-card-hover p-6 block">
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
@@ -404,10 +419,10 @@ export default function Home() {
                       {risk.label}
                     </h3>
                   </Link>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -424,26 +439,34 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
             {featuredOfferings.map((offering, i) => (
-              <Link key={i} to={offering.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
-                <div className="flex-1">
-                  <offering.icon className="h-8 w-8 text-blue-600 mb-4" />
-                  <h3 className="text-base font-bold text-primary mb-2 font-serif">
-                    {offering.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                    {offering.desc}
-                  </p>
-                </div>
-                <div className="pt-4 mt-4 border-t border-slate-100">
-                  <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
-                    Explore <ChevronRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </Link>
+              <motion.div key={i} variants={fadeItem}>
+                <Link to={offering.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
+                  <div className="flex-1">
+                    <offering.icon className="h-8 w-8 text-blue-600 mb-4" />
+                    <h3 className="text-base font-bold text-primary mb-2 font-serif">
+                      {offering.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                      {offering.desc}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-slate-100">
+                    <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                      Explore <ChevronRight className="ml-1 h-3 w-3" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -546,12 +569,16 @@ export default function Home() {
           </div>
 
           {/* Slider track */}
-          <div
+          <motion.div
             ref={industriesRef}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
             className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 pr-4"
           >
             {industries.map((ind, i) => (
-              <div key={ind.slug} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] xl:w-[calc(20%-20px)]">
+              <motion.div key={ind.slug} variants={fadeItem} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] xl:w-[calc(20%-20px)]">
                 <Link to={`/industries/${ind.slug}`} className="group apple-card hover:apple-card-hover p-5 flex flex-col justify-between cursor-pointer h-[230px]">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -566,9 +593,9 @@ export default function Home() {
                     Explore Sector <ChevronRight className="ml-1 w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -585,11 +612,17 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {solutions.map((solution) => {
               const Icon = solution.icon;
               return (
-                <div key={solution.id}>
+                <motion.div key={solution.id} variants={fadeItem}>
                   <Link to={`/solutions/${solution.id}`} className="group apple-card hover:apple-card-hover p-6 block">
                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                       <Icon className="h-6 w-6 text-blue-600 group-hover:text-white" />
@@ -601,10 +634,10 @@ export default function Home() {
                       {solution.desc}
                     </p>
                   </Link>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -618,11 +651,17 @@ export default function Home() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {whyTrustflow.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="text-center space-y-4">
+                <motion.div key={idx} variants={fadeItem} className="text-center space-y-4">
                   <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto">
                     <Icon className="h-8 w-8 text-blue-600" />
                   </div>
@@ -632,10 +671,10 @@ export default function Home() {
                   <p className="text-base text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -665,10 +704,16 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
-            
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto"
+          >
+
             {/* Testimonial card */}
-            <div className="lg:col-span-7 bg-white border border-slate-200/80 p-8 md:p-10 rounded-2xl shadow-md flex flex-col justify-between relative overflow-hidden">
+            <motion.div variants={fadeItem} className="lg:col-span-7 bg-white border border-slate-200/80 p-8 md:p-10 rounded-2xl shadow-md flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 text-blue-100 text-8xl font-serif select-none pointer-events-none opacity-40">
                 &ldquo;
               </div>
@@ -689,10 +734,10 @@ export default function Home() {
                   <div className="text-[10px] text-muted-foreground">Global SaaS Enterprise (Listed)</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Stats/Highlight card */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-blue-700 to-indigo-900 text-white p-8 md:p-10 rounded-2xl shadow-md flex flex-col justify-between">
+            <motion.div variants={fadeItem} className="lg:col-span-5 bg-gradient-to-br from-blue-700 to-indigo-900 text-white p-8 md:p-10 rounded-2xl shadow-md flex flex-col justify-between">
               <div className="space-y-4">
                 <Award className="w-8 h-8 text-blue-300" />
                 <h3 className="text-lg font-bold font-serif tracking-tight">Structured Advocacy</h3>
@@ -711,9 +756,9 @@ export default function Home() {
                   <span className="text-base font-extrabold text-blue-300">99.2%</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -746,12 +791,16 @@ export default function Home() {
           </div>
           
           {/* Slider track */}
-          <div
+          <motion.div
             ref={insightsRef}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
             className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 pr-4"
           >
             {insights.map((post, i) => (
-              <div key={i} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]">
+              <motion.div key={i} variants={fadeItem} className="snap-align-start shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]">
                 <div className="group apple-card hover:apple-card-hover p-6 flex flex-col justify-between h-[200px]">
                   <div className="space-y-3">
                     <div className="flex justify-between text-[10px] font-bold text-blue-600 uppercase tracking-wider">
@@ -769,9 +818,9 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -788,7 +837,13 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {[
               { title: "Risk Engineering", desc: "Proactive mitigation strategies and facility safety profiles", icon: Shield },
               { title: "Claims Advocacy", desc: "Fierce representation during major loss events", icon: Award },
@@ -801,16 +856,16 @@ export default function Home() {
             ].map((service, i) => {
               const Icon = service.icon;
               return (
-                <div key={i} className="apple-card hover:apple-card-hover p-6">
+                <motion.div key={i} variants={fadeItem} className="apple-card hover:apple-card-hover p-6">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
                     <Icon className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="text-base font-bold text-primary mb-2 font-serif">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -827,7 +882,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               { title: "Risk Diagnostic Engine", desc: "AI-powered risk assessment and scenario modeling", icon: Target, href: "/platform/risk-diagnostic-engine" },
               { title: "Cyber Intelligence", desc: "Real-time cyber threat monitoring and response", icon: Shield, href: "/platform/cyber-intelligence" },
@@ -838,27 +899,29 @@ export default function Home() {
             ].map((platform, i) => {
               const Icon = platform.icon;
               return (
-                <Link key={i} to={platform.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
-                  <div className="flex-1">
-                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
-                      <Icon className="h-5 w-5 text-blue-600 group-hover:text-white" />
+                <motion.div key={i} variants={fadeItem}>
+                  <Link to={platform.href} className="group apple-card hover:apple-card-hover p-6 flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
+                        <Icon className="h-5 w-5 text-blue-600 group-hover:text-white" />
+                      </div>
+                      <h3 className="text-base font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
+                        {platform.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {platform.desc}
+                      </p>
                     </div>
-                    <h3 className="text-base font-bold text-primary mb-2 font-serif group-hover:text-blue-600 transition-colors">
-                      {platform.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {platform.desc}
-                    </p>
-                  </div>
-                  <div className="pt-4 mt-4 border-t border-slate-100">
-                    <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
-                      Explore Platform <ChevronRight className="ml-1 h-3 w-3" />
-                    </span>
-                  </div>
-                </Link>
+                    <div className="pt-4 mt-4 border-t border-slate-100">
+                      <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-800 flex items-center">
+                        Explore Platform <ChevronRight className="ml-1 h-3 w-3" />
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
           <div className="text-center mt-10">
             <Link to="/platform">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
@@ -872,7 +935,13 @@ export default function Home() {
       {/* 11. EXECUTIVE CTA */}
       <section id="contact" className="py-24 bg-white text-slate-900 border-t border-slate-100 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10"
+        >
           <Award className="h-12 w-12 text-blue-600 mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif tracking-tight text-slate-900">
             Ready to Architect Your<br />Enterprise Risk Strategy?
@@ -898,7 +967,7 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
