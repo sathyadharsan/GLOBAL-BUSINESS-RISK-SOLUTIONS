@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -135,31 +135,40 @@ function VerticalMegaMenu({
   const activeGroup = items[activeTab] || items[0];
 
   return (
-    <div className="w-[1000px] h-[520px] flex bg-white rounded-2xl overflow-hidden">
+    <div className="w-[1000px] h-[520px] flex bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
       {/* Left Panel */}
-      <div className="w-1/3 bg-[#f8fafc] border-r border-slate-100 p-6 flex flex-col justify-between shrink-0">
+      <div className="w-1/3 bg-[#f8fafc]/90 backdrop-blur-md border-r border-slate-100 p-6 flex flex-col justify-between shrink-0">
         <div>
           <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{menuName}</h3>
           <p className="text-xs text-slate-500 mt-1.5 mb-6 leading-relaxed">
             {description}
           </p>
-          <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-1">
+          <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-1 relative">
             {items.map((item, idx) => (
               <button
                 key={item.title}
                 onMouseEnter={() => setActiveTab(idx)}
                 onClick={() => setActiveTab(idx)}
                 className={cn(
-                  "w-full text-left flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group text-sm",
+                  "relative w-full text-left flex items-center justify-between px-4 py-3 rounded-xl transition-colors duration-200 group text-sm font-medium",
                   activeTab === idx
-                    ? "bg-white text-blue-600 font-semibold shadow-sm border border-slate-100/80"
-                    : "text-slate-600 hover:text-blue-600 hover:bg-slate-50/50"
+                    ? "text-blue-600 font-semibold"
+                    : "text-slate-600 hover:text-blue-600"
                 )}
               >
-                <span>{item.title}</span>
-                {activeTab !== idx && (
-                  <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all duration-200" />
+                {activeTab === idx && (
+                  <motion.div
+                    layoutId={`activeTabPill-${menuName}`}
+                    className="absolute inset-0 bg-white rounded-xl shadow-sm border border-slate-100/90 z-0"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
                 )}
+                <span className="relative z-10">{item.title}</span>
+                <span className="relative z-10 shrink-0">
+                  {activeTab !== idx && (
+                    <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all duration-200" />
+                  )}
+                </span>
               </button>
             ))}
           </div>
@@ -170,23 +179,32 @@ function VerticalMegaMenu({
       <div className="flex-1 flex flex-col p-6 h-full justify-between bg-white overflow-hidden">
         {/* Links Grid */}
         <div className="flex-1 overflow-y-auto pr-2">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-            {activeGroup?.links.map((link) => (
-              <Link
-                key={link.href + link.label}
-                to={link.href}
-                className="group flex items-center justify-between p-3 rounded-xl hover:bg-slate-50/80 transition-all border border-transparent hover:border-slate-100"
-              >
-                <span className={cn(
-                  "text-[15px] font-medium text-slate-700 group-hover:text-blue-600 transition-colors leading-snug pr-2",
-                  link.bold && "text-blue-600 font-bold"
-                )}>
-                  {link.label}
-                </span>
-                <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all shrink-0" />
-              </Link>
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="grid grid-cols-2 gap-x-6 gap-y-3"
+            >
+              {activeGroup?.links.map((link) => (
+                <Link
+                  key={link.href + link.label}
+                  to={link.href}
+                  className="group flex items-center justify-between p-3 rounded-xl hover:bg-slate-50/80 transition-all border border-transparent hover:border-slate-100"
+                >
+                  <span className={cn(
+                    "text-[15px] font-medium text-slate-700 group-hover:text-blue-600 transition-colors leading-snug pr-2",
+                    link.bold && "text-blue-600 font-bold"
+                  )}>
+                    {link.label}
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all shrink-0" />
+                </Link>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Contact Banner */}
