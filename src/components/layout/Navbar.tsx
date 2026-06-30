@@ -110,46 +110,96 @@ function getThemeIcon(text: string) {
   return Briefcase;
 }
 
-function MegaGrid({
+function VerticalMegaMenu({
+  menuName,
+  description,
   items,
+  ctaText = "Need help choosing the right solutions?",
+  ctaLink = "/contact",
+  ctaButtonText = "Contact Us",
 }: {
+  menuName: string;
+  description: string;
   items: { title: string; links: { href: string; label: string; bold?: boolean }[] }[];
+  ctaText?: string;
+  ctaLink?: string;
+  ctaButtonText?: string;
 }) {
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  // If the items array changes, reset activeTab
+  React.useEffect(() => {
+    setActiveTab(0);
+  }, [items]);
+
+  const activeGroup = items[activeTab] || items[0];
+
   return (
-    <div className="w-[1220px] p-8 bg-white">
-      <div className="grid grid-cols-4 gap-x-12 gap-y-8">
-        {items.map((col, idx) => {
-          const SectionIcon = getThemeIcon(col.title);
-          return (
-          <div
-            key={col.title}
-            className={cn(
-              "flex flex-col min-w-[200px]",
-              idx % 4 !== 0 && "md:border-l md:border-slate-100 md:pl-6"
-            )}
-          >
-            <div className="flex items-center gap-2 mb-3 pb-2.5 border-b border-slate-100">
-              <SectionIcon className="h-4 w-4 text-blue-500 shrink-0" />
-              <span className={SECTION}>{col.title}</span>
-            </div>
-            {col.links.map((l) => {
-              const LinkIcon = getThemeIcon(l.label);
-              return (
-                <Link
-                  key={l.href + l.label}
-                  to={l.href}
-                  className={cn(LINK, l.bold && "text-blue-600 font-semibold")}
-                >
-                  <LinkIcon className="h-4 w-4 text-slate-400 group-hover:text-blue-500 flex-shrink-0" />
-                  <span className="font-medium whitespace-nowrap leading-tight">
-                    {l.label}
-                  </span>
-                </Link>
-              );
-            })}
+    <div className="w-[1000px] h-[520px] flex bg-white rounded-2xl overflow-hidden">
+      {/* Left Panel */}
+      <div className="w-1/3 bg-[#f8fafc] border-r border-slate-100 p-6 flex flex-col justify-between shrink-0">
+        <div>
+          <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{menuName}</h3>
+          <p className="text-xs text-slate-500 mt-1.5 mb-6 leading-relaxed">
+            {description}
+          </p>
+          <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-1">
+            {items.map((item, idx) => (
+              <button
+                key={item.title}
+                onMouseEnter={() => setActiveTab(idx)}
+                onClick={() => setActiveTab(idx)}
+                className={cn(
+                  "w-full text-left flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group text-sm",
+                  activeTab === idx
+                    ? "bg-white text-blue-600 font-semibold shadow-sm border border-slate-100/80"
+                    : "text-slate-600 hover:text-blue-600 hover:bg-slate-50/50"
+                )}
+              >
+                <span>{item.title}</span>
+                {activeTab !== idx && (
+                  <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all duration-200" />
+                )}
+              </button>
+            ))}
           </div>
-          );
-        })}
+        </div>
+      </div>
+
+      {/* Right Panel */}
+      <div className="flex-1 flex flex-col p-6 h-full justify-between bg-white overflow-hidden">
+        {/* Links Grid */}
+        <div className="flex-1 overflow-y-auto pr-2">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+            {activeGroup?.links.map((link) => (
+              <Link
+                key={link.href + link.label}
+                to={link.href}
+                className="group flex items-center justify-between p-3 rounded-xl hover:bg-slate-50/80 transition-all border border-transparent hover:border-slate-100"
+              >
+                <span className={cn(
+                  "text-[15px] font-medium text-slate-700 group-hover:text-blue-600 transition-colors leading-snug pr-2",
+                  link.bold && "text-blue-600 font-bold"
+                )}>
+                  {link.label}
+                </span>
+                <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all shrink-0" />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact Banner */}
+        <div className="mt-4 p-4 bg-slate-50/80 border border-slate-100 rounded-xl flex items-center justify-between shrink-0">
+          <span className="text-xs text-slate-500 font-semibold">
+            {ctaText}
+          </span>
+          <Link to={ctaLink}>
+            <button className="bg-[#3b82f6] hover:bg-blue-600 hover:brightness-110 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow-sm transition-all">
+              {ctaButtonText}
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -379,15 +429,14 @@ function OfferingsMega() {
         Offerings
       </NavigationMenuTriggerNoChevron>
       <NavigationMenuContent>
-        <MegaGrid items={OFFERINGS} />
-        <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
-          <Link
-            to="/offerings"
-            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
-          >
-            View All Offerings <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
+        <VerticalMegaMenu
+          menuName="Offerings"
+          description="Browse our comprehensive suite of insurance and risk transfer programs."
+          items={OFFERINGS}
+          ctaText="Want to explore all of our solutions and coverages?"
+          ctaLink="/offerings"
+          ctaButtonText="View All Offerings"
+        />
       </NavigationMenuContent>
     </NavigationMenuItem>
   );
@@ -647,7 +696,11 @@ export function Navbar() {
                   Home
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={HOME} />
+                  <VerticalMegaMenu
+                    menuName="Home"
+                    description="Explore our main sections, outcomes, solutions, platforms, and company offerings."
+                    items={HOME}
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -663,15 +716,14 @@ export function Navbar() {
                   Industries
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={INDUSTRIES} />
-                  <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
-                    <Link
-                      to="/industries"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
-                    >
-                      View All Industries <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
+                  <VerticalMegaMenu
+                    menuName="Industries"
+                    description="Explore our sector-specific risk advisory, insurance, and resilience solutions."
+                    items={INDUSTRIES}
+                    ctaText="Want to explore all of our industry solutions?"
+                    ctaLink="/industries"
+                    ctaButtonText="View All Industries"
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -687,15 +739,14 @@ export function Navbar() {
                   Risks
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={RISKS} />
-                  <div className="px-8 pb-5 pt-3 border-t border-slate-100 bg-slate-50/50">
-                    <Link
-                      to="/risks"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 rounded-full hover:brightness-110 transition-all shadow-sm"
-                    >
-                      View All Risks <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
+                  <VerticalMegaMenu
+                    menuName="Risks"
+                    description="Analyze and mitigate specialized risks across sectors, functions, and operations."
+                    items={RISKS}
+                    ctaText="Want to view all identified risk categories?"
+                    ctaLink="/risks"
+                    ctaButtonText="View All Risks"
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -713,7 +764,11 @@ export function Navbar() {
                   Solutions
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={SOLUTIONS} />
+                  <VerticalMegaMenu
+                    menuName="Solutions"
+                    description="Discover tailored architectures, engineering, and liability solutions."
+                    items={SOLUTIONS}
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -729,7 +784,14 @@ export function Navbar() {
                   Outcomes
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={OUTCOMES} />
+                  <VerticalMegaMenu
+                    menuName="Outcomes"
+                    description="Read case studies of how we mitigated disasters and facilitated growth."
+                    items={OUTCOMES}
+                    ctaText="Want to see all of our outcomes and case studies?"
+                    ctaLink="/outcomes"
+                    ctaButtonText="View All Outcomes"
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -745,7 +807,14 @@ export function Navbar() {
                   Platform
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={PLATFORMS} />
+                  <VerticalMegaMenu
+                    menuName="Platform"
+                    description="Leverage our AI-powered risk intelligence, diagnostic, and mapping tools."
+                    items={PLATFORMS}
+                    ctaText="Want to explore all of our platform tools?"
+                    ctaLink="/platform"
+                    ctaButtonText="View All Platforms"
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -761,7 +830,14 @@ export function Navbar() {
                   Company
                 </NavigationMenuTriggerNoChevron>
                 <NavigationMenuContent>
-                  <MegaGrid items={COMPANY} />
+                  <VerticalMegaMenu
+                    menuName="Company"
+                    description="Learn about our story, mission, team, and global risk management network."
+                    items={COMPANY}
+                    ctaText="Get in touch with one of our offices directly."
+                    ctaLink="/contact"
+                    ctaButtonText="Contact Us"
+                  />
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -839,7 +915,7 @@ export function Navbar() {
                 <div>
                   <Link to="/offerings" className="text-lg font-semibold text-primary">Offerings</Link>
                   <div className="mt-2 pl-4 border-l border-gray-200 flex flex-col gap-2.5 text-base text-muted-foreground">
-                    {Object.entries(CATEGORY_GROUPS).map(([key, cat]) => (
+                    {(Object.entries(CATEGORY_GROUPS) as [string, any][]).map(([key, cat]) => (
                       <Link key={key} to={`/offerings/category/${key}`} className="hover:text-primary transition-colors">{cat.label}</Link>
                     ))}
                   </div>
